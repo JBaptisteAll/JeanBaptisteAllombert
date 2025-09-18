@@ -64,12 +64,12 @@
 									<input type="email" name="Email" id="Email" placeholder="Email" required />
 								</div>
 								<div class="col-12">
+									<label for="Reason">Reason for contact</label>
 									<select name="Reason" id="Reason" required>
-										<option value="">- Reason -</option>
-										<option value="Recruitment opportunity">Recruitment opportunity</option>
-										<option value="Freelance / Mission">Freelance / Mission</option>
-										<option value="Speaking / Teaching">Speaking / Teaching</option>
-										<option value="Other">Other</option>
+										<option value="" disabled hidden selected>- Select a reason -</option>
+										<option value="recruitment_resume">Recruitment opportunity (Get my resume)</option>
+										<option value="speaking_comment">Speaking / Comment</option>
+										<option value="other">Other</option>
 									</select>
 								</div>
 								<div class="col-12">
@@ -144,3 +144,4 @@
 
 	</body>
 </html>
+
