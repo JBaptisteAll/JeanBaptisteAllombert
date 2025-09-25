@@ -102,6 +102,20 @@ body {
   opacity: 0.8;     /* petit effet au survol */
 }
 
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5em;   /* espace entre l’image et le contenu */
+}
+
+.project .image.left {
+  flex: 0 0 auto; /* garde la largeur de l’image */
+}
+
+.project .content {
+  flex: 1;
+}
+
 ol, ul {
 	list-style: none;
 }
