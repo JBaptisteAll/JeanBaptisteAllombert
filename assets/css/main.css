@@ -116,6 +116,41 @@ body {
   flex: 1;
 }
 
+
+.highlight-box {
+  border: 3px solid #100382;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  background: #bedeea;
+  text-align: center;
+}
+.highlight-box h2 {
+  margin-bottom: 5px;
+  color: #100382;
+}
+.button-group {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espace entre les boutons */
+  flex-wrap: wrap; /* permet de passer à la ligne sur mobile */
+}
+.highlight-box a.button {
+  background-color: #100382;
+  color: #ffffff !important;
+  border: none;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+.highlight-box a.button:hover {
+  background-color: #1500fa;
+}
+
+
+
 ol, ul {
 	list-style: none;
 }
