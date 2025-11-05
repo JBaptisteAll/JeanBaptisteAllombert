@@ -180,6 +180,39 @@ body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
+.tech-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 2em;
+}
+
+.tech-track {
+  display: inline-flex;
+  gap: 60px;
+  width: max-content;             /* important: largeur = contenu réel */
+  animation: scroll 25s linear infinite; /* vitesse douce, ajuste si besoin */
+  will-change: transform;         /* plus fluide */
+}
+
+.tech-track img {
+  width: 50px;
+  height: auto;
+  transition: transform 0.1s ease;
+  opacity: 0.9;
+}
+
+.tech-track img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Défilement continu: 0% -> -50% de la largeur totale (2 séries identiques) */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
 
 
