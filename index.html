@@ -16,7 +16,26 @@
 		<header class="header">
 
 			<a href="#" class="logo">
-				<img src="images\logos\perso\CouldBe.png" alt="Logo" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
 			</a>
 
 			<i class="bx bx-menu" id="menu-icon"></i>
