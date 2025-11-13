@@ -2650,7 +2650,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			border-color: #eeeaea;
+			border-color: #3C3C3C;
 			color: #D1A544 !important;
 			font-weight: bold;
 		}

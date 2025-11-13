@@ -16,7 +16,26 @@
 		<header class="header">
 
 			<a href="#" class="logo">
-				<img src="images\logos\perso\CouldBe.png" alt="Logo" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
 			</a>
 
 			<i class="bx bx-menu" id="menu-icon"></i>
@@ -138,7 +157,7 @@
 								<li>Demonstrated how data modeling and analytics can turn complex flight operations into strategic, data-driven insights for the aviation industry.</li>
 								</ul>
 								<div class="actions" style="text-align:center; margin-bottom: 1em;">
-								<a class="button" href="airline_performance_analytics.html" target="_blank" rel="noopener">Explore the Project</a>
+								<a class="button" href="airline_performance_analytics.html" rel="noopener">Explore the Project</a>
 								</div>
 							</p>
 						</section>
@@ -146,22 +165,22 @@
 						<!-- Behind the Stream (Netflix x Power BI) -->
 						<section class="project">
 						<span class="image right">
-							<img src="images\projects\Behind_the_stream.png" alt="" />
+							<img src="images\logos\image_github.jpeg" alt="" />
 						</span>
 
 						<div class="content">
+							<h2 style="text-align:center; margin-bottom: 1em;">
+								More Projects on My GitHub
+							</h2>							
 							<p>
-							Interactive dashboard for film industry pros: genre mix, movies vs. series, 
-							yearly trends, catalog structure and insights for content strategy.
+							Find all my data, analytics engineering and automation 
+							projects on my GitHub, updated regularly.
 							</p>
-							<ul class="tags">
-							<li>Power BI</li>
-							<li>Data Modeling</li>
-							<li>Power Query</li>
-							<li>Visualization</li>
-							</ul>
+							<p style="text-align:center; margin-bottom: 1em; font-weight: bold;">
+								Python • SQL • Power BI • Streamlit • GitHub Actions
+							</p>
 							<div class="actions" style="text-align:center; margin-bottom: 1em;">
-							<a class="button" href="https://github.com/JBaptisteAll/Behind_the_Stream" target="_blank" rel="noopener">GitHub</a>
+							<a class="button" href="https://github.com/JBaptisteAll" target="_blank" rel="noopener">GitHub</a>
 							</div>
 						</div>
 						</section>
