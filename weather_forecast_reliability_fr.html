@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+	
+<html>
+	<head>
+		<title>Analyse de la fiabilité des prévisions météo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<header class="header">
+
+			<a href="#" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
+			</a>
+
+			<i class="bx bx-menu" id="menu-icon"></i>
+
+			<nav class="navbar">
+				<a href="weather_forecast_reliability.html" class="logo">
+					<img id="logo" src="images\logos\english_flag.webp"  width="20">
+				</a>        
+				<a href="index_fr.html">Accueil</a>
+				<a href="about_fr.html">Bio</a>
+				<!--<a href="skills.html">Skills</a>-->
+				<a href="projects_fr.html">Projets</a>
+			</nav>
+
+			<a href="https://linktr.ee/jbcontactme" class="gradient-btn" target="_blank">Contact</a>
+
+
+    	</header>
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/N&B.jpg" alt="" /></a>
+					<h1>
+						<strong style="font-size: 1.2em;">Analyse de la fiabilité des prévisions météo</strong><br>
+						
+					</h1>
+				</div>
+				
+			</header>
+
+
+
+
+		<!-- Main -->
+			<div id="main">
+
+					
+
+
+
+<body>
+  <main class="container">
+    <h1 style="text-align:center; margin-bottom: 1em;">
+      Analyse de la fiabilité des prévisions météo pour la planification de voyages
+    </h1>
+    <h2 style="text-align:center; margin-bottom: 1em;">
+      <em>Transformer les données météo en décisions de voyage plus intelligentes</em>
+    </h2>
+						 <!-- France Adventure Planner + ClimAdvisor / 
+						Weather Forecast Reliability Analysis for Travel Planning  -->
+    <br><br> 
+  
+    <h2>Résumé principal</h2>
+    <p>
+      Dans un monde où la météo influence fortement les comportements de voyage, 
+      notre objectif est de transformer des données météorologiques brutes en 
+      insights actionnables.
+    <br>
+      Nous souhaitons aider les utilisateurs à choisir leur destination idéale 
+      pour le week-end en se basant sur la fiabilité des prévisions, tout en 
+      montrant comment l’automatisation et l’analyse des données peuvent orienter 
+      des décisions plus intelligentes dans la vie réelle.
+    </p>
+
+    <hr class="hr" />
+
+    <h2>Problématique business</h2>
+    <p>
+      Les voyageurs du week-end planifient souvent leurs sorties sur la base de 
+      prévisions météo incertaines.<br> 
+      Cette incertitude impacte :
+    </p>
+    <ul>
+      <li><strong>La satisfaction des utilisateurs</strong> (mauvaises critiques, voyages annulés).</li>
+      <li><strong>La performance des acteurs du tourisme</strong> (variation de la demande et des taux d’occupation).</li>
+      <li><strong>La prévision opérationnelle</strong> (hôtellerie, transports, événements).</li>
+    </ul>
+    <p>
+      D’un point de vue business, la fiabilité des prévisions influence également 
+      les stratégies de tarification. Si les hôteliers peuvent avoir confiance en 
+      une prévision à 5 jours annonçant de la pluie, ils peuvent réduire leurs 
+      tarifs à l’avance pour attirer davantage de réservations. 
+      <br>
+      À l’inverse, dans les régions où les prévisions sont moins fiables, ils 
+      peuvent attendre plus longtemps avant d’ajuster leurs prix, optimisant ainsi 
+      leurs revenus une fois la tendance météo devenue plus claire.
+    </p>
+
+    <hr class="hr" />
+
+    <h2>Aperçu de la solution</h2>
+    <p>
+      Le projet se compose de deux systèmes complémentaires :
+    </p>
+    <table>
+      <thead>
+        <tr><th>Module</th><th>Description</th><th>Valeur</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>France Adventure Planner</strong></td><td>Une application web Streamlit recommandant des destinations week-end selon la météo prévue et la disponibilité des hôtels</td><td>Aide les utilisateurs à planifier de meilleurs séjours</td></tr>
+        <tr><td><strong><br>ClimAdvisor</strong></td><td>Une analyse Power BI & Python évaluant la précision des prévisions à 5 jours pour plus de 250 villes françaises, alimentée par une <strong> automatique de données quotidienne depuis 03/2025</strong>.</td><td>Aide les organisations à évaluer la fiabilité des prévisions et les tendances météo</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="hr" />
+
+    <h2>Impact business</h2>
+    <ul>
+      <li><strong>250+ destinations</strong> analysées chaque jour (montagne, littoral, villes).</li>
+      <li><strong>1 250+ prévisions/jour</strong> traitées et mises à jour automatiquement.</li>
+      <li><strong>Automatisation totale</strong>  grâce à un pipeline CI/CD (GitHub Actions).</li>
+      <li><strong>Indice de fiabilité météo</strong> créé pour mesurer la précision et la confiance des prévisions.</li>
+      <li><strong>Dashboards interactifs</strong> et application offrant des recommandations personnalisées et des insights stratégiques.</li>
+    </ul>
+    <p>
+      Ces insights peuvent soutenir :
+    </p>
+    <ul>
+      <li>Les offices de tourisme et les opérateurs de transport (anticipation de la demande).</li>
+      <li>Les médias et applications de voyage (amélioration de l’UX grâce à des recommandations basées sur la donnée).</li>
+      <li>Les utilisateurs (simplification des décisions de voyage).</li>
+    </ul>
+    <p>
+      Ensemble, ces résultats démontrent comment des données fiables peuvent renforcer directement la 
+      confiance des utilisateurs, améliorer les prévisions opérationnelles et optimiser les stratégies 
+      de tarification dynamique.
+    </p>    
+
+    <hr class="hr" />
+    
+    <h2>Insights clés</h2>
+    <p>
+      <em>Fiabilité des prévisions par région</em>
+    
+    <span class="image">
+      <img src="images\projects\Weather_Analytics\5grp_Accuracy.png" alt="Forecast reliability map"
+       style="width:100%; max-width:500px; border-radius:5px;" />
+    </span>
+    </p>
+    <ul>
+      <li>La précision des prévisions chute jusqu’à 10 % au-delà de 72 heures, soulignant la nécessité d’indicateurs de fiabilité à court terme.</li>
+      <li>Les régions montagneuses présentent la plus forte variabilité en raison de leur sensibilité microclimatique, confirmant les limites des modèles de prévision à long terme.</li>
+      <li>Un écart net apparaît entre perception et réalité&nbsp;: certaines régions considérées comme «&nbsp;imprévisibles&nbsp;» montrent en réalité une précision plus constante.</li>
+    </ul>
+    <p>
+      <em>La carte met en évidence cinq groupes de fiabilité distincts : une précision plus élevée le 
+        long de la côte sud, des motifs diagonaux clairs en direction du nord, tandis que les régions 
+        montagneuses présentent la stabilité la plus faible dans les prévisions.</em>
+    </p>
+
+    <hr class="hr" />
+
+    <h2>Technologies utilisées</h2>
+    <section>
+    <ul class="icons">
+      <li><img src="images/logos/Python_logo.jpg" alt="Python" title="Python"></li>
+      <li><img src="images/logos/api_logo.png" alt="API" title="API"></li>
+      <li><img src="images/logos/scrapy_logo.png" alt="Scraping" title="Scraping"></li>
+      <li><img src="images/logos/pandas_logo.png" alt="Pandas" title="Pandas"></li>
+      <li><img src="images/logos/plotly_logo.png" alt="Plotly" title="Plotly"></li>
+      <li><img src="images/logos/streamlit_logo.png" alt="streamlit" title="streamlit"></li>
+      <li><img src="images/logos/GitHub_logo.png" alt="GitHub" title="GitHub"></li>
+      <li><img src="images/logos/powerbi_logo.png" alt="PowerBi" title="PowerBi"></li>
+      <li><img src="images/logos/github_action_logo.png" alt="GitHub Actions" title="GitHub Actions"></li>
+      <li><img src="images/logos/Make_logo.png" alt="Make" title="Make"></li>
+    </ul>
+    </section>
+
+    <hr class="hr" />
+
+    <h2>Prochaine étape</h2>
+    <ul>
+      <li>Ajouter un modèle de recommandation basé sur l’IA pour suggérer « où partir le week-end prochain ».</li>
+      <li>Corréler les données météo avec des KPIs touristiques (taux d’occupation hôtelière, réservations de trains).</li>
+      <li>Étendre l’analyse aux destinations européennes en utilisant le même modèle de données.</li>
+      <li>Intégrer des alertes de fiabilité des prévisions directement dans l’application.</li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>Synthèse</h2>
+    <p>
+      Ce projet démontre comment la donnée peut réduire l’écart entre prévision et décision.
+      En combinant automatisation, analytics et design interactif, il illustre ma capacité à :
+    </p>
+    <ul>
+      <li>Transformer des workflows data en valeur business</li>
+      <li>Délivrer des solutions de bout en bout (de la collecte de données aux insights)</li>
+      <li>Concevoir des outils à la fois analytiques et centrés utilisateur</li>
+    </ul>
+    <p>
+      <em>Parce que de bonnes données ne se contentent pas de décrire la météo — 
+        elles vous aident à décider où partir.</em>
+    </p>
+
+    <div class="actions" style="text-align:center; margin-bottom: 1em;">
+      <a class="button" href="https://franceadventureplanner.streamlit.app/" target="_blank" rel="noopener" style="background-color:#bcc2c9; color:#000000;">Essayer l’app Streamlit</a>
+      <a class="button" href="https://github.com/JBaptisteAll/Weather_Forecast_Reliability_Analysis_for_Travel_Planning" target="_blank" rel="noopener" style="background-color:#bcc2c9; color:#040404;">Voir le code sur GitHub</a>
+    </div>
+
+    <hr class="hr" />
+
+    <h2>Galerie</h2>    
+    <section>
+    <ul class="gallery_img">
+      <li><img src="images\projects\Weather_Analytics\Dataflow.png" alt="Workflow" title="Workflow" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Dashboard.png" alt="Dashboard PowerBi" title="Dashboard PowerBi" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Compare.png" alt="Comparing Dashboard" title="Comparing Dashboard" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\PredictVsReal.png" alt="Prediction Vs Reality" title="Prediction Vs Reality" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Rain_Prob_gif.gif" alt="Probability of rain" title="Probability of rain" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Weather_indicator.png" alt="Indicators" title="Indicators" style="width:100%; max-width:300px; border-radius:5px;"></li>
+    </ul>
+    </section>
+
+    
+  </main>
+						
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/JBaptisteAll" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/jean-baptiste-allombert/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://linktr.ee/jbcontactme" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
