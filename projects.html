@@ -16,19 +16,41 @@
 		<header class="header">
 
 			<a href="#" class="logo">
-				<img src="images\logos\perso\CouldBe.png" alt="Logo" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
 			</a>
 
 			<i class="bx bx-menu" id="menu-icon"></i>
 
 			<nav class="navbar">
+				<a href="projects_fr.html" class="logo">
+					<img id="logo" src="images\logos\french_flag.png"  width="20">
+				</a>				
 				<a href="index.html">Home</a>
-				<a href="about.html">About Me</a>
+				<a href="about.html">Bio</a>
 				<!--<a href="skills.html">Skills</a>-->
 				<a href="projects.html">Projects</a>
 			</nav>
 
-			<a href="contact.html" class="gradient-btn">Contact Me</a>
+			<a href="https://linktr.ee/jbcontactme" class="gradient-btn" target="_blank">Contact</a>
 
 
     	</header>
@@ -104,7 +126,7 @@
 
 						<div class="content">
 							<h2 style="text-align:center; margin-bottom: 1em;">
-								Weather Forecast Reliability Analysis for Travel Planning
+								Weather Forecast Reliability Analysis
 							</h2>
 							<p>
 							A business-driven data project assessing the reliability of 5-day 
@@ -126,7 +148,7 @@
 						<section>
 							<span class="image right"><img src="images\projects\Airline_Perfomance\Airline_Performance_Analytics.png" alt="" /></span>
 							<h2 style="text-align:center; margin-bottom: 1em;">
-								Airline Performance Analytics: From Flights to Insights
+								Airline Performance Analytics
 							</h2>								
 							<p>
 								A business-focused SQL project transforming operational airline data into 
@@ -138,7 +160,7 @@
 								<li>Demonstrated how data modeling and analytics can turn complex flight operations into strategic, data-driven insights for the aviation industry.</li>
 								</ul>
 								<div class="actions" style="text-align:center; margin-bottom: 1em;">
-								<a class="button" href="airline_performance_analytics.html" target="_blank" rel="noopener">Explore the Project</a>
+								<a class="button" href="airline_performance_analytics.html" rel="noopener">Explore the Project</a>
 								</div>
 							</p>
 						</section>
@@ -146,22 +168,22 @@
 						<!-- Behind the Stream (Netflix x Power BI) -->
 						<section class="project">
 						<span class="image right">
-							<img src="images\projects\Behind_the_stream.png" alt="" />
+							<img src="images\logos\image_github.jpeg" alt="" />
 						</span>
 
 						<div class="content">
+							<h2 style="text-align:center; margin-bottom: 1em;">
+								More Projects on My GitHub
+							</h2>							
 							<p>
-							Interactive dashboard for film industry pros: genre mix, movies vs. series, 
-							yearly trends, catalog structure and insights for content strategy.
+							Find all my data, analytics engineering and automation 
+							projects on my GitHub, updated regularly.
 							</p>
-							<ul class="tags">
-							<li>Power BI</li>
-							<li>Data Modeling</li>
-							<li>Power Query</li>
-							<li>Visualization</li>
-							</ul>
+							<p style="text-align:center; margin-bottom: 1em; font-weight: bold;">
+								Python • SQL • Power BI • Streamlit • GitHub Actions
+							</p>
 							<div class="actions" style="text-align:center; margin-bottom: 1em;">
-							<a class="button" href="https://github.com/JBaptisteAll/Behind_the_Stream" target="_blank" rel="noopener">GitHub</a>
+							<a class="button" href="https://github.com/JBaptisteAll" target="_blank" rel="noopener">GitHub</a>
 							</div>
 						</div>
 						</section>
@@ -174,7 +196,7 @@
 					<ul class="icons">
 						<li><a href="https://github.com/JBaptisteAll" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
 						<li><a href="https://www.linkedin.com/in/jean-baptiste-allombert/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">Dribbble</span></a></li>
-						<li><a href="contact.html" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="https://linktr.ee/jbcontactme" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
 
