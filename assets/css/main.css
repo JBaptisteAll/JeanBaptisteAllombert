@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;}
 :root {
   --text-color: white;
-  --main-color: #ea580c;
+  --main-color: #D1A544;
 }
 body {
 	line-height: 1;
@@ -88,6 +88,7 @@ body {
 .gradient-btn:hover {
   transform: scale(1.02);
   font-size: 1.8rem;
+  color: #D1A544 !important;
 }
 
 .icons li img {
@@ -302,7 +303,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #49bf9d !important;
+			color: #fbfbfb !important;
 			text-decoration: none;
 		}
 
@@ -2649,17 +2650,18 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			border-color: #49bf9d;
-			color: #49bf9d !important;
+			border-color: #3C3C3C;
+			color: #D1A544 !important;
+			font-weight: bold;
 		}
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
-			background-color: rgba(73, 191, 157, 0.1);
+			background-color: rgba(3, 5, 4, 0.1);
 			border-color: #49bf9d;
-			color: #49bf9d !important;
+			color: #000000 !important;
 		}
 
 		input[type="submit"].icon,
