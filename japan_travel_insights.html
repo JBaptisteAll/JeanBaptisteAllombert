@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+	
+<html>
+	<head>
+		<title>Japan Travel Insights</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<header class="header">
+
+			<a href="#" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
+			</a>
+
+			<i class="bx bx-menu" id="menu-icon"></i>
+
+			<nav class="navbar">
+				<a href="japan-travel_insights_fr.html" class="logo">
+					<img id="logo" src="images\logos\french_flag.png"  width="20">
+				</a>        
+				<a href="index.html">Home</a>
+				<a href="about.html">Bio</a>
+				<!--<a href="skills.html">Skills</a>-->
+				<a href="projects.html">Projects</a>
+			</nav>
+
+			<a href="https://linktr.ee/jbcontactme" class="gradient-btn" target="_blank">Contact</a>
+
+
+    	</header>
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/N&B.jpg" alt="" /></a>
+					<h1>
+						<strong style="font-size: 1.2em;">Japan Travel Insights</strong><br>
+						
+					</h1>
+				</div>
+				
+			</header>
+
+
+
+
+		<!-- Main -->
+			<div id="main">
+
+<body>
+  <main class="container">
+    <h1 style="text-align:center; margin-bottom: 1em;">
+      Japan Travel Insights
+    </h1>
+    <h2 style="text-align:center; margin-bottom: 1em;">
+      Understanding Why (and How) People Want to Visit Japan.
+    </h2>
+    <h4 style="text-align:center; margin-bottom: 1em;">
+      <em>From street interviews in Yamagata to a scalable data product for tourism strategy.</em>
+    </h4>
+
+
+						 <!-- Japan Travel Insights – Understanding Why (and How) People Want to Visit Japang  -->
+    <br><br> 
+  
+    <h2>Context &amp; Business Problem</h2>
+    <p>
+      During a stay in Japan, I collaborated with <strong>360</strong>, a company working with the Yamagata prefecture
+      to understand and develop international tourism.
+    </p>
+    <p>
+      Initially, the team was running:
+    </p>
+    <ul>
+      <li>Long, face-to-face interviews with tourists (15–20 minutes each).</li>
+      <li>On-site data collection in touristic spots.</li>
+      <li>Highly manual and time-consuming operations, with no guarantee of volume (some days, very few or no foreign tourists).</li>
+    </ul>
+    <p><strong>Business issues:</strong></p>
+    <ul>
+      <li>High effort, low scalability.</li>
+      <li>Data limited to people physically present on-site.</li>
+      <li>Difficult to get a broader view of potential visitors who have <em>not</em> yet visited Japan or Yamagata.</li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>My Solution</h2>
+    <p>
+      I designed and implemented an <strong>end-to-end data pipeline and analytics application</strong> to:
+    </p>
+    <ul>
+      <li>Move from local, manual interviews to <strong>online, scalable data collection</strong>.</li>
+      <li>Provide <strong>a living dataset</strong> that can grow over time.</li>
+      <li>Give the 360 team a <strong>self-service dashboard</strong> to explore insights and export data.</li>
+    </ul>
+    <p>
+      The solution combines:
+    </p>
+    <ul>
+      <li><strong>Google Forms &amp; Google Sheets</strong> for survey distribution and centralization.</li>
+      <li><strong>Python</strong> for data cleaning and standardization.</li>
+      <li><strong>GitHub Actions</strong> for scheduled data processing.</li>
+      <li><strong>Streamlit</strong> for a fully interactive web dashboard.</li>
+    </ul>    
+
+    <hr class="hr" />
+
+    <h2>Data Collection Strategy</h2>
+
+    <h3>Dual-Language Online Survey</h3>
+    <p>
+      I recreated and optimized the original questionnaire as two online forms:
+    </p>
+    <ul>
+      <li>One in <strong>French</strong>.</li>
+      <li>One in <strong>English</strong>.</li>
+    </ul>
+    <p>
+      Key improvements:
+    </p>
+    <ul>
+      <li>Smarter conditional logic (e.g. no need to ask detailed questions about Japan if the respondent has zero interest in visiting).</li>
+      <li>Better segmentation questions (motivations, perceived barriers, destination preferences, budget, etc.).</li>
+      <li>Focus on understanding <strong>why people choose Japan or alternative destinations</strong>.</li>
+    </ul>
+    <p>
+      I then shared the survey with:
+    </p>
+    <ul>
+      <li>My personal network and students.</li>
+      <li>My LinkedIn community.</li>
+      <li>Content creators and YouTubers with an audience interested in Japan.</li>
+    </ul>  
+
+    <hr class="hr" />
+
+    <h2>From Raw Responses to a Clean Dataset</h2>
+
+    <h3>.1 Centralization</h3>
+    <ul>
+      <li>Each form (FR/EN) stores responses in its own Google Sheet.</li>
+      <li>A third sheet uses <code>IMPORTRANGE</code> to automatically <strong>combine all responses into a single table</strong>.</li>
+    </ul>
+
+    <h3>.2 Data Cleaning &amp; Standardization</h3>
+    <p>
+      I built a dedicated Python pipeline to:
+    </p>
+    <ul>
+      <li><strong>Standardize languages</strong> and values (e.g. country names, age groups, motivations).</li>
+      <li>Harmonize answer formats from both questionnaires.</li>
+      <li>Map free-text responses into broader analytical categories when relevant.</li>
+    </ul>
+    <p>
+      The result is a single cleaned dataset (<code>df_clean.csv</code>), ready for analysis and reporting.
+    </p>
+
+    <hr class="hr" />
+
+    <h2>Automated Refresh: A Living Dataset</h2>
+    <p>
+      To avoid manually updating the data whenever new responses arrive, I implemented:
+    </p>
+    <ul>
+      <li>A <strong>scheduled GitHub Actions workflow</strong> that runs twice a month.</li>
+    </ul>
+    <p>On each run, the workflow:</p>
+    <ul>
+      <li>Fetches the latest responses from the combined Google Sheet.</li>
+      <li>Applies all cleaning and transformation rules.</li>
+      <li>Overwrites the processed CSV file in the repository.</li>
+    </ul>
+    <p><strong>Why bi-monthly?</strong></p>
+    <ul>
+      <li>The survey is not time-critical.</li>
+      <li>A 15-day refresh cycle is more than enough to keep the dashboard reasonably up to date.</li>
+      <li>I can still trigger the workflow manually when needed.</li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>Interactive Dashboard for 360</h2>
+    <p>
+      I built a <strong>Streamlit web application</strong> to make the analysis accessible to non-technical stakeholders.
+    </p>
+    <p>Main features:</p>
+    <ul>
+      <li>
+        <strong>Interactive filters</strong> (e.g. nationality, age group, interest level, preferred destinations, fears or barriers).
+      </li>
+      <li>
+        <strong>Visualizations</strong> showing:
+        <ul>
+          <li>Who is interested in visiting Japan.</li>
+          <li>Which regions or cities are most attractive.</li>
+          <li>Why some respondents prefer other destinations.</li>
+          <li>What blocks potential visitors (cost, distance, language, safety, lack of information, etc.).</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Download options</strong>:
+        <ul>
+          <li>Full “raw” dataset.</li>
+          <li>Filtered subsets based on current selections (so 360 can run their own analyses in Excel, Power BI, etc.).</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      Performance-wise:
+    </p>
+    <ul>
+      <li>
+        Because the data only changes twice a month, the app uses <strong>caching with a 15-day time-to-live</strong>.
+      </li>
+      <li>
+        This keeps the dashboard fast while still reflecting new data automatically when available.
+      </li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>Value for the Tourism Stakeholder</h2>
+    <p>
+      For 360 and Yamagata’s tourism strategy, this project provides:
+    </p>
+
+    <ul>
+      <li>
+        📊 <strong>Better understanding of potential visitors</strong>
+        <ul>
+          <li>Profiles (age, country, travel habits).</li>
+          <li>Motivations to visit Japan or other Asian destinations.</li>
+          <li>Perceived barriers to visiting Japan or Yamagata.</li>
+        </ul>
+      </li>
+      <li>
+        🌍 <strong>Broader reach</strong>
+        <ul>
+          <li>The survey is no longer limited to people already on-site.</li>
+          <li>It can be shared widely online, including to people who have not yet travelled to Japan.</li>
+        </ul>
+      </li>
+      <li>
+        ⏱️ <strong>Time and cost savings</strong>
+        <ul>
+          <li>Less dependence on long, in-person interviews.</li>
+          <li>Data collection continues in the background while the team focuses on analysis and strategy.</li>
+        </ul>
+      </li>
+      <li>
+        🧩 <strong>Flexibility</strong>
+        <ul>
+          <li>The dashboard gives the team the freedom to apply custom filters.</li>
+          <li>Download segments of interest.</li>
+          <li>Build their own visualizations if needed.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>My Role &amp; Key Skills Demonstrated</h2>
+    <p>
+      In this project, I was responsible for the entire end-to-end solution:
+    </p>
+    <ul>
+      <li>
+        <strong>Business understanding</strong>
+        <ul>
+          <li>Discussion with the company’s founder to understand their questions and constraints.</li>
+          <li>Translation of an on-the-ground, manual process into a scalable digital data product.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Survey design &amp; optimization</strong>
+        <ul>
+          <li>Adaptation and refinement of the original interview guide into two online forms.</li>
+          <li>Design of questions to make future analysis easier and more relevant.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Data engineering &amp; analytics</strong>
+        <ul>
+          <li>Automated ingestion from Google Sheets.</li>
+          <li>Centralization and cleaning of bilingual responses.</li>
+          <li>Design of a reusable cleaning pipeline in Python.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Data product &amp; visualization</strong>
+        <ul>
+          <li>Design and implementation of an interactive Streamlit dashboard.</li>
+          <li>Self-service data export for stakeholders.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Automation &amp; reliability</strong>
+        <ul>
+          <li>Scheduling of data processing with GitHub Actions.</li>
+          <li>Use of caching strategies aligned with the data refresh frequency.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr class="hr" />
+
+    <h2>Technologies Used</h2>
+    <section>
+    <ul class="icons">
+      <li><img src="images/logos/Python_logo.jpg" alt="Python" title="Python"></li>
+      <li><img src="images/logos/streamlit_logo.png" alt="Streamlit" title="Streamlit"></li>
+      <li><img src="images/logos/GitHub_logo.png" alt="Github" title="Github"></li>
+      <li><img src="images/logos/pandas_logo.png" alt="Pandas" title="Pandas"></li>
+      <li><img src="images/logos/numpy_logo.png" alt="Numpy" title="Numpy"></li>
+      <li><img src="images/logos/plotly_logo.png" alt="Plotly" title="Plotly"></li>
+      <li><img src="images/logos/google_logo.png" alt="Google Forms" title="Google Forms"></li>
+      <li><img src="images/logos/github_action_logo.png" alt="Github Action" title="Github Action"></li>
+    </ul>
+    </section>
+
+    <hr class="hr" />    
+
+    <h2>Possible Next Steps</h2>
+    <p>
+      This project can evolve in several directions:
+    </p>
+    <ul>
+      <li>
+        Add a <strong>chatbot</strong> connected to the dataset to answer natural language questions
+        (e.g. “What are the main barriers for 18–25 year olds from Europe?”).
+      </li>
+      <li>
+        Allow users to <strong>generate PDF reports</strong> with selected charts and filters.
+      </li>
+      <li>
+        Build <strong>segmentation models</strong> (e.g. clusters of traveller profiles) to help target specific audiences.
+      </li>
+      <li>
+        Use the insights to design <strong>concrete recommendations</strong> for communication campaigns or tourism offers.
+      </li>
+    </ul>
+    <p>
+      If you would like to see the live dashboard, the technical details of the pipeline, or discuss how a similar approach
+      could be adapted to another tourism or customer insight context, feel free to contact me.
+    </p>
+
+
+    <hr class="hr" />
+ 
+    <p>
+      <em>Because understanding travelers isn’t just about collecting answers — it’s about uncovering what truly guides their journey.</em>
+    </p>
+
+    <div class="actions" style="text-align:center; margin-bottom: 1em;">
+      <a class="button" href="https://github.com/JBaptisteAll/Weather_Forecast_Reliability_Analysis_for_Travel_Planning" target="_blank" rel="noopener" style="background-color:#bcc2c9; color:#040404;">View Code on GitHub</a>
+    </div>
+
+    <hr class="hr" />
+
+    <h2>Gallery</h2>    
+    <section>
+    <ul class="gallery_img">
+      <li><img src="images\projects\Weather_Analytics\Dataflow.png" alt="Workflow" title="Workflow" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Dashboard.png" alt="Dashboard PowerBi" title="Dashboard PowerBi" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Compare.png" alt="Comparing Dashboard" title="Comparing Dashboard" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      <li><img src="images\projects\Weather_Analytics\Weather_indicator.png" alt="Indicators" title="Indicators" style="width:100%; max-width:300px; border-radius:5px;"></li>
+    </ul>
+    </section>
+
+    
+  </main>
+						
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/JBaptisteAll" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/jean-baptiste-allombert/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://linktr.ee/jbcontactme" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
