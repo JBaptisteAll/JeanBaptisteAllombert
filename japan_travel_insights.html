@@ -66,13 +66,278 @@
 				
 			</header>
 
+<!-- Main Content -->
+  <div id="main">
+    <main class="container">
+      <!-- Title block -->
+      <section class="center">
+        <h1 style="margin-bottom: 0.4em;">Japan Travel Insights</h1>
+        <h2 style="margin-bottom: 0.4em;">From Interviews to Insights</h2>
+        <p class="lead sublead">
+          Understanding why (and how) people want to visit Japan — and turning survey responses into a living dataset and a self-service dashboard for tourism strategy.
+        </p>
 
+        <!-- Optional: simple KPI placeholders (keep or remove) -->
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="label">Data Product</div>
+            <div class="value">Automated pipeline</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Audience</div>
+            <div class="value">Non-technical stakeholders</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Refresh</div>
+            <div class="value">Scheduled (2× / month)</div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Executive Summary -->
+      <section>
+        <h2>Executive Summary</h2>
+        <p class="lead">
+          Tourism stakeholders often rely on on-site interviews to understand visitor intent, motivations, and barriers. While qualitative insights are valuable,
+          this approach is rarely scalable and makes it difficult to compare segments or track trends over time.
+        </p>
+        <p class="lead">
+          <strong>Japan Travel Insights</strong> is an end-to-end analytics product that transforms a manual interview process into a scalable survey pipeline:
+          bilingual data collection, automated cleaning and standardization, and a Streamlit dashboard designed for self-service exploration.
+        </p>
+        <div class="callout">
+          <strong>Outcome:</strong> a living dataset + a stakeholder-friendly dashboard, enabling faster, broader, and more reliable tourism insights.
+        </div>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Business Problem -->
+      <section>
+        <h2>Business Problem</h2>
+        <p class="lead">
+          During a stay in Japan, I collaborated with <strong>360</strong>, a company supporting the Yamagata prefecture to better understand international tourism.
+          The team’s initial approach relied on <strong>15–20 minute face-to-face interviews</strong> in touristic spots.
+        </p>
+        <p class="lead">
+          This created three structural issues:
+          <strong>high operational effort</strong>, <strong>limited reach</strong> (only people physically present), and <strong>low scalability</strong>
+          (some days: few or no foreign tourists).
+        </p>
+        <p class="lead">
+          The stakeholder needed a solution to collect more responses over time, segment audiences (age, country, motivations, fears/barriers),
+          and make insights accessible without requiring technical skills.
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Solution Overview -->
+      <section>
+        <h2>Solution Overview</h2>
+        <p class="lead">
+          I designed and implemented a complete data workflow that replaces manual collection with a scalable, automated process.
+          The system is built around <strong>Google Forms</strong> for bilingual collection, <strong>Google Sheets</strong> as a source of truth,
+          <strong>Python</strong> for cleaning/standardization, <strong>GitHub Actions</strong> for orchestration, and <strong>Streamlit</strong> for delivery.
+        </p>
+
+        <h3>Pipeline Workflow (End-to-End)</h3>
+        <p class="lead">
+          The workflow below illustrates the real architecture used in the project:
+        </p>
+
+        <!-- WORKFLOW VISUAL -->
+        <!-- Update the src path to your actual file location -->
+        <div class="workflow-figure">
+          <img
+            src="images/projects/Japan_Travel_Insights/workflow.gif"
+            alt="Japan Travel Insights - Data Pipeline Workflow"
+            title="Japan Travel Insights - Workflow"
+          />
+        </div>
+
+        <p class="sublead center" style="margin-top: 6px;">
+          Google Forms (FR/EN) → Google Sheets → Python (Clean/Transform/Normalize) → CSV in GitHub → Streamlit Dashboard
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Business Impact -->
+      <section>
+        <h2>Business Impact</h2>
+        <p class="lead">
+          This project delivers immediate value for tourism stakeholders by shifting from local, manual interviews to a data product that can scale online and stay updated over time.
+        </p>
+        <div class="callout">
+          <strong>Impact highlights:</strong> broader reach, reduced effort, consistent segmentation, and faster decision-making through a self-service dashboard.
+        </div>
+
+        <p class="lead">
+          Practically, the stakeholder can:
+          segment audiences (who is interested, why, what blocks them), identify preferred destinations, and export filtered datasets for further work in Excel or BI tools.
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Key Insights (placeholders you can replace with your real findings) -->
+      <section class="key-insights">
+        <h2>Key Insights</h2>
+        <p class="lead">
+          Below are examples of the kind of insights the dashboard makes easy to surface. Replace the statements with your real results once you lock your latest dataset.
+        </p>
+        <ul>
+          <li><strong>Interest segmentation:</strong> interest in visiting Japan varies strongly by age group and travel frequency, which helps prioritize target profiles.</li>
+          <li><strong>Top motivations:</strong> motivations cluster around culture/food, landscapes, safety, and “once-in-a-lifetime” travel goals, depending on respondent profiles.</li>
+          <li><strong>Main barriers:</strong> cost and distance are common blockers, but language and lack of information often explain hesitation for specific segments.</li>
+          <li><strong>Destination preferences:</strong> a small set of prefectures concentrates intent, enabling focused campaign testing and messaging.</li>
+          <li><strong>Competitive alternatives:</strong> when Japan is not chosen, alternative destinations reveal clear “trade-offs” (budget, climate, proximity), useful for positioning.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>How stakeholders use this:</strong> refine messaging, prioritize regions, adapt content, and build segmented campaign hypotheses.
+        </div>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Delivery (Dashboard) -->
+      <section>
+        <h2>Interactive Dashboard</h2>
+        <p class="lead">
+          I built a Streamlit web app so non-technical users can explore insights through filters and visuals, without touching raw data or code.
+          Because the dataset refreshes twice a month, the app remains fast and reliable with a caching strategy aligned to the refresh cycle.
+        </p>
+
+        <!-- Optional: add 1 dashboard screenshot -->
+        <div class="mini-gallery" style="margin-top: 10px;">
+          <img
+            src="images/projects/Japan_Travel_Insights/dashboard_1.png"
+            alt="Dashboard - Overview"
+            title="Dashboard - Overview"
+          />
+          <img
+            src="images/projects/Japan_Travel_Insights/dashboard_2.png"
+            alt="Dashboard - Segmentation"
+            title="Dashboard - Segmentation"
+          />
+        </div>
+
+        <p class="sublead" style="margin-top: 10px;">
+          Note: update the image paths above to match your repository structure (or remove this gallery block if you don't want it).
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- My Role & Skills -->
+      <section>
+        <h2>My Role &amp; Key Skills Demonstrated</h2>
+        <p class="lead">
+          I handled the project end-to-end: stakeholder context, survey design, pipeline engineering, automation, and dashboard delivery.
+          The focus was to build a system that stays usable and scalable beyond a one-time analysis.
+        </p>
+        <p class="lead">
+          Key skills demonstrated include: data modeling mindset (single source of truth), data quality and standardization, automation,
+          product thinking (self-service UX), and business communication (turning responses into decisions).
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Technologies -->
+      <section>
+        <h2>Technologies Used</h2>
+        <section>
+          <ul class="icons">
+            <li><img src="images/logos/Python_logo.jpg" alt="Python" title="Python" /></li>
+            <li><img src="images/logos/streamlit_logo.png" alt="Streamlit" title="Streamlit" /></li>
+            <li><img src="images/logos/GitHub_logo.png" alt="GitHub" title="GitHub" /></li>
+            <li><img src="images/logos/pandas_logo.png" alt="Pandas" title="Pandas" /></li>
+            <li><img src="images/logos/numpy_logo.png" alt="Numpy" title="Numpy" /></li>
+            <li><img src="images/logos/plotly_logo.png" alt="Plotly" title="Plotly" /></li>
+            <li><img src="images/logos/google_logo.png" alt="Google (Forms/Sheets)" title="Google (Forms/Sheets)" /></li>
+            <li><img src="images/logos/github_action_logo.png" alt="GitHub Actions" title="GitHub Actions" /></li>
+          </ul>
+        </section>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- What's Next -->
+      <section>
+        <h2>What’s Next</h2>
+        <p class="lead">
+          This project is designed as a foundation. Here are realistic evolutions that extend its value without changing the core architecture.
+        </p>
+        <ul>
+          <li><strong>Segment discovery:</strong> clustering traveler profiles to identify high-potential audiences and tailor messaging.</li>
+          <li><strong>Guided reporting:</strong> auto-generated PDF reports based on selected filters and key charts.</li>
+          <li><strong>Natural language analytics:</strong> a lightweight chatbot to query the dataset (e.g. “Top barriers for 18–25 from Europe”).</li>
+          <li><strong>Decision framework:</strong> turning insights into measurable campaign recommendations (hypotheses → tests → learnings).</li>
+        </ul>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Summary -->
+      <section>
+        <h2>Summary</h2>
+        <p class="lead">
+          Japan Travel Insights shows how a manual, local data collection process can be transformed into a scalable analytics product.
+          By combining automated ingestion, strong standardization rules, and a stakeholder-friendly dashboard, the project turns survey answers into strategy-ready insights.
+        </p>
+        <p class="lead">
+          <em>Because understanding travelers isn’t just about collecting answers — it’s about uncovering what truly guides their journey.</em>
+        </p>
+
+        <!-- IMPORTANT: Update the GitHub link to your Japan repo (currently your code points to Weather) -->
+        <div class="actions center" style="margin-bottom: 1em;">
+          <a
+            class="button"
+            href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_JAPAN_REPO"
+            target="_blank"
+            rel="noopener"
+            style="background-color:#bcc2c9; color:#040404;"
+          >
+            View Code on GitHub
+          </a>
+        </div>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Gallery (optional) -->
+      <section>
+        <h2>Gallery</h2>
+        <div class="mini-gallery">
+          <img
+            src="images/projects/Japan_Travel_Insights/workflow_static.png"
+            alt="Workflow (static)"
+            title="Workflow (static)"
+          />
+          <img
+            src="images/projects/Japan_Travel_Insights/prefecture_map.png"
+            alt="Prefecture map"
+            title="Prefecture map"
+          />
+        </div>
+
+        <p class="sublead" style="margin-top: 10px;">
+          Tip: keep the gallery to 2–4 visuals max. Recruiters skim fast.
+        </p>
+      </section>
+    </main>
+  </div>
 
 
 		<!-- Main -->
 			<div id="main">
 
-<body>
+
   <main class="container">
     <h1 style="text-align:center; margin-bottom: 1em;">
       Japan Travel Insights
@@ -130,6 +395,21 @@
     </ul>    
 
     <hr class="hr" />
+
+    <h2>Workflow Overview</h2>
+    <p>
+      A quick visual summary of how survey responses become a clean dataset and an interactive dashboard.
+    </p>
+
+    <div style="text-align:center; margin: 1.5em 0;">
+      <img 
+        src="images\projects\Japan_Travel_Insights\workflow.gif" 
+        alt="Japan Travel Insights - Data Pipeline Workflow"
+        style="width:100%; max-width:980px; border-radius:14px; box-shadow: 0 10px 25px rgba(0,0,0,0.12);"
+      >
+    </div>
+
+    <hr class="hr" />    
 
     <h2>Data Collection Strategy</h2>
 
@@ -242,6 +522,24 @@
         This keeps the dashboard fast while still reflecting new data automatically when available.
       </li>
     </ul>
+
+    <hr class="hr" />
+
+    <h2>Key Insights</h2>
+    <p>
+      The dashboard helps tourism stakeholders quickly understand what drives interest in Japan and what prevents travelers from converting that interest into an actual trip.
+    </p>
+
+    <ul>
+      <li><strong>Motivations vary strongly by profile</strong>: travelers do not share the same reasons for choosing Japan, and motivations become clearer once segmented by age, nationality, and travel frequency.</li>
+      <li><strong>Barriers are not only budget-related</strong>: beyond cost, common blockers include perceived complexity (language, logistics), distance, and lack of actionable information.</li>
+      <li><strong>Destination interest is highly concentrated</strong>: a limited set of regions and cities consistently appears as top preferences, which supports targeted campaign planning.</li>
+      <li><strong>“Interested” does not mean “ready to travel”</strong>: many respondents show high interest but still hesitate due to uncertainty and planning friction.</li>
+    </ul>
+
+    <p>
+      These insights can directly inform marketing messages, content strategy, and tourism product positioning for regions such as Yamagata.
+    </p>
 
     <hr class="hr" />
 
@@ -419,5 +717,5 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
+	
 </html>
