@@ -215,6 +215,32 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/* Reverse layout: image right, content left */
+.project.reverse {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+/* Center text + button */
+.project .content.centered {
+    text-align: center;
+}
+
+/* Center button */
+.project .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+/* Mobile safety */
+@media screen and (max-width: 736px) {
+    .project.reverse {
+        flex-direction: column;
+    }
+}
+
 
 
 
@@ -3408,3 +3434,102 @@ input, select, textarea {
 	}
 
 	
+/* --- FIX: project layout should use flex, not floats --- */
+section.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5em;
+}
+
+/* Disable Strata floats ONLY inside project sections */
+section.project .image.left,
+section.project .image.right {
+  float: none !important;
+  top: 0 !important;
+  margin: 0 !important;
+  max-width: 40%;
+  flex: 0 0 40%;
+}
+
+/* Make images behave nicely */
+section.project .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Content takes remaining space */
+section.project .content {
+  flex: 1;
+}
+
+/* Reverse layout (image right) */
+section.project.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Center text + button for that specific project */
+section.project .content.centered {
+  text-align: center;
+}
+
+section.project .actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+  section.project,
+  section.project.reverse {
+    flex-direction: column;
+  }
+
+  section.project .image.left,
+  section.project .image.right {
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+/* Center image vertically with text inside project blocks */
+section.project {
+  display: flex;
+  align-items: center; /* 👈 this centers image with the content vertically */
+  gap: 1.5em;
+}
+
+/* Ensure floats don't break flex inside project sections */
+section.project .image.left,
+section.project .image.right {
+  float: none !important;
+  margin: 0 !important;
+  top: 0 !important;
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+section.project .content {
+  flex: 1;
+}
+
+/* Keep reverse layout working */
+section.project.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+  section.project,
+  section.project.reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  section.project .image.left,
+  section.project .image.right {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}

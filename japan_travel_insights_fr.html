@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+	
+<html>
+	<head>
+		<title>Japan Travel Insights</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<header class="header">
+
+			<a href="#" class="logo">
+				<img id="random-logo" src="" alt="CouldBe Logo" width="70">
+				<script>
+					// List of your logo image paths
+					const logos = [
+						"images/logos/perso/CouldBe_Anything.png",
+						"images/logos/perso/CouldBe_Better.png",
+						"images/logos/perso/CouldBe_Data.png",
+						"images/logos/perso/CouldBe_Hub.png",
+						"images/logos/perso/CouldBe_OrNot.png",
+						"images/logos/perso/CouldBe_Smart.png",
+						"images/logos/perso/CouldBe_Worse.png",
+						"images/logos/perso/CouldBe_You.png"
+					];
+
+					// Pick one logo randomly
+					const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+					// Replace the src of the <img>
+					document.getElementById("random-logo").src = randomLogo;
+				</script>
+			</a>
+
+			<i class="bx bx-menu" id="menu-icon"></i>
+
+			<nav class="navbar">
+				<a href="japan_travel_insights.html" class="logo">
+					<img id="logo" src="images\logos\english_flag.webp"  width="20">
+				</a>        
+				<a href="index_fr.html">Accueil</a>
+				<a href="about_fr.html">Bio</a>
+				<!--<a href="skills.html">Skills</a>-->
+				<a href="projects_fr.html">Projets</a>
+			</nav>
+
+			<a href="https://linktr.ee/jbcontactme" class="gradient-btn" target="_blank">Contact</a>
+
+
+    	</header>
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/N&B.jpg" alt="" /></a>
+					<h1>
+						<strong style="font-size: 1.2em;">Analyse des motivations de voyage au Japon</strong><br>
+						
+					</h1>
+				</div>
+				
+			</header>
+
+<!-- Main Content -->
+  <div id="main">
+    <main class="container">
+      <!-- Title block -->
+      <section class="center">
+        <h1 style="text-align:center; margin-bottom: 0.4em;">Analyse des motivations de voyage au Japon</h1>
+        <h2 style="text-align:center; margin-bottom: 2em;">Des entretiens aux insights</h2>
+      </section>
+      <p class="lead sublead">
+        <em>Comprendre pourquoi (et comment) les voyageurs souhaitent visiter le Japon — et transformer les réponses à une enquête en insights actionnables via un dashboard analytique en libre-service.</em>
+      </p>
+
+      <hr class="hr" />
+
+      <!-- Executive Summary -->
+      <section>
+        <h2>Résumé principal</h2>
+        <p class="lead">
+          Les acteurs du tourisme s’appuient souvent sur des entretiens réalisés sur site pour comprendre les intentions, les motivations et les freins 
+          des visiteurs. Si ces insights qualitatifs sont précieux, cette approche est rarement scalable et rend difficile la comparaison des segments ou 
+          le suivi des tendances dans le temps.
+        </p>
+        <p class="lead">
+          <strong>Japan Travel Insights</strong> est un produit d’analytics de bout en bout qui transforme un processus d’entretiens manuels en un pipeline 
+          d’enquête scalable : collecte de données bilingue, nettoyage et standardisation automatisés, et dashboard Streamlit conçu pour une exploration 
+          en libre-service.
+        </p>
+        <div class="callout">
+          <strong>Résultat :</strong> un jeu de données vivant associé à un dashboard orienté métiers, permettant des insights touristiques plus rapides, plus larges et plus fiables.
+        </div>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Business Problem -->
+      <section>
+        <h2>Problématique business</h2>
+        <p class="lead">
+          Lors d’un séjour au Japon, j’ai collaboré avec <strong>360</strong>, une entreprise accompagnant la préfecture de Yamagata dans la compréhension 
+          du tourisme international.
+          L’approche initiale de l’équipe reposait sur des <strong>entretiens en face à face de 15 à 20 minutes</strong> réalisés dans des lieux touristiques.
+        </p>
+        <p class="lead">
+          Cette approche a mis en évidence trois limites structurelles :
+          un <strong>effort opérationnel élevé</strong>, une <strong>portée limitée</strong> (restreinte aux personnes physiquement présentes), et une 
+          <strong>faible scalabilité</strong> (certains jours, peu voire aucun touriste étranger).
+        </p>
+        <p class="lead">
+          Le besoin du client était de disposer d’une solution permettant de collecter davantage de réponses dans le temps, de segmenter les audiences 
+          (âge, pays, motivations, freins) et de rendre les insights accessibles sans nécessiter de compétences techniques.
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Solution Overview -->
+      <section>
+        <h2>Aperçu de la solution</h2>
+        <p class="lead">
+          i conçu et mis en œuvre un workflow data complet qui remplace la collecte manuelle par un processus automatisé et scalable. Le système s’appuie sur 
+          <strong>Google Forms</strong> pour la collecte bilingue, <strong>Google Sheets</strong> comme source de vérité,
+          <strong>Python</strong> pour le nettoyage et la standardisation des données, <strong>GitHub Actions</strong> pour l’orchestration, et 
+          <strong>Streamlit</strong> pour la restitution.
+        </p>
+
+        <h3>Workflow du pipeline (de bout en bout)</h3>
+        <p class="lead">
+          Le workflow ci-dessous illustre l’architecture réelle mise en œuvre dans le cadre du projet :
+        </p>
+
+        <!-- WORKFLOW VISUAL -->
+        <!-- Update the src path to your actual file location -->
+        <div class="workflow-figure">
+          <img
+            src="images/projects/Japan_Travel_Insights/workflow.gif"
+            alt="Japan Travel Insights - Data Pipeline Workflow"
+            title="Japan Travel Insights - Workflow"
+          />
+        </div>
+
+        <p class="sublead center" style="margin-top: 6px;">
+          <em>Google Forms (FR/EN) → Google Sheets → Python (Nettoyage / Transformation / Normalisation) → CSV sur GitHub → Dashboard Streamlit</em>
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Business Impact -->
+      <section>
+        <h2>Impact business</h2>
+        <p class="lead">
+          Ce projet apporte une valeur immédiate aux acteurs du tourisme en passant d’entretiens locaux et manuels à un produit data capable de se déployer 
+          en ligne et de rester à jour dans le temps.
+        </p>
+        <div class="callout">
+          <strong>Points clés de l’impact :</strong><br> 
+          portée élargie, effort réduit, segmentation cohérente et prise de décision plus rapide grâce à un dashboard en libre-service.
+        </div>
+        
+        <p class="lead">
+          Concrètement, le client peut segmenter les audiences (qui est intéressé, pourquoi, quels sont les freins), identifier les destinations privilégiées 
+          et exporter des jeux de données filtrés pour des analyses complémentaires dans Excel ou des outils de BI.
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Key Insights -->
+      <section class="key-insights">
+        <h2>Insights clés</h2>
+        <p class="lead">
+          Le tableau de bord permet aux parties prenantes d’aller au-delà des indicateurs de surface et de révéler des dynamiques stratégiques 
+          tout au long du cycle de vie des voyageurs.
+        </p>
+        <ul>
+          <li><strong>Forte demande, faible conversion :</strong><br>
+            L’intérêt pour un voyage au Japon est très élevé, en particulier chez les primo-visiteurs. Le principal enjeu n’est pas la notoriété, 
+            mais la conversion, freinée par des frictions perçues plutôt que par un manque d’envie.
+          </li>
+          <li><strong>La maturité de voyage plutôt que l’âge :</strong><br>
+            Les comportements de voyage évoluent davantage en fonction de la maturité de voyage que de l’âge seul. Les primo-visiteurs et les voyageurs 
+            récurrents présentent des motivations, des perceptions du risque et des choix de destinations fondamentalement différents.
+          </li>
+          <li><strong>Concentration sur les régions emblématiques vs diversification régionale :</strong><br>
+            Les primo-visiteurs se concentrent presque exclusivement sur les régions emblématiques (Kanto, Kansai), tandis que les voyageurs récurrents 
+            manifestent un intérêt nettement plus marqué pour des régions secondaires comme le Tohoku et le Shikoku.
+          </li>
+          <li><strong>Du voyage de découverte au voyage d’approfondissement :</strong><br>
+            Les motivations évoluent de la culture et de la gastronomie vers la nature, le bien-être et des expériences plus lentes, à mesure que 
+            les voyageurs se familiarisent avec le Japon.
+          </li>
+          <li><strong>La langue comme barrière structurelle :</strong><br>
+            La langue demeure un frein perçu majeur pour l’ensemble des profils de voyageurs, y compris les visiteurs récurrents, indiquant 
+            une friction structurelle ancrée dans l’expérience de voyage.
+          </li>
+        </ul>
+        <p>
+          <em>Ces enseignements montrent comment des données issues d’enquêtes peuvent être transformées en stratégies touristiques tenant compte 
+            du cycle de vie des voyageurs, plutôt qu’en simples reportings statiques.</em>
+        </p>          
+
+        <div class="callout">
+          <strong>Enseignement stratégique</strong><br>
+          La croissance du tourisme régional s’obtient plus efficacement en ciblant les voyageurs récurrents à l’aide de stratégies tenant compte 
+          du cycle de vie, en positionnant les régions secondaires comme des extensions des destinations emblématiques plutôt que comme des alternatives autonomes.
+        </div>
+        <div class="cta-row" style="text-align:center; margin-bottom: 0.4em;">
+          <a href="https://github.com/JBaptisteAll/Japan_tourism_analysis/blob/main/Archive/Japan%20Travel%20Insights%20%E2%80%93%20Strategic%20Analysis.pdf"
+            class="button primary"
+            target="_blank" rel="noopener">
+            Lire l’analyse complète
+          </a>
+        </div>      
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Delivery (Dashboard) -->
+      <section>
+        <h2>Dashboard interactif</h2>
+        <p class="lead">
+          J’ai développé une application web Streamlit permettant à des utilisateurs non techniques d’explorer les insights via des filtres et des visualisations, 
+          sans manipuler les données brutes ni le code. Le jeu de données étant mis à jour deux fois par mois, l’application reste rapide et fiable grâce à 
+          une stratégie de cache alignée sur ce cycle de rafraîchissement.
+        </p>
+
+        <p>
+          <em>Aperçu du dashboard interactif</em>
+        
+        <span class="image">
+          <img src="images\projects\Japan_Travel_Insights\dashboard.gif" alt="Forecast reliability map"
+          style="width:100%; max-width:800px; border-radius:5px;" />
+        </span>
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- My Role & Skills -->
+      <section>
+        <h2>Mon rôle &amp; compétences clés démontrées</h2>
+        <p class="lead">
+          J’ai pris en charge le projet de bout en bout, compréhension du contexte métier, conception de l’enquête, ingénierie du pipeline, 
+          automatisation et mise à disposition du dashboard. L’objectif était de construire un système durable, utilisable et scalable, au-delà 
+          d’une analyse ponctuelle.
+        </p>
+        <p class="lead">
+          Les compétences clés démontrées incluent, une approche orientée modélisation des données (source de vérité unique), la qualité et la standardisation 
+          des données, l’automatisation, le product thinking (UX en libre-service) et la communication métier (transformer des réponses en décisions).
+        </p>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Technologies -->
+      <section>
+        <h2>Technologies utilisées</h2>
+        <section>
+          <ul class="icons">
+            <li><img src="images/logos/Python_logo.jpg" alt="Python" title="Python" /></li>
+            <li><img src="images/logos/streamlit_logo.png" alt="Streamlit" title="Streamlit" /></li>
+            <li><img src="images/logos/GitHub_logo.png" alt="GitHub" title="GitHub" /></li>
+            <li><img src="images/logos/pandas_logo.png" alt="Pandas" title="Pandas" /></li>
+            <li><img src="images/logos/numpy_logo.png" alt="Numpy" title="Numpy" /></li>
+            <li><img src="images/logos/plotly_logo.png" alt="Plotly" title="Plotly" /></li>
+            <li><img src="images/logos/google_logo.png" alt="Google (Forms/Sheets)" title="Google (Forms/Sheets)" /></li>
+            <li><img src="images/logos/github_action_logo.png" alt="GitHub Actions" title="GitHub Actions" /></li>
+          </ul>
+        </section>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- What's Next -->
+      <section>
+        <h2>Prochaine étape</h2>
+        <p class="lead">
+          Ce projet a été conçu comme une base solide. Voici des évolutions réalistes permettant d’en étendre la valeur sans modifier l’architecture centrale.
+        </p>
+        <ul>
+          <li><strong>Découverte de segments :</strong> mise en place de modèles de clustering pour identifier des profils de voyageurs à fort potentiel et adapter les messages.</li>
+          <li><strong>Reporting guidé :</strong> génération automatique de rapports PDF à partir des filtres sélectionnés et des visualisations clés.</li>
+          <li><strong>Analyse en langage naturel :</strong> intégration d’un chatbot léger permettant d’interroger le jeu de données en langage naturel (par exemple : « principaux freins pour les 18–25 ans en Europe »).</li>
+          <li><strong>Cadre de décision :</strong> transformation des insights en recommandations de campagnes mesurables (hypothèses → tests → apprentissages).</li>
+        </ul>
+      </section>
+
+      <hr class="hr" />
+
+      <!-- Summary -->
+      <section>
+        <h2>Synthèse</h2>
+        <p class="lead">
+          Japan Travel Insights illustre comment un processus de collecte de données local et manuel peut être transformé en un produit d’analytics scalable. 
+          En combinant une ingestion automatisée, des règles de standardisation robustes et un dashboard orienté métiers, le projet transforme des réponses 
+          à une enquête en insights directement exploitables pour la stratégie.
+        </p>
+        <p class="lead">
+          <em>Parce que comprendre les voyageurs ne consiste pas seulement à collecter des réponses — mais à révéler ce qui guide réellement leur parcours.</em>
+        </p>
+
+        <!-- IMPORTANT: Update the GitHub link to your Japan repo (currently your code points to Weather) -->
+        <div class="actions center" style="text-align:center; margin-bottom: 1em;">
+          <a 
+            class="button" 
+            href="https://japantravelsurveyanalysis.streamlit.app/" 
+            target="_blank" 
+            rel="noopener" 
+            style="background-color:#bcc2c9; color:#000000;"
+          >
+            Essayer l’app Streamlit
+          </a>
+          <a
+            class="button"
+            href="https://github.com/JBaptisteAll/Japan_tourism_analysis"
+            target="_blank"
+            rel="noopener"
+            style="background-color:#bcc2c9; color:#040404;"
+          >
+            Voir le code sur GitHub
+          </a>
+        </div>
+
+      </section>
+
+      <hr class="hr" />
+
+      <h2>Galerie</h2>    
+      <section>
+      <ul class="gallery_img">
+        <li><img src="images/projects/Japan_Travel_Insights/workflow_static.png" alt="Workflow" title="Workflow" style="width:100%; max-width:300px; border-radius:5px;"></li>
+        <li><img src="images/projects/Japan_Travel_Insights/barriers.png" alt="Barriers" title="Barriers" style="width:100%; max-width:300px; border-radius:5px;"></li>
+        <li><img src="images/projects/Japan_Travel_Insights/map_wishlist.png" alt="Prefectures Wishlist" title="Prefectures Wishlist" style="width:100%; max-width:300px; border-radius:5px;"></li>
+        <li><img src="images\projects\Japan_Travel_Insights\percentil.png" alt="Dashboard" title="Dashboard" style="width:100%; max-width:300px; border-radius:5px;"></li>
+        <li><img src="images\projects\Japan_Travel_Insights\linktree.png" alt="Dashboard" title="Dashboard" style="width:100%; max-width:300px; border-radius:5px;"></li>
+        <li><img src="images\projects\Japan_Travel_Insights\form.png" alt="Dashboard" title="Dashboard" style="width:100%; max-width:300px; border-radius:5px;"></li>
+      </ul>
+      </section>
+
+    </main>
+  </div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/JBaptisteAll" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/jean-baptiste-allombert/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://linktr.ee/jbcontactme" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	
+</html>
