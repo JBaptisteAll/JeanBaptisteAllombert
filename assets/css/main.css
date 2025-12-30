@@ -3533,3 +3533,63 @@ section.project.reverse {
     max-width: 100%;
   }
 }
+
+/* === CTA Image Block === */
+.cta-image {
+  position: relative;
+  margin: 2.5em 0;
+  border-radius: 60px;        /* 👈 ARRONDI PRINCIPAL */
+  overflow: hidden;           /* 👈 OBLIGATOIRE */
+}
+
+/* Image full width */
+.cta-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CTA button over image */
+.cta-image__button {
+  position: absolute;
+  bottom: 1.8em;
+  left: 2em;
+
+  padding: 0.75em 1.4em;
+  background-color: #1f3cff;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.cta-image__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 736px) {
+  .cta-image__button {
+    bottom: 1.2em;
+    left: 1.2em;
+    font-size: 0.9em;
+  }
+}
+/* Remove separator between text block and CTA image */
+.no-separator {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.no-separator + section {
+  border-top: none !important;
+  margin-top: 1.5em !important; /* ajuste si besoin */
+}
+.cta-image {
+  margin-top: 2em;
+}
