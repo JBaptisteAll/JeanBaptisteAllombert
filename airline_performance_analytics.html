@@ -123,6 +123,14 @@
       <li>What <strong>passenger segments</strong> drive profitability and loyalty?</li>
     </ul>
     <p>
+      However, fragmented systems and siloed data often make it difficult to:
+    </p>
+    <ul>
+      <li>Consolidate flight, booking, and passenger information into a single source of truth.</li>
+      <li>Identify <strong>underperforming routes</strong> and <strong>low-margin operations</strong>.</li>
+      <li>Track the <strong>financial impact of disruptions</strong> and <strong>operational inefficiencies</strong>.</li>
+    </ul>
+    <p>
       The solution: a centralized, analytics-ready data system that integrates all 
       operational data streams, enforces quality and consistency, and provides 
       executive-ready KPIs for strategic decision-making.
@@ -132,7 +140,15 @@
 
     <h2>Solution Overview</h2>
     <p>
-      The initiative was structured around two complementary modules:
+      The initiative was structured around three complementary modules <br>
+      - <strong>Revenge of the Seat (Data Warehouse)</strong> <br>
+      - <strong>Return of the Jet High (Analytics Engine)</strong> and <br>
+      - <strong>The Rise of the Single Source (Analytics Engineering)</strong><br>
+      each delivering a specific layer of business value and forming a 
+      complete airline intelligence ecosystem.<br> 
+      Together, they deliver a robust end-to-end architecture that consolidates 
+      operational data and transforms it into business-ready insights for 
+      strategic decision-making.
     </p>
     <table>
       <thead>
@@ -141,26 +157,29 @@
       <tbody>
         <tr><td><strong><br>Revenge of the Seat (Data Warehouse)</strong></td><td>A fully normalized relational data warehouse designed with Merise methodology, integrating flights, aircraft, passengers, and bookings under strict referential integrity.</td><td>Establishes a single source of truth for all operational and financial data, enabling accurate reporting, compliance, and cross-departmental alignment.</td></tr>
         <tr><td><strong>Return of the Jet High (Analytics Engine)</strong></td><td>A SQL-based analytics layer delivering KPIs on route profitability, fleet utilization, delay performance, and customer segmentation.</td><td>Converts raw operational metrics into actionable insights that drive pricing, scheduling, and strategic optimization decisions.</td></tr>
+        <tr><td><strong><br>The Rise of the Single Source (Analytics Engineering)</strong></td><td>A modern transformation layer using dbt, automating complex data modeling while enforcing rigorous data quality tests and documentation.</td><td>Ensures data reliability and certification. It provides a scalable framework to industrialize KPIs and guarantee that executives work with trusted, verified data.</td></tr>
       </tbody>
     </table>
     <p>
-      <em>By combining both modules, the platform bridges the gap between data 
-      operations and business strategy, empowering executives to monitor performance, 
-      identify opportunities, and make faster, evidence-based decisions. The result 
-      is an end-to-end data ecosystem that transforms flight data into strategic 
-      intelligence, ensuring decision-makers have the insights they need — when 
-      they need them.</em>
+      <em>By combining these modules, the platform bridges the gap between data operations 
+        and business strategy, empowering executives to monitor performance, identify 
+        opportunities, and make faster, evidence-based decisions.<br>
+        The result is an end-to-end data ecosystem that transforms flight data 
+        into strategic intelligence, ensuring decision-makers have the 
+        insights they need, when they need them.
+      </em>
     </p>
 
     <hr class="hr" />
 
     <h2>Business Impact</h2>
     <ul>
-      <li><strong>360° visibility</strong> into airline operations, financial performance, and customer segments.</li>
-      <li><strong>Profitability insights</strong> by route, fleet, and market, enabling data-driven pricing adjustments.</li>
-      <li><strong>Delay analytics</strong>  quantifying the direct and indirect cost of disruptions.</li>
-      <li><strong>Customer intelligence</strong> models supporting retention, loyalty, and premium targeting.</li>
-      <li><strong>Executive-ready dashboards</strong> aligned with operational and financial KPIs.</li>
+      <li><strong>360° visibility</strong> : into airline operations, financial performance, and customer segments.</li>
+      <li><strong>Profitability insights</strong> : by route, fleet, and market, enabling data-driven pricing adjustments.</li>
+      <li><strong>Delay analytics</strong> : quantifying the direct and indirect cost of disruptions.</li>
+      <li><strong>Customer intelligence</strong> : models supporting retention, loyalty, and premium targeting.</li>
+      <li><strong>Executive-ready dashboards</strong> : aligned with operational and financial KPIs.</li>
+      <li><strong>Data Trust & Certification</strong> : 60+ automated quality tests ensuring the accuracy of financial and operational reporting.</li>
     </ul>
     <p>
       The platform enables leadership teams to:
@@ -168,14 +187,18 @@
     <ul>
       <li>Prioritize <strong>high-margin routes</strong> and streamline underperforming ones.</li>
       <li>Anticipate <strong>operational risks</strong> impacting punctuality and service quality.</li>
-      <li>Reinforce <strong>data-driven pricing and capacity planning</strong>strategies.</li>
+      <li>Reinforce <strong>data-driven pricing and capacity planning</strong> strategies.</li>
     </ul> 
 
     <hr class="hr" />
     
     <h2>Key Insights</h2>
     <p>
-      The following analysis compares major international carriers based on aggregated KPIs.
+      The following analysis compares major international carriers based on 
+      aggregated KPIs computed within the Analytics Engine.<br>
+      Each indicator helps assess both operational efficiency and 
+      financial performance, providing an overview of revenue generation, 
+      delay management, and reliability.
     </p>
     <table>
       <thead>
@@ -214,6 +237,7 @@
     <section>
     <ul class="icons">
       <li><img src="images/logos/SQL_logo.png" alt="SQL" title="SQL"></li>
+      <li><img src="images/logos/dbt_logo.png" alt="dbt" title="dbt"></li>
       <li><img src="images/logos/GitHub_logo.png" alt="GitHub" title="GitHub"></li>
       <li><img src="images/logos/data_modeling_logo.png" alt="Merise" title="Data Modeling Merise"></li>
     </ul>
@@ -237,12 +261,12 @@
       Airline Performance Analytics demonstrates how operational data can be 
       leveraged to drive strategic and financial impact. <br>
       By combining strong data governance, advanced SQL analytics, and 
-      business-oriented KPIs, the platform empowers airlines to:
+      modern Analytics Engineering, the platform empowers airlines to:
     </p>
     <ul>
       <li>Optimize revenue and operational performance.</li>
       <li>Anticipate risks and inefficiencies.</li>
-      <li>Make informed, data-backed decisions at every level of the organization.</li>
+      <li>Make informed, data-backed decisions based on a certified Single Source of Truth.</li>
     </ul>
     <p>
       <em>Because in aviation, just like in data, performance isn’t only about 
@@ -258,14 +282,17 @@
     <h2>Gallery</h2>    
     <section>
     <img src="images\projects\Airline_Perfomance\Modele_Merise.gif" alt="Modele Merise" title="Modele Merise" style="width:100%; max-width:680px; border-radius:5px;"></li>
-    <img src="images\projects\Airline_Perfomance\Best_routes.png" alt="Best Routes" title="Best routes" style="width:100%; max-width:680px; border-radius:5px;"></li>
+    <img src="images\projects\Airline_Perfomance\dbt-dag.png" alt="Best Routes" title="Best routes" style="width:100%; max-width:680px; border-radius:5px;"></li>
+    <ul class="gallery_img">
+      <li><img src="images\projects\Airline_Perfomance\Best_routes.png" alt="Modele Merise" title="Modele Merise" style="width:100%; max-width:600px; border-radius:5px;"></li>
+      <li><img src="images\projects\Airline_Perfomance\Easter_egg.png" alt="Easter egg revealed" title="Easter egg revealed" style="width:100%; max-width:600px; border-radius:5px;"></li>
+    </ul>
     <ul class="gallery_img">
       <li><img src="images\projects\Airline_Perfomance\Revenge_of_the_seat_logo.png" alt="Modele Merise" title="Modele Merise" style="width:100%; max-width:600px; border-radius:5px;"></li>
       <li><img src="images\projects\Airline_Perfomance\Return_of_the_jet_high_logo.png" alt="Easter egg revealed" title="Easter egg revealed" style="width:100%; max-width:600px; border-radius:5px;"></li>
+      <li><img src="images\projects\Airline_Perfomance\logo_the_rise_of_the_single_source.png" alt="Modele Merise" title="Modele Merise" style="width:100%; max-width:600px; border-radius:5px;"></li>
     </ul>
-    <br>
-    <img src="images\projects\Airline_Perfomance\Easter_egg.png" alt="Easter egg revealed" title="Easter egg revealed" style="width:100%; max-width:680px; border-radius:5px;"></li>
-         
+    <br>   
     </section>
 
     
