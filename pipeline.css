@@ -227,6 +227,8 @@
   width: 52px;
   height: 52px;
   display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
   box-shadow: 0 0 0 1px rgba(255, 42, 59, 0.4), 0 0 18px rgba(255, 42, 59, 0.3);
   transition: box-shadow 0.3s;
 }
