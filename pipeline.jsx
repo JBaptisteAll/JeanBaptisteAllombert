@@ -494,8 +494,25 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
           startMid: midpoint(e.touches[0], e.touches[1], rect),
           startView: { ...viewRef.current },
         };
-        // cancel any 1-finger drag
         dragRef.current = null;
+      } else if (e.touches.length === 1) {
+        pinchRef.current = null;
+        const t = e.target;
+        if (t.closest('.pnode') ||
+            t.closest('.pipeline-drawer') ||
+            t.closest('.pipeline-topbar') ||
+            t.closest('.pipeline-controls') ||
+            t.closest('.mobile-lane-sidebar') ||
+            t.closest('.mobile-bottom-bar') ||
+            t.closest('.pipeline-hints')) return;
+        dragRef.current = {
+          x: e.touches[0].clientX,
+          y: e.touches[0].clientY,
+          vx: viewRef.current.tx,
+          vy: viewRef.current.ty,
+          moved: false,
+          started: true,
+        };
       }
     }
     function onTouchMove(e) {
@@ -507,8 +524,6 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
         const { startDist, startMid, startView } = pinchRef.current;
         const factor = d / startDist;
         const newS = Math.min(Math.max(startView.s * factor, 0.12), 3);
-        // anchor: keep the original midpoint stationary in world space,
-        // then translate by mid-mid (so 2-finger drag pans)
         const wx = (startMid.x - startView.tx) / startView.s;
         const wy = (startMid.y - startView.ty) / startView.s;
         const tx = m.x - wx * newS;
@@ -516,10 +531,31 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
         setAnimating(false);
         setHasUserMoved(true);
         setClampedView({ tx, ty, s: newS });
+      } else if (e.touches.length === 1 && dragRef.current) {
+        const dx = e.touches[0].clientX - dragRef.current.x;
+        const dy = e.touches[0].clientY - dragRef.current.y;
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+          e.preventDefault();
+          dragRef.current.moved = true;
+          setAnimating(false);
+          setHasUserMoved(true);
+          setClampedView({
+            tx: dragRef.current.vx + dx,
+            ty: dragRef.current.vy + dy,
+            s: viewRef.current.s,
+          });
+        }
       }
     }
     function onTouchEnd(e) {
       if (e.touches.length < 2) pinchRef.current = null;
+      if (e.touches.length === 0) {
+        const ref = dragRef.current;
+        dragRef.current = null;
+        if (ref && ref.started && !ref.moved && focusedIdRef.current) {
+          setFocusedId(null);
+        }
+      }
     }
 
     el.addEventListener('wheel', onWheel, { passive: false });
@@ -537,9 +573,9 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
           e.target.closest('.mobile-lane-sidebar') ||
           e.target.closest('.mobile-bottom-bar') ||
           e.target.closest('.pipeline-hints')) return;
-      // ignore right-click + secondary buttons; touch pinch handled separately
+      // ignore right-click + secondary buttons; touch handled entirely in touch events
       if (e.button !== undefined && e.button !== 0) return;
-      if (e.pointerType === 'touch' && pinchRef.current) return;
+      if (e.pointerType === 'touch') return;
       dragRef.current = {
         x: e.clientX,
         y: e.clientY,
