@@ -8,7 +8,7 @@
     "location": "Paris · Île-de-France",
     "github": "https://github.com/JBaptisteAll",
     "linkedin": "https://www.linkedin.com/in/jean-baptiste-allombert/",
-    "email": "jb.allombert@example.com",
+    "email": "jb.allombert@gmail.com",
     "tagline_fr": "De la donnée brute à la donnée fiable.",
     "tagline_en": "From raw data to trusted data."
   },
@@ -785,7 +785,7 @@
       "title_en": "Download CV",
       "summary_fr": "Le format papier — pour les RH, les intégrations ATS, et tous ceux qui veulent une vue synthétique.",
       "summary_en": "The paper format — for HR, ATS integrations, and anyone wanting a synthetic view.",
-      "url": "#cv.pdf"
+      "url": "assets/CV_Jean-Baptiste_Allombert.pdf"
     },
     {
       "id": "s_contact",
@@ -799,7 +799,7 @@
       "title_en": "Contact me",
       "summary_fr": "Discutons d'un poste, d'un freelance, d'une mission ou d'un projet open-source.",
       "summary_en": "Let's chat about a role, freelance, mission or open-source project.",
-      "email": "jb.allombert@example.com"
+      "email": "jb.allombert@gmail.com"
     },
     {
       "id": "s_github",

@@ -1153,14 +1153,14 @@ function PipelineDrawer({ node, lang, onClose }) {
 
         {node.type === 'ship_cta' && (
           <div className="pdr-ship-actions">
-            {node.url && node.url !== '#cv.pdf' && (
+            {node.url && !node.url.endsWith('.pdf') && (
               <a href={node.url} target="_blank" rel="noopener" className="pdr-cta-primary">
                 <span>{lang === 'fr' ? 'Ouvrir' : 'Open'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
-            {node.url === '#cv.pdf' && (
-              <a href="#" className="pdr-cta-primary">
+            {node.url && node.url.endsWith('.pdf') && (
+              <a href={node.url} download className="pdr-cta-primary">
                 <span>↓ {lang === 'fr' ? 'Télécharger CV.pdf' : 'Download CV.pdf'}</span>
               </a>
             )}
