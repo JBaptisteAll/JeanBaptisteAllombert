@@ -448,6 +448,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
     const el = stageRef.current;
     if (!el) return;
     function onWheel(e) {
+      if (e.target.closest('.pipeline-drawer')) return;
       e.preventDefault();
       setAnimating(false);
       setHasUserMoved(true);
