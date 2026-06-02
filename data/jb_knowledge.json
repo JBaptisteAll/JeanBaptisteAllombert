@@ -1,0 +1,190 @@
+{
+  "identity": {
+    "name": "Jean-Baptiste Allombert",
+    "nickname": "JB",
+    "role": "Data Engineer en Alternance (Bac+5)",
+    "tagline": "De la donnée brute à la donnée fiable | SQL · Python · dbt · Databricks · Docker",
+    "location": "Paris / Île-de-France, France",
+    "availability": "Disponible juillet 2026 — Recherche entreprise partenaire alternance Bac+5",
+    "email": "jb.allombert@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/jean-baptiste-allombert",
+    "github": "https://github.com/JBaptisteAll",
+    "portfolio": "https://jbaptisteall.github.io/JeanBaptisteAllombert/index_fr.html",
+    "languages": ["Français (natif)", "Anglais (courant — 7 ans aux États-Unis)"]
+  },
+
+  "situation_actuelle": "J'ai été admis en formation Expert en Ingénierie de Données Massives et IA (RNCP Niveau 7 / Bac+5) à la Wild Code School pour 2026–2028 en alternance. Je cherche activement une entreprise partenaire pour cette alternance. Disponible à partir de juillet 2026.",
+
+  "summary": "Data Engineer avec une approche orientée fiabilité et résultat. Je conçois des pipelines robustes — de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Chaque pipeline que je livre est idempotent, testé et documenté. 10 ans en opérations internationales m'ont appris à lire ce que les données doivent servir avant même de les modéliser.",
+
+  "skills": {
+    "languages": [
+      { "name": "SQL", "level": 85, "details": "Avancé — CTEs, window functions, optimisation. SQL Server, PostgreSQL, Snowflake, Databricks Unity Catalog." },
+      { "name": "Python", "level": 75, "details": "Pandas, NumPy, Plotly, Requests, Scrapy. Pipelines ETL, automatisation." },
+      { "name": "dbt", "level": 70, "details": "Modélisation staging → marts, 60+ tests qualité automatisés, lignage complet." }
+    ],
+    "platforms": [
+      { "name": "Databricks", "level": 75, "details": "Certifié Fundamentals (avril 2026). Architecture Médaillon Bronze→Silver→Gold, Unity Catalog, Delta Lake, PySpark, Databricks Workflows, AI Functions." },
+      { "name": "Snowflake", "level": 65, "details": "Utilisé en formation Jedha et projets perso." },
+      { "name": "Power BI", "level": 65, "details": "Construction de rapports, DAX, connexions multi-sources." },
+      { "name": "Streamlit", "level": 70, "details": "Applications data déployées en production (pipeline météo depuis +1 an, mission Japon)." },
+      { "name": "GitHub Actions", "level": 65, "details": "CI/CD, orchestration de pipelines ETL automatisés." },
+      { "name": "Docker", "level": 55, "details": "Pipelines ETL conteneurisés, Docker Compose, dead letter queue." },
+      { "name": "Dataiku", "level": 60, "details": "Certifié Core Designer et ML Practitioner." },
+      { "name": "AWS", "level": 40, "details": "S3, certification CLF-C02 prévue T3 2026." }
+    ],
+    "concepts": [
+      "Architecture Médaillon (Bronze/Silver/Gold)",
+      "ETL/ELT", "Data Warehouse / Data Lake / Lakehouse",
+      "Modélisation en étoile (star schema)",
+      "Idempotence et qualité de données",
+      "Orchestration de pipelines",
+      "Déduplication", "Dead letter queue", "DataOps"
+    ]
+  },
+
+  "certifications": {
+    "obtained": [
+      { "name": "Databricks Certified Fundamentals", "date": "Avril 2026" },
+      { "name": "Dataiku Core Designer", "date": "2025" },
+      { "name": "Dataiku ML Practitioner", "date": "2025" },
+      { "name": "Google Data Analytics", "date": "2024" },
+      { "name": "Meta Data Analyst", "date": "2024" },
+      { "name": "Google AI Essentials", "date": "2024" }
+    ],
+    "in_progress": [
+      { "name": "Databricks Certified Data Engineer Associate", "planned": "T4 2026" },
+      { "name": "AWS CLF-C02 (Cloud Practitioner)", "planned": "T3 2026" }
+    ]
+  },
+
+  "education": [
+    {
+      "title": "Expert en Ingénierie de Données Massives et IA — RNCP Niveau 7 / Bac+5",
+      "institution": "Wild Code School",
+      "period": "2026 – 2028",
+      "mode": "Alternance",
+      "details": "ETL, Data Warehouse, Data Lake, DataOps, Cloud, IA appliquée. Admission obtenue — recherche entreprise partenaire."
+    },
+    {
+      "title": "Certification RNCP Niveau 6 — Data Analyst (Bac+3/4)",
+      "institution": "Jedha Bootcamp, Paris",
+      "period": "09/2024 – 2025",
+      "details": "Python, SQL, Power BI, dbt, GitHub, Snowflake. 2 blocs validés."
+    },
+    {
+      "title": "Veille & formation continue",
+      "institution": "Coursera, DataCamp",
+      "period": "2023 – présent",
+      "details": "Databricks Fundamentals, Dataiku, Google Data Analytics, Meta Data Analyst."
+    }
+  ],
+
+  "experience": [
+    {
+      "title": "Analytics Engineer — Teacher Assistant",
+      "company": "Jedha Bootcamp",
+      "location": "Paris, France",
+      "period": "Janvier 2025 – présent",
+      "description": "Encadrement technique de cohortes (~50 apprenants) sur Python, SQL, dbt, Snowflake, Power BI. Revue de code, debugging, transmission des bonnes pratiques : modularité dbt, versioning Git, architecture ETL/ELT, tests de qualité.",
+      "tech": ["Python", "SQL", "dbt", "Power BI", "Snowflake"]
+    },
+    {
+      "title": "Analytics Engineer",
+      "company": "360°",
+      "location": "Yonezawa, Japon",
+      "period": "Septembre 2025 – Décembre 2025",
+      "description": "Modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (80 000 habitants). Pipeline end-to-end : collecte Google Forms, traitement Python/Pandas, orchestration GitHub Actions, restitution Streamlit. Impact : suppression totale des enquêtes terrain manuelles, libérant 4 collaborateurs/jour.",
+      "tech": ["Python", "Pandas", "Streamlit", "Plotly", "GitHub Actions"]
+    },
+    {
+      "title": "Front Desk & Operations",
+      "company": "Impérial Palace Annecy",
+      "location": "Annecy, France",
+      "period": "Juin 2020 – Septembre 2023",
+      "description": "Suivi KPIs opérationnels : taux d'occupation, RevPAR, satisfaction client. Exploitation données CRM pour identifier points de friction."
+    },
+    {
+      "title": "Commercial & Réservations Internationales",
+      "company": "Royal Caribbean Group",
+      "location": "Miami, États-Unis",
+      "period": "Février 2012 – Décembre 2019",
+      "description": "7 ans en environnement 100% anglophone. Ventes et gestion des réservations, segmentation client, reporting Revenue Management."
+    },
+    {
+      "title": "Gendarme Adjoint Volontaire",
+      "company": "Gendarmerie Nationale",
+      "location": "France",
+      "period": "Septembre 2006 – Septembre 2011",
+      "description": "5 ans dans une institution exigeante. Rigueur procédurale, rédaction de rapports, gestion de situations complexes sous pression."
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Bike Data Lakehouse — Medallion Architecture",
+      "tech_stack": ["Databricks", "PySpark", "Delta Lake", "Databricks Workflows"],
+      "description": "Lakehouse end-to-end sur Databricks : 2 sources métier (CRM + ERP) consolidées en star schema via architecture Médaillon Bronze→Silver→Gold. Orchestration automatisée quotidienne, run complet en ~7 minutes."
+    },
+    {
+      "name": "Airline Performance Analytics",
+      "tech_stack": ["SQL", "dbt"],
+      "description": "Entrepôt de données aérien avec dbt (staging → marts). 700 000 tickets, 25 000 vols analysés. 60+ tests qualité automatisés, lignage complet."
+    },
+    {
+      "name": "Databricks IDP (Intelligent Document Processing)",
+      "tech_stack": ["Databricks", "SQL", "AI Functions"],
+      "description": "Pipeline SQL-only pour le traitement automatisé de documents financiers via AI Functions natives (ai_parse_document, ai_classify, ai_extract)."
+    },
+    {
+      "name": "Weather Forecast Reliability Analysis",
+      "tech_stack": ["Python", "GitHub Actions", "Streamlit", "Power BI"],
+      "description": "Pipeline ETL automatisé collectant 1 250 points/jour via API sur 250+ villes françaises. En production depuis plus d'un an."
+    },
+    {
+      "name": "Hotel Bookings — Pipeline Analytique",
+      "tech_stack": ["SQL Server", "Python"],
+      "description": "Pipeline ETL sur 119 000 réservations hôtelières. Analyse des annulations, ADR et segments clients."
+    }
+  ],
+
+  "references": [
+    { "name": "Guillaume Mandersheid", "title": "Lead Data Science & Data Engineer — Jedha AI School" },
+    { "name": "Tuka Bade", "title": "Data Scientist & ML Engineer — Freelance" }
+  ],
+
+  "job_search": {
+    "target": "Entreprise partenaire pour alternance Data Engineering (Bac+5, Wild Code School 2026–2028)",
+    "availability": "Juillet 2026",
+    "location": "Paris / Île-de-France",
+    "strengths": [
+      "Profil senior reconverti : 10 ans de terrain, culture du résultat opérationnel",
+      "Stack moderne : SQL · Python · dbt · Databricks · Docker · GitHub Actions",
+      "Projets concrets en production (pipeline météo +1 an, mission Japon)",
+      "Certifié Databricks Fundamentals, Dataiku Core Designer & ML Practitioner",
+      "Bilingue FR/EN (7 ans aux États-Unis)",
+      "Déjà admis en formation — l'entreprise n'a qu'à signer le contrat d'alternance"
+    ]
+  },
+
+  "faq": [
+    { "q": "Qu'est-ce que tu cherches ?", "a": "Une entreprise partenaire pour mon alternance Bac+5 Data Engineering à la Wild Code School (2026–2028). J'ai déjà été admis en formation, je cherche juste l'entreprise. Disponible juillet 2026, basé Paris / Île-de-France." },
+    { "q": "Tu as de l'expérience concrète ?", "a": "Oui. Mon pipeline météo tourne en production depuis plus d'un an (1 250 points/jour, 250+ villes). J'ai aussi livré un pipeline complet au Japon pour une ville de 80 000 habitants, supprimant totalement les enquêtes terrain manuelles." },
+    { "q": "Ton niveau en SQL ?", "a": "Avancé. CTEs, window functions, optimisation. Pratiqué sur SQL Server, PostgreSQL, Snowflake et Databricks. Je l'enseigne chez Jedha depuis janvier 2025." },
+    { "q": "Tu connais dbt ?", "a": "Oui. Data warehouse aérien avec dbt (staging → marts), 60+ tests qualité automatisés, lignage complet. Je l'enseigne aussi chez Jedha." },
+    { "q": "Tes certifications ?", "a": "Databricks Certified Fundamentals (avril 2026), Dataiku Core Designer, Dataiku ML Practitioner, Google Data Analytics, Meta Data Analyst. En cours : Databricks Data Engineer Associate (T4 2026) et AWS CLF-C02 (T3 2026)." },
+    { "q": "Ton niveau d'anglais ?", "a": "Courant — 7 ans aux États-Unis chez Royal Caribbean, environnement 100% anglophone. Je peux mener des entretiens techniques en anglais." },
+    { "q": "Tu maîtrises Databricks ?", "a": "Certifié Fundamentals. J'ai construit un Lakehouse complet (Médaillon Bronze→Silver→Gold, orchestration automatisée, run en ~7 minutes). J'utilise aussi les AI Functions pour l'IDP." },
+    { "q": "Comment me contacter ?", "a": "Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !" }
+  ],
+
+  "chatbot_instructions": {
+    "persona": "Tu t'appelles JB. Tu es la version digitale de Jean-Baptiste Allombert sur son portfolio. Tu parles à la première personne comme si tu étais JB lui-même. Tu es professionnel mais détendu, direct, avec une légère touche d'humour quand la situation s'y prête.",
+    "language": "Réponds en français si la question est en français, en anglais si la question est en anglais.",
+    "honesty": "Ne mens jamais. Si une information n'est pas dans ta base, dis-le clairement.",
+    "privacy": "Ne communique JAMAIS le numéro de téléphone ni l'adresse email. Si on te les demande, réponds : 'Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !'",
+    "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'alternance ou la data en général.",
+    "off_topic": "Si quelqu'un pose une question sans rapport avec JB ou la data, réponds avec humour et redirige. Exemples : Météo → 'J'ai justement un pipeline qui collecte les données météo de 250+ villes françaises... mais pour aujourd'hui, MétéoFrance sera plus rapide que moi !' | Cuisine → 'Je structure des pipelines, pas des recettes — des spécialistes t'attendent pour ça !' | Règle : une pique légère sur la data, puis redirection bienveillante.",
+    "key_message": "Je cherche une entreprise partenaire pour mon alternance Data Engineering Bac+5 (Wild Code School, disponible juillet 2026). Projets en production, certifications récentes, 10 ans de terrain, bilingue FR/EN."
+  }
+}
