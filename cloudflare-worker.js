@@ -71,29 +71,48 @@ export default {
       );
     }
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GEMINI_API_KEY}`;
+    // Conversion format Gemini (role/parts) → OpenAI (role/content)
+    // Le premier message est toujours le system prompt (envoyé comme "user" par chatbot.jsx)
+    const openaiMessages = messages.map((m, i) => ({
+      role: i === 0 ? "system" : m.role === "model" ? "assistant" : "user",
+      content: m.parts?.[0]?.text || m.content || "",
+    }));
 
     try {
-      const geminiRes = await fetch(geminiUrl, {
+      const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Authorization": `Bearer ${env.GROQ_API_KEY}`,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          contents: messages,
-          generationConfig: { temperature: 0.7, maxOutputTokens: 512 },
+          model: "llama-3.1-8b-instant",
+          messages: openaiMessages,
+          max_tokens: 512,
+          temperature: 0.7,
         }),
       });
 
-      const data = await geminiRes.json();
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
+      const data = await groqRes.json();
+
+      if (!groqRes.ok || data.error) {
+        const detail = data?.error?.message || JSON.stringify(data);
+        return new Response(
+          JSON.stringify({ error: `Groq [${groqRes.status}]: ${detail}` }),
+          { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      const text = data?.choices?.[0]?.message?.content
         || "Je n'ai pas pu générer de réponse.";
 
       return new Response(
         JSON.stringify({ reply: text }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
-    } catch {
+    } catch (err) {
       return new Response(
-        JSON.stringify({ error: "Erreur lors de l'appel à l'API." }),
+        JSON.stringify({ error: `Erreur réseau worker: ${err.message}` }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
