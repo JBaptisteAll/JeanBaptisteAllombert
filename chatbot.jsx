@@ -209,7 +209,7 @@ function ChatBot() {
         .jb-char-wrap {
           position: fixed;
           bottom: 24px;
-          right: 28px;
+          left: 28px;
           z-index: 9997;
           width: 120px;
           height: 290px;
@@ -270,11 +270,11 @@ function ChatBot() {
         .jb-char-bubble {
           position: fixed;
           bottom: 268px;
-          right: 140px;
+          left: 148px;
           z-index: 9998;
           background: rgba(10,12,22,0.96);
           border: 1px solid rgba(255,255,255,0.14);
-          border-radius: 14px 14px 0 14px;
+          border-radius: 14px 14px 14px 0;
           padding: 9px 13px;
           font-family: 'JetBrains Mono', monospace;
           font-size: 11px;
@@ -287,8 +287,8 @@ function ChatBot() {
         .jb-char-bubble::after {
           content: '';
           position: absolute;
-          bottom: -8px; right: 0;
-          border-left: 8px solid transparent;
+          bottom: -8px; left: 0;
+          border-right: 8px solid transparent;
           border-top: 8px solid rgba(255,255,255,0.14);
         }
         @keyframes jb-bubble-in  { from{opacity:0;transform:scale(0.85) translateY(6px)} to{opacity:1;transform:scale(1) translateY(0)} }
@@ -299,7 +299,7 @@ function ChatBot() {
         .jb-chat-window {
           position: fixed;
           bottom: 320px;
-          right: 28px;
+          left: 28px;
           z-index: 9999;
           width: 360px;
           max-height: 520px;
@@ -318,8 +318,8 @@ function ChatBot() {
           to   { opacity:1; transform:translateY(0) scale(1); }
         }
         @media (max-width: 480px) {
-          .jb-chat-window { right:8px; left:8px; width:auto; bottom:310px; }
-          .jb-char-wrap   { right:12px; }
+          .jb-chat-window { left:8px; right:8px; width:auto; bottom:310px; }
+          .jb-char-wrap   { left:12px; }
         }
 
         /* Header */
