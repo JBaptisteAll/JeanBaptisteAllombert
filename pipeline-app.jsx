@@ -41,11 +41,14 @@ function PipelineApp() {
   }
 
   return (
-    <PipelinePortfolio
-      data={data}
-      lang={lang}
-      setLang={setLang}
-    />
+    <>
+      <PipelinePortfolio
+        data={data}
+        lang={lang}
+        setLang={setLang}
+      />
+      <ChatBot />
+    </>
   );
 }
 
