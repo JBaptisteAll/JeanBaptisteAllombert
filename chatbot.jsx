@@ -214,8 +214,7 @@ function ChatBot() {
           width: 120px;
           height: 290px;
           cursor: pointer;
-          animation: jb-arrive 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s both,
-                     jb-walk-sway 3s ease-in-out 1s forwards;
+          animation: jb-arrive 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s both;
           filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
         }
         .jb-char-wrap.is-open {
@@ -226,13 +225,16 @@ function ChatBot() {
           from { opacity:0; transform:translateY(30px) scale(0.8); }
           to   { opacity:1; transform:translateY(0) scale(1); }
         }
-        /* Marche — balancement gauche/droite jusqu'à la colonne QUALITY */
-        @keyframes jb-walk-sway {
-          0%   { transform: translateX(0) rotate(0deg); }
-          25%  { transform: translateX(-200px) rotate(-0.8deg); }
-          50%  { transform: translateX(-400px) rotate(0deg); }
-          75%  { transform: translateX(-200px) rotate(0.8deg); }
-          100% { transform: translateX(0) rotate(0deg); }
+        /* Wave occasionnel — bras gauche se lève de temps en temps */
+        @keyframes jb-wave {
+          0%, 68%  { transform: rotate(0deg); }
+          73%      { transform: rotate(90deg); }
+          78%      { transform: rotate(72deg); }
+          83%      { transform: rotate(90deg); }
+          88%      { transform: rotate(72deg); }
+          93%      { transform: rotate(90deg); }
+          98%      { transform: rotate(10deg); }
+          100%     { transform: rotate(0deg); }
         }
         @keyframes jb-float-idle {
           0%,100% { transform: translateY(0); }
@@ -250,41 +252,18 @@ function ChatBot() {
         }
         /* Bras */
         .jb-arm-l {
-          animation: jb-al 0.65s ease-in-out infinite 1s;
+          animation: jb-wave 9s ease-in-out infinite 2s;
           transform-origin: 51px 128px;
         }
         .jb-arm-r {
-          animation: jb-ar 0.65s ease-in-out infinite 1s;
           transform-origin: 69px 128px;
         }
-        @keyframes jb-al {
-          0%,100% { transform: rotate(0deg); }
-          25%     { transform: rotate(-22deg); }
-          75%     { transform: rotate(22deg); }
-        }
-        @keyframes jb-ar {
-          0%,100% { transform: rotate(0deg); }
-          25%     { transform: rotate(22deg); }
-          75%     { transform: rotate(-22deg); }
-        }
-        /* Jambes */
+        /* Jambes — statiques au repos */
         .jb-leg-l {
-          animation: jb-ll 0.65s ease-in-out infinite 1s;
           transform-origin: 57px 153px;
         }
         .jb-leg-r {
-          animation: jb-lr 0.65s ease-in-out infinite 1s;
           transform-origin: 63px 153px;
-        }
-        @keyframes jb-ll {
-          0%,100% { transform: rotate(0deg); }
-          25%     { transform: rotate(20deg); }
-          75%     { transform: rotate(-20deg); }
-        }
-        @keyframes jb-lr {
-          0%,100% { transform: rotate(0deg); }
-          25%     { transform: rotate(-20deg); }
-          75%     { transform: rotate(20deg); }
         }
 
         /* ── Bulle ── */
