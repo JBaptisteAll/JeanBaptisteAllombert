@@ -88,7 +88,7 @@ export default {
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
           messages: openaiMessages,
-          max_tokens: 512,
+          max_tokens: 350,
           temperature: 0.7,
         }),
       });
