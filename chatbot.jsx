@@ -9,7 +9,7 @@
 // Remplacer WORKER_URL par l'URL de ton Cloudflare Worker
 // ============================================================
 
-const WORKER_URL = "jb-chatbot-proxy.jb-allombert.workers.dev";
+const WORKER_URL = "https://jb-chatbot-proxy.jb-allombert.workers.dev";
 
 const { useState, useRef, useEffect, useCallback } = React;
 
@@ -143,14 +143,14 @@ function ChatBot() {
   const [systemPrompt, setSystemPrompt] = useState(null);
   const [error, setError] = useState(null);
   const [suggestionsShown, setSuggestionsShown] = useState(true);
-  const [bubbleVisible, setBubbleVisible] = useState(true);
+  const [bubbleVisible, setBubbleVisible] = useState(false);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
     buildSystemPrompt().then(setSystemPrompt).catch(() => setError("Erreur de chargement du contexte."));
-    // Cache la bulle après 6s
-    const t = setTimeout(() => setBubbleVisible(false), 6000);
+    // Affiche la bulle après 1 aller-retour (1s delay + 3s walk = 4s)
+    const t = setTimeout(() => setBubbleVisible(true), 4000);
     return () => clearTimeout(t);
   }, []);
 
@@ -215,7 +215,7 @@ function ChatBot() {
           height: 290px;
           cursor: pointer;
           animation: jb-arrive 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s both,
-                     jb-walk-sway 0.65s ease-in-out infinite 1s;
+                     jb-walk-sway 3s ease-in-out 1s forwards;
           filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
         }
         .jb-char-wrap.is-open {
@@ -226,12 +226,12 @@ function ChatBot() {
           from { opacity:0; transform:translateY(30px) scale(0.8); }
           to   { opacity:1; transform:translateY(0) scale(1); }
         }
-        /* Marche — balancement gauche/droite ~20px */
+        /* Marche — balancement gauche/droite jusqu'à la colonne QUALITY */
         @keyframes jb-walk-sway {
           0%   { transform: translateX(0) rotate(0deg); }
-          25%  { transform: translateX(-10px) rotate(-0.8deg); }
-          50%  { transform: translateX(-20px) rotate(0deg); }
-          75%  { transform: translateX(-10px) rotate(0.8deg); }
+          25%  { transform: translateX(-200px) rotate(-0.8deg); }
+          50%  { transform: translateX(-400px) rotate(0deg); }
+          75%  { transform: translateX(-200px) rotate(0.8deg); }
           100% { transform: translateX(0) rotate(0deg); }
         }
         @keyframes jb-float-idle {
