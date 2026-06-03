@@ -56,6 +56,9 @@
       { "name": "Databricks Certified Fundamentals", "date": "Avril 2026" },
       { "name": "Dataiku Core Designer", "date": "2025" },
       { "name": "Dataiku ML Practitioner", "date": "2025" },
+      { "name": "Lead Data Analysis", "date": "2025" },
+      { "name": "Concepteur Développeur en Science des Données — Bloc 2 (Analyse Exploratoire, descriptive et inférentielle)", "date": "2025" },
+      { "name": "Concepteur Développeur en Science des Données — Bloc 6 (Direction de projets de gestion de données)", "date": "2025" },
       { "name": "Google Data Analytics", "date": "2024" },
       { "name": "Meta Data Analyst", "date": "2024" },
       { "name": "Google AI Essentials", "date": "2024" }
@@ -100,31 +103,31 @@
     {
       "title": "Analytics Engineer",
       "company": "360°",
-      "location": "Yonezawa, Japon",
-      "period": "Septembre 2025 – Décembre 2025",
-      "description": "Modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (80 000 habitants). Pipeline end-to-end : collecte Google Forms, traitement Python/Pandas, orchestration GitHub Actions, restitution Streamlit. Impact : suppression totale des enquêtes terrain manuelles, libérant 4 collaborateurs/jour.",
+      "location": "Yonezawa, Préfecture de Yamagata, Japon",
+      "period": "Septembre 2025 – Décembre 2025 (4 mois)",
+      "description": "Mission de modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (80 000 habitants). Pipeline de données automatisé de bout en bout : collecte Google Forms, traitement Python/Pandas, orchestration GitHub Actions, restitution Streamlit déployé pour la mairie. Modélisation pour l'analyse en libre-service : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables. Résultat : suppression totale des enquêtes terrain manuelles et de leurs coûts logistiques. Pipeline en production, accessible en temps réel.",
       "tech": ["Python", "Pandas", "Streamlit", "Plotly", "GitHub Actions"]
     },
     {
       "title": "Front Desk & Operations",
       "company": "Impérial Palace Annecy",
       "location": "Annecy, France",
-      "period": "Juin 2020 – Septembre 2023",
-      "description": "Suivi KPIs opérationnels : taux d'occupation, RevPAR, satisfaction client. Exploitation données CRM pour identifier points de friction."
+      "period": "Juin 2020 – Septembre 2023 (3 ans 4 mois)",
+      "description": "Au-delà de la gestion du front desk, suivi et analyse des KPIs opérationnels : taux d'occupation, RevPAR, délais de service, satisfaction client. Exploitation CRM pour identifier les points de friction dans le parcours client et proposer des actions correctives. Interface entre équipes opérationnelles et direction pour traduire les données en décisions concrètes. C'est ici que j'ai développé le réflexe de toujours chercher ce que les chiffres disent vraiment avant de chercher des solutions."
     },
     {
-      "title": "Commercial & Réservations Internationales",
+      "title": "Sales & Operations",
       "company": "Royal Caribbean Group",
-      "location": "Miami, États-Unis",
-      "period": "Février 2012 – Décembre 2019",
-      "description": "7 ans en environnement 100% anglophone. Ventes et gestion des réservations, segmentation client, reporting Revenue Management."
+      "location": "Miami, Florida, États-Unis",
+      "period": "Février 2012 – Décembre 2019 (7 ans 11 mois)",
+      "description": "Vente et gestion des réservations de croisières à bord, environnement international générant plusieurs millions de transactions annuelles. Chaque semaine, analyse de la liste des passagers : historique de fidélité, nombre de voyages, classe de cabine, pays d'origine — ces insights étaient transmis au manager pour adapter la stratégie commerciale. C'est dans ce rôle que j'ai développé mon premier réflexe de segmentation client, sans le savoir encore."
     },
     {
       "title": "Gendarme Adjoint Volontaire",
       "company": "Gendarmerie Nationale",
       "location": "France",
-      "period": "Septembre 2006 – Septembre 2011",
-      "description": "5 ans dans une institution exigeante. Rigueur procédurale, rédaction de rapports, gestion de situations complexes sous pression."
+      "period": "Septembre 2006 – Septembre 2011 (5 ans 1 mois)",
+      "description": "5 ans au sein d'une institution exigeante dans un environnement normé où la rigueur, la précision et le respect des procédures n'étaient pas négociables. Rédaction de rapports administratifs, gestion de situations complexes sous pression, travail en équipe pluridisciplinaire. Une expérience qui m'a appris la discipline et la fiabilité que je mobilise encore aujourd'hui."
     }
   ],
 
@@ -271,6 +274,6 @@
     "privacy": "Ne communique JAMAIS le numéro de téléphone ni l'adresse email. Si on te les demande, réponds : 'Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !'",
     "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'alternance ou la data en général.",
     "off_topic": "Si quelqu'un pose une question sans rapport avec JB ou la data, réponds avec humour et redirige. Exemples : Météo → 'J'ai justement un pipeline qui collecte les données météo de 250+ villes françaises... mais pour aujourd'hui, MétéoFrance sera plus rapide que moi !' | Cuisine → 'Je structure des pipelines, pas des recettes — des spécialistes t'attendent pour ça !' | Règle : une pique légère sur la data, puis redirection bienveillante.",
-    "key_message": "Je cherche une entreprise partenaire pour mon alternance Data Engineering Bac+5 (Wild Code School, disponible juillet 2026). Projets en production, certifications récentes, 10 ans de terrain, bilingue FR/EN."
+    "key_message": "Je cherche une entreprise partenaire pour mon alternance Data Engineering Bac+5 (Wild Code School, disponible juillet 2026). Projets en production, certifications Databricks, 10 ans de KPIs terrain, bilingue FR/EN. Je construis des pipelines fiables — si tu cherches un alternant qui arrive avec des projets concrets et une culture du résultat, parlons-en."
   }
 }
