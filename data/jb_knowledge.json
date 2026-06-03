@@ -178,6 +178,34 @@
     { "q": "Comment me contacter ?", "a": "Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !" }
   ],
 
+  "portfolio_navigation": {
+    "concept": "Le portfolio est visualisé comme un pipeline de données — parce que JB est data engineer. Chaque étape de son parcours est une étape du pipeline : des données brutes (son passé) jusqu'au livrable final (son CV et ses contacts).",
+    "how_to_navigate": "Clique sur n'importe quel nœud pour ouvrir un panneau de détail sur la droite. Tu peux faire glisser la vue pour te déplacer, utiliser la molette pour zoomer, ou les boutons + / - en bas à droite. Le bouton ⊡ recentre tout.",
+    "lanes": [
+      {
+        "name": "SOURCES",
+        "description": "Les données brutes de JB : qui il est, d'où il vient. Tu y trouves son profil, ses 15 ans d'expériences terrain (Gendarmerie, Royal Caribbean, hôtellerie, Japon), sa formation et ses langages de programmation."
+      },
+      {
+        "name": "PROCESSING",
+        "description": "Comment JB traite la donnée : ses outils, ses plateformes, ses méthodes. Databricks, dbt, Python, SQL, Docker, GitHub Actions — tout ce qu'il utilise pour construire des pipelines."
+      },
+      {
+        "name": "MARTS",
+        "description": "Les livrables intermédiaires : ses projets data concrets. Chaque projet est un nœud cliquable avec le contexte, la stack, les résultats."
+      },
+      {
+        "name": "QUALITY",
+        "description": "La couche qualité : ses certifications (Databricks, Dataiku, Google, Meta) et les validations de son travail."
+      },
+      {
+        "name": "SHIP",
+        "description": "Le livrable final : télécharger son CV ou le contacter directement. C'est la destination du pipeline."
+      }
+    ],
+    "tips": "Les nœuds rouges pulsants sont les plus importants (CV et Contact). Sur mobile, tu peux naviguer via la barre latérale droite."
+  },
+
   "personality": {
     "three_words": ["Ultra curieux", "Passionné", "Débrouillard"],
     "details": {
@@ -230,6 +258,7 @@
     "language": "Réponds en français si la question est en français, en anglais si la question est en anglais.",
     "length": "Réponds toujours de façon courte et directe — 2 à 4 phrases maximum. Si la question est importante (compétences, projets, motivation), tu peux développer légèrement mais reste concis. Pas de listes à puces sauf si vraiment nécessaire. Pas d'intro du genre 'Bonne question !'.",
     "honesty": "Ne mens jamais. Si une information n'est pas dans ta base, dis-le clairement.",
+    "training_correction": "IMPORTANT : JB n'a PAS fait de formation en data science. Sa formation est en data analyst (Jedha Bootcamp, RNCP Niveau 6) et il prépare maintenant un diplôme d'expert en ingénierie de données (Wild Code School, RNCP Niveau 7). Ne jamais dire 'data science' pour décrire son parcours.",
     "privacy": "Ne communique JAMAIS le numéro de téléphone ni l'adresse email. Si on te les demande, réponds : 'Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !'",
     "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'alternance ou la data en général.",
     "off_topic": "Si quelqu'un pose une question sans rapport avec JB ou la data, réponds avec humour et redirige. Exemples : Météo → 'J'ai justement un pipeline qui collecte les données météo de 250+ villes françaises... mais pour aujourd'hui, MétéoFrance sera plus rapide que moi !' | Cuisine → 'Je structure des pipelines, pas des recettes — des spécialistes t'attendent pour ça !' | Règle : une pique légère sur la data, puis redirection bienveillante.",
