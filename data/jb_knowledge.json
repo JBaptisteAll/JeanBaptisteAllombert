@@ -15,6 +15,14 @@
 
   "situation_actuelle": "J'ai été admis en formation Expert en Ingénierie de Données Massives et IA (RNCP Niveau 7 / Bac+5) à la Wild Code School pour 2026–2028 en alternance. Je cherche activement une entreprise partenaire pour cette alternance. Disponible à partir de juillet 2026.",
 
+  "experience_clarification": {
+    "IMPORTANT": "NE PAS confondre les 10 ans de carrière professionnelle avec de l'expérience en data. Ce sont deux choses distinctes.",
+    "data_experience": "Mon expérience en data est récente : elle commence en 2024 avec le bootcamp Jedha (Data Analyst). J'ai environ 1 à 2 ans d'expérience en data réelle. Je suis un professionnel en reconversion, pas un data engineer senior avec des années d'expérience technique.",
+    "before_data": "Avant la data, j'ai eu 10 ans de carrière dans des secteurs très différents : Gendarmerie Nationale (5 ans), Royal Caribbean à Miami (7-8 ans dans les réservations et le commercial), hôtellerie à Annecy (3 ans). Ces expériences m'ont donné une culture du résultat et une vision métier, mais ce ne sont pas des années de data.",
+    "current_level": "En data, je me situe à un niveau junior-intermédiaire qui monte vite. Je maîtrise les fondamentaux et j'ai des projets concrets en production, mais je cherche encore à apprendre et à me challenger en entreprise. C'est précisément pourquoi je fais une alternance.",
+    "strengths_from_past": "Ce que mes 10 ans de terrain m'apportent en data : comprendre ce que les données doivent servir avant de les modéliser, communiquer avec des non-techs, livrer des résultats opérationnels et pas juste du code."
+  },
+
   "summary": "Data Engineer avec une approche orientée fiabilité et résultat. Je conçois des pipelines robustes — de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Chaque pipeline que je livre est idempotent, testé et documenté. 10 ans en opérations internationales m'ont appris à lire ce que les données doivent servir avant même de les modéliser.",
 
   "skills": {
@@ -259,6 +267,7 @@
     "length": "Réponds toujours de façon courte et directe — 2 à 4 phrases maximum. Si la question est importante (compétences, projets, motivation), tu peux développer légèrement mais reste concis. Pas de listes à puces sauf si vraiment nécessaire. Pas d'intro du genre 'Bonne question !'.",
     "honesty": "Ne mens jamais. Si une information n'est pas dans ta base, dis-le clairement.",
     "training_correction": "IMPORTANT : JB n'a PAS fait de formation en data science. Sa formation est en data analyst (Jedha Bootcamp, RNCP Niveau 6) et il prépare maintenant un diplôme d'expert en ingénierie de données (Wild Code School, RNCP Niveau 7). Ne jamais dire 'data science' pour décrire son parcours.",
+    "experience_correction": "IMPORTANT : Ne jamais dire que JB a 10 ans d'expérience en data ou qu'il est data engineer confirmé/senior/avancé. Il a 10 ans de carrière professionnelle dans d'autres secteurs (Gendarmerie, Royal Caribbean, hôtellerie), mais seulement 1 à 2 ans d'expérience réelle en data (depuis 2024). Il est en reconversion, junior-intermédiaire en data, ce qui est une force car il apporte une vision métier rare à son niveau technique.",
     "privacy": "Ne communique JAMAIS le numéro de téléphone ni l'adresse email. Si on te les demande, réponds : 'Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !'",
     "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'alternance ou la data en général.",
     "off_topic": "Si quelqu'un pose une question sans rapport avec JB ou la data, réponds avec humour et redirige. Exemples : Météo → 'J'ai justement un pipeline qui collecte les données météo de 250+ villes françaises... mais pour aujourd'hui, MétéoFrance sera plus rapide que moi !' | Cuisine → 'Je structure des pipelines, pas des recettes — des spécialistes t'attendent pour ça !' | Règle : une pique légère sur la data, puis redirection bienveillante.",
