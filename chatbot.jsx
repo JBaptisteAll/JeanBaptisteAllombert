@@ -69,7 +69,7 @@ MESSAGE CLÉ : ${ci.key_message}`;
 }
 
 // ── SVG Personnage stickman ──────────────────────────────────
-function JBCharacter({ isOpen, isSitting }) {
+function JBCharacter({ isOpen }) {
   return (
     <svg
       viewBox="0 0 120 290"
@@ -115,13 +115,13 @@ function JBCharacter({ isOpen, isSitting }) {
       </g>
 
       {/* JAMBE GAUCHE */}
-      <g className={isSitting ? "jb-leg-l-sit" : (isOpen ? "" : "jb-leg-l")} style={{ transformOrigin: "57px 153px" }}>
+      <g className={isOpen ? "" : "jb-leg-l"} style={{ transformOrigin: "57px 153px" }}>
         <path d="M57 153 Q48 210 38 258" stroke="#222" strokeWidth="4.5" strokeLinecap="round"/>
         <ellipse cx="33" cy="262" rx="14" ry="6" fill="#1a1a1a"/>
       </g>
 
       {/* JAMBE DROITE */}
-      <g className={isSitting ? "jb-leg-r-sit" : (isOpen ? "" : "jb-leg-r")} style={{ transformOrigin: "63px 153px" }}>
+      <g className={isOpen ? "" : "jb-leg-r"} style={{ transformOrigin: "63px 153px" }}>
         <path d="M63 153 Q72 210 82 258" stroke="#222" strokeWidth="4.5" strokeLinecap="round"/>
         <ellipse cx="87" cy="262" rx="14" ry="6" fill="#1a1a1a"/>
       </g>
@@ -144,7 +144,6 @@ function ChatBot() {
   const [error, setError] = useState(null);
   const [suggestionsShown, setSuggestionsShown] = useState(true);
   const [bubbleVisible, setBubbleVisible] = useState(false);
-  const [questionCount, setQuestionCount] = useState(0);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -174,7 +173,6 @@ function ChatBot() {
     const userMsg = { role: "user", parts: [{ text: userText }] };
     const updated = [...messages, userMsg];
     setMessages(updated);
-    setQuestionCount(prev => prev + 1);
     setLoading(true);
 
     const geminiMessages = [
@@ -259,17 +257,6 @@ function ChatBot() {
         .jb-arm-r {
           animation: jb-wave-r 9s ease-in-out infinite 2s;
           transform-origin: 69px 128px;
-        }
-        /* Jambes assis en tailleur */
-        .jb-leg-l-sit {
-          transform: rotate(-75deg);
-          transform-origin: 57px 153px;
-          transition: transform 1.2s cubic-bezier(0.4,0,0.2,1);
-        }
-        .jb-leg-r-sit {
-          transform: rotate(75deg);
-          transform-origin: 63px 153px;
-          transition: transform 1.2s cubic-bezier(0.4,0,0.2,1);
         }
         /* Jambes — statiques au repos */
         .jb-leg-l {
@@ -431,7 +418,7 @@ function ChatBot() {
         onClick={() => { setOpen(o => !o); setBubbleVisible(false); }}
         title={open ? "Fermer le chat" : "Discuter avec JB"}
       >
-        <JBCharacter isOpen={open} isSitting={questionCount >= 3} />
+        <JBCharacter isOpen={open} />
       </div>
 
       {/* ── Fenêtre de chat ── */}
