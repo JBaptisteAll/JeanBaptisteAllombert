@@ -24,8 +24,8 @@
       "title_en": "About",
       "summary_fr": "Data Engineer · Analytics Engineer. 10 ans de KPIs terrain (tourisme & hôtellerie internationale) avant d'écrire ma première ligne de code — j'applique cette culture du résultat opérationnel à l'architecture des données.",
       "summary_en": "Data Engineer · Analytics Engineer. 10 years of field KPIs (international tourism & hospitality) before writing my first line of code — I bring that operations-first culture to data architecture.",
-      "body_fr": "**Ce que je fais** : je conçois des pipelines de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale — Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client.\n\n**Ce que je cherche** : un poste de Data Engineer dans une équipe où la qualité de la donnée est une priorité. Paris / Île-de-France. Disponible immédiatement.",
-      "body_en": "**What I do**: I design robust data pipelines, from raw ingestion to certified, ready-to-use data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality — Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs — RevPAR, occupancy, customer segmentation — long before I wrote my first line of code.\n\n**What I'm looking for**: a Data Engineer role on a team where data quality is a priority. Paris / Île-de-France. Available immediately."
+      "body_fr": "**Ce que je fais** : je conçois des pipelines de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale — Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client. Cette culture du résultat opérationnel, je l'applique aujourd'hui à l'architecture des données.\n\n**Ce que je cherche** : une **entreprise partenaire pour mon alternance Bac+5 Data Engineering** (Wild Code School, 2026–2028). Je suis basé à Paris / Île-de-France, disponible à partir de **juillet 2026**. Si tu construis des pipelines de données et que tu cherches un alternant qui arrive avec des projets, des certifications Databricks et une culture du résultat, parlons-en.",
+      "body_en": "**What I do**: I design robust data pipelines, from raw ingestion to certified, ready-to-use data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality — Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs — RevPAR, occupancy, customer segmentation — long before I wrote my first line of code.\n\n**What I'm looking for**: a **partner company for my Bac+5 Data Engineering work-study program** (Wild Code School, 2026–2028). Based in Paris / Île-de-France, available from **July 2026**. If you're building data pipelines and looking for an apprentice who brings real projects, Databricks certifications, and a results-driven culture — let's talk."
     },
     {
       "id": "src_experience",
@@ -46,10 +46,10 @@
           "desc_en": "Technical mentor for ~50 students on the RNCP-certified Data Fullstack bootcamp. Stack: Python, SQL, dbt, Snowflake, Power BI. Code review, debugging, engineering best practices (dbt modularity, ETL/ELT, quality testing, Git versioning, reproducible pipelines)."
         },
         {
-          "name": "Data Engineer — 360° / Mission Yonezawa (Japon)",
+          "name": "Analytics Engineer — 360° / Mission Yonezawa (Japon)",
           "year": "Sept — Déc 2025",
-          "desc_fr": "Modernisation du système de collecte touristique pour la ville de Yonezawa (préfecture de Yamagata, 80k hab.). Pipeline automatisé Google Forms → Python → GitHub Actions → Streamlit, déployé en prod pour la mairie. Résultat : suppression totale des enquêtes terrain manuelles.",
-          "desc_en": "Modernization of tourism data collection for the city of Yonezawa (Yamagata Prefecture, 80k inhabitants). Automated Google Forms → Python → GitHub Actions → Streamlit pipeline, deployed in production for city hall. Result: total elimination of manual field surveys."
+          "desc_fr": "Mission de modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (préfecture de Yamagata, 80k hab.). Pipeline automatisé de bout en bout : Google Forms → Python/Pandas → GitHub Actions → Streamlit déployé pour la mairie. Modélisation et structuration pour l'analyse en libre-service : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables. Résultat : suppression totale des enquêtes terrain manuelles et de leurs coûts logistiques. Pipeline en production, accessible en temps réel par le client.",
+          "desc_en": "Mission to modernize the tourism data collection and analysis system for the city of Yonezawa (Yamagata Prefecture, 80k inhabitants). End-to-end automated pipeline: Google Forms → Python/Pandas → GitHub Actions → Streamlit deployed for city hall. Data modeling and structuring for self-service analysis: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas. Result: total elimination of manual field surveys and their logistical costs. Pipeline in production, accessible in real time by the client."
         },
         {
           "name": "Front Desk & Operations — Impérial Palace Annecy",
@@ -84,10 +84,17 @@
       "summary_en": "Continuous learning + certifications + permanent project practice.",
       "items": [
         {
+          "name": "Wild Code School — Expert Ingénierie de Données Massives et IA (RNCP Niv. 7 · Bac+5)",
+          "year": "2026 — 2028",
+          "desc_fr": "Formation en alternance (Bac+5) : ETL avancé, Data Warehouse, Data Lake, DataOps, Cloud, IA appliquée. Admission obtenue — recherche entreprise partenaire pour juillet 2026.",
+          "desc_en": "Work-study program (Bac+5): Advanced ETL, Data Warehouse, Data Lake, DataOps, Cloud, Applied AI. Admitted — seeking a partner company from July 2026.",
+          "status": "in_progress"
+        },
+        {
           "name": "Jedha — Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
           "year": "2024 — 2025",
-          "desc_fr": "Bootcamp Data Fullstack : Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modélisation, qualité des données, modern data stack, pipelines de bout en bout.",
-          "desc_en": "Data Fullstack bootcamp: Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modeling, data quality, modern data stack, end-to-end pipelines.",
+          "desc_fr": "Bootcamp Data Fullstack certifiant (6 mois, présentiel + distanciel) : Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modélisation, qualité des données, modern data stack, pipelines de bout en bout. 2 blocs RNCP validés.",
+          "desc_en": "Certified Data Fullstack bootcamp (6 months, in-person + remote): Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modeling, data quality, modern data stack, end-to-end pipelines. 2 RNCP blocks validated.",
           "status": "completed"
         },
         {
