@@ -41,9 +41,9 @@
       "items": [
         {
           "name": "Analytics Engineer · Data Instructor — Jedha Bootcamp",
-          "year": "2025 — présent",
-          "desc_fr": "Encadrement technique de ~50 apprenants sur le bootcamp Data Fullstack RNCP Niv. 6. Stack : Python, SQL, dbt, Snowflake, Power BI. Revue de code, debugging, transmission des bonnes pratiques d'ingénierie (modularité dbt, ETL/ELT, tests qualité, versioning Git, pipelines reproductibles).",
-          "desc_en": "Technical mentor for ~50 students on the RNCP-certified Data Fullstack bootcamp. Stack: Python, SQL, dbt, Snowflake, Power BI. Code review, debugging, engineering best practices (dbt modularity, ETL/ELT, quality testing, Git versioning, reproducible pipelines)."
+          "year": "Jan. 2025 — présent",
+          "desc_fr": "Dans le cadre du bootcamp Data Fullstack certifiant (RNCP Niv. 6 · Bac+4), formation intensive de 6 mois, encadrement technique de ~50 apprenants répartis sur plusieurs cohortes (présentiel et distanciel), sur l'ensemble de la stack data moderne : Python, SQL, dbt, Snowflake, Power BI. Au quotidien : revue de code, debugging, transmission des bonnes pratiques d'ingénierie — modularité dbt, architecture ETL/ELT, tests de qualité, versioning Git, structuration de pipelines reproductibles. Ce rôle m'a obligé à maîtriser en profondeur chaque concept avant de l'enseigner : expliquer pourquoi un pipeline doit être idempotent ou comment architecturer un modèle dbt pour qu'il soit maintenable, c'est l'avoir intégré soi-même.",
+          "desc_en": "As part of the certified Data Fullstack bootcamp (RNCP Level 6 · Bac+4), intensive 6-month program, technical mentoring of ~50 students across multiple cohorts (in-person and remote), covering the full modern data stack: Python, SQL, dbt, Snowflake, Power BI. Day-to-day: code review, debugging, engineering best practices — dbt modularity, ETL/ELT architecture, quality testing, Git versioning, reproducible pipelines. This role forced me to master every concept deeply before teaching it: explaining why a pipeline must be idempotent or how to architect a maintainable dbt model means having truly internalized it."
         },
         {
           "name": "Analytics Engineer — 360° / Mission Yonezawa (Japon)",
@@ -54,20 +54,20 @@
         {
           "name": "Front Desk & Operations — Impérial Palace Annecy",
           "year": "2020 — 2023",
-          "desc_fr": "Hôtellerie 4★. Suivi et analyse des KPIs opérationnels : taux d'occupation, RevPAR, délais de service, satisfaction client. Exploitation CRM, identification des points de friction, traduction des données en décisions concrètes pour la direction.",
-          "desc_en": "4★ hospitality. Monitoring and analysis of operational KPIs: occupancy rate, RevPAR, service times, customer satisfaction. CRM exploitation, friction point identification, translating data into concrete decisions for management."
+          "desc_fr": "Hôtellerie 4★. Au-delà de la gestion du front desk, suivi et analyse des KPIs opérationnels : taux d'occupation, RevPAR, délais de service, satisfaction client. Exploitation des données CRM pour identifier les points de friction dans le parcours client et proposer des actions correctives à la direction. Interface régulière entre les équipes opérationnelles et la direction pour traduire les données en décisions concrètes d'amélioration du service. C'est dans ce poste que j'ai développé le réflexe de toujours chercher ce que les chiffres disent vraiment, avant de chercher des solutions.",
+          "desc_en": "4★ hospitality. Beyond front desk management, I progressively took charge of monitoring and analyzing operational KPIs: occupancy rate, RevPAR, service times, customer satisfaction. CRM data exploitation to identify friction points in the customer journey and propose corrective actions to management. Regular interface between operational teams and management to translate data into concrete service improvement decisions. This is where I developed the reflex of always asking what the numbers really say before looking for solutions."
         },
         {
           "name": "Sales & Operations — Royal Caribbean Group",
           "year": "2012 — 2019",
-          "desc_fr": "Miami, Floride. Vente et gestion des réservations à bord, environnement international, millions de transactions/an. Analyse hebdomadaire de la liste passagers (fidélité, voyages, classe cabine, origine) pour adapter la stratégie commerciale. Mon premier réflexe de segmentation client, sans le savoir encore.",
-          "desc_en": "Miami, Florida. On-board sales and booking management, international environment, millions of transactions/year. Weekly passenger list analysis (loyalty, trips, cabin class, origin) to inform commercial strategy. My first customer segmentation reflex — before I knew what it was."
+          "desc_fr": "Miami, Floride. Vente et gestion des réservations de futures croisières auprès des passagers à bord, dans un environnement international générant plusieurs millions de transactions annuelles. Chaque semaine, analyse de la liste des passagers : historique de fidélité, nombre de voyages, classe de cabine, pays d'origine — ces insights étaient transmis au manager pour adapter la stratégie commerciale et marketing à bord. C'est dans ce rôle que j'ai développé mon premier réflexe de segmentation client, sans le savoir encore.",
+          "desc_en": "Miami, Florida. Sales and management of future cruise bookings for on-board passengers, in an international environment generating several million transactions annually. Every week, I analyzed the passenger list: loyalty history, number of trips, cabin class, country of origin — these insights were shared with management to adapt the commercial and marketing strategy on board. This is where I developed my first customer segmentation reflex, without yet knowing it."
         },
         {
           "name": "Gendarme Adjoint Volontaire — Gendarmerie Nationale",
           "year": "2006 — 2011",
-          "desc_fr": "5 ans dans une institution exigeante : rigueur, précision, respect des procédures. Rédaction de rapports administratifs, gestion de situations complexes sous pression, travail en équipe pluridisciplinaire.",
-          "desc_en": "5 years in a demanding institution: rigor, precision, procedure compliance. Administrative report writing, complex situation management under pressure, multidisciplinary teamwork."
+          "desc_fr": "5 ans au sein d'une institution exigeante, dans un environnement normé où la rigueur, la précision et le respect des procédures n'étaient pas négociables. Rédaction de rapports administratifs, gestion de situations complexes sous pression, travail en équipe pluridisciplinaire. Une expérience qui m'a appris la discipline et la fiabilité que je mobilise encore aujourd'hui.",
+          "desc_en": "5 years within a demanding institution, in a standardized environment where rigor, precision and procedure compliance were non-negotiable. Administrative report writing, complex situation management under pressure, multidisciplinary teamwork. An experience that taught me the discipline and reliability I still apply today."
         }
       ]
     },
