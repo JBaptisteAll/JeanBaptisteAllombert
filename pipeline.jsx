@@ -38,8 +38,8 @@ const LANE_W = 380;          // svg units per lane
 const LANE_GAP = 60;
 const ROW_H = 110;
 const ROW_GAP_TOP = 100;     // top padding inside svg
-const NODE_W = { source: 220, tool: 240, project: 290, cert: 290, ship_cta: 240 };
-const NODE_H = { source: 70, tool: 72, project: 118, cert: 82, ship_cta: 100 };
+const NODE_W = { source: 220, tool: 240, project: 290, cert: 290, ship_cta: 240, live_status: 290 };
+const NODE_H = { source: 70, tool: 72, project: 118, cert: 82, ship_cta: 100, live_status: 108 };
 
 const STAGE_PAD_X = 80;
 
@@ -51,7 +51,9 @@ function layoutNodes(nodes) {
     const li = laneIndex(n.lane);
     const w = NODE_W[n.type] || 200;
     const h = NODE_H[n.type] || 60;
-    const cx = STAGE_PAD_X + li * (LANE_W + LANE_GAP) + LANE_W / 2;
+    const cx = n.custom_cx !== undefined
+      ? n.custom_cx
+      : STAGE_PAD_X + li * (LANE_W + LANE_GAP) + LANE_W / 2;
     const cy = ROW_GAP_TOP + n.row * ROW_H + h / 2;
     return {
       ...n,
@@ -133,6 +135,8 @@ function PipelineNode({ node, isFocused, isDimmed, isUnlinkedPrimary, onClick, l
           <CertNodeContent node={node} title={title} lang={lang}/>
         ) : node.type === 'ship_cta' ? (
           <ShipCtaNodeContent node={node} title={title} lang={lang}/>
+        ) : node.type === 'live_status' ? (
+          <LiveStatusNodeContent node={node} lang={lang}/>
         ) : null}
       </div>
     </foreignObject>
@@ -171,10 +175,32 @@ function ProjectNodeContent({ node, title, summary }) {
         <span className="pn-kanji">{node.kanji}</span>
         <span className="pn-label">{node.label}</span>
         <span className="pn-year">{node.year}</span>
+        {node.live_url && <span className="pn-live">● LIVE</span>}
       </div>
       <div className="pn-title">{title}</div>
       <div className="pn-stack">
         {(node.stack || []).slice(0,3).map(s => <span key={s} className="pn-chip">{s}</span>)}
+      </div>
+    </>
+  );
+}
+
+function LiveStatusNodeContent({ node, lang }) {
+  const title    = lang === 'fr' ? node.title_fr    : node.title_en;
+  const uptime   = lang === 'fr' ? node.uptime_fr   : node.uptime_en;
+  const freq     = lang === 'fr' ? node.frequency_fr: node.frequency_en;
+  const cadence  = lang === 'fr' ? node.cadence_fr  : node.cadence_en;
+  return (
+    <>
+      <div className="pn-head">
+        <span className="pn-live-dot"/>
+        <span className="pn-label">{node.label}</span>
+      </div>
+      <div className="pn-live-name">{title}</div>
+      <div className="pn-live-stats">
+        <span className="pn-live-stat">⏱ {uptime}</span>
+        <span className="pn-live-stat">⚡ {freq}</span>
+        <span className="pn-live-cadence">{cadence}</span>
       </div>
     </>
   );
@@ -265,18 +291,20 @@ function PipelineEdges({ nodes, edges, focusedId, importantTargetIds }) {
 
   return (
     <g className="pipeline-edges">
-      {edges.map(([a, b], i) => {
+      {edges.map(([a, b, edgeType], i) => {
         const A = byId[a]; const B = byId[b];
         if (!A || !B) return null;
         const path = edgePath(A, B);
         const isFocused = focusedId === a || focusedId === b;
         const isImportant = importantTargetIds.includes(b);
+        const isLive = edgeType === 'live';
         const dim = focusedId && !isFocused;
 
         let cls = 'pipe-edge';
         if (isFocused) cls += ' is-focused';
         if (dim) cls += ' is-dimmed';
         if (isImportant) cls += ' is-important';
+        if (isLive) cls += ' is-live';
 
         return (
           <g key={i} className={cls}>
@@ -284,6 +312,11 @@ function PipelineEdges({ nodes, edges, focusedId, importantTargetIds }) {
             {isImportant && !dim && (
               <circle r="3" className="pipe-particle">
                 <animateMotion dur="2.4s" repeatCount="indefinite" path={path}/>
+              </circle>
+            )}
+            {isLive && !dim && (
+              <circle r="3" className="pipe-particle-live">
+                <animateMotion dur="2s" repeatCount="indefinite" path={path}/>
               </circle>
             )}
             {isFocused && (
@@ -1173,6 +1206,25 @@ function PipelineDrawer({ node, lang, onClose }) {
             {node.github_url_act3 && (
               <a href={node.github_url_act3} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
                 <span>{lang === 'fr' ? 'Acte 3 — The Rise of the Single Source (dbt)' : 'Act 3 — The Rise of the Single Source (dbt)'}</span>
+                <span className="pdr-arrow">↗</span>
+              </a>
+            )}
+          </>
+        )}
+
+        {node.type === 'live_status' && (
+          <>
+            <div className="pdr-section">
+              <h4>{lang === 'fr' ? 'Statut pipeline' : 'Pipeline status'}</h4>
+              <ul className="pdr-list">
+                <li><div className="pdr-li-head"><span className="pdr-li-name">⏱ {lang === 'fr' ? node.uptime_fr : node.uptime_en}</span></div></li>
+                <li><div className="pdr-li-head"><span className="pdr-li-name">⚡ {lang === 'fr' ? node.frequency_fr : node.frequency_en}</span></div></li>
+                <li><div className="pdr-li-head"><span className="pdr-li-name">{lang === 'fr' ? node.cadence_fr : node.cadence_en}</span></div></li>
+              </ul>
+            </div>
+            {node.live_url && (
+              <a href={node.live_url} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginBottom:'12px', borderColor:'#3ec88c', background:'#3ec88c'}}>
+                <span>{lang === 'fr' ? '🚀 Ouvrir l\'application live' : '🚀 Open live app'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}

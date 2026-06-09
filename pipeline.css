@@ -298,11 +298,22 @@
   stroke-width: 2.5;
 }
 .pipe-edge.is-dimmed path { opacity: 0.1; }
+.pipe-edge.is-live path {
+  stroke: #3ec88c;
+  stroke-width: 2;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 3px rgba(62,200,140,0.5));
+}
+.pipe-edge.is-live.is-dimmed path { opacity: 0.2; }
 .pipe-particle {
   fill: var(--accent);
   filter: drop-shadow(0 0 6px var(--accent));
 }
 .pipe-particle-focused { fill: var(--accent); r: 5; }
+.pipe-particle-live {
+  fill: #3ec88c;
+  filter: drop-shadow(0 0 6px rgba(62,200,140,0.9));
+}
 
 /* ---------- Nodes ---------- */
 .pnode {
@@ -343,6 +354,71 @@
 .pnode .pn-icon { color: var(--accent); display: inline-flex; }
 .pnode .pn-label { font-weight: 700; }
 .pnode .pn-year, .pnode .pn-level { margin-left: auto; color: var(--ink-faint); font-size: 9px; }
+/* ── Nœuds LIVE / IN PRODUCTION ── */
+.pnode-live_status {
+  border-color: var(--accent-cyan) !important;
+  background: rgba(46, 255, 255, 0.04) !important;
+  animation: live-node-glow 2.5s ease-in-out infinite;
+}
+.pnode-live_status.is-dimmed { opacity: 0.55 !important; }
+.pnode-live_status .pn-label { color: var(--accent-cyan) !important; font-weight: 700; }
+@keyframes live-node-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(46,255,255,0.25), 0 0 16px rgba(46,255,255,0.08); }
+  50%      { box-shadow: 0 0 0 1px rgba(46,255,255,0.55), 0 0 28px rgba(46,255,255,0.18); }
+}
+.pn-live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #2effff;
+  box-shadow: 0 0 8px rgba(46,255,255,0.9);
+  flex-shrink: 0;
+  animation: live-dot-beat 1.4s ease-in-out infinite;
+}
+@keyframes live-dot-beat {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(0.7); opacity: 0.5; }
+}
+.pn-live-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2effff;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+.pn-live-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 7px;
+}
+.pn-live-stat {
+  font-size: 10px;
+  color: rgba(46,255,255,0.82);
+  letter-spacing: 0.04em;
+}
+.pn-live-cadence {
+  font-size: 9px;
+  color: rgba(46,255,255,0.45);
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  border-top: 1px solid rgba(46,255,255,0.1);
+  padding-top: 4px;
+  text-transform: uppercase;
+}
+
+.pnode .pn-live {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #2effff;
+  text-shadow: 0 0 8px rgba(46, 255, 255, 0.8);
+  animation: live-blink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes live-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
 .pnode .pn-title {
   font-family: 'Shippori Mincho', serif;
   font-size: 17px;

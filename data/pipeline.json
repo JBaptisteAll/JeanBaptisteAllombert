@@ -434,11 +434,11 @@
       "type": "project",
       "lane": "MARTS",
       "row": 0,
-      "label": "BIKE_LAKEHOUSE",
+      "label": "ECOMMERCE_LAKEHOUSE",
       "kanji": "輪",
       "year": "2025",
-      "title_fr": "Bike Data Lakehouse",
-      "title_en": "Bike Data Lakehouse",
+      "title_fr": "E-Commerce Data Lakehouse",
+      "title_en": "E-Commerce Data Lakehouse",
       "summary_fr": "Lakehouse complet sur Databricks avec architecture Medallion étendue (Bronze → Silver → Gold → Platinum) consolidant CRM + ERP en tables analytiques business-ready.",
       "summary_en": "Full Databricks Lakehouse with extended Medallion architecture (Bronze → Silver → Gold → Platinum) consolidating CRM + ERP into business-ready analytical tables.",
       "body_fr": "17 tables Delta dans le catalog data_lakehouse_project, 6 sources hétérogènes (CRM cust_info/prd_info/sales_details + ERP CUST_AZ12/LOC_A101/PX_CAT_G1V2) nettoyées et dédupliquées dans Silver, jointures cross-source produisant un schéma en étoile en Gold, puis une couche Platinum business avec scoring RFMV (Recency-Frequency-Monetary-Value) via NTILE quintiles et classification ABC Pareto sur les produits. Pipeline orchestré par Databricks Workflow planifié à 4h du matin, ~4 minutes end-to-end avec parallélisation des tâches Silver. Choix d'extraire le scoring/segmentation dans une couche Platinum séparée pour garder Gold mince et indépendamment évolutive.",
@@ -845,7 +845,45 @@
       "status": "certified",
       "summary_fr": "Titre RNCP niveau 6 · équivalent Bac+3/+4 — bootcamp Analytics Engineer 2025 : modélisation, dbt, SQL avancé, modern data stack, pipelines de bout en bout.",
       "summary_en": "French RNCP title — level 6 · equivalent to Bac+3/+4 — Analytics Engineer bootcamp 2025: modeling, dbt, advanced SQL, modern data stack, end-to-end pipelines."
-    }
+    },
+    {
+    "id": "live_weather",
+    "type": "live_status",
+    "lane": "SHIP",
+    "row": 7,
+    "custom_cx": 1810,
+    "label": "PROD · LIVE",
+    "title_fr": "France Adventure Planner",
+    "title_en": "France Adventure Planner",
+    "uptime_fr": "En production depuis +1 an",
+    "uptime_en": "In production for 1+ year",
+    "frequency_fr": "1 250 pts / jour · 250+ villes",
+    "frequency_en": "1,250 pts / day · 250+ cities",
+    "cadence_fr": "GitHub Actions · pipeline quotidien",
+    "cadence_en": "GitHub Actions · daily pipeline",
+    "summary_fr": "Pipeline ETL automatisé collectant 1 250 points de données météo chaque jour sur 250+ villes françaises, en production sans interruption depuis plus d'un an.",
+    "summary_en": "Automated ETL pipeline collecting 1,250 weather data points daily across 250+ French cities, running without interruption for over a year.",
+    "live_url": "https://franceadventureplanner.streamlit.app/"
+  },
+  {
+    "id": "live_japan",
+    "type": "live_status",
+    "lane": "SHIP",
+    "row": 6,
+    "custom_cx": 1810,
+    "label": "PROD · LIVE",
+    "title_fr": "Japan Travel Insights",
+    "title_en": "Japan Travel Insights",
+    "uptime_fr": "En production depuis 8 mois",
+    "uptime_en": "In production for 8 months",
+    "frequency_fr": "2× / mois · données temps réel",
+    "frequency_en": "2× / month · real-time data",
+    "cadence_fr": "GitHub Actions · pipeline bi-mensuel",
+    "cadence_en": "GitHub Actions · bi-monthly pipeline",
+    "summary_fr": "Pipeline automatisé Google Forms → Python → GitHub Actions → Streamlit déployé pour la mairie de Yonezawa. Accessible en temps réel par les parties prenantes locales au Japon.",
+    "summary_en": "Automated Google Forms → Python → GitHub Actions → Streamlit pipeline deployed for Yonezawa city hall. Accessible in real time by local stakeholders in Japan.",
+    "live_url": "https://japantravelsurveyanalysis.streamlit.app/"
+  }
   ],
   "edges": [
     [
@@ -1087,6 +1125,16 @@
     [
       "t_dbt",
       "p_airline"
+    ],
+    [
+      "p_weather",
+      "live_weather",
+      "live"
+    ],
+    [
+      "p_japan",
+      "live_japan",
+      "live"
     ]
   ]
 }
