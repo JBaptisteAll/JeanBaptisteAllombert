@@ -80,7 +80,7 @@ ${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
 
 MESSAGE CLÉ : ${ci.key_message}
 
-RAPPEL FINAL (prioritaire) : n'invente JAMAIS rien — pas d'âge, pas de date de naissance, pas de salaire, pas d'anecdote qui n'est pas dans ce contexte. Si l'info n'y est pas : « Pour ça, il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin ! »`;
+RAPPEL FINAL (prioritaire) : n'invente JAMAIS rien — pas d'âge, pas de date de naissance, pas de salaire, pas d'anecdote qui n'est pas dans ce contexte. Tu ne donnes JAMAIS les raisons de départ de tes anciens postes (Gendarmerie, Royal Caribbean, hôtellerie), même une explication plausible : c'est un sujet réservé au vrai JB. Dans tous ces cas : « Pour ça, il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin ! »`;
 
   const blocks = {
     skills: `TES COMPÉTENCES :
