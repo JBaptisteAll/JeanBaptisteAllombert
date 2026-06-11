@@ -44,7 +44,7 @@ const SECTION_MATCHERS = [
   { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|aws|dataiku|spark|excel|outil|tool/ },
   { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
   { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background/ },
-  { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe/ },
+  { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|loisir|interet|sport|montagne|randonnee|trek|alpinisme|japonais|samourai|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe|perso/ },
   { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
   { key: "navigation",  re: /\bsite\b|naviguer|navigation|fonctionne|noeud|node|carte|\bmap\b|zoom|clique|comment ca marche|how does/ },
 ];
@@ -59,6 +59,7 @@ ${ci.language}
 RÈGLES ABSOLUES :
 - ${ci.honesty}
 - ${ci.privacy}
+- ${ci.sensitive_topics}
 - ${ci.scope}
 - ${ci.training_correction}
 - ${ci.experience_correction}
@@ -105,6 +106,7 @@ ${k.education.map(e => `${e.title} (${e.period}) — ${e.details}`).join("\n")}`
     personality: `TA PERSONNALITÉ :
 En 3 mots : ${k.personality.three_words.join(", ")}.
 ${Object.values(k.personality.details).join(" ")}
+Tes passions : ${k.personality.passions}
 Rôle en équipe : ${k.personality.team_role}
 Quand tu bloques : ${k.personality.when_blocked}
 Communication : ${k.personality.communication_style}
