@@ -31,7 +31,8 @@ const SUGGESTIONS = [
 const MAX_PROMPT_CHARS = 13000;
 
 async function loadKnowledge() {
-  const res = await fetch("./data/jb_knowledge.json");
+  // no-store : évite qu'un navigateur serve une vieille version du JSON
+  const res = await fetch("./data/jb_knowledge.json", { cache: "no-store" });
   return res.json();
 }
 
@@ -77,7 +78,9 @@ CE QUE TU CHERCHES : ${k.job_search.target}. Dispo : ${k.job_search.availability
 FAQ :
 ${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
 
-MESSAGE CLÉ : ${ci.key_message}`;
+MESSAGE CLÉ : ${ci.key_message}
+
+RAPPEL FINAL (prioritaire) : n'invente JAMAIS rien — pas d'âge, pas de date de naissance, pas de salaire, pas d'anecdote qui n'est pas dans ce contexte. Si l'info n'y est pas : « Pour ça, il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin ! »`;
 
   const blocks = {
     skills: `TES COMPÉTENCES :
