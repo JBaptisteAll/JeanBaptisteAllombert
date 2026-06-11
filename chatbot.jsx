@@ -23,12 +23,36 @@ const SUGGESTIONS = [
   "Ton parcours avant la data ?",
 ];
 
-// ── Chargement du system prompt depuis jb_knowledge.json ────
-async function buildSystemPrompt() {
+// ── Base de connaissances (jb_knowledge.json) ───────────────
+// Mini-RAG : le prompt de base reste léger ; les sections
+// thématiques ne sont injectées que si la question les concerne.
+// Contrainte : Groq tier gratuit = 6 000 tokens/minute, donc le
+// prompt complet est plafonné à MAX_PROMPT_CHARS.
+const MAX_PROMPT_CHARS = 13000;
+
+async function loadKnowledge() {
   const res = await fetch("./data/jb_knowledge.json");
-  const k = await res.json();
+  return res.json();
+}
+
+// minuscules + suppression des accents pour matcher FR/EN
+function normalizeText(t) {
+  return t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+const SECTION_MATCHERS = [
+  { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|aws|dataiku|spark|excel|outil|tool/ },
+  { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
+  { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background/ },
+  { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe/ },
+  { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
+  { key: "navigation",  re: /\bsite\b|naviguer|navigation|fonctionne|noeud|node|carte|\bmap\b|zoom|clique|comment ca marche|how does/ },
+];
+
+function buildPrompt(k, recentUserText) {
   const ci = k.chatbot_instructions;
-  return `${ci.persona}
+
+  const core = `${ci.persona}
 
 ${ci.language}
 
@@ -39,6 +63,7 @@ RÈGLES ABSOLUES :
 - ${ci.training_correction}
 - ${ci.experience_correction}
 - Hors-sujet : ${ci.off_topic}
+- Si une info ne figure pas dans ton contexte, dis-le simplement et propose le bouton Contact du portfolio.
 
 QUI TU ES : ${k.identity.name} (${k.identity.nickname}), ${k.identity.role}. ${k.identity.location}. ${k.identity.availability}. Langues : ${k.identity.languages.join(", ")}.
 
@@ -46,33 +71,38 @@ TA SITUATION ACTUELLE : ${k.situation_actuelle}
 
 TON RÉSUMÉ : ${k.summary}
 
-MISE AU POINT SUR TON EXPÉRIENCE (à respecter absolument) :
-${k.experience_clarification.data_experience}
-${k.experience_clarification.before_data}
-${k.experience_clarification.current_level}
-${k.experience_clarification.strengths_from_past}
+CE QUE TU CHERCHES : ${k.job_search.target}. Dispo : ${k.job_search.availability}. ${k.job_search.strengths.join(" | ")}
 
-TES COMPÉTENCES :
+FAQ :
+${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
+
+MESSAGE CLÉ : ${ci.key_message}`;
+
+  const blocks = {
+    skills: `TES COMPÉTENCES :
 ${k.skills.languages.map(s => `${s.name} (${s.level}/100) — ${s.details}`).join(" | ")}
 ${k.skills.platforms.map(s => `${s.name} — ${s.details}`).join(" | ")}
 Concepts : ${k.skills.concepts.join(", ")}
 
 TES CERTIFICATIONS :
 Obtenues : ${k.certifications.obtained.map(c => `${c.name} (${c.date})`).join(", ")}
-En cours : ${k.certifications.in_progress.map(c => `${c.name} prévu ${c.planned}`).join(", ")}
+En cours : ${k.certifications.in_progress.map(c => `${c.name} prévu ${c.planned}`).join(", ")}`,
 
-TES PROJETS :
-${k.projects.map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} — ${p.description}`).join("\n")}
+    projects: `TES PROJETS :
+${k.projects.map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} — ${p.description}`).join("\n")}`,
+
+    experience: `MISE AU POINT SUR TON EXPÉRIENCE (à respecter absolument) :
+${k.experience_clarification.data_experience}
+${k.experience_clarification.current_level}
+${k.experience_clarification.strengths_from_past}
 
 TON EXPÉRIENCE :
 ${k.experience.map(e => `[${e.period}] ${e.title} chez ${e.company} — ${e.description}`).join("\n")}
 
 TA FORMATION :
-${k.education.map(e => `${e.title} (${e.period}) — ${e.details}`).join("\n")}
+${k.education.map(e => `${e.title} (${e.period}) — ${e.details}`).join("\n")}`,
 
-CE QUE TU CHERCHES : ${k.job_search.target}. Dispo : ${k.job_search.availability}. ${k.job_search.strengths.join(" | ")}
-
-TA PERSONNALITÉ :
+    personality: `TA PERSONNALITÉ :
 En 3 mots : ${k.personality.three_words.join(", ")}.
 ${Object.values(k.personality.details).join(" ")}
 Rôle en équipe : ${k.personality.team_role}
@@ -85,27 +115,34 @@ Environnement idéal : ${k.work_preferences.ideal_environment}
 Secteurs de rêve : ${k.work_preferences.dream_sectors.join(", ")}.
 Ce que tu adores : ${k.work_preferences.loves}
 Ce que tu n'aimes pas : ${k.work_preferences.hates}
-Pourquoi l'alternance : ${k.work_preferences.why_alternance}
+Pourquoi l'alternance : ${k.work_preferences.why_alternance}`,
 
-TES ENTREPRISES DE RÊVE :
+    recruiter: `TES ENTREPRISES DE RÊVE :
 ${k.dream_companies.map(d => `${d.name} — ${d.why}`).join("\n")}
 
 MOTIVATION FACE AUX RECRUTEURS :
 ${k.recruiter_motivation.what_attracts}
-Réponse générique (entreprise non nommée) : "${k.recruiter_motivation.generic_response}"
 ${k.recruiter_motivation.instruction_for_bot}
-${ci.recruiter_questions}
+${ci.recruiter_questions}`,
 
-NAVIGATION DU PORTFOLIO (si on te demande comment fonctionne le site) :
+    navigation: `NAVIGATION DU PORTFOLIO (si on te demande comment fonctionne le site) :
 ${k.portfolio_navigation.concept}
 ${k.portfolio_navigation.how_to_navigate}
 ${k.portfolio_navigation.lanes.map(l => `${l.name} : ${l.description}`).join("\n")}
-${k.portfolio_navigation.tips}
+${k.portfolio_navigation.tips}`,
+  };
 
-FAQ :
-${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
-
-MESSAGE CLÉ : ${ci.key_message}`;
+  const norm = normalizeText(recentUserText);
+  let prompt = core;
+  let budget = MAX_PROMPT_CHARS - core.length;
+  for (const { key, re } of SECTION_MATCHERS) {
+    if (!re.test(norm)) continue;
+    const block = blocks[key];
+    if (block.length > budget) continue;
+    prompt += "\n\n" + block;
+    budget -= block.length;
+  }
+  return prompt;
 }
 
 // ── SVG Personnage stickman ──────────────────────────────────
@@ -180,7 +217,7 @@ function ChatBot() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [systemPrompt, setSystemPrompt] = useState(null);
+  const [knowledge, setKnowledge] = useState(null);
   const [error, setError] = useState(null);
   const [suggestionsShown, setSuggestionsShown] = useState(true);
   const [bubbleVisible, setBubbleVisible] = useState(false);
@@ -188,7 +225,7 @@ function ChatBot() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    buildSystemPrompt().then(setSystemPrompt).catch(() => setError("Erreur de chargement du contexte."));
+    loadKnowledge().then(setKnowledge).catch(() => setError("Erreur de chargement du contexte."));
     // Affiche la bulle après 1 aller-retour (1s delay + 3s walk = 4s)
     const t = setTimeout(() => setBubbleVisible(true), 4000);
     return () => clearTimeout(t);
@@ -204,7 +241,7 @@ function ChatBot() {
 
   const sendMessage = useCallback(async (text) => {
     const userText = (text || input).trim();
-    if (!userText || loading || !systemPrompt) return;
+    if (!userText || loading || !knowledge) return;
 
     setSuggestionsShown(false);
     setInput("");
@@ -215,10 +252,20 @@ function ChatBot() {
     setMessages(updated);
     setLoading(true);
 
+    // Prompt construit à chaque message : sections injectées selon
+    // les 3 dernières questions (suivi des "dis-m'en plus")
+    const recentUserText = updated
+      .filter(m => m.role === "user")
+      .slice(-3)
+      .map(m => m.parts[0].text)
+      .join(" ");
+    const systemPrompt = buildPrompt(knowledge, recentUserText);
+
+    // Historique plafonné aux 8 derniers messages (limite TPM Groq)
     const geminiMessages = [
       { role: "user", parts: [{ text: systemPrompt }] },
       { role: "model", parts: [{ text: "Compris. Je suis JB, prêt à répondre." }] },
-      ...updated,
+      ...updated.slice(-8),
     ];
 
     try {
@@ -235,7 +282,7 @@ function ChatBot() {
     } finally {
       setLoading(false);
     }
-  }, [input, loading, systemPrompt, messages]);
+  }, [input, loading, knowledge, messages]);
 
   function handleKey(e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
@@ -516,13 +563,13 @@ function ChatBot() {
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
               placeholder="Pose ta question..."
-              disabled={loading || !systemPrompt}
+              disabled={loading || !knowledge}
               maxLength={400}
             />
             <button
               className="jb-send"
               onClick={() => sendMessage()}
-              disabled={loading || !input.trim() || !systemPrompt}
+              disabled={loading || !input.trim() || !knowledge}
             >
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>

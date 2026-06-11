@@ -105,7 +105,7 @@
       "company": "360°",
       "location": "Yonezawa, Préfecture de Yamagata, Japon",
       "period": "Septembre 2025 – Décembre 2025 (4 mois)",
-      "description": "Mission de modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (80 000 habitants). Pipeline de données automatisé de bout en bout : collecte Google Forms, traitement Python/Pandas, orchestration GitHub Actions, restitution Streamlit déployé pour la mairie. Modélisation pour l'analyse en libre-service : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables. Résultat : suppression totale des enquêtes terrain manuelles et de leurs coûts logistiques. Pipeline en production, accessible en temps réel.",
+      "description": "Modernisation de la collecte et de l'analyse des données touristiques de Yonezawa (80 000 habitants) : pipeline automatisé de bout en bout (Google Forms → Python/Pandas → GitHub Actions → Streamlit déployé pour la mairie), segmentation démographique et 3 buyer personas actionnables. Résultat : suppression totale des enquêtes terrain manuelles. Pipeline en production, temps réel.",
       "tech": ["Python", "Pandas", "Streamlit", "Plotly", "GitHub Actions"]
     },
     {
@@ -113,21 +113,21 @@
       "company": "Impérial Palace Annecy",
       "location": "Annecy, France",
       "period": "Juin 2020 – Septembre 2023 (3 ans 4 mois)",
-      "description": "Au-delà de la gestion du front desk, suivi et analyse des KPIs opérationnels : taux d'occupation, RevPAR, délais de service, satisfaction client. Exploitation CRM pour identifier les points de friction dans le parcours client et proposer des actions correctives. Interface entre équipes opérationnelles et direction pour traduire les données en décisions concrètes. C'est ici que j'ai développé le réflexe de toujours chercher ce que les chiffres disent vraiment avant de chercher des solutions."
+      "description": "Front desk + suivi et analyse des KPIs opérationnels (taux d'occupation, RevPAR, satisfaction client), exploitation CRM pour identifier les frictions du parcours client, interface entre équipes terrain et direction pour traduire les données en décisions. C'est ici que j'ai pris le réflexe de chercher ce que les chiffres disent vraiment avant de chercher des solutions."
     },
     {
       "title": "Sales & Operations",
       "company": "Royal Caribbean Group",
       "location": "Miami, Florida, États-Unis",
       "period": "Février 2012 – Décembre 2019 (7 ans 11 mois)",
-      "description": "Vente et gestion des réservations de croisières à bord, environnement international générant plusieurs millions de transactions annuelles. Chaque semaine, analyse de la liste des passagers : historique de fidélité, nombre de voyages, classe de cabine, pays d'origine — ces insights étaient transmis au manager pour adapter la stratégie commerciale. C'est dans ce rôle que j'ai développé mon premier réflexe de segmentation client, sans le savoir encore."
+      "description": "Vente et gestion des réservations de croisières à bord, environnement international à plusieurs millions de transactions annuelles. Analyse hebdomadaire des listes passagers (fidélité, classe de cabine, origine) transmise au manager pour adapter la stratégie commerciale — mon premier réflexe de segmentation client, sans le savoir encore."
     },
     {
       "title": "Gendarme Adjoint Volontaire",
       "company": "Gendarmerie Nationale",
       "location": "France",
       "period": "Septembre 2006 – Septembre 2011 (5 ans 1 mois)",
-      "description": "5 ans au sein d'une institution exigeante dans un environnement normé où la rigueur, la précision et le respect des procédures n'étaient pas négociables. Rédaction de rapports administratifs, gestion de situations complexes sous pression, travail en équipe pluridisciplinaire. Une expérience qui m'a appris la discipline et la fiabilité que je mobilise encore aujourd'hui."
+      "description": "5 ans dans une institution exigeante : rigueur, précision, respect des procédures, rapports administratifs, gestion de situations sous pression. La discipline et la fiabilité que je mobilise encore aujourd'hui."
     }
   ],
 
@@ -135,72 +135,72 @@
     {
       "name": "Bike Data Lakehouse — Medallion Architecture étendue",
       "tech_stack": ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Databricks Workflows"],
-      "description": "Lakehouse complet construit from scratch sur Databricks : 6 sources brutes (CRM + ERP) consolidées via une architecture Médaillon étendue Bronze→Silver→Gold→Platinum. Gold en star schema (dim_customers, dim_products, fact_sales) ; couche Platinum avec vues 360° (customer_360, product_360) incluant scoring et segmentation client. 17 tables Delta dans Unity Catalog, data catalog et dictionnaire de données documentés. Orchestration Databricks Workflow quotidienne à 04h00 : Bronze, puis les 6 notebooks Silver en parallèle, puis Gold, puis Platinum — run complet end-to-end en ~4 minutes."
+      "description": "Lakehouse complet from scratch sur Databricks : 6 sources CRM + ERP consolidées en Médaillon étendu Bronze→Silver→Gold→Platinum — star schema en Gold, vues 360° avec scoring et segmentation client en Platinum. 17 tables Delta, data catalog documenté, orchestration quotidienne Databricks Workflows, run complet en ~4 minutes."
     },
     {
-      "name": "Japan Travel Insights — pipeline d'enquête touristique (mission 360°, Yonezawa)",
+      "name": "Japan Travel Insights — pipeline d'enquête touristique (mission 360°)",
       "tech_stack": ["Python", "Pandas", "Google Sheets", "GitHub Actions", "Streamlit"],
-      "description": "Pipeline livré pendant ma mission de 4 mois au Japon : enquête bilingue FR/EN sur les intentions de voyage vers la préfecture de Yamagata via Google Forms, centralisation Google Sheets (IMPORTRANGE), nettoyage et standardisation Python/Pandas, refresh automatisé GitHub Actions 2 fois par mois, dashboard Streamlit déployé en production (japantravelsurveyanalysis.streamlit.app) avec export de données filtrées pour les acteurs touristiques locaux. Séparation claire entre pipeline de données et produit data."
+      "description": "Pipeline livré pendant ma mission au Japon : enquête bilingue FR/EN via Google Forms, centralisation Google Sheets, nettoyage Python/Pandas, refresh automatisé GitHub Actions 2×/mois, dashboard Streamlit en production pour les acteurs touristiques de Yamagata."
     },
     {
       "name": "France Adventure Planner — pipeline météo en production",
-      "tech_stack": ["Python", "Streamlit", "Scrapy", "OpenWeatherMap API", "GitHub Actions", "Plotly"],
-      "description": "Application Streamlit qui recommande des destinations week-end (montagne, mer, ville) selon la météo en temps réel, avec un score météo custom par destination. Pipeline ETL en production depuis plus d'un an : GitHub Actions collecte chaque nuit 1 250 prévisions sur 250+ villes françaises (OpenWeatherMap + Nominatim pour le géocodage), scrape jusqu'à 5 hôtels par ville sur Booking.com avec Scrapy, et committe les résultats dans le repo. Zéro intervention manuelle."
+      "tech_stack": ["Python", "Streamlit", "Scrapy", "OpenWeatherMap API", "GitHub Actions"],
+      "description": "App Streamlit recommandant des destinations week-end selon la météo, avec score météo custom. En production depuis plus d'un an : GitHub Actions collecte chaque nuit 1 250 prévisions sur 250+ villes françaises et scrape les hôtels sur Booking.com (Scrapy). Zéro intervention manuelle."
     },
     {
       "name": "The Rise of the Single Source — dbt Analytics Saga",
-      "tech_stack": ["dbt Cloud", "PostgreSQL (Neon.tech)", "SQL", "Jinja", "GitHub"],
-      "description": "Pipeline ELT production-grade avec dbt : staging → intermediate → marts organisés par domaine métier (Operations, Marketing, Executive). Logique métier avancée : Load Factor, RPM/ASM (Revenue Passenger Miles / Available Seat Miles), distance Haversine calculée via dbt Seeds. Mart CEO avec classification dynamique des routes (Star Route / Stable / Underperforming) par comparaison aux benchmarks de la compagnie. 63 tests qualité automatisés (génériques + singuliers custom), 100 % des modèles documentés via dbt Docs, orchestration dbt Cloud Jobs."
+      "tech_stack": ["dbt Cloud", "PostgreSQL", "SQL", "Jinja"],
+      "description": "Pipeline ELT production-grade avec dbt : staging → intermediate → marts (Operations, Marketing, Executive). Load Factor, RPM/ASM, distance Haversine via dbt Seeds, mart CEO avec classification dynamique des routes (Star Route / Stable / Underperforming). 63 tests qualité automatisés, 100 % des modèles documentés."
     },
     {
-      "name": "Airline Performance Analytics — écosystème complet en 3 modules",
+      "name": "Airline Performance Analytics — écosystème en 3 modules",
       "tech_stack": ["SQL Server", "SQL", "dbt", "Merise"],
-      "description": "Plateforme d'analytique aérienne en 3 modules complémentaires : 'Revenge of the Seat' — data warehouse relationnel conçu en méthodologie Merise, 6 tables avec intégrité référentielle stricte, données générées sur mesure (100 000 passagers, 700 000 réservations, 25 000 vols, 32 aéroports, 11 compagnies) ; 'Return of the Jet High' — moteur d'analyse SQL : rentabilité des routes, utilisation de la flotte, coût des retards et annulations, segmentation passagers ; 'The Rise of the Single Source' — couche dbt de certification de la donnée."
+      "description": "Plateforme d'analytique aérienne : data warehouse relationnel conçu en Merise avec intégrité référentielle stricte (100 000 passagers, 700 000 réservations, 25 000 vols), moteur d'analyse SQL (rentabilité des routes, flotte, coût des retards, segmentation passagers) et couche dbt de certification de la donnée."
     },
     {
       "name": "Databricks IDP (Intelligent Document Processing)",
-      "tech_stack": ["Databricks", "SQL", "AI Functions", "Delta Lake", "Unity Catalog"],
-      "description": "Pipeline de traitement intelligent de documents 100 % SQL sur Databricks : ingestion de documents financiers bruts (PDF) depuis un Volume Unity Catalog avec read_files(), parsing via ai_parse_document (manipulation du type VARIANT), classification zero-shot via ai_classify (facture / bon de commande / reçu), extraction de champs structurés via ai_extract selon le type de document. Sortie : 3 tables Delta propres et requêtables (invoices, purchase_order, receipt). Aucun Python, aucune API externe, aucun modèle ML à maintenir."
+      "tech_stack": ["Databricks", "SQL", "AI Functions", "Delta Lake"],
+      "description": "Pipeline 100 % SQL sur Databricks : documents financiers PDF parsés (ai_parse_document), classifiés (ai_classify) et extraits en champs structurés (ai_extract) vers 3 tables Delta requêtables. Aucun Python, aucune API externe, aucun modèle ML à maintenir."
     },
     {
       "name": "Hotel Booking Analysis — pipeline analytique SQL Server",
       "tech_stack": ["SQL Server", "T-SQL"],
-      "description": "Analyse de 119 390 réservations de 2 hôtels portugais (city hotel à Lisbonne, resort en Algarve) en architecture médaillon : Bronze (CSV brut jamais modifié), Silver (tables typées avec contraintes CHECK, nettoyage documenté, colonnes calculées PERSISTED dont une segmentation du lead time en 7 buckets et un revenu total par réservation), Gold en cours. Insights clés : 40,6 % d'annulation côté city hotel vs 27 % côté resort ; paradoxe des dépôts Non-Refund annulés à ~99 % ; corrélation lead time long → annulation plus probable."
+      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold : nettoyage documenté, colonnes calculées PERSISTED (segmentation lead time en 7 buckets, revenu par réservation). Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %."
     },
     {
       "name": "ClimAdvisor — fiabilité des prévisions météo",
-      "tech_stack": ["Python", "Power BI", "DAX", "Pandas"],
-      "description": "Analyse de la fiabilité des prévisions météo à 5 jours sur les villes françaises : comparaison prévision vs observé jour par jour (J+1 à J+5), indice de fiabilité par ville et par région, dashboard Power BI avec calculs DAX dynamiques. Cas d'usage métier : aider le pricing hôtelier dynamique — baisser les prix en avance là où la prévision est fiable, attendre là où elle ne l'est pas."
+      "tech_stack": ["Python", "Power BI", "DAX"],
+      "description": "Fiabilité des prévisions météo à 5 jours sur les villes françaises : prévision vs observé (J+1 à J+5), indice de fiabilité par région, dashboard Power BI/DAX. Cas d'usage : pricing hôtelier dynamique selon la confiance dans la prévision."
     },
     {
       "name": "Pipeline_ventes — ETL conteneurisé avec quarantaine",
-      "tech_stack": ["Python", "Pandas", "SQLite", "Docker"],
-      "description": "Pipeline ETL complet réalisé pour un test technique Data Engineer : collecte de 3 CSV via HTTP, nettoyage et normalisation, validation ligne à ligne (prix > 0, stocks, clés étrangères), déduplication avant insertion pour des relances idempotentes, analyses SQL automatisées horodatées. Les lignes invalides ne sont pas perdues : elles sont tracées dans une table de quarantaine erreurs_import (dead letter queue) avec table, ligne, colonne, valeur et raison du rejet. Conteneurisé avec Docker Compose."
+      "tech_stack": ["Python", "SQLite", "Docker"],
+      "description": "Pipeline ETL Python → SQLite conteneurisé (Docker Compose) : validation ligne à ligne, déduplication idempotente, et table de quarantaine erreurs_import (dead letter queue) qui trace chaque rejet — table, ligne, valeur, raison — au lieu de le perdre."
     },
     {
       "name": "Tourism Demand Analytics — France (en cours, 2026)",
-      "tech_stack": ["Python", "DuckDB", "Streamlit", "Plotly", "Open-Meteo API"],
-      "description": "Outil d'analyse de la demande touristique française : entrepôt DuckDB en schéma en étoile croisant trafic SNCF 2015-2024, météo et climatologie Open-Meteo, vacances scolaires et jours fériés. Dashboard Streamlit multi-pages avec un score de demande 0-100 basé sur des règles (saison, vacances, fériés, météo)."
+      "tech_stack": ["Python", "DuckDB", "Streamlit", "Open-Meteo API"],
+      "description": "Entrepôt DuckDB en schéma en étoile croisant trafic SNCF 2015-2024, météo Open-Meteo et calendrier scolaire ; dashboard Streamlit multi-pages avec score de demande touristique 0-100 basé sur des règles."
     },
     {
       "name": "Behind the Stream — analyse du catalogue Netflix",
       "tech_stack": ["Power BI", "Power Query"],
-      "description": "Analyse et visualisation du catalogue Netflix (dataset Kaggle) : nettoyage et modélisation dans Power Query (split des colonnes multi-valeurs, relations entre tables), dashboards interactifs sur les genres dominants, la répartition par pays et la saisonnalité des ajouts de contenu."
+      "description": "Analyse du catalogue Netflix (dataset Kaggle) : modélisation Power Query, dashboards sur les genres dominants, la répartition par pays et la saisonnalité des ajouts."
     },
     {
       "name": "NASA — tracking satellite",
       "tech_stack": ["Python", "sgp4"],
-      "description": "Projet d'analyse de données de tracking de satellites avec Python et la librairie sgp4 — un clin d'œil à ma passion pour le spatial."
+      "description": "Analyse de données de tracking de satellites avec Python et sgp4 — clin d'œil à ma passion pour le spatial."
     },
     {
       "name": "Data Playbook — cheat sheet pour data analysts",
       "tech_stack": ["HTML", "CSS", "JavaScript"],
-      "description": "Guide de référence interactif pour data analysts, publié sur GitHub Pages : mindset d'analyste, méthode d'analyse en 6 étapes, patterns SQL essentiels, KPIs, statistiques, dataviz, storytelling et checklist interactive de 18 étapes. Single-page app sans framework ni build — du pur HTML/CSS/JS."
+      "description": "Guide de référence interactif pour data analysts (méthode en 6 étapes, SQL, KPIs, stats, dataviz, storytelling, checklist) — single-page app sans framework, publiée sur GitHub Pages."
     },
     {
       "name": "Kanji Dojo — PWA perso",
       "tech_stack": ["HTML", "JavaScript", "GitHub Pages"],
-      "description": "Petite PWA personnelle pour apprendre les kanjis, construite et déployée sur GitHub Pages — née de mon intérêt pour le Japon après ma mission à Yonezawa."
+      "description": "Petite PWA personnelle pour apprendre les kanjis, déployée sur GitHub Pages — née de mon intérêt pour le Japon."
     }
   ],
 
@@ -226,16 +226,9 @@
   "faq": [
     { "q": "Qu'est-ce que tu cherches ?", "a": "Une entreprise partenaire pour mon alternance Bac+5 Data Engineering à la Wild Code School (2026–2028). J'ai déjà été admis en formation, je cherche juste l'entreprise. Disponible juillet 2026, basé Paris / Île-de-France." },
     { "q": "Tu as de l'expérience concrète ?", "a": "Oui. Mon pipeline météo tourne en production depuis plus d'un an (1 250 points/jour, 250+ villes). J'ai aussi livré un pipeline complet au Japon pour une ville de 80 000 habitants, supprimant totalement les enquêtes terrain manuelles." },
-    { "q": "Ton niveau en SQL ?", "a": "Avancé. CTEs, window functions, optimisation. Pratiqué sur SQL Server, PostgreSQL, Snowflake et Databricks. Je l'enseigne chez Jedha depuis janvier 2025." },
-    { "q": "Tu connais dbt ?", "a": "Oui. Data warehouse aérien avec dbt (staging → marts), 60+ tests qualité automatisés, lignage complet. Je l'enseigne aussi chez Jedha." },
-    { "q": "Tes certifications ?", "a": "Databricks Certified Fundamentals (avril 2026), Dataiku Core Designer, Dataiku ML Practitioner, Google Data Analytics, Meta Data Analyst. En cours : Databricks Data Engineer Associate (T4 2026) et AWS CLF-C02 (T3 2026)." },
-    { "q": "Ton niveau d'anglais ?", "a": "Courant — 7 ans aux États-Unis chez Royal Caribbean, environnement 100% anglophone. Je peux mener des entretiens techniques en anglais." },
-    { "q": "Tu maîtrises Databricks ?", "a": "Certifié Fundamentals. J'ai construit un Lakehouse complet from scratch (Médaillon étendu Bronze→Silver→Gold→Platinum, 17 tables Delta, orchestration quotidienne automatisée, run complet en ~4 minutes). J'utilise aussi les AI Functions en SQL pur pour du traitement intelligent de documents." },
     { "q": "Tu as 10 ans d'expérience en data ?", "a": "Non, et je tiens à être clair là-dessus : j'ai 10 ans de carrière professionnelle (Gendarmerie, Royal Caribbean à Miami, hôtellerie), mais mon expérience data commence en 2024 avec le bootcamp Jedha. En data je suis junior-intermédiaire en reconversion — ma force, c'est d'arriver avec une vraie vision métier et une culture du résultat en plus de la technique." },
-    { "q": "Parle-moi du projet Japon", "a": "4 mois en mission à Yonezawa (préfecture de Yamagata) pour moderniser la collecte de données touristiques de la ville : pipeline automatisé de bout en bout — Google Forms bilingue, traitement Python/Pandas, orchestration GitHub Actions, dashboard Streamlit déployé pour la mairie. Résultat : suppression totale des enquêtes terrain manuelles, données accessibles en temps réel, 3 buyer personas actionnables livrés." },
-    { "q": "Ton niveau en Python ?", "a": "Solide sur l'écosystème data : Pandas, NumPy, Plotly, Requests, Scrapy. Tous mes pipelines en production sont en Python, orchestrés par GitHub Actions. Je l'enseigne aussi aux apprenants chez Jedha." },
-    { "q": "Tu connais Docker ?", "a": "Oui, niveau opérationnel : j'ai conteneurisé un pipeline ETL complet avec Docker Compose (projet Pipeline_ventes), incluant une dead letter queue pour tracer les données invalides. J'approfondis en continu." },
-    { "q": "Ton plus gros projet ?", "a": "Le Bike Data Lakehouse sur Databricks : 4 couches Bronze→Silver→Gold→Platinum, 6 sources CRM/ERP consolidées en star schema, vues 360° avec scoring client, 17 tables Delta, orchestration quotidienne automatisée — run complet en ~4 minutes. Construit entièrement from scratch." },
+    { "q": "Parle-moi du projet Japon", "a": "4 mois en mission à Yonezawa (préfecture de Yamagata) pour moderniser la collecte de données touristiques de la ville : pipeline automatisé de bout en bout — Google Forms bilingue, Python/Pandas, GitHub Actions, dashboard Streamlit déployé pour la mairie. Résultat : plus aucune enquête terrain manuelle, données en temps réel, 3 buyer personas livrés." },
+    { "q": "Ton niveau d'anglais ?", "a": "Courant — 7 ans aux États-Unis chez Royal Caribbean, environnement 100% anglophone. Je peux mener des entretiens techniques en anglais." },
     { "q": "Pourquoi la data ?", "a": "Ce qui me passionne, c'est structurer la donnée, l'organiser, lui donner de la valeur et du sens. Et pour quelqu'un d'ultra curieux comme moi, c'est un terrain de jeu infini : toujours une nouvelle techno, un nouveau pattern, un nouveau problème à résoudre." },
     { "q": "Pourquoi tu voudrais travailler chez nous ?", "a": "Ce qui me passionne avant tout c'est la donnée : la structurer, lui donner de la valeur et des perspectives. Dis-m'en plus sur ton secteur et tes projets data, et je te répondrai plus précisément — ou contacte-moi directement via le bouton Contact du portfolio." },
     { "q": "Comment me contacter ?", "a": "Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !" }
