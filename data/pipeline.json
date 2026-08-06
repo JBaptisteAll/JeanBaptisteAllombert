@@ -3,8 +3,8 @@
   "_source": "https://github.com/JBaptisteAll",
   "owner": {
     "name": "Jean-Baptiste Allombert",
-    "role_fr": "Data Engineer · Analytics Engineer",
-    "role_en": "Data Engineer · Analytics Engineer",
+    "role_fr": "Analytics Engineer",
+    "role_en": "Analytics Engineer",
     "location": "Paris · Île-de-France",
     "github": "https://github.com/JBaptisteAll",
     "linkedin": "https://www.linkedin.com/in/jean-baptiste-allombert/",
@@ -22,10 +22,10 @@
       "icon": "person",
       "title_fr": "À propos",
       "title_en": "About",
-      "summary_fr": "Data Engineer en Alternance (Bac+5) · Disponible Juillet 2026. De la donnée brute à la donnée fiable | SQL · Python · dbt · Databricks · Docker | 10 ans de KPIs terrain pour que la data serve vraiment les décisions.",
-      "summary_en": "Data Engineer – Work-Study (Bac+5) · Available July 2026. From raw data to trusted data | SQL · Python · dbt · Databricks · Docker | 10 years of field KPIs to make data truly drive decisions.",
-      "body_fr": "**Ce que je fais** : je conçois des pipelines de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale — Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client. Cette culture du résultat opérationnel, je l'applique aujourd'hui à l'architecture des données.\n\n**Ce que je cherche** :\nUne **entreprise partenaire pour mon alternance Bac+5 Data Engineering** (Wild Code School, 2026–2028). Je suis basé à Paris / Île-de-France, disponible à partir de **juillet 2026**. Si tu construis des pipelines de données et que tu cherches un alternant qui arrive avec des projets, des certifications Databricks et une culture du résultat, parlons-en.",
-      "body_en": "**What I do**: I design robust data pipelines, from raw ingestion to certified, ready-to-use data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality — Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs — RevPAR, occupancy, customer segmentation — long before I wrote my first line of code. That results-driven culture is what I bring to data architecture today.\n\n**What I'm looking for** :\nA **partner company for my Bac+5 Data Engineering work-study program** (Wild Code School, 2026–2028). Based in Paris / Île-de-France, available from **July 2026**. If you're building data pipelines and looking for an apprentice who brings real projects, Databricks certifications, and a results-driven culture — let's talk."
+      "summary_fr": "Analytics Engineer · Disponible immédiatement. De la donnée brute à la donnée fiable | SQL · Python · dbt · Databricks · Docker | 10 ans de KPIs terrain pour que la data serve vraiment les décisions.",
+      "summary_en": "Analytics Engineer · Available immediately. From raw data to trusted data | SQL · Python · dbt · Databricks · Docker | 10 years of field KPIs to make data truly drive decisions.",
+      "body_fr": "**Ce que je fais** : je conçois des pipelines et des modèles de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage business. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale — Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client. Cette culture du résultat opérationnel, je l'applique aujourd'hui à l'architecture des données.\n\n**Ce que je cherche** :\nUn poste d'**Analytics Engineer en CDI**, basé à Paris / Île-de-France. Ma formation Data Analyst m'a donné les bases ; je continue depuis à monter en compétence en autonomie vers l'ingénierie analytique — dbt, Databricks, modélisation, qualité de données — via des projets livrés en production. Si tu construis des pipelines de données et cherches un profil qui arrive avec des projets concrets, des certifications Databricks et une culture du résultat, parlons-en.",
+      "body_en": "**What I do**: I design robust data pipelines and data models, from raw ingestion to certified, business-ready data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality — Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs — RevPAR, occupancy, customer segmentation — long before I wrote my first line of code. That results-driven culture is what I bring to data architecture today.\n\n**What I'm looking for**:\nAn **Analytics Engineer** role, full-time, based in Paris / Île-de-France. My Data Analyst training gave me the foundations; I've kept building toward analytics engineering since — dbt, Databricks, data modeling, data quality — through projects shipped to production. If you're building data pipelines and looking for a profile who brings real projects, Databricks certifications, and a results-driven culture — let's talk."
     },
     {
       "id": "src_experience",
@@ -83,13 +83,6 @@
       "summary_fr": "Formation continue + certifications + pratique projet permanente.",
       "summary_en": "Continuous learning + certifications + permanent project practice.",
       "items": [
-        {
-          "name": "Wild Code School — Expert Ingénierie de Données Massives et IA (RNCP Niv. 7 · Bac+5)",
-          "year": "2026 — 2028",
-          "desc_fr": "Formation en alternance (Bac+5) : ETL avancé, Data Warehouse, Data Lake, DataOps, Cloud, IA appliquée. Admission obtenue — recherche entreprise partenaire pour juillet 2026.",
-          "desc_en": "Work-study program (Bac+5): Advanced ETL, Data Warehouse, Data Lake, DataOps, Cloud, Applied AI. Admitted — seeking a partner company from July 2026.",
-          "status": "in_progress"
-        },
         {
           "name": "Jedha — Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
           "year": "2024 — 2025",
@@ -476,8 +469,8 @@
       "year": "2025",
       "title_fr": "Pipeline Ventes",
       "title_en": "Sales Pipeline",
-      "summary_fr": "Pipeline ETL complet pour la sélection Wild Code School / Simplon Data Engineer. Collecte HTTP, validation par règles métier, quarantaine des erreurs, analyses SQL.",
-      "summary_en": "Full ETL pipeline for Wild Code School / Simplon Data Engineer admission. HTTP collection, business-rule validation, error quarantine, SQL analyses.",
+      "summary_fr": "Pipeline ETL personnel démontrant collecte HTTP, validation par règles métier, quarantaine des erreurs et analyses SQL de bout en bout.",
+      "summary_en": "Personal ETL pipeline demonstrating HTTP collection, business-rule validation, error quarantine and end-to-end SQL analysis.",
       "body_fr": "Trois CSVs (produits, magasins, ventes) récupérés via HTTP, normalisés, validés ligne par ligne avec règles métier (prix > 0, stock ≥ 0, quantité > 0, FK valides). Choix d'architecture : les lignes invalides ne sont pas supprimées mais redirigées vers une table `erreurs_import` de quarantaine — pratique de \"dead letter queue\" — qui trace table, ligne, colonne, valeur, raison et date du rejet. Cela permet de réimporter après correction et d'auditer le pipeline. Déduplication transparente lors de chaque relance. Trois analyses SQL produisent CA total, ventes par produit et ventes par région. Conteneurisé avec Docker + docker-compose.",
       "body_en": "Three CSVs (products, stores, sales) fetched via HTTP, normalized, validated row-by-row with business rules (price > 0, stock ≥ 0, quantity > 0, valid FKs). Architectural choice: invalid rows aren't dropped but redirected to a quarantine `erreurs_import` table — \"dead letter queue\" pattern — tracking table, row, column, value, rejection reason and date. Allows re-importing after correction and pipeline auditing. Transparent deduplication on each re-run. Three SQL analyses produce total revenue, sales-by-product, sales-by-region. Containerized with Docker + docker-compose.",
       "stack": [
@@ -666,8 +659,8 @@
       "title_en": "Weather Forecast Analysis",
       "summary_fr": "Projet parapluie en deux fronts : (1) **France Adventure Planner** — app Streamlit qui aide à planifier un week-end en France à partir des prévisions météo + suggestions d'hôtels, (2) **ClimAdvisor** — analyse Power BI de la fiabilité réelle de ces prévisions à J+1 → J+5 sur ~50 villes. Même donnée, deux finalités : produit + insight.",
       "summary_en": "Umbrella project on two fronts: (1) **France Adventure Planner** — Streamlit app helping plan a French weekend from weather forecasts + hotel suggestions, (2) **ClimAdvisor** — Power BI analysis of how reliable those forecasts actually are at D+1 → D+5 across ~50 cities. Same data, two outcomes: product + insight.",
-      "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1 — France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2 — ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot de Data Engineer.",
-      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1 — France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2 — ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Data Engineer job.",
+      "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1 — France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2 — ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot d'Analytics Engineer.",
+      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1 — France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2 — ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Analytics Engineer job.",
       "stack": [
         "Streamlit",
         "Python",

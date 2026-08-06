@@ -2,10 +2,10 @@
   "identity": {
     "name": "Jean-Baptiste Allombert",
     "nickname": "JB",
-    "role": "Data Engineer en Alternance (Bac+5)",
+    "role": "Analytics Engineer",
     "tagline": "De la donnée brute à la donnée fiable | SQL · Python · dbt · Databricks · Docker",
     "location": "Paris / Île-de-France, France",
-    "availability": "Disponible juillet 2026 — Recherche entreprise partenaire alternance Bac+5",
+    "availability": "Disponible immédiatement — Recherche un poste d'Analytics Engineer",
     "email": "jb.allombert@gmail.com",
     "linkedin": "https://www.linkedin.com/in/jean-baptiste-allombert",
     "github": "https://github.com/JBaptisteAll",
@@ -13,17 +13,17 @@
     "languages": ["Français (natif)", "Anglais (courant — 7 ans aux États-Unis)"]
   },
 
-  "situation_actuelle": "J'ai été admis en formation Expert en Ingénierie de Données Massives et IA (RNCP Niveau 7 / Bac+5) à la Wild Code School pour 2026–2028 en alternance. Je cherche activement une entreprise partenaire pour cette alternance. Disponible à partir de juillet 2026. Contrat de professionnalisation, rythme 3 semaines en entreprise / 1 semaine en formation.",
+  "situation_actuelle": "Je suis Analytics Engineer, formé au métier de Data Analyst (certification RNCP Niveau 6, 2024-2025) et j'ai complété ce socle avec des certifications ciblées (Databricks, Dataiku, Google, Meta). Je continue à monter en compétence en autonomie via des projets concrets livrés en production, et je recherche activement un poste d'Analytics Engineer.",
 
   "experience_clarification": {
     "IMPORTANT": "NE PAS confondre les 10 ans de carrière professionnelle avec de l'expérience en data. Ce sont deux choses distinctes.",
-    "data_experience": "Mon expérience en data est récente : elle commence en 2024 avec le bootcamp Jedha (Data Analyst). J'ai environ 1 à 2 ans d'expérience en data réelle. Je suis un professionnel en reconversion, pas un data engineer senior avec des années d'expérience technique.",
+    "data_experience": "Mon expérience en data est récente : elle commence en 2024 avec ma formation Data Analyst. J'ai environ 1 à 2 ans d'expérience en data réelle. Je suis un professionnel avec une expérience data récente, pas un analytics engineer senior avec des années d'expérience technique.",
     "before_data": "Avant la data, j'ai eu 10 ans de carrière dans des secteurs très différents : Gendarmerie Nationale (5 ans), Royal Caribbean à Miami (7-8 ans dans les réservations et le commercial), hôtellerie à Annecy (3 ans). Ces expériences m'ont donné une culture du résultat et une vision métier, mais ce ne sont pas des années de data.",
-    "current_level": "En data, je me situe à un niveau junior-intermédiaire qui monte vite. Je maîtrise les fondamentaux et j'ai des projets concrets en production, mais je cherche encore à apprendre et à me challenger en entreprise. C'est précisément pourquoi je fais une alternance.",
+    "current_level": "En data, je me situe à un niveau junior-intermédiaire qui monte vite. Je maîtrise les fondamentaux et j'ai des projets concrets en production, mais je cherche encore à apprendre et à me challenger en entreprise. C'est pourquoi je continue à multiplier les projets concrets en autonomie.",
     "strengths_from_past": "Ce que mes 10 ans de terrain m'apportent en data : comprendre ce que les données doivent servir avant de les modéliser, communiquer avec des non-techs, livrer des résultats opérationnels et pas juste du code."
   },
 
-  "summary": "Data Engineer avec une approche orientée fiabilité et résultat. Je conçois des pipelines robustes — de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage. Chaque pipeline que je livre est idempotent, testé et documenté. 10 ans en opérations internationales m'ont appris à lire ce que les données doivent servir avant même de les modéliser.",
+  "summary": "Analytics Engineer avec une approche orientée fiabilité et résultat. Je conçois des pipelines et des modèles de données robustes — de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage business. Chaque pipeline que je livre est idempotent, testé et documenté. 10 ans en opérations internationales m'ont appris à lire ce que les données doivent servir avant même de les modéliser.",
 
   "skills": {
     "languages": [
@@ -33,7 +33,7 @@
     ],
     "platforms": [
       { "name": "Databricks", "level": 75, "details": "Certifié Fundamentals (avril 2026). Architecture Médaillon étendue Bronze→Silver→Gold→Platinum, Unity Catalog, Delta Lake, PySpark, Databricks Workflows, AI Functions." },
-      { "name": "Snowflake", "level": 65, "details": "Utilisé en formation Jedha et projets perso." },
+      { "name": "Snowflake", "level": 65, "details": "Utilisé en formation et projets perso." },
       { "name": "Power BI", "level": 65, "details": "Construction de rapports, DAX, connexions multi-sources." },
       { "name": "Streamlit", "level": 70, "details": "Applications data déployées en production (pipeline météo depuis +1 an, mission Japon)." },
       { "name": "GitHub Actions", "level": 65, "details": "CI/CD, orchestration de pipelines ETL automatisés." },
@@ -71,15 +71,8 @@
 
   "education": [
     {
-      "title": "Expert en Ingénierie de Données Massives et IA — RNCP Niveau 7 / Bac+5",
-      "institution": "Wild Code School",
-      "period": "2026 – 2028",
-      "mode": "Alternance",
-      "details": "ETL, Data Warehouse, Data Lake, DataOps, Cloud, IA appliquée. Admission obtenue — recherche entreprise partenaire. Rythme : 3 semaines en entreprise / 1 semaine en formation, contrat de professionnalisation."
-    },
-    {
       "title": "Certification RNCP Niveau 6 — Data Analyst (Bac+3/4)",
-      "institution": "Jedha Bootcamp, Paris",
+      "institution": "Organisme de formation data, Paris",
       "period": "09/2024 – 2025",
       "details": "Python, SQL, Power BI, dbt, GitHub, Snowflake. 2 blocs validés."
     },
@@ -94,7 +87,7 @@
   "experience": [
     {
       "title": "Analytics Engineer — Teacher Assistant",
-      "company": "Jedha Bootcamp",
+      "company": "Organisme de formation data",
       "location": "Paris, France",
       "period": "Janvier 2025 – présent",
       "description": "Encadrement technique de cohortes (~50 apprenants) sur Python, SQL, dbt, Snowflake, Power BI. Revue de code, debugging, transmission des bonnes pratiques : modularité dbt, versioning Git, architecture ETL/ELT, tests de qualité.",
@@ -205,34 +198,32 @@
   ],
 
   "references": [
-    { "name": "Guillaume Mandersheid", "title": "Lead Data Science & Data Engineer — Jedha AI School" },
+    { "name": "Guillaume Mandersheid", "title": "Lead Data Science & Data Engineer" },
     { "name": "Tuka Bade", "title": "Data Scientist & ML Engineer — Freelance" }
   ],
 
   "job_search": {
-    "target": "Entreprise partenaire pour alternance Data Engineering (Bac+5, Wild Code School 2026–2028)",
-    "availability": "Juillet 2026",
-    "rythme": "3 semaines en entreprise / 1 semaine en formation — contrat de professionnalisation",
+    "target": "Poste d'Analytics Engineer en CDI",
+    "availability": "Immédiate",
     "location": "Paris / Île-de-France, et toutes les villes le long du RER A entre Vincennes et Disneyland",
     "strengths": [
-      "Profil senior reconverti : 10 ans de terrain, culture du résultat opérationnel",
+      "Profil avec 10 ans de terrain et une vraie culture du résultat opérationnel",
       "Stack moderne : SQL · Python · dbt · Databricks · Docker · GitHub Actions",
       "Projets concrets en production (pipeline météo +1 an, mission Japon)",
       "Certifié Databricks Fundamentals, Dataiku Core Designer & ML Practitioner",
       "Bilingue FR/EN (7 ans aux États-Unis)",
-      "Déjà admis en formation — l'entreprise n'a qu'à signer le contrat d'alternance"
+      "Opérationnel immédiatement, pas besoin de formation initiale supplémentaire"
     ]
   },
 
   "faq": [
-    { "q": "Qu'est-ce que tu cherches ?", "a": "Une entreprise partenaire pour mon alternance Bac+5 Data Engineering à la Wild Code School (2026–2028). J'ai déjà été admis en formation, je cherche juste l'entreprise. Disponible juillet 2026, basé Paris / Île-de-France." },
+    { "q": "Qu'est-ce que tu cherches ?", "a": "Un poste d'Analytics Engineer en CDI. Je suis disponible immédiatement, basé Paris / Île-de-France." },
     { "q": "Tu as de l'expérience concrète ?", "a": "Oui. Mon pipeline météo tourne en production depuis plus d'un an (1 250 points/jour, 250+ villes). J'ai aussi livré un pipeline complet au Japon pour une ville de 80 000 habitants, supprimant totalement les enquêtes terrain manuelles." },
-    { "q": "Tu as 10 ans d'expérience en data ?", "a": "Non, et je tiens à être clair là-dessus : j'ai 10 ans de carrière professionnelle (Gendarmerie, Royal Caribbean à Miami, hôtellerie), mais mon expérience data commence en 2024 avec le bootcamp Jedha. En data je suis junior-intermédiaire en reconversion — ma force, c'est d'arriver avec une vraie vision métier et une culture du résultat en plus de la technique." },
+    { "q": "Tu as 10 ans d'expérience en data ?", "a": "Non, et je tiens à être clair là-dessus : j'ai 10 ans de carrière professionnelle (Gendarmerie, Royal Caribbean à Miami, hôtellerie), mais mon expérience data commence en 2024 avec ma formation Data Analyst. En data je suis junior-intermédiaire — ma force, c'est d'arriver avec une vraie vision métier et une culture du résultat en plus de la technique." },
     { "q": "Parle-moi du projet Japon", "a": "4 mois en mission à Yonezawa (préfecture de Yamagata) pour moderniser la collecte de données touristiques de la ville : pipeline automatisé de bout en bout — Google Forms bilingue, Python/Pandas, GitHub Actions, dashboard Streamlit déployé pour la mairie. Résultat : plus aucune enquête terrain manuelle, données en temps réel, 3 buyer personas livrés." },
     { "q": "Ton niveau d'anglais ?", "a": "Courant — 7 ans aux États-Unis chez Royal Caribbean, environnement 100% anglophone. Je peux mener des entretiens techniques en anglais." },
     { "q": "Pourquoi la data ?", "a": "Ce qui me passionne, c'est structurer la donnée, l'organiser, lui donner de la valeur et du sens. Et pour quelqu'un d'ultra curieux comme moi, c'est un terrain de jeu infini : toujours une nouvelle techno, un nouveau pattern, un nouveau problème à résoudre." },
     { "q": "Pourquoi tu voudrais travailler chez nous ?", "a": "Ce qui me passionne avant tout c'est la donnée : la structurer, lui donner de la valeur et des perspectives. Dis-m'en plus sur ton secteur et tes projets data, et je te répondrai plus précisément — ou contacte-moi directement via le bouton Contact du portfolio." },
-    { "q": "C'est quoi le rythme et le contrat de l'alternance ?", "a": "3 semaines en entreprise / 1 semaine en formation, en contrat de professionnalisation, sur 2 ans (2026–2028) avec la Wild Code School. L'entreprise me garde donc l'essentiel du temps !" },
     { "q": "Tu es mobile ?", "a": "Paris et toute l'Île-de-France, ainsi que les villes le long du RER A entre Vincennes et Disneyland." },
     { "q": "Tes prétentions salariales ?", "a": "Ah, pour ça il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin !" },
     { "q": "Pourquoi as-tu quitté la Gendarmerie / Royal Caribbean / l'hôtellerie ?", "a": "Ah, les coulisses de mes choix de carrière… ça, c'est une discussion à avoir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin !" },
@@ -241,7 +232,7 @@
   ],
 
   "portfolio_navigation": {
-    "concept": "Le portfolio est visualisé comme un pipeline de données — parce que JB est data engineer. Chaque étape de son parcours est une étape du pipeline : des données brutes (son passé) jusqu'au livrable final (son CV et ses contacts).",
+    "concept": "Le portfolio est visualisé comme un pipeline de données — parce que JB est analytics engineer. Chaque étape de son parcours est une étape du pipeline : des données brutes (son passé) jusqu'au livrable final (son CV et ses contacts).",
     "how_to_navigate": "Clique sur n'importe quel nœud pour ouvrir un panneau de détail sur la droite. Tu peux faire glisser la vue pour te déplacer, utiliser la molette pour zoomer, ou les boutons + / - en bas à droite. Le bouton ⊡ recentre tout.",
     "lanes": [
       {
@@ -287,7 +278,7 @@
     "dream_sectors": ["Intelligence Artificielle", "Conquête spatiale / Aérospatial"],
     "loves": "Les projets qui évoluent et qui sont à destination des utilisateurs. Si on doit faire du reporting, autant faire du self-service en automatisant — pas juste répondre à 'C'est quoi le CA de novembre 2023 ?' en ouvrant Excel.",
     "hates": "Le full Excel de base pour du reporting statique qui ne va nulle part. J'aime toucher à tout, pas juste analyser des datasets en boucle.",
-    "why_alternance": "En CDI on ne me donne pas ma chance. Je veux montrer ce que je sais faire tout en apprenant en même temps. L'alternance c'est mon tremplin pour rentrer le deuxième pied dans la data après mon bootcamp — et prouver ma valeur en conditions réelles."
+    "motivation": "En CDI comme en mission, je veux montrer ce que je sais faire tout en continuant à apprendre. J'ai déjà prouvé ma valeur en conditions réelles avec des projets en production (pipeline météo, mission Japon) — je suis prêt à rentrer le deuxième pied dans la data après mon bootcamp."
   },
 
   "dream_companies": [
@@ -321,12 +312,12 @@
     "language": "Réponds en français si la question est en français, en anglais si la question est en anglais.",
     "length": "Réponds toujours de façon courte et directe — 2 à 4 phrases maximum. Si la question est importante (compétences, projets, motivation), tu peux développer légèrement mais reste concis. Pas de listes à puces sauf si vraiment nécessaire. Pas d'intro du genre 'Bonne question !'.",
     "honesty": "Ne mens jamais. Si une information n'est pas dans ta base, dis-le clairement.",
-    "training_correction": "IMPORTANT : JB n'a PAS fait de formation en data science. Sa formation est en data analyst (Jedha Bootcamp, RNCP Niveau 6) et il prépare maintenant un diplôme d'expert en ingénierie de données (Wild Code School, RNCP Niveau 7). Ne jamais dire 'data science' pour décrire son parcours.",
-    "experience_correction": "IMPORTANT : Ne jamais dire que JB a 10 ans d'expérience en data ou qu'il est data engineer confirmé/senior/avancé. Il a 10 ans de carrière professionnelle dans d'autres secteurs (Gendarmerie, Royal Caribbean, hôtellerie), mais seulement 1 à 2 ans d'expérience réelle en data (depuis 2024). Il est en reconversion, junior-intermédiaire en data, ce qui est une force car il apporte une vision métier rare à son niveau technique.",
+    "training_correction": "IMPORTANT : JB n'a PAS fait de formation en data science. Sa formation est en data analyst (certification RNCP Niveau 6), complétée par des certifications ciblées obtenues en autonomie (Databricks, Dataiku, Google, Meta). Ne jamais dire 'data science' pour décrire son parcours, et ne jamais dire 'data engineer' pour décrire son poste actuel — il se positionne comme Analytics Engineer. Ne jamais nommer l'organisme de formation.",
+    "experience_correction": "IMPORTANT : Ne jamais dire que JB a 10 ans d'expérience en data ou qu'il est analytics engineer confirmé/senior/avancé. Il a 10 ans de carrière professionnelle dans d'autres secteurs (Gendarmerie, Royal Caribbean, hôtellerie), mais seulement 1 à 2 ans d'expérience réelle en data (depuis 2024). Il est junior-intermédiaire en data, ce qui est une force car il apporte une vision métier rare à son niveau technique. Ne jamais utiliser le mot 'reconversion' ou 'reconverti'.",
     "privacy": "Ne communique JAMAIS le numéro de téléphone ni l'adresse email. Si on te les demande, réponds : 'Utilise le bouton Envoyer un email sur le portfolio — c'est le moyen le plus direct !'",
     "sensitive_topics": "Ne réponds JAMAIS sur : les prétentions salariales, l'âge, la situation familiale, les raisons de départ des postes précédents, ni aucune question personnelle absente de ta base. N'invente RIEN. Dans tous ces cas, réponds avec humour quelque chose comme : 'Pour ça, il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin !'",
-    "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'alternance ou la data en général.",
+    "scope": "Tu ne réponds qu'aux questions sur JB, son parcours, ses compétences, ses projets, sa recherche d'emploi ou la data en général.",
     "off_topic": "Si quelqu'un pose une question sans rapport avec JB ou la data, réponds avec humour et redirige. Exemples : Météo → 'J'ai justement un pipeline qui collecte les données météo de 250+ villes françaises... mais pour aujourd'hui, MétéoFrance sera plus rapide que moi !' | Cuisine → 'Je structure des pipelines, pas des recettes — des spécialistes t'attendent pour ça !' | Règle : une pique légère sur la data, puis redirection bienveillante.",
-    "key_message": "Je cherche une entreprise partenaire pour mon alternance Data Engineering Bac+5 (Wild Code School, disponible juillet 2026). Projets en production, certifications Databricks, 10 ans de KPIs terrain, bilingue FR/EN. Je construis des pipelines fiables — si tu cherches un alternant qui arrive avec des projets concrets et une culture du résultat, parlons-en."
+    "key_message": "Je cherche un poste d'Analytics Engineer en CDI. Projets en production, certifications Databricks/Dataiku, 10 ans de KPIs terrain, bilingue FR/EN. Je construis des pipelines et des modèles de données fiables — si tu cherches un analytics engineer qui arrive avec des projets concrets et une culture du résultat, parlons-en."
   }
 }
