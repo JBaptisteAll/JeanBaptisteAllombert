@@ -231,6 +231,30 @@
       ]
     },
     {
+      "id": "t_airflow",
+      "type": "tool",
+      "lane": "PROCESSING",
+      "row": 8,
+      "label": "Airflow",
+      "level": 20,
+      "title_fr": "Airflow",
+      "title_en": "Airflow",
+      "summary_fr": "Orchestration prévue sur Hotel Booking Pipeline — DAG dbt seed → run → test, conteneurisé avec Postgres/dbt.",
+      "summary_en": "Orchestration planned on Hotel Booking Pipeline — dbt seed → run → test DAG, containerized alongside Postgres/dbt.",
+      "body_fr": "Niveau 20/100 — orchestration encore à implémenter sur Hotel Booking Pipeline : DAG prévu `dbt seed → dbt run → dbt test`, dans le même environnement Docker que Postgres et dbt. Pas encore démontré : DAGs multi-tâches, sensors, retries, backfill, déploiement en production.",
+      "body_en": "Level 20/100 — orchestration still to implement on Hotel Booking Pipeline: planned DAG `dbt seed → dbt run → dbt test`, in the same Docker environment as Postgres and dbt. Not yet demonstrated: multi-task DAGs, sensors, retries, backfill, production deployment.",
+      "children": [
+        {
+          "label": "DAG seed→run→test",
+          "level": 20
+        },
+        {
+          "label": "Sensors / Retries",
+          "level": 10
+        }
+      ]
+    },
+    {
       "id": "t_databricks",
       "type": "tool",
       "lane": "PROCESSING",
@@ -582,31 +606,33 @@
       "year": "2024",
       "title_fr": "Hotel Booking Analysis",
       "title_en": "Hotel Booking Analysis",
-      "summary_fr": "Analyse exploratoire de réservations hôtelières — annulations, anticipation, saisonnalité. Travail en cours, sans couche de visualisation pour le moment.",
-      "summary_en": "Exploratory analysis of hotel bookings — cancellations, lead time, seasonality. Work in progress, no visualization layer yet.",
-      "body_fr": "EDA sur un dataset public de réservations hôtelières. Étude des facteurs prédictifs d'annulation, des patterns d'anticipation (lead time), de la saisonnalité par segment de marché.\n\n**Statut : en cours.** Le travail d'analyse exploratoire et de nettoyage est avancé, mais la couche de visualisation et de restitution n'est pas encore livrée. À venir : choix de stack viz (Plotly / Streamlit / Power BI selon le cas d'usage retenu).",
-      "body_en": "EDA on a public hotel-booking dataset. Studying cancellation predictive factors, lead-time patterns, seasonality by market segment.\n\n**Status: in progress.** Exploratory analysis and cleaning are advanced, but the visualization and delivery layer is not yet shipped. Next: viz stack decision (Plotly / Streamlit / Power BI depending on chosen use case).",
+      "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt avec tests de qualité automatisés (architecture médaillon, Airflow prévu).",
+      "summary_en": "Two-part project on the same hotel dataset: SQL Server EDA, then a productionized Postgres + dbt pipeline with automated quality tests (medallion architecture, Airflow planned).",
+      "body_fr": "**Volet 1 — EDA SQL Server** : analyse de 119 390 réservations de 2 hôtels portugais (dataset Kaggle) en médaillon Bronze/Silver/Gold. Nettoyage documenté, colonnes calculées PERSISTED (segmentation lead time en 7 buckets, revenu par réservation). Insights clés : 40,6 % d'annulation en hôtel urbain contre 27 % en resort, paradoxe des dépôts Non-Refund annulés à ~99 %.\n\n**Volet 2 — Pipeline productionisé** : reprise de cette logique de nettoyage dans un second dépôt (Hotel_Booking_Pipeline), avec Postgres conteneurisé (Docker) et dbt en architecture médaillon (seed → staging → intermediate → marts). Tests de qualité automatisés : bornes ADR (pas de prix négatif), détection des outliers ADR (>4x la médiane par hôtel/saison), intégrité des lignes après jointure de saisonnalité. Premier mart livré : `mart_pricing_consistency`. Orchestration Airflow prévue.\n\n**Statut** : volet 1 terminé (sans couche de restitution), volet 2 en cours — staging et intermediate en place, marts en construction, Airflow à implémenter.",
+      "body_en": "**Part 1 — SQL Server EDA**: analysis of 119,390 bookings from 2 Portuguese hotels (Kaggle dataset) in Bronze/Silver/Gold medallion. Documented cleaning, PERSISTED computed columns (lead-time segmentation in 7 buckets, revenue per booking). Key insights: 40.6% cancellation rate for city hotels vs 27% for resorts, paradox of Non-Refund deposits cancelled at ~99%.\n\n**Part 2 — Productionized pipeline**: the same cleaning logic rebuilt in a second repo (Hotel_Booking_Pipeline), with containerized Postgres (Docker) and dbt in medallion architecture (seed → staging → intermediate → marts). Automated quality tests: ADR bounds (no negative prices), ADR outlier detection (>4x median by hotel/season), row integrity after the seasonality join. First mart shipped: `mart_pricing_consistency`. Airflow orchestration planned.\n\n**Status**: part 1 complete (no visualization layer), part 2 in progress — staging and intermediate in place, marts under construction, Airflow still to implement.",
       "stack": [
-        "Python",
-        "Pandas",
-        "EDA"
+        "SQL Server",
+        "Postgres",
+        "dbt",
+        "Docker",
+        "Airflow"
       ],
       "metrics": [
         {
-          "label": "type",
-          "value": "EDA"
+          "label": "réservations",
+          "value": "119 390"
         },
         {
-          "label": "statut",
-          "value": "WIP"
+          "label": "tests dbt",
+          "value": "10+"
         },
         {
-          "label": "viz",
-          "value": "—"
+          "label": "architecture",
+          "value": "seed→staging→mart"
         }
       ],
-      "github_url": "https://github.com/JBaptisteAll/Hotel_Booking_Analysis",
-      "mermaid": "flowchart LR\n  D[Dataset] --> C[Clean]\n  C --> A[Analyse]\n  A --> S[Segmentation]\n  S --> V[Viz · à venir]"
+      "github_url": "https://github.com/JBaptisteAll/Hotel_Booking_Pipeline",
+      "mermaid": "flowchart LR\n  D[Kaggle Dataset] --> EDA[SQL Server EDA]\n  D --> SEED[dbt seed]\n  SEED --> STG[staging]\n  STG --> INT[intermediate]\n  INT --> MART[mart_pricing_consistency]\n  MART -.-> AF[Airflow · prévu]"
     },
     {
       "id": "p_airline",
@@ -660,7 +686,7 @@
       "summary_fr": "Projet parapluie en deux fronts : (1) **France Adventure Planner** — app Streamlit qui aide à planifier un week-end en France à partir des prévisions météo + suggestions d'hôtels, (2) **ClimAdvisor** — analyse Power BI de la fiabilité réelle de ces prévisions à J+1 → J+5 sur ~50 villes. Même donnée, deux finalités : produit + insight.",
       "summary_en": "Umbrella project on two fronts: (1) **France Adventure Planner** — Streamlit app helping plan a French weekend from weather forecasts + hotel suggestions, (2) **ClimAdvisor** — Power BI analysis of how reliable those forecasts actually are at D+1 → D+5 across ~50 cities. Same data, two outcomes: product + insight.",
       "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1 — France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2 — ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot d'Analytics Engineer.",
-      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1 — France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2 — ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Analytics Engineer job.",
+      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1 — France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2 — ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Data Engineer job.",
       "stack": [
         "Streamlit",
         "Python",
@@ -960,11 +986,19 @@
       "p_japan"
     ],
     [
-      "t_python",
+      "t_sql",
       "p_hotel"
     ],
     [
-      "t_viz",
+      "t_dbt",
+      "p_hotel"
+    ],
+    [
+      "t_docker",
+      "p_hotel"
+    ],
+    [
+      "t_airflow",
       "p_hotel"
     ],
     [
