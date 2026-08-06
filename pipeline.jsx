@@ -335,6 +335,12 @@ function PipelineEdges({ nodes, edges, focusedId, importantTargetIds }) {
 //  MAIN COMPONENT
 // ============================================================
 
+// Desktop topbar is a fixed-position 72px overlay (see .pipeline-topbar in
+// pipeline.css) sitting on top of the canvas — reserve it so the initial
+// fit-to-view centers the DAG (and its lane labels) in the space actually
+// visible below it, instead of centering across the full raw viewport.
+const DESKTOP_TOPBAR_H = 72;
+
 // Clamp a candidate {tx, ty, s} so the user can't pan/zoom too far
 // outside the stage. Rules:
 //   - scale stays in [minScale, maxScale]
@@ -346,8 +352,10 @@ function clampView(v, stageEl, stageW, stageH, isMobile) {
   const minScale = 0.15;
   const maxScale = isMobile ? 2.2 : 3;
   const s = Math.min(Math.max(v.s, minScale), maxScale);
-  // Reserved chrome on mobile (topbar 48 + bottom bar 72 + right sidebar 44)
-  const padTop    = isMobile ? 48 : 0;
+  // Reserved chrome: mobile topbar 48 + bottom bar 72 + right sidebar 44;
+  // desktop topbar is a fixed 72px overlay (see .pipeline-topbar in pipeline.css)
+  // and must be reserved too, otherwise lane labels can end up tucked behind it.
+  const padTop    = isMobile ? 48 : DESKTOP_TOPBAR_H;
   const padBottom = isMobile ? 72 : 0;
   const padRight  = isMobile ? 44 : 0;
   const usableW = rect.width - padRight;
@@ -390,11 +398,15 @@ function computeFitView(stageEl, stageW, stageH, isMobile) {
     const ty = 48 + (usableH - stageH * s) / 2;
     return { tx, ty, s };
   }
+  // Reserve the fixed topbar so lane labels (drawn near the top of the
+  // stage) don't end up centered behind it, and the DAG reads as centered
+  // in the space the visitor actually sees.
+  const usableH = rect.height - DESKTOP_TOPBAR_H;
   const sx = rect.width / stageW;
-  const sy = rect.height / stageH;
-  const s = Math.min(sx, sy) * 0.9;
+  const sy = usableH / stageH;
+  const s = Math.min(sx, sy) * 0.92;
   const tx = (rect.width - stageW * s) / 2;
-  const ty = (rect.height - stageH * s) / 2;
+  const ty = DESKTOP_TOPBAR_H + (usableH - stageH * s) / 2;
   return { tx, ty, s };
 }
 

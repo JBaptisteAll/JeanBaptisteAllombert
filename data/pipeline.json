@@ -36,8 +36,8 @@
       "icon": "briefcase",
       "title_fr": "Expériences",
       "title_en": "Experience",
-      "summary_fr": "Du front desk hôtelier au pipeline Databricks — 15 ans de parcours où la rigueur opérationnelle et la culture du résultat ont précédé la stack technique.",
-      "summary_en": "From hotel front desk to Databricks pipelines — 15 years where operational rigor and result-driven culture preceded the technical stack.",
+      "summary_fr": "Du front desk hôtelier au pipeline Databricks — 10 ans dans le tourisme et l'hôtellerie (+ 5 ans en Gendarmerie avant ça), où la rigueur opérationnelle et la culture du résultat ont précédé la stack technique.",
+      "summary_en": "From hotel front desk to Databricks pipelines — 10 years in tourism and hospitality (+ 5 years in the Gendarmerie before that), where operational rigor and result-driven culture preceded the technical stack.",
       "items": [
         {
           "name": "Analytics Engineer · Data Instructor — Jedha Bootcamp",
@@ -84,7 +84,7 @@
       "summary_en": "Continuous learning + certifications + permanent project practice.",
       "items": [
         {
-          "name": "Jedha — Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
+          "name": "Organisme de formation data — Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
           "year": "2024 — 2025",
           "desc_fr": "Bootcamp Data Fullstack certifiant (6 mois, présentiel + distanciel) : Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modélisation, qualité des données, modern data stack, pipelines de bout en bout. 2 blocs RNCP validés.",
           "desc_en": "Certified Data Fullstack bootcamp (6 months, in-person + remote): Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modeling, data quality, modern data stack, end-to-end pipelines. 2 RNCP blocks validated.",
@@ -157,8 +157,8 @@
       "title_en": "SQL",
       "summary_fr": "Solide sur CTE, window functions, NTILE, modélisation. Bon en T-SQL, SQLite et SQL standard.",
       "summary_en": "Solid on CTEs, window functions, NTILE, modeling. Comfortable in T-SQL, SQLite and standard SQL.",
-      "body_fr": "Niveau 70/100 — démontré sur Airline (T-SQL star schema, 20+ requêtes business), Bike Lakehouse (Platinum en Databricks SQL avec NTILE/RFMV), Pipeline_ventes (SQLite). Maîtrise des CTE récursifs, window functions, agrégations conditionnelles, jointures multi-tables. Pas démontré : tuning sur très gros volumes (>100M lignes), stored procedures complexes, triggers, optimisation d'index avancée.",
-      "body_en": "Level 70/100 — demonstrated on Airline (T-SQL star schema, 20+ business queries), Bike Lakehouse (Platinum in Databricks SQL with NTILE/RFMV), Pipeline_ventes (SQLite). Mastery of recursive CTEs, window functions, conditional aggregations, multi-table joins. Not demonstrated: tuning on very large volumes (>100M rows), complex stored procedures, triggers, advanced index optimization.",
+      "body_fr": "Niveau 70/100 — démontré sur Airline (T-SQL star schema, 20+ requêtes business), Bike Lakehouse (Platinum en Databricks SQL avec NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (EDA SQL Server + colonnes calculées PERSISTED). Maîtrise des CTE récursifs, window functions, agrégations conditionnelles, jointures multi-tables. Pas démontré : tuning sur très gros volumes (>100M lignes), stored procedures complexes, triggers, optimisation d'index avancée.",
+      "body_en": "Level 70/100 — demonstrated on Airline (T-SQL star schema, 20+ business queries), Bike Lakehouse (Platinum in Databricks SQL with NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (SQL Server EDA + PERSISTED computed columns). Mastery of recursive CTEs, window functions, conditional aggregations, multi-table joins. Not demonstrated: tuning on very large volumes (>100M rows), complex stored procedures, triggers, advanced index optimization.",
       "children": [
         {
           "label": "DQL · SELECT",
@@ -203,10 +203,10 @@
       "level": 55,
       "title_fr": "dbt",
       "title_en": "dbt",
-      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3 — The Rise of the Single Source) : refonte du DW SQL en couche dbt staging → intermediate → marts.",
-      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3 — The Rise of the Single Source): SQL DW refactored into a staging → intermediate → marts dbt layer.",
-      "body_fr": "Niveau 55/100 — utilisé concrètement sur l'Acte 3 du projet Airline. Modèles séparés en couches (staging / intermediate / marts), tests de qualité, documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
-      "body_en": "Level 55/100 — concretely used on Act 3 of the Airline project. Models split into layers (staging / intermediate / marts), quality tests, auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
+      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3 — The Rise of the Single Source) et Hotel Booking Pipeline (Postgres, tests qualité automatisés).",
+      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3 — The Rise of the Single Source) and Hotel Booking Pipeline (Postgres, automated quality tests).",
+      "body_fr": "Niveau 55/100 — utilisé concrètement sur l'Acte 3 du projet Airline (staging → intermediate → marts, tests d'assertion) et sur Hotel Booking Pipeline (seed → staging → intermediate → marts sur Postgres, 14 tests dbt dont des tests singuliers sur les outliers ADR). Documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
+      "body_en": "Level 55/100 — concretely used on Act 3 of the Airline project (staging → intermediate → marts, assertion tests) and on Hotel Booking Pipeline (seed → staging → intermediate → marts on Postgres, 14 dbt tests including singular tests on ADR outliers). Auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
       "children": [
         {
           "label": "Staging / Marts",
@@ -347,10 +347,10 @@
       "level": 35,
       "title_fr": "Docker",
       "title_en": "Docker",
-      "summary_fr": "Bases — Dockerfile + docker-compose pour conteneuriser Pipeline_ventes. Niveau débutant.",
-      "summary_en": "Basics — Dockerfile + docker-compose to containerize Pipeline_ventes. Beginner level.",
-      "body_fr": "Niveau 35/100 — utilisation simple : Dockerfile Python + docker-compose pour orchestrer un service Python et une base SQLite. Je sais lancer, build, debug. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), networking inter-services complexe, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
-      "body_en": "Level 35/100 — simple use: Python Dockerfile + docker-compose to orchestrate a Python service and SQLite database. I can run, build, debug. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), complex inter-service networking, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "summary_fr": "Dockerfile + docker-compose sur Pipeline_ventes (Python/SQLite) et Hotel Booking Pipeline (Postgres). Niveau débutant-intermédiaire.",
+      "summary_en": "Dockerfile + docker-compose on Pipeline_ventes (Python/SQLite) and Hotel Booking Pipeline (Postgres). Beginner-intermediate level.",
+      "body_fr": "Niveau 35/100 — utilisation simple : Dockerfile Python + docker-compose pour orchestrer un service Python et une base SQLite (Pipeline_ventes), et un conteneur Postgres pour Hotel Booking Pipeline. Je sais lancer, build, debug. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), networking inter-services complexe, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "body_en": "Level 35/100 — simple use: Python Dockerfile + docker-compose to orchestrate a Python service and SQLite database (Pipeline_ventes), and a Postgres container for Hotel Booking Pipeline. I can run, build, debug. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), complex inter-service networking, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
       "children": [
         {
           "label": "Dockerfile",
@@ -564,13 +564,13 @@
       "row": 3,
       "label": "JAPAN_TOURISM",
       "kanji": "旅",
-      "year": "2024",
+      "year": "2025",
       "title_fr": "Japan Travel Insights",
       "title_en": "Japan Travel Insights",
       "summary_fr": "Application Streamlit déployée pour la ville de Yonezawa — collecte automatisée par Google Forms et exploration interactive de la donnée touristique par les parties prenantes locales.",
       "summary_en": "Streamlit app deployed for the city of Yonezawa — automated Google Forms collection and interactive tourism-data exploration by local stakeholders.",
-      "body_fr": "Le problème : la mairie de Yonezawa (80 000 habitants, préfecture de Yamagata) menait ses enquêtes touristiques sur le terrain, papier-crayon, avec un coût logistique élevé et aucune analyse en temps réel.\n\nLa solution : un pipeline automatisé de bout en bout. **Collecte** via Google Forms multilingues. **Traitement** via Python/Pandas (nettoyage, normalisation, agrégations). **Orchestration** automatique par GitHub Actions à chaque nouvelle soumission. **Restitution** dans une application Streamlit déployée pour la mairie — les parties prenantes explorent elles-mêmes la donnée : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables.\n\nRésultat : **suppression totale** des enquêtes terrain manuelles et de leurs coûts logistiques. Application en production, accessible en libre-service par le client au Japon.",
-      "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms — high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall — stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.",
+      "body_fr": "Le problème : la mairie de Yonezawa (80 000 habitants, préfecture de Yamagata) menait ses enquêtes touristiques sur le terrain, papier-crayon, avec un coût logistique élevé et aucune analyse en temps réel.\n\nLa solution : un pipeline automatisé de bout en bout. **Collecte** via Google Forms multilingues. **Traitement** via Python/Pandas (nettoyage, normalisation, agrégations). **Orchestration** automatique par GitHub Actions à chaque nouvelle soumission. **Restitution** dans une application Streamlit déployée pour la mairie — les parties prenantes explorent elles-mêmes la donnée : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables.\n\nRésultat : **suppression totale** des enquêtes terrain manuelles et de leurs coûts logistiques. Application en production, accessible en libre-service par le client au Japon.\n\n**Statut** : la mission freelance pour la ville s'est terminée en décembre 2025. Le pipeline continue toutefois de tourner en autopilote (GitHub Actions) et l'application se met à jour à chaque nouvelle réponse au questionnaire — c'est un projet perso qui reste vivant au-delà de la mission.",
+      "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms — high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall — stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.\n\n**Status**: the freelance mission for the city ended in December 2025. The pipeline still runs on autopilot (GitHub Actions) and the app updates with every new survey response — it stays alive as a personal project beyond the mission itself.",
       "stack": [
         "Streamlit",
         "Python",
@@ -603,7 +603,7 @@
       "row": 4,
       "label": "HOTEL_BOOKING",
       "kanji": "宿",
-      "year": "2024",
+      "year": "2024 — 2026",
       "title_fr": "Hotel Booking Analysis",
       "title_en": "Hotel Booking Analysis",
       "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt avec tests de qualité automatisés (architecture médaillon, Airflow prévu).",
@@ -624,11 +624,11 @@
         },
         {
           "label": "tests dbt",
-          "value": "10+"
+          "value": "14"
         },
         {
           "label": "architecture",
-          "value": "seed→staging→mart"
+          "value": "seed→staging→int→mart"
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Hotel_Booking_Pipeline",

@@ -1,8 +1,8 @@
 // ============================================================
-// JB Portfolio — Cloudflare Worker (Gemini API Proxy)
+// JB Portfolio — Cloudflare Worker (Mistral API Proxy)
 // 1. Créer un Worker sur dash.cloudflare.com
 // 2. Coller ce code
-// 3. Settings → Variables → ajouter GEMINI_API_KEY (secret)
+// 3. Settings → Variables → ajouter MISTRAL_API_KEY (secret)
 // 4. Déployer → copier l'URL
 // ============================================================
 
@@ -71,34 +71,35 @@ export default {
       );
     }
 
-    // Conversion format Gemini (role/parts) → OpenAI (role/content)
+    // Conversion format Gemini (role/parts) → OpenAI (role/content) — Mistral
+    // utilise le même format de requête que l'API OpenAI (chat/completions).
     // Le premier message est toujours le system prompt (envoyé comme "user" par chatbot.jsx)
-    const openaiMessages = messages.map((m, i) => ({
+    const mistralMessages = messages.map((m, i) => ({
       role: i === 0 ? "system" : m.role === "model" ? "assistant" : "user",
       content: m.parts?.[0]?.text || m.content || "",
     }));
 
     try {
-      const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      const mistralRes = await fetch("https://api.mistral.ai/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${env.GROQ_API_KEY}`,
+          "Authorization": `Bearer ${env.MISTRAL_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
-          messages: openaiMessages,
+          model: "mistral-small-latest",
+          messages: mistralMessages,
           max_tokens: 350,
           temperature: 0.7,
         }),
       });
 
-      const data = await groqRes.json();
+      const data = await mistralRes.json();
 
-      if (!groqRes.ok || data.error) {
+      if (!mistralRes.ok || data.error) {
         const detail = data?.error?.message || JSON.stringify(data);
         return new Response(
-          JSON.stringify({ error: `Groq [${groqRes.status}]: ${detail}` }),
+          JSON.stringify({ error: `Mistral [${mistralRes.status}]: ${detail}` }),
           { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
