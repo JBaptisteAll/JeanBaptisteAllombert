@@ -156,9 +156,9 @@
       "description": "Pipeline 100 % SQL sur Databricks : documents financiers PDF parsés (ai_parse_document), classifiés (ai_classify) et extraits en champs structurés (ai_extract) vers 3 tables Delta requêtables. Aucun Python, aucune API externe, aucun modèle ML à maintenir."
     },
     {
-      "name": "Hotel Booking Analysis — pipeline analytique SQL Server",
-      "tech_stack": ["SQL Server", "T-SQL"],
-      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold : nettoyage documenté, colonnes calculées PERSISTED (segmentation lead time en 7 buckets, revenu par réservation). Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %."
+      "name": "Hotel Booking Analytics — EDA SQL Server + pipeline dbt/Postgres",
+      "tech_stack": ["SQL Server", "T-SQL", "Postgres", "dbt", "Docker", "Airflow"],
+      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → marts), tests de qualité automatisés sur les outliers ADR et la saisonnalité, Airflow prévu pour l'orchestration."
     },
     {
       "name": "ClimAdvisor — fiabilité des prévisions météo",
