@@ -120,7 +120,7 @@ Environnement idéal : ${k.work_preferences.ideal_environment}
 Secteurs de rêve : ${k.work_preferences.dream_sectors.join(", ")}.
 Ce que tu adores : ${k.work_preferences.loves}
 Ce que tu n'aimes pas : ${k.work_preferences.hates}
-Pourquoi l'alternance : ${k.work_preferences.why_alternance}`,
+Motivation : ${k.work_preferences.motivation}`,
 
     recruiter: `TES ENTREPRISES DE RÊVE :
 ${k.dream_companies.map(d => `${d.name} — ${d.why}`).join("\n")}
@@ -520,7 +520,7 @@ function ChatBot() {
           <div className="jb-chat-hdr">
             <div className="jb-hdr-dot"/>
             <span className="jb-hdr-title">
-              JB <span className="jb-hdr-sub">· Data Engineer</span>
+              JB <span className="jb-hdr-sub">· Analytics Engineer</span>
             </span>
             <span className="jb-hdr-status">
               <span className="jb-hdr-pulse"/>online
