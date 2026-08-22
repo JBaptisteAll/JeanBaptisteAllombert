@@ -200,13 +200,13 @@
       "lane": "PROCESSING",
       "row": 7,
       "label": "dbt",
-      "level": 55,
+      "level": 60,
       "title_fr": "dbt",
       "title_en": "dbt",
-      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3 — The Rise of the Single Source) et Hotel Booking Pipeline (Postgres, tests qualité automatisés).",
-      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3 — The Rise of the Single Source) and Hotel Booking Pipeline (Postgres, automated quality tests).",
-      "body_fr": "Niveau 55/100 — utilisé concrètement sur l'Acte 3 du projet Airline (staging → intermediate → marts, tests d'assertion) et sur Hotel Booking Pipeline (seed → staging → intermediate → marts sur Postgres, 14 tests dbt dont des tests singuliers sur les outliers ADR). Documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
-      "body_en": "Level 55/100 — concretely used on Act 3 of the Airline project (staging → intermediate → marts, assertion tests) and on Hotel Booking Pipeline (seed → staging → intermediate → marts on Postgres, 14 dbt tests including singular tests on ADR outliers). Auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
+      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3 — The Rise of the Single Source) et Hotel Booking Pipeline (Postgres, médaillon complet, orchestré par Airflow).",
+      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3 — The Rise of the Single Source) and Hotel Booking Pipeline (Postgres, full medallion, orchestrated by Airflow).",
+      "body_fr": "Niveau 60/100 — utilisé concrètement sur l'Acte 3 du projet Airline (staging → intermediate → marts, tests d'assertion) et sur Hotel Booking Pipeline (seed → staging → intermediate → 3 marts sur Postgres, 20 tests dbt dont 5 tests singuliers sur les outliers ADR et la cohérence des taux d'annulation, le tout orchestré par un DAG Airflow). Documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
+      "body_en": "Level 60/100 — concretely used on Act 3 of the Airline project (staging → intermediate → marts, assertion tests) and on Hotel Booking Pipeline (seed → staging → intermediate → 3 marts on Postgres, 20 dbt tests including 5 singular tests on ADR outliers and cancellation-rate consistency, all orchestrated by an Airflow DAG). Auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
       "children": [
         {
           "label": "Staging / Marts",
@@ -236,21 +236,29 @@
       "lane": "PROCESSING",
       "row": 8,
       "label": "Airflow",
-      "level": 20,
+      "level": 50,
       "title_fr": "Airflow",
       "title_en": "Airflow",
-      "summary_fr": "Orchestration prévue sur Hotel Booking Pipeline — DAG dbt seed → run → test, conteneurisé avec Postgres/dbt.",
-      "summary_en": "Orchestration planned on Hotel Booking Pipeline — dbt seed → run → test DAG, containerized alongside Postgres/dbt.",
-      "body_fr": "Niveau 20/100 — orchestration encore à implémenter sur Hotel Booking Pipeline : DAG prévu `dbt seed → dbt run → dbt test`, dans le même environnement Docker que Postgres et dbt. Pas encore démontré : DAGs multi-tâches, sensors, retries, backfill, déploiement en production.",
-      "body_en": "Level 20/100 — orchestration still to implement on Hotel Booking Pipeline: planned DAG `dbt seed → dbt run → dbt test`, in the same Docker environment as Postgres and dbt. Not yet demonstrated: multi-task DAGs, sensors, retries, backfill, production deployment.",
+      "summary_fr": "DAG de production sur Hotel Booking Pipeline — 11 tâches orchestrant dbt seed → staging → intermediate → 3 marts en parallèle.",
+      "summary_en": "Production DAG on Hotel Booking Pipeline — 11 tasks orchestrating dbt seed → staging → intermediate → 3 marts in parallel.",
+      "body_fr": "Niveau 50/100 — implémenté et démontré sur Hotel Booking Pipeline : DAG `hotel_booking_pipeline` de 11 `BashOperator`, chaque couche du médaillon en tâches run/test séparées pour isoler les échecs, 3 marts qui se ramifient en parallèle depuis `test_intermediate`. LocalExecutor, image Docker custom avec dbt intégré (étend `apache/airflow`), réseau Docker externe partagé avec le conteneur Postgres, retries automatiques (1 tentative, 5 min). Pas encore démontré : sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, dépendances multi-DAG, déploiement en environnement de production réel.",
+      "body_en": "Level 50/100 — implemented and demonstrated on Hotel Booking Pipeline: an 11-task `BashOperator` DAG (`hotel_booking_pipeline`), each medallion layer split into separate run/test tasks to isolate failures, 3 marts fanning out in parallel from `test_intermediate`. LocalExecutor, custom Docker image with dbt installed (extending `apache/airflow`), shared external Docker network with the Postgres container, automatic retries (1 attempt, 5 min). Not yet demonstrated: sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, multi-DAG dependencies, deployment to a real production environment.",
       "children": [
         {
-          "label": "DAG seed→run→test",
-          "level": 20
+          "label": "DAG multi-tâches",
+          "level": 55
         },
         {
-          "label": "Sensors / Retries",
-          "level": 10
+          "label": "Scheduling / Retries",
+          "level": 50
+        },
+        {
+          "label": "Docker / LocalExecutor",
+          "level": 55
+        },
+        {
+          "label": "Sensors / Dynamic mapping",
+          "level": 15
         }
       ]
     },
@@ -344,29 +352,29 @@
       "lane": "PROCESSING",
       "row": 4,
       "label": "Docker",
-      "level": 35,
+      "level": 45,
       "title_fr": "Docker",
       "title_en": "Docker",
-      "summary_fr": "Dockerfile + docker-compose sur Pipeline_ventes (Python/SQLite) et Hotel Booking Pipeline (Postgres). Niveau débutant-intermédiaire.",
-      "summary_en": "Dockerfile + docker-compose on Pipeline_ventes (Python/SQLite) and Hotel Booking Pipeline (Postgres). Beginner-intermediate level.",
-      "body_fr": "Niveau 35/100 — utilisation simple : Dockerfile Python + docker-compose pour orchestrer un service Python et une base SQLite (Pipeline_ventes), et un conteneur Postgres pour Hotel Booking Pipeline. Je sais lancer, build, debug. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), networking inter-services complexe, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
-      "body_en": "Level 35/100 — simple use: Python Dockerfile + docker-compose to orchestrate a Python service and SQLite database (Pipeline_ventes), and a Postgres container for Hotel Booking Pipeline. I can run, build, debug. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), complex inter-service networking, registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "summary_fr": "Dockerfile + docker-compose sur Pipeline_ventes (Python/SQLite) et Hotel Booking Pipeline (2 stacks — Postgres + Airflow, réseau partagé).",
+      "summary_en": "Dockerfile + docker-compose on Pipeline_ventes (Python/SQLite) and Hotel Booking Pipeline (2 stacks — Postgres + Airflow, shared network).",
+      "body_fr": "Niveau 45/100 — Dockerfile Python + docker-compose pour Pipeline_ventes (service Python + SQLite), et sur Hotel Booking Pipeline : deux stacks docker-compose distinctes (Postgres, puis Airflow avec une image custom étendant apache/airflow pour y installer dbt), connectées par un réseau Docker externe partagé (hotel_pipeline_network) pour que les tâches Airflow atteignent Postgres par nom de conteneur. Je sais construire une image custom à partir d'une image officielle et déboguer une collision de noms de service sur un réseau partagé. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "body_en": "Level 45/100 — Python Dockerfile + docker-compose for Pipeline_ventes (Python service + SQLite), and on Hotel Booking Pipeline: two distinct docker-compose stacks (Postgres, then Airflow with a custom image extending apache/airflow to install dbt inside it), connected by a shared external Docker network (hotel_pipeline_network) so Airflow tasks reach Postgres by container name. I can build a custom image on top of an official one and debug a service-name collision on a shared network. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
       "children": [
         {
           "label": "Dockerfile",
-          "level": 45
-        },
-        {
-          "label": "docker-compose",
           "level": 50
         },
         {
-          "label": "Images / Build",
-          "level": 40
+          "label": "docker-compose",
+          "level": 55
         },
         {
-          "label": "Volumes",
-          "level": 35
+          "label": "Images custom",
+          "level": 45
+        },
+        {
+          "label": "Networking inter-stacks",
+          "level": 45
         }
       ]
     },
@@ -606,10 +614,10 @@
       "year": "2024 — 2026",
       "title_fr": "Hotel Booking Analysis",
       "title_en": "Hotel Booking Analysis",
-      "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt avec tests de qualité automatisés (architecture médaillon, Airflow prévu).",
-      "summary_en": "Two-part project on the same hotel dataset: SQL Server EDA, then a productionized Postgres + dbt pipeline with automated quality tests (medallion architecture, Airflow planned).",
-      "body_fr": "**Volet 1 — EDA SQL Server** : analyse de 119 390 réservations de 2 hôtels portugais (dataset Kaggle) en médaillon Bronze/Silver/Gold. Nettoyage documenté, colonnes calculées PERSISTED (segmentation lead time en 7 buckets, revenu par réservation). Insights clés : 40,6 % d'annulation en hôtel urbain contre 27 % en resort, paradoxe des dépôts Non-Refund annulés à ~99 %.\n\n**Volet 2 — Pipeline productionisé** : reprise de cette logique de nettoyage dans un second dépôt (Hotel_Booking_Pipeline), avec Postgres conteneurisé (Docker) et dbt en architecture médaillon (seed → staging → intermediate → marts). Tests de qualité automatisés : bornes ADR (pas de prix négatif), détection des outliers ADR (>4x la médiane par hôtel/saison), intégrité des lignes après jointure de saisonnalité. Premier mart livré : `mart_pricing_consistency`. Orchestration Airflow prévue.\n\n**Statut** : volet 1 terminé (sans couche de restitution), volet 2 en cours — staging et intermediate en place, marts en construction, Airflow à implémenter.",
-      "body_en": "**Part 1 — SQL Server EDA**: analysis of 119,390 bookings from 2 Portuguese hotels (Kaggle dataset) in Bronze/Silver/Gold medallion. Documented cleaning, PERSISTED computed columns (lead-time segmentation in 7 buckets, revenue per booking). Key insights: 40.6% cancellation rate for city hotels vs 27% for resorts, paradox of Non-Refund deposits cancelled at ~99%.\n\n**Part 2 — Productionized pipeline**: the same cleaning logic rebuilt in a second repo (Hotel_Booking_Pipeline), with containerized Postgres (Docker) and dbt in medallion architecture (seed → staging → intermediate → marts). Automated quality tests: ADR bounds (no negative prices), ADR outlier detection (>4x median by hotel/season), row integrity after the seasonality join. First mart shipped: `mart_pricing_consistency`. Airflow orchestration planned.\n\n**Status**: part 1 complete (no visualization layer), part 2 in progress — staging and intermediate in place, marts under construction, Airflow still to implement.",
+      "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt + Airflow, avec 20 tests de qualité automatisés et orchestration par DAG.",
+      "summary_en": "Two-part project on the same hotel dataset: SQL Server EDA, then a productionized Postgres + dbt + Airflow pipeline, with 20 automated quality tests and DAG-based orchestration.",
+      "body_fr": "**Volet 1 — EDA SQL Server** : analyse de 119 390 réservations de 2 hôtels portugais (dataset Kaggle) en médaillon Bronze/Silver/Gold. Nettoyage documenté, colonnes calculées PERSISTED (segmentation lead time en 7 buckets, revenu par réservation). Insights clés : 40,6 % d'annulation en hôtel urbain contre 27 % en resort, paradoxe des dépôts Non-Refund annulés à ~99 %.\n\n**Volet 2 — Pipeline productionisé** : reprise de cette logique de nettoyage dans un second dépôt (Hotel_Booking_Pipeline), avec Postgres conteneurisé (Docker) et dbt en architecture médaillon complète (seed → staging → intermediate → 3 marts). 20 tests dbt (15 schema + 5 singuliers) : bornes ADR, détection d'outliers ADR par hôtel/saison, intégrité des lignes après chaque jointure, cohérence des taux d'annulation. Trois marts livrés : `mart_pricing_consistency` (écarts de prix par hôtel/saison/type client), `mart_cancellation_rate` (taux d'annulation par dépôt/saison/délai de réservation), `mart_revenue` (réservé vs. consommé vs. annulé par hôtel et par mois).\n\n**Orchestration Airflow** : un DAG de 11 tâches (`hotel_booking_pipeline`) enchaîne seed → run+test staging → run+test intermediate → run+test des 3 marts en parallèle. Airflow tourne dans sa propre stack Docker (image custom étendant `apache/airflow`, dbt installé dedans, LocalExecutor), reliée à Postgres via un réseau Docker externe partagé entre les deux stacks.\n\n**Statut** : les deux volets sont terminés. Pipeline reproductible de bout en bout, testé automatiquement et orchestré en production locale.",
+      "body_en": "**Part 1 — SQL Server EDA**: analysis of 119,390 bookings from 2 Portuguese hotels (Kaggle dataset) in Bronze/Silver/Gold medallion. Documented cleaning, PERSISTED computed columns (lead-time segmentation in 7 buckets, revenue per booking). Key insights: 40.6% cancellation rate for city hotels vs 27% for resorts, paradox of Non-Refund deposits cancelled at ~99%.\n\n**Part 2 — Productionized pipeline**: the same cleaning logic rebuilt in a second repo (Hotel_Booking_Pipeline), with containerized Postgres (Docker) and dbt in a full medallion architecture (seed → staging → intermediate → 3 marts). 20 dbt tests (15 schema + 5 singular): ADR bounds, ADR outlier detection by hotel/season, row-count integrity after each join, cancellation-rate consistency. Three marts shipped: `mart_pricing_consistency` (pricing deviation by hotel/season/customer type), `mart_cancellation_rate` (cancellation rate by deposit/season/lead-time band), `mart_revenue` (booked vs. consumed vs. canceled by hotel and month).\n\n**Airflow orchestration**: an 11-task DAG (`hotel_booking_pipeline`) chains seed → run+test staging → run+test intermediate → run+test the 3 marts in parallel. Airflow runs as its own Docker stack (custom image extending `apache/airflow`, dbt installed inside it, LocalExecutor), connected to Postgres over a shared external Docker network between the two stacks.\n\n**Status**: both parts complete. End-to-end reproducible pipeline, automatically tested, and orchestrated in local production.",
       "stack": [
         "SQL Server",
         "Postgres",
@@ -624,15 +632,15 @@
         },
         {
           "label": "tests dbt",
-          "value": "14"
+          "value": "20"
         },
         {
-          "label": "architecture",
-          "value": "seed→staging→int→mart"
+          "label": "tâches Airflow",
+          "value": "11"
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Hotel_Booking_Pipeline",
-      "mermaid": "flowchart LR\n  D[Kaggle Dataset] --> EDA[SQL Server EDA]\n  D --> SEED[dbt seed]\n  SEED --> STG[staging]\n  STG --> INT[intermediate]\n  INT --> MART[mart_pricing_consistency]\n  MART -.-> AF[Airflow · prévu]"
+      "mermaid": "flowchart LR\n  D[Kaggle Dataset] --> SEED[dbt seed]\n  SEED --> STG[staging]\n  STG --> INT[intermediate]\n  INT --> M[3 marts]\n  AF[Airflow] -.orchestrates.-> SEED\n  AF -.-> STG\n  AF -.-> INT\n  AF -.-> M"
     },
     {
       "id": "p_airline",
@@ -1131,6 +1139,10 @@
     ],
     [
       "p_airline",
+      "c_cdsd"
+    ],
+    [
+      "p_hotel",
       "c_cdsd"
     ],
     [
