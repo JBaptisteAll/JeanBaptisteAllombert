@@ -1157,7 +1157,7 @@ function PipelineDrawer({ node, lang, onClose }) {
             </div>
             {node.live_url && (
               <a href={node.live_url} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginBottom:'12px'}}>
-                <span>{lang === 'fr' ? '🚀 Voir l\'application en ligne' : '🚀 Open live app'}</span>
+                <span>{lang === 'fr' ? (node.live_label_fr || '🚀 Voir l\'application en ligne') : (node.live_label_en || '🚀 Open live app')}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
