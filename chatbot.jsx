@@ -43,7 +43,7 @@ function normalizeText(t) {
 
 const SECTION_MATCHERS = [
   { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|aws|dataiku|spark|excel|outil|tool/ },
-  { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
+  { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|airflow|postgres|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|bakery|boulangerie|craquelin|duckdb|kanji|playbook|construit|realise|built/ },
   { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background/ },
   { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|loisir|interet|sport|montagne|randonnee|trek|alpinisme|japonais|samourai|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe|perso/ },
   { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|\bcdi\b|\bcdd\b|freelance|mission|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
