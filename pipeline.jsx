@@ -121,6 +121,7 @@ function PipelineNode({ node, isFocused, isDimmed, isUnlinkedPrimary, onClick, l
   if (isDimmed) className += ' is-dimmed';
   if (isPrimary) className += ' is-primary';
   if (isUnlinkedPrimary) className += ' is-unlinked-primary';
+  if (node.wip) className += ' is-wip';
 
   return (
     <foreignObject x={node.x} y={node.y} width={node.w} height={node.h} style={{ overflow: 'visible' }}>
@@ -168,13 +169,14 @@ function ToolNodeContent({ node, title }) {
   );
 }
 
-function ProjectNodeContent({ node, title, summary }) {
+function ProjectNodeContent({ node, title, summary, lang }) {
   return (
     <>
       <div className="pn-head">
         <span className="pn-kanji">{node.kanji}</span>
         <span className="pn-label">{node.label}</span>
         <span className="pn-year">{node.year}</span>
+        {node.wip && <span className="pn-wip">⚒ {lang === 'fr' ? 'EN COURS' : 'WIP'}</span>}
         {node.live_url && <span className="pn-live">● LIVE</span>}
       </div>
       <div className="pn-title">{title}</div>
@@ -244,7 +246,8 @@ function ToolChildrenCluster({ node }) {
   const gap = 10;
   const colX = node.x - chipW - 48; // 48 px gap with connector
   const totalH = kids.length * chipH + (kids.length - 1) * gap;
-  const startY = node.cy - totalH / 2;
+  // Clamp : la colonne centrée sur le nœud ne doit pas déborder du haut du canvas
+  const startY = Math.max(12, node.cy - totalH / 2);
 
   return (
     <g className="tool-children-cluster">
