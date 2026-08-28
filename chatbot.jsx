@@ -26,8 +26,8 @@ const SUGGESTIONS = [
 // ── Base de connaissances (jb_knowledge.json) ───────────────
 // Mini-RAG : le prompt de base reste léger ; les sections
 // thématiques ne sont injectées que si la question les concerne.
-// Contrainte : Groq tier gratuit = 6 000 tokens/minute, donc le
-// prompt complet est plafonné à MAX_PROMPT_CHARS.
+// Contrainte : tier gratuit de l'API Mistral (rate limits serrés),
+// donc le prompt complet est plafonné à MAX_PROMPT_CHARS.
 const MAX_PROMPT_CHARS = 13000;
 
 async function loadKnowledge() {
@@ -46,7 +46,7 @@ const SECTION_MATCHERS = [
   { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
   { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background/ },
   { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|loisir|interet|sport|montagne|randonnee|trek|alpinisme|japonais|samourai|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe|perso/ },
-  { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
+  { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|\bcdi\b|\bcdd\b|freelance|mission|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
   { key: "navigation",  re: /\bsite\b|naviguer|navigation|fonctionne|noeud|node|carte|\bmap\b|zoom|clique|comment ca marche|how does/ },
 ];
 
@@ -58,6 +58,7 @@ function buildPrompt(k, recentUserText) {
 ${ci.language}
 
 RÈGLES ABSOLUES :
+- ${ci.length}
 - ${ci.honesty}
 - ${ci.privacy}
 - ${ci.sensitive_topics}
