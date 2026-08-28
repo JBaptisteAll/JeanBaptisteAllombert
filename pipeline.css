@@ -415,6 +415,19 @@
   animation: live-blink 2s ease-in-out infinite;
   flex-shrink: 0;
 }
+/* Projet en construction : badge ambre + bordure pointillée */
+.pnode .pn-wip {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffb02e;
+  text-shadow: 0 0 8px rgba(255, 176, 46, 0.7);
+  animation: live-blink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.pnode-project.is-wip {
+  border-style: dashed;
+}
 @keyframes live-blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.45; }
