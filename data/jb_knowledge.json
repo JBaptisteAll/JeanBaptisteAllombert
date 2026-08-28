@@ -158,7 +158,12 @@
     {
       "name": "Hotel Booking Analytics — EDA SQL Server + pipeline dbt/Postgres",
       "tech_stack": ["SQL Server", "T-SQL", "Postgres", "dbt", "Docker", "Airflow"],
-      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → marts), tests de qualité automatisés sur les outliers ADR et la saisonnalité, Airflow prévu pour l'orchestration."
+      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → 3 marts : cohérence pricing, taux d'annulation, revenue), 20 tests de qualité automatisés (outliers ADR par saison, cohérence des taux, parité des lignes après jointure) et orchestration par un DAG Airflow de 11 tâches, dockerisé en 2 stacks (Postgres + Airflow) sur un réseau partagé, avec les 3 marts lancés en parallèle. Validé sur un cron toutes les 2 heures."
+    },
+    {
+      "name": "Bakery Sales Pipeline — ingénierie Python robuste",
+      "tech_stack": ["Python", "Pandas", "Requests", "pytest", "Docker"],
+      "description": "Pipeline de ventes simulé pour une chaîne de boulangeries fictive (Craquelin) : consommation d'API avec retry, authentification et pagination, gestion d'erreurs structurée, logging, tests automatisés pytest et conteneurisation Docker. Projet d'entraînement centré sur les fondamentaux d'ingénierie logicielle appliqués à la data — le genre de robustesse qu'on attend d'un pipeline en production."
     },
     {
       "name": "ClimAdvisor — fiabilité des prévisions météo",
