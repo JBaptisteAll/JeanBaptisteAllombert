@@ -1,8 +1,9 @@
 // ============================================================
-// JB Portfolio — Cloudflare Worker (Mistral API Proxy)
+// JB Portfolio — Cloudflare Worker (Groq API Proxy)
 // 1. Créer un Worker sur dash.cloudflare.com
 // 2. Coller ce code
-// 3. Settings → Variables → ajouter MISTRAL_API_KEY (secret)
+// 3. Settings → Variables → ajouter GROQ_API_KEY (secret)
+//    Clé gratuite sans CB sur https://console.groq.com/keys
 // 4. Déployer → copier l'URL
 //
 // ── Log des questions (optionnel mais recommandé) ──
@@ -110,7 +111,7 @@ export default {
     }
 
     const origin = request.headers.get("Origin") || "";
-    if (!origin.startsWith(ALLOWED_ORIGIN)) {
+    if (origin !== ALLOWED_ORIGIN) {
       return new Response("Forbidden", { status: 403, headers: corsHeaders });
     }
 
@@ -142,35 +143,35 @@ export default {
 
     logQuestion(env, ctx, request, messages);
 
-    // Conversion format Gemini (role/parts) → OpenAI (role/content) — Mistral
+    // Conversion format Gemini (role/parts) → OpenAI (role/content) — Groq
     // utilise le même format de requête que l'API OpenAI (chat/completions).
     // Le premier message est toujours le system prompt (envoyé comme "user" par chatbot.jsx)
-    const mistralMessages = messages.map((m, i) => ({
+    const groqMessages = messages.map((m, i) => ({
       role: i === 0 ? "system" : m.role === "model" ? "assistant" : "user",
       content: m.parts?.[0]?.text || m.content || "",
     }));
 
     try {
-      const mistralRes = await fetch("https://api.mistral.ai/v1/chat/completions", {
+      const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${env.MISTRAL_API_KEY}`,
+          "Authorization": `Bearer ${env.GROQ_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "mistral-small-latest",
-          messages: mistralMessages,
+          model: "openai/gpt-oss-120b",
+          messages: groqMessages,
           max_tokens: 350,
           temperature: 0.7,
         }),
       });
 
-      const data = await mistralRes.json();
+      const data = await groqRes.json();
 
-      if (!mistralRes.ok || data.error) {
+      if (!groqRes.ok || data.error) {
         const detail = data?.error?.message || JSON.stringify(data);
         return new Response(
-          JSON.stringify({ error: `Mistral [${mistralRes.status}]: ${detail}` }),
+          JSON.stringify({ error: `Groq [${groqRes.status}]: ${detail}` }),
           { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
