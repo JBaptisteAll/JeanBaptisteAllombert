@@ -1,6 +1,6 @@
 # Ajouter un projet au portfolio
 
-Toutes les données du portfolio (projets, outils, certifs, sources, CTAs) vivent dans **un seul fichier** : `data/pipeline.json`. Pour ajouter un projet, tu modifies ce fichier — pas besoin de toucher au code.
+Toutes les données du portfolio (projets, outils, certifs, sources, CTAs) vivent dans **un seul fichier** : `data/pipeline.json`. Pour ajouter un projet, tu modifies ce fichier, pas besoin de toucher au code.
 
 ---
 
@@ -19,7 +19,7 @@ Un projet = **un objet** dans `nodes` + **plusieurs arêtes** dans `edges`.
 
 ---
 
-## 1 — Ajouter le nœud projet
+## 1, Ajouter le nœud projet
 
 Ouvre `data/pipeline.json`, cherche la section `"nodes"`, et ajoute un nouvel objet à la suite des autres projets (cherche les blocs qui ont `"type": "project"` pour t'inspirer).
 
@@ -38,8 +38,8 @@ Ouvre `data/pipeline.json`, cherche la section `"nodes"`, et ajoute un nouvel ob
   "title_fr": "Titre du projet en français",
   "title_en": "Project title in English",
 
-  "summary_fr": "Une à deux phrases qui résument le projet — visible dans la carte et au-dessus du drawer.",
-  "summary_en": "One to two sentences summarizing the project — shown on the card and above the drawer.",
+  "summary_fr": "Une à deux phrases qui résument le projet, visible dans la carte et au-dessus du drawer.",
+  "summary_en": "One to two sentences summarizing the project, shown on the card and above the drawer.",
 
   "body_fr": "Le récit long du projet. Tu peux utiliser **du gras** (avec deux astérisques) et des sauts de paragraphe (double saut de ligne).\n\nNouveau paragraphe ici.",
   "body_en": "Long version. **Bold** and paragraph breaks supported.\n\nNew paragraph.",
@@ -76,7 +76,7 @@ Ouvre `data/pipeline.json`, cherche la section `"nodes"`, et ajoute un nouvel ob
 | `stack` | ✅ | Tableau de strings. 3–5 techno phares. |
 | `metrics` | ✅ | Exactement **3** chiffres impactants `{label, value}`. |
 | `github_url` | recommandé | Lien du repo principal. |
-| `live_url` | optionnel | Si une app est déployée (Streamlit, Vercel...) — ajoute un gros bouton 🚀 dans le drawer. |
+| `live_url` | optionnel | Si une app est déployée (Streamlit, Vercel...), ajoute un gros bouton 🚀 dans le drawer. |
 | `mermaid` | optionnel mais conseillé | Diagramme d'architecture syntaxe [Mermaid](https://mermaid.js.org/syntax/flowchart.html). `\n` pour les sauts de ligne dans le JSON. |
 
 ### Suggestions de kanjis
@@ -103,7 +103,7 @@ Un kanji bien choisi donne du caractère à la carte. Si tu hésites, demande-mo
 
 ---
 
-## 2 — Connecter le projet au pipeline (edges)
+## 2, Connecter le projet au pipeline (edges)
 
 Dans la section `"edges"` du même fichier, ajoute les connexions du projet. Chaque arête est un tableau `["source", "destination"]`.
 
@@ -127,11 +127,11 @@ Dans la section `"edges"` du même fichier, ajoute les connexions du projet. Cha
 **Outils en amont** (`t_*`)
 - `t_python`, `t_sql`, `t_dbt`, `t_databricks`, `t_docker`, `t_viz`, `t_git`, `t_dim_modeling`
 
-**Sources en amont** (`src_*`) — rare pour un projet, mais possible
+**Sources en amont** (`src_*`), rare pour un projet, mais possible
 - `src_about`, `src_education`, `src_experience`
 
 **Certifs en aval** (`c_*`)
-- `c_databricks_de`, `c_google_da`, `c_aws`, `c_dataiku`, `c_cdsd`
+- `c_databricks_de`, `c_google_da`, `c_dataiku`, `c_cdsd`
 - ⚠️ ne connecte une certif que si le projet la valide vraiment (techno utilisée).
 
 **Ships en aval** (`s_*`)
@@ -140,7 +140,7 @@ Dans la section `"edges"` du même fichier, ajoute les connexions du projet. Cha
 
 ---
 
-## 3 — Exemple complet et concret
+## 3, Exemple complet et concret
 
 Disons que tu veux ajouter un projet **"Customer Churn Analyzer"** : pipeline Snowflake + dbt + Looker, validant CDSD.
 
@@ -199,7 +199,7 @@ Recharge la page (`Portfolio.html` ou `index.html`). Le nœud apparaît dans la 
 
 - **Une story par projet, pas une description.** Le format gagnant : *problème → solution → résultat (chiffré)*.
 - **Métriques chiffrées.** "Quelques tables" ≪ "12 tables". "Plus rapide" ≪ "<5min".
-- **Stack honnête.** Ne mets pas une techno si tu l'as juste effleurée — la connexion à un nœud `tool` impliquera que le projet la valide.
+- **Stack honnête.** Ne mets pas une techno si tu l'as juste effleurée, la connexion à un nœud `tool` impliquera que le projet la valide.
 - **Mermaid simple.** 4–6 boîtes max, sinon ça devient illisible dans le drawer.
 - **Kanji cohérent.** Si tu hésites entre deux, garde celui qui résume le mieux le projet en un caractère.
 
