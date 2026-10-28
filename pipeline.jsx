@@ -1,6 +1,6 @@
 /* eslint-disable */
 /* global React */
-/* PipelineDAG — full-page DAG that IS the portfolio.
+/* PipelineDAG, full-page DAG that IS the portfolio.
    5 lanes (SOURCES → PROCESSING → MARTS → QUALITY → SHIP).
    Click a node → focus mode (camera zoom + drawer with details).
 */
@@ -75,7 +75,7 @@ function stageSize(nodes) {
 }
 
 // ============================================================
-//  EDGES — bezier paths between nodes
+//  EDGES, bezier paths between nodes
 // ============================================================
 function edgePath(a, b) {
   const x1 = a.x + a.w; // right side of source
@@ -235,7 +235,7 @@ function ShipCtaNodeContent({ node, title }) {
 }
 
 // ============================================================
-//  TOOL CHILDREN CLUSTER — chips that appear around a focused tool node
+//  TOOL CHILDREN CLUSTER, chips that appear around a focused tool node
 // ============================================================
 function ToolChildrenCluster({ node }) {
   const kids = node.children || [];
@@ -339,7 +339,7 @@ function PipelineEdges({ nodes, edges, focusedId, importantTargetIds }) {
 // ============================================================
 
 // Desktop topbar is a fixed-position 72px overlay (see .pipeline-topbar in
-// pipeline.css) sitting on top of the canvas — reserve it so the initial
+// pipeline.css) sitting on top of the canvas, reserve it so the initial
 // fit-to-view centers the DAG (and its lane labels) in the space actually
 // visible below it, instead of centering across the full raw viewport.
 const DESKTOP_TOPBAR_H = 72;
@@ -423,7 +423,7 @@ function computeFocusView(stageEl, node, fitScale) {
   return { tx, ty, s };
 }
 
-function PipelinePortfolio({ data, lang, onSwitchClassic }) {
+function PipelinePortfolio({ data, lang, setLang, onSwitchClassic }) {
   const isMobile = useIsMobile();
   const [focusedId, setFocusedId] = useState(null);
   const [view, setView] = useState({ tx: 0, ty: 0, s: 1 });
@@ -471,7 +471,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
     return () => window.removeEventListener('resize', fit);
   }, [stage.width, stage.height, focusedId, hasUserMoved, isMobile]);
 
-  // Focus does NOT zoom anymore — keep current camera, just highlight + open drawer
+  // Focus does NOT zoom anymore, keep current camera, just highlight + open drawer
   // (kept the effect slot in case we need a subtle nudge later)
 
   // Reset to fit
@@ -613,7 +613,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
     el.addEventListener('touchend', onTouchEnd, { passive: false });
     el.addEventListener('touchcancel', onTouchEnd, { passive: false });
 
-    // ----- Pointer drag-to-pan (native listeners — bypasses React delegation) -----
+    // ----- Pointer drag-to-pan (native listeners, bypasses React delegation) -----
     function onPointerDownNative(e) {
       if (e.target.closest('.pnode') ||
           e.target.closest('.pipeline-drawer') ||
@@ -694,7 +694,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
   }, []);
 
   // Center camera on a given lane (mobile sidebar interaction)
-  // — and zoom in so the lane fills the viewport comfortably.
+  // and zoom in so the lane fills the viewport comfortably.
   const scrollToLane = useCallback((laneName) => {
     if (!stageRef.current) return;
     const li = laneIndex(laneName);
@@ -727,7 +727,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
     setTimeout(() => setAnimating(false), 500);
   }, [positioned, stage.height, isMobile, setClampedView]);
 
-  // Active lane (mobile sidebar highlight) — based on which lane center is
+  // Active lane (mobile sidebar highlight), based on which lane center is
   // closest to viewport center
   const activeLane = useMemo(() => {
     if (!isMobile || !stageRef.current) return null;
@@ -771,6 +771,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
       <AkiraBackground/>
       <PipelineTopbar
         lang={lang}
+        setLang={setLang}
         focusedNode={focusedNode}
         onSwitchClassic={onSwitchClassic}
         onClearFocus={() => setFocusedId(null)}
@@ -836,7 +837,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
         </svg>
       </div>
 
-      <PipelineHints visible={!focusedId && !isMobile}/>
+      <PipelineHints visible={!focusedId && !isMobile} lang={lang}/>
       <PipelineControls onFit={fitToView} onZoomIn={() => zoomBy(1.25)} onZoomOut={() => zoomBy(0.8)} scale={view.s}/>
       {isMobile && (
         <MobileLaneSidebar
@@ -858,7 +859,7 @@ function PipelinePortfolio({ data, lang, onSwitchClassic }) {
 }
 
 // ============================================================
-//  MOBILE — Lane sidebar (right edge, vertical labels)
+//  MOBILE, Lane sidebar (right edge, vertical labels)
 // ============================================================
 function MobileLaneSidebar({ activeLane, onLaneClick }) {
   return (
@@ -878,7 +879,7 @@ function MobileLaneSidebar({ activeLane, onLaneClick }) {
 }
 
 // ============================================================
-//  MOBILE — Bottom CTA bar (primary ship_cta nodes)
+//  MOBILE, Bottom CTA bar (primary ship_cta nodes)
 // ============================================================
 function MobileBottomBar({ nodes, lang, onNodeClick }) {
   const primaries = nodes.filter(n => n.type === 'ship_cta' && n.primary);
@@ -906,7 +907,7 @@ function MobileBottomBar({ nodes, lang, onNodeClick }) {
 }
 
 // ============================================================
-//  MOBILE — One-time pinch hint
+//  MOBILE, One-time pinch hint
 // ============================================================
 function MobilePinchHint({ lang }) {
   return (
@@ -932,7 +933,7 @@ function PipelineControls({ onFit, onZoomIn, onZoomOut, scale }) {
 }
 
 // ============================================================
-//  AKIRA BACKGROUND — Neo-Tokyo ambient layer
+//  AKIRA BACKGROUND, Neo-Tokyo ambient layer
 // ============================================================
 function AkiraBackground() {
   // Generate katakana rain columns once
@@ -998,7 +999,7 @@ function AkiraBackground() {
 // ============================================================
 //  TOPBAR
 // ============================================================
-function PipelineTopbar({ lang, focusedNode, onSwitchClassic, onClearFocus }) {
+function PipelineTopbar({ lang, setLang, focusedNode, onSwitchClassic, onClearFocus }) {
   return (
     <div className="pipeline-topbar" onClick={(e) => e.stopPropagation()}>
       <div className="ptb-left">
@@ -1010,7 +1011,7 @@ function PipelineTopbar({ lang, focusedNode, onSwitchClassic, onClearFocus }) {
       <div className="ptb-center">
         {focusedNode ? (
           <div className="ptb-breadcrumb">
-            <button className="ptb-btn-link" onClick={onClearFocus}>← all nodes</button>
+            <button className="ptb-btn-link" onClick={onClearFocus}>← {lang === 'fr' ? 'tous les nœuds' : 'all nodes'}</button>
             <span className="ptb-divider">/</span>
             <span className="ptb-current">{focusedNode.label}</span>
           </div>
@@ -1022,6 +1023,18 @@ function PipelineTopbar({ lang, focusedNode, onSwitchClassic, onClearFocus }) {
         )}
       </div>
       <div className="ptb-right">
+        <div className="ptb-lang" role="group" aria-label="Language">
+          {['fr', 'en'].map(l => (
+            <button
+              key={l}
+              className={'ptb-lang-btn' + (lang === l ? ' is-active' : '')}
+              onClick={() => setLang(l)}
+              aria-pressed={lang === l}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
         <image-slot
           id="profile"
           shape="circle"
@@ -1038,23 +1051,23 @@ function PipelineTopbar({ lang, focusedNode, onSwitchClassic, onClearFocus }) {
 // ============================================================
 //  HINTS (overlay help when no focus)
 // ============================================================
-function PipelineHints({ visible }) {
+function PipelineHints({ visible, lang }) {
   if (!visible) return null;
   return (
     <div className="pipeline-hints">
       <div className="ph-corner ph-bl">
         <div className="ph-key">esc</div>
-        <span>fermer focus</span>
+        <span>{lang === 'fr' ? 'fermer focus' : 'close focus'}</span>
       </div>
       <div className="ph-corner ph-br">
-        <span>scroll · zoom · drag · pan</span>
+        <span>{lang === 'fr' ? 'molette · zoom · glisser · déplacer' : 'scroll · zoom · drag · pan'}</span>
       </div>
     </div>
   );
 }
 
 // ============================================================
-//  Rich text renderer — splits on \n\n into paragraphs,
+//  Rich text renderer, splits on \n\n into paragraphs,
 //  converts **text** into <strong>
 // ============================================================
 function renderRichText(text) {
@@ -1190,37 +1203,37 @@ function PipelineDrawer({ node, lang, onClose }) {
             )}
             {node.github_url && (
               <a href={node.github_url} target="_blank" rel="noopener" className="pdr-cta-primary">
-                <span>{lang === 'fr' ? 'Voir sur GitHub' : 'View on GitHub'}{(node.github_url_secondary_app || node.github_url_secondary_analysis || node.github_url_act1) ? (lang === 'fr' ? ' — Repo principal' : ' — Main repo') : ''}</span>
+                <span>{lang === 'fr' ? 'Voir sur GitHub' : 'View on GitHub'}{(node.github_url_secondary_app || node.github_url_secondary_analysis || node.github_url_act1) ? (lang === 'fr' ? ' (repo principal)' : ' (main repo)') : ''}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
             {node.github_url_secondary_app && (
               <a href={node.github_url_secondary_app} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Sous-projet — Adventure Planner' : 'Sub-project — Adventure Planner'}</span>
+                <span>{lang === 'fr' ? 'Sous-projet : Adventure Planner' : 'Sub-project : Adventure Planner'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
             {node.github_url_secondary_analysis && (
               <a href={node.github_url_secondary_analysis} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Sous-projet — ClimAdvisor' : 'Sub-project — ClimAdvisor'}</span>
+                <span>{lang === 'fr' ? 'Sous-projet : ClimAdvisor' : 'Sub-project : ClimAdvisor'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
             {node.github_url_act1 && (
               <a href={node.github_url_act1} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 1 — Revenge of the Seat (SQL DW)' : 'Act 1 — Revenge of the Seat (SQL DW)'}</span>
+                <span>{lang === 'fr' ? 'Acte 1 : Revenge of the Seat (SQL DW)' : 'Act 1 : Revenge of the Seat (SQL DW)'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
             {node.github_url_act2 && (
               <a href={node.github_url_act2} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 2 — Return of the Jet High (Analytics)' : 'Act 2 — Return of the Jet High (Analytics)'}</span>
+                <span>{lang === 'fr' ? 'Acte 2 : Return of the Jet High (Analytics)' : 'Act 2 : Return of the Jet High (Analytics)'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
             {node.github_url_act3 && (
               <a href={node.github_url_act3} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 3 — The Rise of the Single Source (dbt)' : 'Act 3 — The Rise of the Single Source (dbt)'}</span>
+                <span>{lang === 'fr' ? 'Acte 3 : The Rise of the Single Source (dbt)' : 'Act 3 : The Rise of the Single Source (dbt)'}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}

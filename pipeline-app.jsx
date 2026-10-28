@@ -5,7 +5,19 @@ const { useState, useEffect } = React;
 
 function PipelineApp() {
   const [data, setData] = useState(null);
-  const [lang, setLang] = useState(navigator.language?.startsWith('en') ? 'en' : 'fr');
+  // Langue : choix mémorisé du visiteur, sinon celle du navigateur
+  const [lang, setLang] = useState(() => {
+    try {
+      const saved = localStorage.getItem('jb_lang');
+      if (saved === 'fr' || saved === 'en') return saved;
+    } catch (_) {}
+    return navigator.language?.startsWith('en') ? 'en' : 'fr';
+  });
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('jb_lang', lang); } catch (_) {}
+  }, [lang]);
 
   useEffect(() => {
     fetch('data/pipeline.json')
@@ -47,7 +59,7 @@ function PipelineApp() {
         lang={lang}
         setLang={setLang}
       />
-      <ChatBot />
+      <ChatBot lang={lang} />
     </>
   );
 }

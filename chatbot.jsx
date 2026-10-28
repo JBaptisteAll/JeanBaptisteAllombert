@@ -1,32 +1,61 @@
 /* eslint-disable */
 /* global React */
 // ============================================================
-// JB Chatbot — chatbot.jsx
-// À ajouter dans index.html avant </body> :
-//   <script type="text/babel" src="chatbot.jsx"></script>
-// À ajouter dans pipeline-app.jsx juste avant le return :
-//   <ChatBot />
-// Remplacer WORKER_URL par l'URL de ton Cloudflare Worker
+// JB Chatbot, chatbot.jsx
+// Chargé par index.html (script text/babel) et monté dans
+// pipeline-app.jsx via <ChatBot />.
+// WORKER_URL pointe vers le Cloudflare Worker (proxy Groq),
+// voir cloudflare-worker.js.
 // ============================================================
 
 const WORKER_URL = "https://jb-chatbot-proxy.jb-allombert.workers.dev";
 
 const { useState, useRef, useEffect, useCallback } = React;
 
-// ── Suggestions rapides ──────────────────────────────────────
-const SUGGESTIONS = [
-  "Tu cherches quoi ?",
-  "Ton stack technique ?",
-  "Parle-moi du projet Japon",
-  "Tes certifications ?",
-  "Ton niveau en SQL ?",
-  "Ton parcours avant la data ?",
-];
+// ── Textes de l'interface par langue (sélecteur FR/EN du portfolio) ──
+const UI = {
+  fr: {
+    welcome: "Salut 👾 Je suis JB, pose-moi ce que tu veux sur mon parcours ou mes projets.",
+    ack: "Compris. Je suis JB, prêt à répondre.",
+    bubble: <>Salut, je suis JB.<br/>Une question ? 👾</>,
+    open: "Discuter avec JB",
+    close: "Fermer le chat",
+    placeholder: "Pose ta question...",
+    loadError: "Erreur de chargement du contexte.",
+    networkError: "Erreur réseau. Vérifie ta connexion.",
+    suggestions: [
+      "Tu cherches quoi ?",
+      "Ton stack technique ?",
+      "Parle-moi du projet Japon",
+      "Tes certifications ?",
+      "Ton niveau en SQL ?",
+      "Ton parcours avant la data ?",
+    ],
+  },
+  en: {
+    welcome: "Hi 👾 I'm JB, ask me anything about my background or my projects.",
+    ack: "Understood. I'm JB, ready to answer.",
+    bubble: <>Hi, I'm JB.<br/>Any question? 👾</>,
+    open: "Chat with JB",
+    close: "Close chat",
+    placeholder: "Ask your question...",
+    loadError: "Failed to load the context.",
+    networkError: "Network error. Check your connection.",
+    suggestions: [
+      "What are you looking for?",
+      "What's your tech stack?",
+      "Tell me about the Japan project",
+      "What certifications do you have?",
+      "How good are you at SQL?",
+      "What did you do before data?",
+    ],
+  },
+};
 
 // ── Base de connaissances (jb_knowledge.json) ───────────────
 // Mini-RAG : le prompt de base reste léger ; les sections
 // thématiques ne sont injectées que si la question les concerne.
-// Contrainte : tier gratuit de l'API Mistral (rate limits serrés),
+// Contrainte : tier gratuit de l'API Groq (rate limits serrés),
 // donc le prompt complet est plafonné à MAX_PROMPT_CHARS.
 const MAX_PROMPT_CHARS = 13000;
 
@@ -42,15 +71,22 @@ function normalizeText(t) {
 }
 
 const SECTION_MATCHERS = [
-  { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|aws|dataiku|spark|excel|outil|tool/ },
-  { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|airflow|postgres|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|bakery|boulangerie|craquelin|duckdb|kanji|playbook|construit|realise|built/ },
-  { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background/ },
+  { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|dataiku|spark|excel|outil|tool/ },
+  { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|airflow|postgres|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
+  { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background|before/ },
   { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|loisir|interet|sport|montagne|randonnee|trek|alpinisme|japonais|samourai|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe|perso/ },
   { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|\bcdi\b|\bcdd\b|freelance|mission|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
   { key: "navigation",  re: /\bsite\b|naviguer|navigation|fonctionne|noeud|node|carte|\bmap\b|zoom|clique|comment ca marche|how does/ },
 ];
 
-function buildPrompt(k, recentUserText) {
+// Langue choisie via le sélecteur : la base de connaissances reste en français,
+// le modèle traduit à la volée (aucun surcoût de prompt côté français).
+function languageRule(lang) {
+  if (lang !== "en") return "";
+  return "\n\nLANGUE CHOISIE PAR LE VISITEUR : anglais. Réponds en anglais (traduis aussi les formules toutes faites, y compris le renvoi vers le Grand JB et le bouton Contact), sauf si le visiteur t'écrit clairement en français.";
+}
+
+function buildPrompt(k, recentUserText, lang) {
   const ci = k.chatbot_instructions;
 
   const core = `${ci.persona}
@@ -81,12 +117,12 @@ ${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
 
 MESSAGE CLÉ : ${ci.key_message}
 
-RAPPEL FINAL (prioritaire) : n'invente JAMAIS rien — pas d'âge, pas de date de naissance, pas de salaire, pas d'anecdote qui n'est pas dans ce contexte. Tu ne donnes JAMAIS les raisons de départ de tes anciens postes (Gendarmerie, Royal Caribbean, hôtellerie), même une explication plausible : c'est un sujet réservé au vrai JB. Dans tous ces cas : « Pour ça, il faudra voir avec le créateur de toutes choses ici — mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin ! »`;
+RAPPEL FINAL (prioritaire) : n'invente JAMAIS rien : pas d'âge, pas de date de naissance, pas de salaire, pas d'anecdote qui n'est pas dans ce contexte. Tu ne donnes JAMAIS les raisons de départ de tes anciens postes (Gendarmerie, Royal Caribbean, hôtellerie), même une explication plausible : c'est un sujet réservé au vrai JB. Dans tous ces cas : « Pour ça, il faudra voir avec le créateur de toutes choses ici, mon créateur, le Grand JB. Le bouton Contact du portfolio est le chemin ! »${languageRule(lang)}`;
 
   const blocks = {
     skills: `TES COMPÉTENCES :
-${k.skills.languages.map(s => `${s.name} (${s.level}/100) — ${s.details}`).join(" | ")}
-${k.skills.platforms.map(s => `${s.name} — ${s.details}`).join(" | ")}
+${k.skills.languages.map(s => `${s.name} (${s.level}/100) : ${s.details}`).join(" | ")}
+${k.skills.platforms.map(s => `${s.name} : ${s.details}`).join(" | ")}
 Concepts : ${k.skills.concepts.join(", ")}
 
 TES CERTIFICATIONS :
@@ -94,7 +130,7 @@ Obtenues : ${k.certifications.obtained.map(c => `${c.name} (${c.date})`).join(",
 En cours : ${k.certifications.in_progress.map(c => `${c.name} prévu ${c.planned}`).join(", ")}`,
 
     projects: `TES PROJETS :
-${k.projects.map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} — ${p.description}`).join("\n")}`,
+${k.projects.map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} : ${p.description}`).join("\n")}`,
 
     experience: `MISE AU POINT SUR TON EXPÉRIENCE (à respecter absolument) :
 ${k.experience_clarification.data_experience}
@@ -102,10 +138,10 @@ ${k.experience_clarification.current_level}
 ${k.experience_clarification.strengths_from_past}
 
 TON EXPÉRIENCE :
-${k.experience.map(e => `[${e.period}] ${e.title} chez ${e.company} — ${e.description}`).join("\n")}
+${k.experience.map(e => `[${e.period}] ${e.title} chez ${e.company} : ${e.description}`).join("\n")}
 
 TA FORMATION :
-${k.education.map(e => `${e.title} (${e.period}) — ${e.details}`).join("\n")}`,
+${k.education.map(e => `${e.title} (${e.period}) : ${e.details}`).join("\n")}`,
 
     personality: `TA PERSONNALITÉ :
 En 3 mots : ${k.personality.three_words.join(", ")}.
@@ -124,7 +160,7 @@ Ce que tu n'aimes pas : ${k.work_preferences.hates}
 Motivation : ${k.work_preferences.motivation}`,
 
     recruiter: `TES ENTREPRISES DE RÊVE :
-${k.dream_companies.map(d => `${d.name} — ${d.why}`).join("\n")}
+${k.dream_companies.map(d => `${d.name} : ${d.why}`).join("\n")}
 
 MOTIVATION FACE AUX RECRUTEURS :
 ${k.recruiter_motivation.what_attracts}
@@ -213,13 +249,11 @@ function JBCharacter({ isOpen }) {
 }
 
 // ── Composant principal ──────────────────────────────────────
-function ChatBot() {
+function ChatBot({ lang = "fr" }) {
+  const ui = UI[lang] || UI.fr;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    {
-      role: "model",
-      parts: [{ text: "Salut 👾 Je suis JB — pose-moi ce que tu veux sur mon parcours ou mes projets." }],
-    },
+    { role: "model", parts: [{ text: ui.welcome }] },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -231,11 +265,17 @@ function ChatBot() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    loadKnowledge().then(setKnowledge).catch(() => setError("Erreur de chargement du contexte."));
+    loadKnowledge().then(setKnowledge).catch(() => setError(ui.loadError));
     // Affiche la bulle après 1 aller-retour (1s delay + 3s walk = 4s)
     const t = setTimeout(() => setBubbleVisible(true), 4000);
     return () => clearTimeout(t);
   }, []);
+
+  // Changement de langue : on retraduit le message d'accueil tant que
+  // la conversation n'a pas commencé
+  useEffect(() => {
+    setMessages(prev => prev.length === 1 ? [{ role: "model", parts: [{ text: ui.welcome }] }] : prev);
+  }, [lang]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -265,12 +305,12 @@ function ChatBot() {
       .slice(-3)
       .map(m => m.parts[0].text)
       .join(" ");
-    const systemPrompt = buildPrompt(knowledge, recentUserText);
+    const systemPrompt = buildPrompt(knowledge, recentUserText, lang);
 
     // Historique plafonné aux 8 derniers messages (limite TPM Groq)
-    const geminiMessages = [
+    const apiMessages = [
       { role: "user", parts: [{ text: systemPrompt }] },
-      { role: "model", parts: [{ text: "Compris. Je suis JB, prêt à répondre." }] },
+      { role: "model", parts: [{ text: ui.ack }] },
       ...updated.slice(-8),
     ];
 
@@ -278,17 +318,17 @@ function ChatBot() {
       const res = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: geminiMessages }),
+        body: JSON.stringify({ messages: apiMessages }),
       });
       const data = await res.json();
       if (data.error) { setError(data.error); setLoading(false); return; }
       setMessages(prev => [...prev, { role: "model", parts: [{ text: data.reply }] }]);
     } catch {
-      setError("Erreur réseau. Vérifie ta connexion.");
+      setError(ui.networkError);
     } finally {
       setLoading(false);
     }
-  }, [input, loading, knowledge, messages]);
+  }, [input, loading, knowledge, messages, lang]);
 
   function handleKey(e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
@@ -318,7 +358,7 @@ function ChatBot() {
           from { opacity:0; transform:translateY(30px) scale(0.8); }
           to   { opacity:1; transform:translateY(0) scale(1); }
         }
-        /* Wave occasionnel — bras droit du perso (main gauche) */
+        /* Wave occasionnel, bras droit du perso (main gauche) */
         @keyframes jb-wave-r {
           0%, 68%  { transform: rotate(0deg); }
           73%      { transform: rotate(-90deg); }
@@ -343,7 +383,7 @@ function ChatBot() {
           0%,50%,100% { transform: translateY(0); }
           25%,75%     { transform: translateY(-2px); }
         }
-        /* Bras — le droit (main gauche du perso) fait le wave */
+        /* Bras, le droit (main gauche du perso) fait le wave */
         .jb-arm-l {
           transform-origin: 51px 128px;
         }
@@ -351,7 +391,7 @@ function ChatBot() {
           animation: jb-wave-r 9s ease-in-out infinite 2s;
           transform-origin: 69px 128px;
         }
-        /* Jambes — statiques au repos */
+        /* Jambes, statiques au repos */
         .jb-leg-l {
           transform-origin: 57px 153px;
         }
@@ -501,7 +541,7 @@ function ChatBot() {
       {bubbleVisible && !open && (
         <div className="jb-char-bubble">
           <span className="jb-bubble-name">JB.exe</span>
-          Salut — je suis JB.<br/>Une question ? 👾
+          {ui.bubble}
         </div>
       )}
 
@@ -509,7 +549,7 @@ function ChatBot() {
       <div
         className={"jb-char-wrap" + (open ? " is-open" : "")}
         onClick={() => { setOpen(o => !o); setBubbleVisible(false); }}
-        title={open ? "Fermer le chat" : "Discuter avec JB"}
+        title={open ? ui.close : ui.open}
       >
         <JBCharacter isOpen={open} />
       </div>
@@ -551,7 +591,7 @@ function ChatBot() {
 
             {suggestionsShown && messages.length === 1 && (
               <div className="jb-suggestions">
-                {SUGGESTIONS.map((s, i) => (
+                {ui.suggestions.map((s, i) => (
                   <button key={i} className="jb-chip" onClick={() => sendMessage(s)}>{s}</button>
                 ))}
               </div>
@@ -568,7 +608,7 @@ function ChatBot() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
-              placeholder="Pose ta question..."
+              placeholder={ui.placeholder}
               disabled={loading || !knowledge}
               maxLength={400}
             />
