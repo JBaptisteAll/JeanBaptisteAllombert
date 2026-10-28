@@ -1,5 +1,5 @@
 // ============================================================
-// JB Portfolio — Cloudflare Worker (Groq API Proxy)
+// JB Portfolio, Cloudflare Worker (Groq API Proxy)
 // 1. Créer un Worker sur dash.cloudflare.com
 // 2. Coller ce code
 // 3. Settings → Variables → ajouter GROQ_API_KEY (secret)
@@ -143,7 +143,7 @@ export default {
 
     logQuestion(env, ctx, request, messages);
 
-    // Conversion format Gemini (role/parts) → OpenAI (role/content) — Groq
+    // Conversion format Gemini (role/parts) → OpenAI (role/content), Groq
     // utilise le même format de requête que l'API OpenAI (chat/completions).
     // Le premier message est toujours le system prompt (envoyé comme "user" par chatbot.jsx)
     const groqMessages = messages.map((m, i) => ({
