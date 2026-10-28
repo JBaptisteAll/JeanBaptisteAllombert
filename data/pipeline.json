@@ -24,8 +24,8 @@
       "title_en": "About",
       "summary_fr": "Analytics Engineer · Disponible immédiatement. De la donnée brute à la donnée fiable | SQL · Python · dbt · Databricks · Docker | 10 ans de KPIs terrain pour que la data serve vraiment les décisions.",
       "summary_en": "Analytics Engineer · Available immediately. From raw data to trusted data | SQL · Python · dbt · Databricks · Docker | 10 years of field KPIs to make data truly drive decisions.",
-      "body_fr": "**Ce que je fais** : je conçois des pipelines et des modèles de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage business. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale — Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client. Cette culture du résultat opérationnel, je l'applique aujourd'hui à l'architecture des données.\n\n**Ce que je cherche** :\nUn poste d'**Analytics Engineer en CDI**, basé à Paris / Île-de-France. Ma formation Data Analyst m'a donné les bases ; je continue depuis à monter en compétence en autonomie vers l'ingénierie analytique — dbt, Databricks, modélisation, qualité de données — via des projets livrés en production. Si tu construis des pipelines de données et cherches un profil qui arrive avec des projets concrets, des certifications Databricks et une culture du résultat, parlons-en.",
-      "body_en": "**What I do**: I design robust data pipelines and data models, from raw ingestion to certified, business-ready data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality — Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs — RevPAR, occupancy, customer segmentation — long before I wrote my first line of code. That results-driven culture is what I bring to data architecture today.\n\n**What I'm looking for**:\nAn **Analytics Engineer** role, full-time, based in Paris / Île-de-France. My Data Analyst training gave me the foundations; I've kept building toward analytics engineering since — dbt, Databricks, data modeling, data quality — through projects shipped to production. If you're building data pipelines and looking for a profile who brings real projects, Databricks certifications, and a results-driven culture — let's talk."
+      "body_fr": "**Ce que je fais** : je conçois des pipelines et des modèles de données robustes, de l'ingestion brute jusqu'à la donnée certifiée et prête à l'usage business. Je collecte, nettoie, déduplique, modélise et orchestre. Chaque pipeline que je livre est **idempotent, testé et documenté**.\n\n**D'où je viens** : 10 ans dans le tourisme et l'hôtellerie internationale : Royal Caribbean (Miami, 8 ans), hôtellerie 4★ en France (Impérial Palace Annecy), mission data au Japon (Yonezawa). J'analysais déjà des KPIs avant d'écrire ma première ligne de code : RevPAR, taux d'occupation, segmentation client. Cette culture du résultat opérationnel, je l'applique aujourd'hui à l'architecture des données.\n\n**Ce que je cherche** :\nUn poste d'**Analytics Engineer en CDI**, basé à Paris / Île-de-France. Ma formation Data Analyst m'a donné les bases ; je continue depuis à monter en compétence en autonomie vers l'ingénierie analytique (dbt, Databricks, modélisation, qualité de données) via des projets livrés en production. Si tu construis des pipelines de données et cherches un profil qui arrive avec des projets concrets, des certifications Databricks et une culture du résultat, parlons-en.",
+      "body_en": "**What I do**: I design robust data pipelines and data models, from raw ingestion to certified, business-ready data. I collect, clean, dedupe, model, orchestrate. Every pipeline I ship is **idempotent, tested, and documented**.\n\n**Where I come from**: 10 years in international tourism and hospitality: Royal Caribbean (Miami, 8 years), 4★ hospitality in France (Impérial Palace Annecy), data mission in Japan (Yonezawa). I was analyzing KPIs (RevPAR, occupancy, customer segmentation) long before I wrote my first line of code. That results-driven culture is what I bring to data architecture today.\n\n**What I'm looking for**:\nAn **Analytics Engineer** role, full-time, based in Paris / Île-de-France. My Data Analyst training gave me the foundations; I've kept building toward analytics engineering since (dbt, Databricks, data modeling, data quality) through projects shipped to production. If you're building data pipelines and looking for a profile who brings real projects, Databricks certifications, and a results-driven culture, let's talk."
     },
     {
       "id": "src_experience",
@@ -36,36 +36,36 @@
       "icon": "briefcase",
       "title_fr": "Expériences",
       "title_en": "Experience",
-      "summary_fr": "Du front desk hôtelier au pipeline Databricks — 10 ans dans le tourisme et l'hôtellerie (+ 5 ans en Gendarmerie avant ça), où la rigueur opérationnelle et la culture du résultat ont précédé la stack technique.",
-      "summary_en": "From hotel front desk to Databricks pipelines — 10 years in tourism and hospitality (+ 5 years in the Gendarmerie before that), where operational rigor and result-driven culture preceded the technical stack.",
+      "summary_fr": "Du front desk hôtelier au pipeline Databricks : 10 ans dans le tourisme et l'hôtellerie (+ 5 ans en Gendarmerie avant ça), où la rigueur opérationnelle et la culture du résultat ont précédé la stack technique.",
+      "summary_en": "From hotel front desk to Databricks pipelines: 10 years in tourism and hospitality (+ 5 years in the Gendarmerie before that), where operational rigor and result-driven culture preceded the technical stack.",
       "items": [
         {
-          "name": "Analytics Engineer · Data Instructor — Jedha Bootcamp",
-          "year": "Jan. 2025 — présent",
-          "desc_fr": "Dans le cadre du bootcamp Data Fullstack certifiant (RNCP Niv. 6 · Bac+4), formation intensive de 6 mois, encadrement technique de ~50 apprenants répartis sur plusieurs cohortes (présentiel et distanciel), sur l'ensemble de la stack data moderne : Python, SQL, dbt, Snowflake, Power BI. Au quotidien : revue de code, debugging, transmission des bonnes pratiques d'ingénierie — modularité dbt, architecture ETL/ELT, tests de qualité, versioning Git, structuration de pipelines reproductibles. Ce rôle m'a obligé à maîtriser en profondeur chaque concept avant de l'enseigner : expliquer pourquoi un pipeline doit être idempotent ou comment architecturer un modèle dbt pour qu'il soit maintenable, c'est l'avoir intégré soi-même.",
-          "desc_en": "As part of the certified Data Fullstack bootcamp (RNCP Level 6 · Bac+4), intensive 6-month program, technical mentoring of ~50 students across multiple cohorts (in-person and remote), covering the full modern data stack: Python, SQL, dbt, Snowflake, Power BI. Day-to-day: code review, debugging, engineering best practices — dbt modularity, ETL/ELT architecture, quality testing, Git versioning, reproducible pipelines. This role forced me to master every concept deeply before teaching it: explaining why a pipeline must be idempotent or how to architect a maintainable dbt model means having truly internalized it."
+          "name": "Analytics Engineer · Data Instructor, Jedha Bootcamp",
+          "year": "Jan. 2025 → présent",
+          "desc_fr": "Dans le cadre du bootcamp Data Fullstack certifiant (RNCP Niv. 6 · Bac+4), formation intensive de 6 mois, encadrement technique de ~50 apprenants répartis sur plusieurs cohortes (présentiel et distanciel), sur l'ensemble de la stack data moderne : Python, SQL, dbt, Snowflake, Power BI. Au quotidien : revue de code, debugging, transmission des bonnes pratiques d'ingénierie : modularité dbt, architecture ETL/ELT, tests de qualité, versioning Git, structuration de pipelines reproductibles. Ce rôle m'a obligé à maîtriser en profondeur chaque concept avant de l'enseigner : expliquer pourquoi un pipeline doit être idempotent ou comment architecturer un modèle dbt pour qu'il soit maintenable, c'est l'avoir intégré soi-même.",
+          "desc_en": "As part of the certified Data Fullstack bootcamp (RNCP Level 6 · Bac+4), intensive 6-month program, technical mentoring of ~50 students across multiple cohorts (in-person and remote), covering the full modern data stack: Python, SQL, dbt, Snowflake, Power BI. Day-to-day: code review, debugging, engineering best practices: dbt modularity, ETL/ELT architecture, quality testing, Git versioning, reproducible pipelines. This role forced me to master every concept deeply before teaching it: explaining why a pipeline must be idempotent or how to architect a maintainable dbt model means having truly internalized it."
         },
         {
-          "name": "Analytics Engineer — 360° / Mission Yonezawa (Japon)",
-          "year": "Sept — Déc 2025",
+          "name": "Analytics Engineer, 360° / Mission Yonezawa (Japon)",
+          "year": "Sept → Déc 2025",
           "desc_fr": "Mission de modernisation du système de collecte et d'analyse des données touristiques pour la ville de Yonezawa (préfecture de Yamagata, 80k hab.). Pipeline automatisé de bout en bout : Google Forms → Python/Pandas → GitHub Actions → Streamlit déployé pour la mairie. Modélisation et structuration pour l'analyse en libre-service : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables. Résultat : suppression totale des enquêtes terrain manuelles et de leurs coûts logistiques. Pipeline en production, accessible en temps réel par le client.",
           "desc_en": "Mission to modernize the tourism data collection and analysis system for the city of Yonezawa (Yamagata Prefecture, 80k inhabitants). End-to-end automated pipeline: Google Forms → Python/Pandas → GitHub Actions → Streamlit deployed for city hall. Data modeling and structuring for self-service analysis: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas. Result: total elimination of manual field surveys and their logistical costs. Pipeline in production, accessible in real time by the client."
         },
         {
-          "name": "Front Desk & Operations — Impérial Palace Annecy",
-          "year": "2020 — 2023",
+          "name": "Front Desk & Operations, Impérial Palace Annecy",
+          "year": "2020 → 2023",
           "desc_fr": "Hôtellerie 4★. Au-delà de la gestion du front desk, suivi et analyse des KPIs opérationnels : taux d'occupation, RevPAR, délais de service, satisfaction client. Exploitation des données CRM pour identifier les points de friction dans le parcours client et proposer des actions correctives à la direction. Interface régulière entre les équipes opérationnelles et la direction pour traduire les données en décisions concrètes d'amélioration du service. C'est dans ce poste que j'ai développé le réflexe de toujours chercher ce que les chiffres disent vraiment, avant de chercher des solutions.",
           "desc_en": "4★ hospitality. Beyond front desk management, I progressively took charge of monitoring and analyzing operational KPIs: occupancy rate, RevPAR, service times, customer satisfaction. CRM data exploitation to identify friction points in the customer journey and propose corrective actions to management. Regular interface between operational teams and management to translate data into concrete service improvement decisions. This is where I developed the reflex of always asking what the numbers really say before looking for solutions."
         },
         {
-          "name": "Sales & Operations — Royal Caribbean Group",
-          "year": "2012 — 2019",
-          "desc_fr": "Miami, Floride. Vente et gestion des réservations de futures croisières auprès des passagers à bord, dans un environnement international générant plusieurs millions de transactions annuelles. Chaque semaine, analyse de la liste des passagers : historique de fidélité, nombre de voyages, classe de cabine, pays d'origine — ces insights étaient transmis au manager pour adapter la stratégie commerciale et marketing à bord. C'est dans ce rôle que j'ai développé mon premier réflexe de segmentation client, sans le savoir encore.",
-          "desc_en": "Miami, Florida. Sales and management of future cruise bookings for on-board passengers, in an international environment generating several million transactions annually. Every week, I analyzed the passenger list: loyalty history, number of trips, cabin class, country of origin — these insights were shared with management to adapt the commercial and marketing strategy on board. This is where I developed my first customer segmentation reflex, without yet knowing it."
+          "name": "Sales & Operations, Royal Caribbean Group",
+          "year": "2012 → 2019",
+          "desc_fr": "Miami, Floride. Vente et gestion des réservations de futures croisières auprès des passagers à bord, dans un environnement international générant plusieurs millions de transactions annuelles. Chaque semaine, analyse de la liste des passagers : historique de fidélité, nombre de voyages, classe de cabine, pays d'origine, ces insights étaient transmis au manager pour adapter la stratégie commerciale et marketing à bord. C'est dans ce rôle que j'ai développé mon premier réflexe de segmentation client, sans le savoir encore.",
+          "desc_en": "Miami, Florida. Sales and management of future cruise bookings for on-board passengers, in an international environment generating several million transactions annually. Every week, I analyzed the passenger list: loyalty history, number of trips, cabin class, country of origin, these insights were shared with management to adapt the commercial and marketing strategy on board. This is where I developed my first customer segmentation reflex, without yet knowing it."
         },
         {
-          "name": "Gendarme Adjoint Volontaire — Gendarmerie Nationale",
-          "year": "2006 — 2011",
+          "name": "Gendarme Adjoint Volontaire, Gendarmerie Nationale",
+          "year": "2006 → 2011",
           "desc_fr": "5 ans au sein d'une institution exigeante, dans un environnement normé où la rigueur, la précision et le respect des procédures n'étaient pas négociables. Rédaction de rapports administratifs, gestion de situations complexes sous pression, travail en équipe pluridisciplinaire. Une expérience qui m'a appris la discipline et la fiabilité que je mobilise encore aujourd'hui.",
           "desc_en": "5 years within a demanding institution, in a standardized environment where rigor, precision and procedure compliance were non-negotiable. Administrative report writing, complex situation management under pressure, multidisciplinary teamwork. An experience that taught me the discipline and reliability I still apply today."
         }
@@ -84,24 +84,17 @@
       "summary_en": "Continuous learning + certifications + permanent project practice.",
       "items": [
         {
-          "name": "Organisme de formation data — Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
-          "year": "2024 — 2025",
+          "name": "Organisme de formation data, Concepteur Développeur en Science des Données (RNCP Niv. 6 · Bac+4)",
+          "year": "2024 → 2025",
           "desc_fr": "Bootcamp Data Fullstack certifiant (6 mois, présentiel + distanciel) : Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modélisation, qualité des données, modern data stack, pipelines de bout en bout. 2 blocs RNCP validés.",
           "desc_en": "Certified Data Fullstack bootcamp (6 months, in-person + remote): Python, SQL, dbt, Snowflake, Power BI, Machine Learning. Modeling, data quality, modern data stack, end-to-end pipelines. 2 RNCP blocks validated.",
           "status": "completed"
         },
         {
           "name": "Auto-formation Databricks",
-          "year": "2025 — présent",
-          "desc_fr": "Médaillon, Workflows, Unity Catalog, Delta Lake, AI Functions natives — exploration approfondie de la plateforme à travers des projets réels (Bike Lakehouse, IDP).",
-          "desc_en": "Medallion, Workflows, Unity Catalog, Delta Lake, native AI Functions — deep platform exploration through real projects (Bike Lakehouse, IDP).",
-          "status": "in_progress"
-        },
-        {
-          "name": "Auto-formation AWS",
-          "year": "2025 — présent",
-          "desc_fr": "Préparation à la certification AWS Cloud Practitioner (CLF-C02). Services core (S3, EC2, IAM, Lambda, RDS), modèle de responsabilité partagée, pricing, architecture cloud.",
-          "desc_en": "Preparing AWS Cloud Practitioner certification (CLF-C02). Core services (S3, EC2, IAM, Lambda, RDS), shared responsibility model, pricing, cloud architecture.",
+          "year": "2025 → présent",
+          "desc_fr": "Médaillon, Workflows, Unity Catalog, Delta Lake, AI Functions natives, exploration approfondie de la plateforme à travers des projets réels (Bike Lakehouse, IDP).",
+          "desc_en": "Medallion, Workflows, Unity Catalog, Delta Lake, native AI Functions, deep platform exploration through real projects (Bike Lakehouse, IDP).",
           "status": "in_progress"
         }
       ]
@@ -117,8 +110,8 @@
       "title_en": "Python",
       "summary_fr": "Écosystème Python data : scripts ETL, Pandas pour analyse/nettoyage, PySpark pour distribution, pytest et logging pour la robustesse.",
       "summary_en": "Python data ecosystem: ETL scripts, Pandas for analysis/cleaning, PySpark for distribution, pytest and logging for robustness.",
-      "body_fr": "Niveau 65/100 — l'écosystème Python est mon pivot. **Python core** (60) : confortable sur ETL/scripts (requests, sqlite, datetime, validation par règles) ; gestion d'erreurs structurée, logging, tests pytest et APIs robustes (retry, auth, pagination) en cours de démonstration sur le Bakery Sales Pipeline. Pas encore démontré : async, packaging. **Pandas** (75) : excellente maîtrise sur 5+ projets — validation, dédup, dates exotiques, jointures, normalisation regex, gestion NULL avec windows. **PySpark** (45) : une mise en pratique sérieuse sur le Silver layer du Bike Lakehouse (6 notebooks, windows, dedup, regex cross-source). À démontrer : Structured Streaming, MLlib, optimisation catalyst, broadcast joins.",
-      "body_en": "Level 65/100 — the Python ecosystem is my pivot. **Python core** (60): comfortable on ETL/scripts (requests, sqlite, datetime, rule-based validation); structured error handling, logging, pytest testing and robust APIs (retry, auth, pagination) being demonstrated on the Bakery Sales Pipeline. Not yet demonstrated: async, packaging. **Pandas** (75): excellent mastery on 5+ projects — validation, dedup, exotic dates, joins, regex normalization, NULL handling with windows. **PySpark** (45): one serious application on Bike Lakehouse Silver layer (6 notebooks, windows, dedup, cross-source regex). To demonstrate: Structured Streaming, MLlib, catalyst optimization, broadcast joins.",
+      "body_fr": "Niveau 65/100, l'écosystème Python est mon pivot. **Python core** (60) : confortable sur ETL/scripts (requests, sqlite, datetime, validation par règles) . Pas encore démontré : tests pytest et APIs robustes (retry, auth, pagination) en conditions réelles, async, packaging. **Pandas** (75) : excellente maîtrise sur 5+ projets, validation, dédup, dates exotiques, jointures, normalisation regex, gestion NULL avec windows. **PySpark** (45) : une mise en pratique sérieuse sur le Silver layer du Bike Lakehouse (6 notebooks, windows, dedup, regex cross-source). À démontrer : Structured Streaming, MLlib, optimisation catalyst, broadcast joins.",
+      "body_en": "Level 65/100, the Python ecosystem is my pivot. **Python core** (60): comfortable on ETL/scripts (requests, sqlite, datetime, rule-based validation). Not yet demonstrated: pytest testing and robust APIs (retry, auth, pagination) in real conditions, async, packaging. **Pandas** (75): excellent mastery on 5+ projects, validation, dedup, exotic dates, joins, regex normalization, NULL handling with windows. **PySpark** (45): one serious application on Bike Lakehouse Silver layer (6 notebooks, windows, dedup, cross-source regex). To demonstrate: Structured Streaming, MLlib, catalyst optimization, broadcast joins.",
       "children": [
         {
           "label": "Pandas",
@@ -161,8 +154,8 @@
       "title_en": "SQL",
       "summary_fr": "Solide sur CTE, window functions, NTILE, modélisation. Bon en T-SQL, SQLite et SQL standard.",
       "summary_en": "Solid on CTEs, window functions, NTILE, modeling. Comfortable in T-SQL, SQLite and standard SQL.",
-      "body_fr": "Niveau 70/100 — démontré sur Airline (T-SQL star schema, 20+ requêtes business), Bike Lakehouse (Platinum en Databricks SQL avec NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (EDA SQL Server + colonnes calculées PERSISTED). Maîtrise des CTE récursifs, window functions, agrégations conditionnelles, jointures multi-tables. Pas démontré : tuning sur très gros volumes (>100M lignes), stored procedures complexes, triggers, optimisation d'index avancée.",
-      "body_en": "Level 70/100 — demonstrated on Airline (T-SQL star schema, 20+ business queries), Bike Lakehouse (Platinum in Databricks SQL with NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (SQL Server EDA + PERSISTED computed columns). Mastery of recursive CTEs, window functions, conditional aggregations, multi-table joins. Not demonstrated: tuning on very large volumes (>100M rows), complex stored procedures, triggers, advanced index optimization.",
+      "body_fr": "Niveau 70/100, démontré sur Airline (T-SQL star schema, 20+ requêtes business), Bike Lakehouse (Platinum en Databricks SQL avec NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (EDA SQL Server + colonnes calculées PERSISTED). Maîtrise des CTE récursifs, window functions, agrégations conditionnelles, jointures multi-tables. Pas démontré : tuning sur très gros volumes (>100M lignes), stored procedures complexes, triggers, optimisation d'index avancée.",
+      "body_en": "Level 70/100, demonstrated on Airline (T-SQL star schema, 20+ business queries), Bike Lakehouse (Platinum in Databricks SQL with NTILE/RFMV), Pipeline_ventes (SQLite), Hotel Booking (SQL Server EDA + PERSISTED computed columns). Mastery of recursive CTEs, window functions, conditional aggregations, multi-table joins. Not demonstrated: tuning on very large volumes (>100M rows), complex stored procedures, triggers, advanced index optimization.",
       "children": [
         {
           "label": "DQL · SELECT",
@@ -207,10 +200,10 @@
       "level": 60,
       "title_fr": "dbt",
       "title_en": "dbt",
-      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3 — The Rise of the Single Source) et Hotel Booking Pipeline (Postgres, médaillon complet, orchestré par Airflow).",
-      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3 — The Rise of the Single Source) and Hotel Booking Pipeline (Postgres, full medallion, orchestrated by Airflow).",
-      "body_fr": "Niveau 60/100 — utilisé concrètement sur l'Acte 3 du projet Airline (staging → intermediate → marts, tests d'assertion) et sur Hotel Booking Pipeline (seed → staging → intermediate → 3 marts sur Postgres, 20 tests dbt dont 5 tests singuliers sur les outliers ADR et la cohérence des taux d'annulation, le tout orchestré par un DAG Airflow). Documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
-      "body_en": "Level 60/100 — concretely used on Act 3 of the Airline project (staging → intermediate → marts, assertion tests) and on Hotel Booking Pipeline (seed → staging → intermediate → 3 marts on Postgres, 20 dbt tests including 5 singular tests on ADR outliers and cancellation-rate consistency, all orchestrated by an Airflow DAG). Auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
+      "summary_fr": "Outil de transformation versionnée. Démontré sur Airline Performance Analytics (Acte 3, The Rise of the Single Source) et Hotel Booking Pipeline (Postgres, médaillon complet, orchestré par Airflow).",
+      "summary_en": "Versioned transformation tool. Demonstrated on Airline Performance Analytics (Act 3, The Rise of the Single Source) and Hotel Booking Pipeline (Postgres, full medallion, orchestrated by Airflow).",
+      "body_fr": "Niveau 60/100, utilisé concrètement sur l'Acte 3 du projet Airline (staging → intermediate → marts, tests d'assertion) et sur Hotel Booking Pipeline (seed → staging → intermediate → 3 marts sur Postgres, 20 tests dbt dont 5 tests singuliers sur les outliers ADR et la cohérence des taux d'annulation, le tout orchestré par un DAG Airflow). Documentation auto-générée, lineage visible. **À approfondir** : macros avancées, packages tiers, snapshots SCD2, exposures, CI/CD dbt-cloud, dbt-mesh.",
+      "body_en": "Level 60/100, concretely used on Act 3 of the Airline project (staging → intermediate → marts, assertion tests) and on Hotel Booking Pipeline (seed → staging → intermediate → 3 marts on Postgres, 20 dbt tests including 5 singular tests on ADR outliers and cancellation-rate consistency, all orchestrated by an Airflow DAG). Auto-generated docs, visible lineage. **To deepen**: advanced macros, third-party packages, SCD2 snapshots, exposures, dbt-cloud CI/CD, dbt-mesh.",
       "children": [
         {
           "label": "Staging / Marts",
@@ -243,10 +236,10 @@
       "level": 50,
       "title_fr": "Airflow",
       "title_en": "Airflow",
-      "summary_fr": "DAG de production sur Hotel Booking Pipeline — 11 tâches orchestrant dbt seed → staging → intermediate → 3 marts en parallèle.",
-      "summary_en": "Production DAG on Hotel Booking Pipeline — 11 tasks orchestrating dbt seed → staging → intermediate → 3 marts in parallel.",
-      "body_fr": "Niveau 50/100 — implémenté et démontré sur Hotel Booking Pipeline : DAG `hotel_booking_pipeline` de 11 `BashOperator`, chaque couche du médaillon en tâches run/test séparées pour isoler les échecs, 3 marts qui se ramifient en parallèle depuis `test_intermediate`. LocalExecutor, image Docker custom avec dbt intégré (étend `apache/airflow`), réseau Docker externe partagé avec le conteneur Postgres, retries automatiques (1 tentative, 5 min). Pas encore démontré : sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, dépendances multi-DAG, déploiement en environnement de production réel.",
-      "body_en": "Level 50/100 — implemented and demonstrated on Hotel Booking Pipeline: an 11-task `BashOperator` DAG (`hotel_booking_pipeline`), each medallion layer split into separate run/test tasks to isolate failures, 3 marts fanning out in parallel from `test_intermediate`. LocalExecutor, custom Docker image with dbt installed (extending `apache/airflow`), shared external Docker network with the Postgres container, automatic retries (1 attempt, 5 min). Not yet demonstrated: sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, multi-DAG dependencies, deployment to a real production environment.",
+      "summary_fr": "DAG de production sur Hotel Booking Pipeline, 11 tâches orchestrant dbt seed → staging → intermediate → 3 marts en parallèle.",
+      "summary_en": "Production DAG on Hotel Booking Pipeline, 11 tasks orchestrating dbt seed → staging → intermediate → 3 marts in parallel.",
+      "body_fr": "Niveau 50/100, implémenté et démontré sur Hotel Booking Pipeline : DAG `hotel_booking_pipeline` de 11 `BashOperator`, chaque couche du médaillon en tâches run/test séparées pour isoler les échecs, 3 marts qui se ramifient en parallèle depuis `test_intermediate`. LocalExecutor, image Docker custom avec dbt intégré (étend `apache/airflow`), réseau Docker externe partagé avec le conteneur Postgres, retries automatiques (1 tentative, 5 min). Pas encore démontré : sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, dépendances multi-DAG, déploiement en environnement de production réel.",
+      "body_en": "Level 50/100, implemented and demonstrated on Hotel Booking Pipeline: an 11-task `BashOperator` DAG (`hotel_booking_pipeline`), each medallion layer split into separate run/test tasks to isolate failures, 3 marts fanning out in parallel from `test_intermediate`. LocalExecutor, custom Docker image with dbt installed (extending `apache/airflow`), shared external Docker network with the Postgres container, automatic retries (1 attempt, 5 min). Not yet demonstrated: sensors, dynamic task mapping, XComs, CeleryExecutor/KubernetesExecutor, multi-DAG dependencies, deployment to a real production environment.",
       "children": [
         {
           "label": "DAG multi-tâches",
@@ -277,8 +270,8 @@
       "title_en": "Databricks",
       "summary_fr": "Plateforme complète : Workflows, Unity Catalog, Volumes, Databricks SQL, Delta Lake, AI Functions natives.",
       "summary_en": "Full platform: Workflows, Unity Catalog, Volumes, Databricks SQL, Delta Lake, native AI Functions.",
-      "body_fr": "Niveau 68/100 — utilisation réelle sur 2 projets ambitieux. **Platform** (70) : Workflows avec DAG de tâches dépendantes, Unity Catalog multi-schéma, Volumes, notebooks SQL/Python. **Databricks SQL** (70) : Platinum layer Bike (RFMV/NTILE, Pareto via running totals) et IDP entier en SQL pur. **Delta Lake** (50) : utilisé partout (17 tables Bike, 3 IDP), ACID + schema evolution. À approfondir : time travel, OPTIMIZE/Z-ORDER, VACUUM. **AI Functions** (45) : ai_parse_document, ai_classify, ai_extract chaînés sur l'IDP — niche puissante. Pas démontré : Delta Live Tables, MLflow, Lakehouse Federation.",
-      "body_en": "Level 68/100 — real use on 2 ambitious projects. **Platform** (70): Workflows with DAG of dependent tasks, multi-schema Unity Catalog, Volumes, SQL/Python notebooks. **Databricks SQL** (70): Bike Platinum layer (RFMV/NTILE, Pareto via running totals) and entire IDP in pure SQL. **Delta Lake** (50): used everywhere (17 Bike tables, 3 IDP), ACID + schema evolution. To deepen: time travel, OPTIMIZE/Z-ORDER, VACUUM. **AI Functions** (45): ai_parse_document, ai_classify, ai_extract chained on IDP — powerful niche. Not demonstrated: Delta Live Tables, MLflow, Lakehouse Federation.",
+      "body_fr": "Niveau 68/100, utilisation réelle sur 2 projets ambitieux. **Platform** (70) : Workflows avec DAG de tâches dépendantes, Unity Catalog multi-schéma, Volumes, notebooks SQL/Python. **Databricks SQL** (70) : Platinum layer Bike (RFMV/NTILE, Pareto via running totals) et IDP entier en SQL pur. **Delta Lake** (50) : utilisé partout (17 tables Bike, 3 IDP), ACID + schema evolution. À approfondir : time travel, OPTIMIZE/Z-ORDER, VACUUM. **AI Functions** (45) : ai_parse_document, ai_classify, ai_extract chaînés sur l'IDP, niche puissante. Pas démontré : Delta Live Tables, MLflow, Lakehouse Federation.",
+      "body_en": "Level 68/100, real use on 2 ambitious projects. **Platform** (70): Workflows with DAG of dependent tasks, multi-schema Unity Catalog, Volumes, SQL/Python notebooks. **Databricks SQL** (70): Bike Platinum layer (RFMV/NTILE, Pareto via running totals) and entire IDP in pure SQL. **Delta Lake** (50): used everywhere (17 Bike tables, 3 IDP), ACID + schema evolution. To deepen: time travel, OPTIMIZE/Z-ORDER, VACUUM. **AI Functions** (45): ai_parse_document, ai_classify, ai_extract chained on IDP, powerful niche. Not demonstrated: Delta Live Tables, MLflow, Lakehouse Federation.",
       "children": [
         {
           "label": "Databricks SQL",
@@ -319,10 +312,10 @@
       "level": 65,
       "title_fr": "Modélisation",
       "title_en": "Dimensional Modeling",
-      "summary_fr": "Star schema démontré 2× — Airline (2 fact + 4 dim) et Bike Gold. Architecture lisible.",
-      "summary_en": "Star schema demonstrated 2× — Airline (2 fact + 4 dim) and Bike Gold. Readable architecture.",
-      "body_fr": "Niveau 65/100 — modèle en étoile pour Airline (2 faits : flights / passenger_flights × 4 dimensions : airports / airlines / aircraft / passenger) et Bike Gold (dim_customers, dim_products, fact_sales). Justification de chaque jointure documentée. Pas démontré : SCD type 2 pour historisation, surrogate keys générées centralement, late-arriving facts, role-playing dimensions, fact tables consolidées (factless / accumulating snapshots).",
-      "body_en": "Level 65/100 — star schema for Airline (2 facts: flights / passenger_flights × 4 dims: airports / airlines / aircraft / passenger) and Bike Gold (dim_customers, dim_products, fact_sales). Each join documented and justified. Not demonstrated: SCD type 2, centrally-generated surrogate keys, late-arriving facts, role-playing dimensions, consolidated fact tables (factless / accumulating snapshots).",
+      "summary_fr": "Star schema démontré 2×, Airline (2 fact + 4 dim) et Bike Gold. Architecture lisible.",
+      "summary_en": "Star schema demonstrated 2×, Airline (2 fact + 4 dim) and Bike Gold. Readable architecture.",
+      "body_fr": "Niveau 65/100, modèle en étoile pour Airline (2 faits : flights / passenger_flights × 4 dimensions : airports / airlines / aircraft / passenger) et Bike Gold (dim_customers, dim_products, fact_sales). Justification de chaque jointure documentée. Pas démontré : SCD type 2 pour historisation, surrogate keys générées centralement, late-arriving facts, role-playing dimensions, fact tables consolidées (factless / accumulating snapshots).",
+      "body_en": "Level 65/100, star schema for Airline (2 facts: flights / passenger_flights × 4 dims: airports / airlines / aircraft / passenger) and Bike Gold (dim_customers, dim_products, fact_sales). Each join documented and justified. Not demonstrated: SCD type 2, centrally-generated surrogate keys, late-arriving facts, role-playing dimensions, consolidated fact tables (factless / accumulating snapshots).",
       "children": [
         {
           "label": "Star Schema",
@@ -359,10 +352,10 @@
       "level": 45,
       "title_fr": "Docker",
       "title_en": "Docker",
-      "summary_fr": "Dockerfile + docker-compose sur Pipeline_ventes (Python/SQLite) et Hotel Booking Pipeline (2 stacks — Postgres + Airflow, réseau partagé).",
-      "summary_en": "Dockerfile + docker-compose on Pipeline_ventes (Python/SQLite) and Hotel Booking Pipeline (2 stacks — Postgres + Airflow, shared network).",
-      "body_fr": "Niveau 45/100 — Dockerfile Python + docker-compose pour Pipeline_ventes (service Python + SQLite), et sur Hotel Booking Pipeline : deux stacks docker-compose distinctes (Postgres, puis Airflow avec une image custom étendant apache/airflow pour y installer dbt), connectées par un réseau Docker externe partagé (hotel_pipeline_network) pour que les tâches Airflow atteignent Postgres par nom de conteneur. Je sais construire une image custom à partir d'une image officielle et déboguer une collision de noms de service sur un réseau partagé. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
-      "body_en": "Level 45/100 — Python Dockerfile + docker-compose for Pipeline_ventes (Python service + SQLite), and on Hotel Booking Pipeline: two distinct docker-compose stacks (Postgres, then Airflow with a custom image extending apache/airflow to install dbt inside it), connected by a shared external Docker network (hotel_pipeline_network) so Airflow tasks reach Postgres by container name. I can build a custom image on top of an official one and debug a service-name collision on a shared network. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "summary_fr": "Dockerfile + docker-compose sur Pipeline_ventes (Python/SQLite) et Hotel Booking Pipeline (2 stacks, Postgres + Airflow, réseau partagé).",
+      "summary_en": "Dockerfile + docker-compose on Pipeline_ventes (Python/SQLite) and Hotel Booking Pipeline (2 stacks, Postgres + Airflow, shared network).",
+      "body_fr": "Niveau 45/100, Dockerfile Python + docker-compose pour Pipeline_ventes (service Python + SQLite), et sur Hotel Booking Pipeline : deux stacks docker-compose distinctes (Postgres, puis Airflow avec une image custom étendant apache/airflow pour y installer dbt), connectées par un réseau Docker externe partagé (hotel_pipeline_network) pour que les tâches Airflow atteignent Postgres par nom de conteneur. Je sais construire une image custom à partir d'une image officielle et déboguer une collision de noms de service sur un réseau partagé. Pas démontré : multi-stage builds, optimisation d'images (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
+      "body_en": "Level 45/100, Python Dockerfile + docker-compose for Pipeline_ventes (Python service + SQLite), and on Hotel Booking Pipeline: two distinct docker-compose stacks (Postgres, then Airflow with a custom image extending apache/airflow to install dbt inside it), connected by a shared external Docker network (hotel_pipeline_network) so Airflow tasks reach Postgres by container name. I can build a custom image on top of an official one and debug a service-name collision on a shared network. Not demonstrated: multi-stage builds, image optimization (Alpine, distroless), registries (Docker Hub, GHCR), Kubernetes, secrets management.",
       "children": [
         {
           "label": "Dockerfile",
@@ -393,8 +386,8 @@
       "title_en": "Data Visualization",
       "summary_fr": "12+ charts sur Japan tourism, viz Hotel Booking et Weather. Bonne lecture des graphiques business.",
       "summary_en": "12+ charts on Japan tourism, viz on Hotel Booking and Weather. Good business chart reading.",
-      "body_fr": "Niveau 55/100 — Plotly maîtrisé pour viz statique et interactive (hover, zoom, sélection). Choix de chart pertinent au use case (line/bar/heatmap/box). Pas démontré : dashboards d'entreprise (Power BI, Tableau, Looker), apps interactives complètes (Streamlit/Dash en production), data storytelling visuel poussé, charting D3 custom.",
-      "body_en": "Level 55/100 — Plotly mastered for static and interactive viz (hover, zoom, selection). Chart choice relevant to use case (line/bar/heatmap/box). Not demonstrated: enterprise dashboards (Power BI, Tableau, Looker), full interactive apps (production Streamlit/Dash), advanced visual data storytelling, custom D3 charting.",
+      "body_fr": "Niveau 55/100, Plotly maîtrisé pour viz statique et interactive (hover, zoom, sélection). Choix de chart pertinent au use case (line/bar/heatmap/box). Pas démontré : dashboards d'entreprise (Power BI, Tableau, Looker), apps interactives complètes (Streamlit/Dash en production), data storytelling visuel poussé, charting D3 custom.",
+      "body_en": "Level 55/100, Plotly mastered for static and interactive viz (hover, zoom, selection). Chart choice relevant to use case (line/bar/heatmap/box). Not demonstrated: enterprise dashboards (Power BI, Tableau, Looker), full interactive apps (production Streamlit/Dash), advanced visual data storytelling, custom D3 charting.",
       "children": [
         {
           "label": "Plotly",
@@ -433,8 +426,8 @@
       "title_en": "Git",
       "summary_fr": "8+ repos publics, READMEs structurés, commits propres. Workflow individuel solide.",
       "summary_en": "8+ public repos, structured READMEs, clean commits. Solid individual workflow.",
-      "body_fr": "Niveau 60/100 — pratique quotidienne. Repos bien structurés (READMEs, docs, dictionnaire de données pour Bike). Commits descriptifs. Pas démontré : workflow collaboratif à grande échelle (PR review, code owners), GitHub Actions / CI/CD, rebase interactif avancé, gestion de monorepo, hooks pre-commit, conventional commits stricts.",
-      "body_en": "Level 60/100 — daily practice. Well-structured repos (READMEs, docs, data dictionary for Bike). Descriptive commits. Not demonstrated: large-scale collaborative workflow (PR review, code owners), GitHub Actions / CI/CD, advanced interactive rebase, monorepo management, pre-commit hooks, strict conventional commits.",
+      "body_fr": "Niveau 60/100, pratique quotidienne. Repos bien structurés (READMEs, docs, dictionnaire de données pour Bike). Commits descriptifs. Pas démontré : workflow collaboratif à grande échelle (PR review, code owners), GitHub Actions / CI/CD, rebase interactif avancé, gestion de monorepo, hooks pre-commit, conventional commits stricts.",
+      "body_en": "Level 60/100, daily practice. Well-structured repos (READMEs, docs, data dictionary for Bike). Descriptive commits. Not demonstrated: large-scale collaborative workflow (PR review, code owners), GitHub Actions / CI/CD, advanced interactive rebase, monorepo management, pre-commit hooks, strict conventional commits.",
       "children": [
         {
           "label": "GitHub",
@@ -459,48 +452,10 @@
       ]
     },
     {
-      "id": "p_bakery",
-      "type": "project",
-      "lane": "MARTS",
-      "row": 0,
-      "wip": true,
-      "label": "BAKERY_PIPELINE",
-      "kanji": "焼",
-      "year": "2026",
-      "title_fr": "Bakery Sales Pipeline",
-      "title_en": "Bakery Sales Pipeline",
-      "summary_fr": "Projet en construction — pipeline de ventes pour une chaîne de boulangeries fictive (Craquelin), centré sur les fondamentaux d'ingénierie : gestion d'erreurs, logging, tests pytest, APIs robustes, Docker.",
-      "summary_en": "Work in progress — sales pipeline for a fictional bakery chain (Craquelin), focused on engineering fundamentals: error handling, logging, pytest testing, robust APIs, Docker.",
-      "body_fr": "Le scénario : une chaîne de boulangeries fictive (« Craquelin ») sans aucune infrastructure data existante — le cas typique d'une première mission d'Analytics Engineer.\n\nL'objectif : construire le pipeline de ventes en appliquant dès le départ les standards d'un code de production. Chaque brique est travaillée méthodiquement avant l'assemblage : gestion d'erreurs structurée (try/except), logging, tests automatisés pytest, consommation d'API avec retry, authentification et pagination, et conteneurisation Docker — avec un mock d'ERP pour simuler la source.\n\n**Statut : en construction active.** Les fondations sont posées, l'assemblage du pipeline complet est en cours. Ce nœud évoluera au fil des commits.",
-      "body_en": "The scenario: a fictional bakery chain (\"Craquelin\") with no existing data infrastructure — the typical first mission of an Analytics Engineer.\n\nThe goal: build the sales pipeline applying production-grade standards from day one. Each building block is worked methodically before assembly: structured error handling (try/except), logging, automated pytest testing, API consumption with retry, auth and pagination, and Docker containerization — with a mock ERP simulating the source.\n\n**Status: under active construction.** Foundations are laid, full pipeline assembly is underway. This node will evolve with the commits.",
-      "stack": [
-        "Python",
-        "Pandas",
-        "pytest",
-        "Docker"
-      ],
-      "metrics": [
-        {
-          "label": "statut",
-          "value": "WIP"
-        },
-        {
-          "label": "briques",
-          "value": "5"
-        },
-        {
-          "label": "commits",
-          "value": "15+"
-        }
-      ],
-      "github_url": "https://github.com/JBaptisteAll/Bakery_Sales_Pipeline",
-      "mermaid": "flowchart LR\n  ERP[Mock ERP API] --> ING[Ingestion + retry]\n  CSV[Ventes CSV] --> ING\n  ING --> VAL[Validation + logging]\n  VAL --> T[pytest]\n  VAL --> WH[(Warehouse)]"
-    },
-    {
       "id": "p_bike",
       "type": "project",
       "lane": "MARTS",
-      "row": 1,
+      "row": 0,
       "label": "ECOMMERCE_LAKEHOUSE",
       "kanji": "輪",
       "year": "2025",
@@ -537,7 +492,7 @@
       "id": "p_pipeline_ventes",
       "type": "project",
       "lane": "MARTS",
-      "row": 2,
+      "row": 1,
       "label": "PIPELINE_VENTES",
       "kanji": "売",
       "year": "2025",
@@ -545,8 +500,8 @@
       "title_en": "Sales Pipeline",
       "summary_fr": "Pipeline ETL personnel démontrant collecte HTTP, validation par règles métier, quarantaine des erreurs et analyses SQL de bout en bout.",
       "summary_en": "Personal ETL pipeline demonstrating HTTP collection, business-rule validation, error quarantine and end-to-end SQL analysis.",
-      "body_fr": "Trois CSVs (produits, magasins, ventes) récupérés via HTTP, normalisés, validés ligne par ligne avec règles métier (prix > 0, stock ≥ 0, quantité > 0, FK valides). Choix d'architecture : les lignes invalides ne sont pas supprimées mais redirigées vers une table `erreurs_import` de quarantaine — pratique de \"dead letter queue\" — qui trace table, ligne, colonne, valeur, raison et date du rejet. Cela permet de réimporter après correction et d'auditer le pipeline. Déduplication transparente lors de chaque relance. Trois analyses SQL produisent CA total, ventes par produit et ventes par région. Conteneurisé avec Docker + docker-compose.",
-      "body_en": "Three CSVs (products, stores, sales) fetched via HTTP, normalized, validated row-by-row with business rules (price > 0, stock ≥ 0, quantity > 0, valid FKs). Architectural choice: invalid rows aren't dropped but redirected to a quarantine `erreurs_import` table — \"dead letter queue\" pattern — tracking table, row, column, value, rejection reason and date. Allows re-importing after correction and pipeline auditing. Transparent deduplication on each re-run. Three SQL analyses produce total revenue, sales-by-product, sales-by-region. Containerized with Docker + docker-compose.",
+      "body_fr": "Trois CSVs (produits, magasins, ventes) récupérés via HTTP, normalisés, validés ligne par ligne avec règles métier (prix > 0, stock ≥ 0, quantité > 0, FK valides). Choix d'architecture : les lignes invalides ne sont pas supprimées mais redirigées vers une table `erreurs_import` de quarantaine, pratique de \"dead letter queue\", qui trace table, ligne, colonne, valeur, raison et date du rejet. Cela permet de réimporter après correction et d'auditer le pipeline. Déduplication transparente lors de chaque relance. Trois analyses SQL produisent CA total, ventes par produit et ventes par région. Conteneurisé avec Docker + docker-compose.",
+      "body_en": "Three CSVs (products, stores, sales) fetched via HTTP, normalized, validated row-by-row with business rules (price > 0, stock ≥ 0, quantity > 0, valid FKs). Architectural choice: invalid rows aren't dropped but redirected to a quarantine `erreurs_import` table, \"dead letter queue\" pattern, tracking table, row, column, value, rejection reason and date. Allows re-importing after correction and pipeline auditing. Transparent deduplication on each re-run. Three SQL analyses produce total revenue, sales-by-product, sales-by-region. Containerized with Docker + docker-compose.",
       "stack": [
         "Python",
         "Pandas",
@@ -574,14 +529,14 @@
       "id": "p_idp",
       "type": "project",
       "lane": "MARTS",
-      "row": 3,
+      "row": 2,
       "label": "DATABRICKS_IDP",
       "kanji": "識",
       "year": "2026",
       "title_fr": "Databricks IDP",
       "title_en": "Databricks IDP",
-      "summary_fr": "Pipeline de Traitement Intelligent de Documents 100% en SQL Databricks avec les fonctions IA natives — sans Python, sans API externe, sans modèle ML à maintenir.",
-      "summary_en": "Intelligent Document Processing pipeline 100% in Databricks SQL with native AI functions — no Python, no external APIs, no ML model to maintain.",
+      "summary_fr": "Pipeline de Traitement Intelligent de Documents 100% en SQL Databricks avec les fonctions IA natives, sans Python, sans API externe, sans modèle ML à maintenir.",
+      "summary_en": "Intelligent Document Processing pipeline 100% in Databricks SQL with native AI functions, no Python, no external APIs, no ML model to maintain.",
       "body_fr": "Cas d'usage finance : ingérer un lot de documents bruts (factures PDF, bons de commande, reçus), les parser, classifier par type, extraire les champs structurés et alimenter trois tables Delta requêtables. Trois fonctions IA Databricks chaînées : `ai_parse_document` parse le PDF en VARIANT, `ai_classify` fait la classification zero-shot (Facture/Bon de commande/Reçu/Autre), `ai_extract` extrait les champs typés selon le type détecté. Tout en SQL pur dans Unity Catalog, organisé en multi-schéma `idp.finance.invoices/purchase_order/receipt`. Démontre l'IA appliquée à un cas métier concret sans complexité d'orchestration ni dette technique de modèles maison.",
       "body_en": "Finance use case: ingest a batch of raw documents (PDF invoices, purchase orders, receipts), parse them, classify by type, extract structured fields and feed three queryable Delta tables. Three chained Databricks AI functions: `ai_parse_document` parses PDF into VARIANT, `ai_classify` does zero-shot classification (Invoice/PO/Receipt/Other), `ai_extract` extracts typed fields based on detected type. All in pure SQL within Unity Catalog, organized in multi-schema `idp.finance.invoices/purchase_order/receipt`. Demonstrates AI applied to a concrete business case without orchestration complexity or maintenance debt of home-grown models.",
       "stack": [
@@ -611,16 +566,16 @@
       "id": "p_japan",
       "type": "project",
       "lane": "MARTS",
-      "row": 4,
+      "row": 3,
       "label": "JAPAN_TOURISM",
       "kanji": "旅",
       "year": "2025",
       "title_fr": "Japan Travel Insights",
       "title_en": "Japan Travel Insights",
-      "summary_fr": "Application Streamlit déployée pour la ville de Yonezawa — collecte automatisée par Google Forms et exploration interactive de la donnée touristique par les parties prenantes locales.",
-      "summary_en": "Streamlit app deployed for the city of Yonezawa — automated Google Forms collection and interactive tourism-data exploration by local stakeholders.",
-      "body_fr": "Le problème : la mairie de Yonezawa (80 000 habitants, préfecture de Yamagata) menait ses enquêtes touristiques sur le terrain, papier-crayon, avec un coût logistique élevé et aucune analyse en temps réel.\n\nLa solution : un pipeline automatisé de bout en bout. **Collecte** via Google Forms multilingues. **Traitement** via Python/Pandas (nettoyage, normalisation, agrégations). **Orchestration** automatique par GitHub Actions à chaque nouvelle soumission. **Restitution** dans une application Streamlit déployée pour la mairie — les parties prenantes explorent elles-mêmes la donnée : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables.\n\nRésultat : **suppression totale** des enquêtes terrain manuelles et de leurs coûts logistiques. Application en production, accessible en libre-service par le client au Japon.\n\n**Statut** : la mission freelance pour la ville s'est terminée en décembre 2025. Le pipeline continue toutefois de tourner en autopilote (GitHub Actions) et l'application se met à jour à chaque nouvelle réponse au questionnaire — c'est un projet perso qui reste vivant au-delà de la mission.",
-      "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms — high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall — stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.\n\n**Status**: the freelance mission for the city ended in December 2025. The pipeline still runs on autopilot (GitHub Actions) and the app updates with every new survey response — it stays alive as a personal project beyond the mission itself.",
+      "summary_fr": "Application Streamlit déployée pour la ville de Yonezawa, collecte automatisée par Google Forms et exploration interactive de la donnée touristique par les parties prenantes locales.",
+      "summary_en": "Streamlit app deployed for the city of Yonezawa, automated Google Forms collection and interactive tourism-data exploration by local stakeholders.",
+      "body_fr": "Le problème : la mairie de Yonezawa (80 000 habitants, préfecture de Yamagata) menait ses enquêtes touristiques sur le terrain, papier-crayon, avec un coût logistique élevé et aucune analyse en temps réel.\n\nLa solution : un pipeline automatisé de bout en bout. **Collecte** via Google Forms multilingues. **Traitement** via Python/Pandas (nettoyage, normalisation, agrégations). **Orchestration** automatique par GitHub Actions à chaque nouvelle soumission. **Restitution** dans une application Streamlit déployée pour la mairie, les parties prenantes explorent elles-mêmes la donnée : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables.\n\nRésultat : **suppression totale** des enquêtes terrain manuelles et de leurs coûts logistiques. Application en production, accessible en libre-service par le client au Japon.\n\n**Statut** : la mission freelance pour la ville s'est terminée en décembre 2025. Le pipeline a toutefois continué de tourner en autopilote (GitHub Actions) jusqu'en juin 2026 : l'application se mettait à jour à chaque nouvelle réponse au questionnaire, bien au-delà de la mission.",
+      "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms, high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall, stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.\n\n**Status**: the freelance mission for the city ended in December 2025. The pipeline kept running on autopilot (GitHub Actions) until June 2026: the app updated with every new survey response, well beyond the mission itself.",
       "stack": [
         "Streamlit",
         "Python",
@@ -650,16 +605,16 @@
       "id": "p_hotel",
       "type": "project",
       "lane": "MARTS",
-      "row": 5,
+      "row": 4,
       "label": "HOTEL_BOOKING",
       "kanji": "宿",
-      "year": "2024 — 2026",
+      "year": "2024 → 2026",
       "title_fr": "Hotel Booking Analysis",
       "title_en": "Hotel Booking Analysis",
       "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt + Airflow, avec 20 tests de qualité automatisés et orchestration par DAG.",
       "summary_en": "Two-part project on the same hotel dataset: SQL Server EDA, then a productionized Postgres + dbt + Airflow pipeline, with 20 automated quality tests and DAG-based orchestration.",
-      "body_fr": "**Volet 1 — EDA SQL Server** : 119 390 réservations de 2 hôtels portugais, médaillon Bronze/Silver/Gold. Insight clé : 40,6 % d'annulation en hôtel urbain contre 27 % en resort.\n\n**Volet 2 — Pipeline productionisé** : même logique reprise dans un second dépôt, Postgres (Docker) + dbt en médaillon complet (seed → staging → intermediate → 3 marts). 20 tests dbt, 3 marts : pricing, taux d'annulation, revenue.\n\n**Orchestration Airflow** : DAG de 11 tâches, stack Docker dédiée reliée à Postgres.\n\n**Statut** : les deux volets sont terminés, pipeline reproductible et testé automatiquement.",
-      "body_en": "**Part 1 — SQL Server EDA**: 119,390 bookings from 2 Portuguese hotels, Bronze/Silver/Gold medallion. Key insight: 40.6% cancellation rate for city hotels vs 27% for resorts.\n\n**Part 2 — Productionized pipeline**: same logic rebuilt in a second repo, containerized Postgres (Docker) + dbt in a full medallion architecture (seed → staging → intermediate → 3 marts). 20 dbt tests, 3 marts: pricing, cancellation rate, revenue.\n\n**Airflow orchestration**: 11-task DAG, dedicated Docker stack connected to Postgres.\n\n**Status**: both parts complete, end-to-end reproducible pipeline, automatically tested.",
+      "body_fr": "**Volet 1, EDA SQL Server** : 119 390 réservations de 2 hôtels portugais, médaillon Bronze/Silver/Gold. Insight clé : 40,6 % d'annulation en hôtel urbain contre 27 % en resort.\n\n**Volet 2, Pipeline productionisé** : même logique reprise dans un second dépôt, Postgres (Docker) + dbt en médaillon complet (seed → staging → intermediate → 3 marts). 20 tests dbt, 3 marts : pricing, taux d'annulation, revenue.\n\n**Orchestration Airflow** : DAG de 11 tâches, stack Docker dédiée reliée à Postgres.\n\n**Statut** : les deux volets sont terminés, pipeline reproductible et testé automatiquement.",
+      "body_en": "**Part 1, SQL Server EDA**: 119,390 bookings from 2 Portuguese hotels, Bronze/Silver/Gold medallion. Key insight: 40.6% cancellation rate for city hotels vs 27% for resorts.\n\n**Part 2, Productionized pipeline**: same logic rebuilt in a second repo, containerized Postgres (Docker) + dbt in a full medallion architecture (seed → staging → intermediate → 3 marts). 20 dbt tests, 3 marts: pricing, cancellation rate, revenue.\n\n**Airflow orchestration**: 11-task DAG, dedicated Docker stack connected to Postgres.\n\n**Status**: both parts complete, end-to-end reproducible pipeline, automatically tested.",
       "stack": [
         "SQL Server",
         "Postgres",
@@ -691,16 +646,16 @@
       "id": "p_airline",
       "type": "project",
       "lane": "MARTS",
-      "row": 6,
+      "row": 5,
       "label": "AIRLINE_ANALYTICS",
       "kanji": "空",
       "year": "2025",
       "title_fr": "Airline Performance Analytics",
       "title_en": "Airline Performance Analytics",
-      "summary_fr": "Projet parapluie en 3 actes (saga Star Wars-style) : (1) **Revenge of the Seat** — création de la base SQL en étoile, (2) **Return of the Jet High** — analytics SQL avancée sur le DW, (3) **The Rise of the Single Source** — refonte en couche dbt. De la donnée brute jusqu'à un modèle analytique versionné.",
-      "summary_en": "Umbrella project in 3 acts (Star-Wars-style saga): (1) **Revenge of the Seat** — building the SQL star-schema database, (2) **Return of the Jet High** — advanced SQL analytics on the DW, (3) **The Rise of the Single Source** — refactor into a dbt layer. From raw data to a versioned analytical model.",
-      "body_fr": "Saga Star-Wars-style en **3 actes** sur le même domaine (opérations aériennes).\n\n**Acte 1 — Revenge of the Seat** : modélisation Merise puis schéma en étoile dans SQL Server. **2 tables de faits** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Acte 2 — Return of the Jet High** : requêtes T-SQL business sur le DW. Routes problématiques, retards, leaks de coûts.\n\n**Acte 3 — The Rise of the Single Source** : refonte en **dbt** avec staging → intermediate → marts, tests d'assertion (logical_flight_route, passenger_count_is_valid), 4 marts dont un mart CEO consolidé.",
-      "body_en": "Star-Wars-style saga in **3 acts** on the same domain (airline operations).\n\n**Act 1 — Revenge of the Seat**: Merise modeling then star schema in SQL Server. **2 fact tables** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Act 2 — Return of the Jet High**: business T-SQL queries on the DW. Problem routes, delays, cost leaks.\n\n**Act 3 — The Rise of the Single Source**: refactor into **dbt** with staging → intermediate → marts, assertion tests (logical_flight_route, passenger_count_is_valid), 4 marts including a consolidated CEO mart.",
+      "summary_fr": "Projet parapluie en 3 actes (saga Star Wars-style) : (1) **Revenge of the Seat**, création de la base SQL en étoile, (2) **Return of the Jet High**, analytics SQL avancée sur le DW, (3) **The Rise of the Single Source**, refonte en couche dbt. De la donnée brute jusqu'à un modèle analytique versionné.",
+      "summary_en": "Umbrella project in 3 acts (Star-Wars-style saga): (1) **Revenge of the Seat**, building the SQL star-schema database, (2) **Return of the Jet High**, advanced SQL analytics on the DW, (3) **The Rise of the Single Source**, refactor into a dbt layer. From raw data to a versioned analytical model.",
+      "body_fr": "Saga Star-Wars-style en **3 actes** sur le même domaine (opérations aériennes).\n\n**Acte 1, Revenge of the Seat** : modélisation Merise puis schéma en étoile dans SQL Server. **2 tables de faits** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Acte 2, Return of the Jet High** : requêtes T-SQL business sur le DW. Routes problématiques, retards, leaks de coûts.\n\n**Acte 3, The Rise of the Single Source** : refonte en **dbt** avec staging → intermediate → marts, tests d'assertion (logical_flight_route, passenger_count_is_valid), 4 marts dont un mart CEO consolidé.",
+      "body_en": "Star-Wars-style saga in **3 acts** on the same domain (airline operations).\n\n**Act 1, Revenge of the Seat**: Merise modeling then star schema in SQL Server. **2 fact tables** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Act 2, Return of the Jet High**: business T-SQL queries on the DW. Problem routes, delays, cost leaks.\n\n**Act 3, The Rise of the Single Source**: refactor into **dbt** with staging → intermediate → marts, assertion tests (logical_flight_route, passenger_count_is_valid), 4 marts including a consolidated CEO mart.",
       "stack": [
         "SQL Server",
         "T-SQL",
@@ -730,16 +685,16 @@
       "id": "p_weather",
       "type": "project",
       "lane": "MARTS",
-      "row": 7,
+      "row": 6,
       "label": "WEATHER_FORECAST",
       "kanji": "天",
       "year": "2025",
       "title_fr": "Weather Forecast Analysis",
       "title_en": "Weather Forecast Analysis",
-      "summary_fr": "Projet parapluie en deux fronts : (1) **France Adventure Planner** — app Streamlit qui aide à planifier un week-end en France à partir des prévisions météo + suggestions d'hôtels, (2) **ClimAdvisor** — analyse Power BI de la fiabilité réelle de ces prévisions à J+1 → J+5 sur ~50 villes. Même donnée, deux finalités : produit + insight.",
-      "summary_en": "Umbrella project on two fronts: (1) **France Adventure Planner** — Streamlit app helping plan a French weekend from weather forecasts + hotel suggestions, (2) **ClimAdvisor** — Power BI analysis of how reliable those forecasts actually are at D+1 → D+5 across ~50 cities. Same data, two outcomes: product + insight.",
-      "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1 — France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2 — ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot d'Analytics Engineer.",
-      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1 — France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2 — ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Data Engineer job.",
+      "summary_fr": "Projet parapluie en deux fronts : (1) **France Adventure Planner**, app Streamlit qui aide à planifier un week-end en France à partir des prévisions météo + suggestions d'hôtels, (2) **ClimAdvisor**, analyse Power BI de la fiabilité réelle de ces prévisions à J+1 → J+5 sur ~50 villes. Même donnée, deux finalités : produit + insight.",
+      "summary_en": "Umbrella project on two fronts: (1) **France Adventure Planner**, Streamlit app helping plan a French weekend from weather forecasts + hotel suggestions, (2) **ClimAdvisor**, Power BI analysis of how reliable those forecasts actually are at D+1 → D+5 across ~50 cities. Same data, two outcomes: product + insight.",
+      "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1, France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2, ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot d'Analytics Engineer.",
+      "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1, France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2, ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Analytics Engineer job.",
       "stack": [
         "Streamlit",
         "Python",
@@ -771,16 +726,16 @@
       "id": "p_playbook",
       "type": "project",
       "lane": "MARTS",
-      "row": 8,
+      "row": 7,
       "label": "DATA_PLAYBOOK",
       "kanji": "本",
       "year": "2024",
       "title_fr": "Data Playbook",
       "title_en": "Data Playbook",
-      "summary_fr": "Manuel personnel rendu public — 30+ templates SQL, définitions KPI, recettes EDA et patterns de visualisation, en FR/EN. Bonus : projet vivant, mis à jour à chaque apprentissage.",
-      "summary_en": "Personal handbook made public — 30+ SQL templates, KPI definitions, EDA recipes and viz patterns, in FR/EN. Bonus: living project, updated with each new learning.",
-      "body_fr": "Tout data analyst ré-écrit les mêmes 30 requêtes SQL chaque mois — c'est inefficace. J'ai compilé mon propre playbook : recettes SQL réutilisables (top N par groupe, retention cohortes, RFM, deltas temporels), définitions de KPIs standardisées (CAC, LTV, churn, etc.), patterns d'EDA, templates de visualisation, checklists de stats. Conçu d'abord pour mon usage, ouvert pour que d'autres puissent le forker et l'enrichir. Documentation orientée action plutôt qu'orientée théorie.",
-      "body_en": "Every data analyst rewrites the same 30 SQL queries every month — that's inefficient. I compiled my own playbook: reusable SQL recipes (top N per group, cohort retention, RFM, time deltas), standardized KPI definitions (CAC, LTV, churn, etc.), EDA patterns, viz templates, stats checklists. Built for my own use first, open so others can fork and extend. Action-oriented documentation rather than theory-oriented.",
+      "summary_fr": "Manuel personnel rendu public, 30+ templates SQL, définitions KPI, recettes EDA et patterns de visualisation, en FR/EN. Bonus : projet vivant, mis à jour à chaque apprentissage.",
+      "summary_en": "Personal handbook made public, 30+ SQL templates, KPI definitions, EDA recipes and viz patterns, in FR/EN. Bonus: living project, updated with each new learning.",
+      "body_fr": "Tout data analyst ré-écrit les mêmes 30 requêtes SQL chaque mois, c'est inefficace. J'ai compilé mon propre playbook : recettes SQL réutilisables (top N par groupe, retention cohortes, RFM, deltas temporels), définitions de KPIs standardisées (CAC, LTV, churn, etc.), patterns d'EDA, templates de visualisation, checklists de stats. Conçu d'abord pour mon usage, ouvert pour que d'autres puissent le forker et l'enrichir. Documentation orientée action plutôt qu'orientée théorie.",
+      "body_en": "Every data analyst rewrites the same 30 SQL queries every month, that's inefficient. I compiled my own playbook: reusable SQL recipes (top N per group, cohort retention, RFM, time deltas), standardized KPI definitions (CAC, LTV, churn, etc.), EDA patterns, viz templates, stats checklists. Built for my own use first, open so others can fork and extend. Action-oriented documentation rather than theory-oriented.",
       "stack": [
         "SQL",
         "Python",
@@ -813,8 +768,8 @@
       "title_fr": "Dataiku Core Designer",
       "title_en": "Dataiku Core Designer",
       "status": "certified",
-      "summary_fr": "Certification officielle Dataiku — maîtrise des fondamentaux de la plateforme : flow, recipes, datasets, modèles.",
-      "summary_en": "Official Dataiku certification — mastery of platform fundamentals: flow, recipes, datasets, models."
+      "summary_fr": "Certification officielle Dataiku, maîtrise des fondamentaux de la plateforme : flow, recipes, datasets, modèles.",
+      "summary_en": "Official Dataiku certification, mastery of platform fundamentals: flow, recipes, datasets, models."
     },
     {
       "id": "c_google_da",
@@ -825,8 +780,8 @@
       "title_fr": "Google Data Analytics",
       "title_en": "Google Data Analytics",
       "status": "certified",
-      "summary_fr": "Certification professionnelle Google — fondamentaux du data analytics : SQL, R, tableaux de bord, prise de décision data-driven.",
-      "summary_en": "Google professional certification — data analytics fundamentals: SQL, R, dashboards, data-driven decision-making."
+      "summary_fr": "Certification professionnelle Google, fondamentaux du data analytics : SQL, R, tableaux de bord, prise de décision data-driven.",
+      "summary_en": "Google professional certification, data analytics fundamentals: SQL, R, dashboards, data-driven decision-making."
     },
     {
       "id": "c_databricks_de",
@@ -837,20 +792,8 @@
       "title_fr": "Databricks Data Engineer Associate",
       "title_en": "Databricks Data Engineer Associate",
       "status": "in_progress",
-      "summary_fr": "Certification en cours — pipelines de données, ingestion, transformation et orchestration sur Databricks.",
-      "summary_en": "Certification in progress — data pipelines, ingestion, transformation and orchestration on Databricks."
-    },
-    {
-      "id": "c_aws",
-      "type": "cert",
-      "lane": "QUALITY",
-      "row": 3,
-      "label": "AWS CP",
-      "title_fr": "AWS Cloud Practitioner",
-      "title_en": "AWS Cloud Practitioner",
-      "status": "in_progress",
-      "summary_fr": "Certification en cours — fondamentaux du cloud AWS : services, sécurité, architecture, pricing.",
-      "summary_en": "Certification in progress — AWS cloud fundamentals: services, security, architecture, pricing."
+      "summary_fr": "Certification en cours, pipelines de données, ingestion, transformation et orchestration sur Databricks.",
+      "summary_en": "Certification in progress, data pipelines, ingestion, transformation and orchestration on Databricks."
     },
     {
       "id": "s_cv",
@@ -862,8 +805,8 @@
       "primary": true,
       "title_fr": "Télécharger CV",
       "title_en": "Download CV",
-      "summary_fr": "Le format papier — pour les RH, les intégrations ATS, et tous ceux qui veulent une vue synthétique.",
-      "summary_en": "The paper format — for HR, ATS integrations, and anyone wanting a synthetic view.",
+      "summary_fr": "Le format papier, pour les RH, les intégrations ATS, et tous ceux qui veulent une vue synthétique.",
+      "summary_en": "The paper format, for HR, ATS integrations, and anyone wanting a synthetic view.",
       "url": "assets/JeanBaptiste_Allombert_CV.pdf"
     },
     {
@@ -889,8 +832,8 @@
       "icon": "code",
       "title_fr": "GitHub",
       "title_en": "GitHub",
-      "summary_fr": "Tout le code — repos publics, READMEs structurés, schémas de pipelines.",
-      "summary_en": "All the code — public repos, structured READMEs, pipeline diagrams.",
+      "summary_fr": "Tout le code, repos publics, READMEs structurés, schémas de pipelines.",
+      "summary_en": "All the code, public repos, structured READMEs, pipeline diagrams.",
       "url": "https://github.com/JBaptisteAll"
     },
     {
@@ -902,21 +845,21 @@
       "icon": "link",
       "title_fr": "LinkedIn",
       "title_en": "LinkedIn",
-      "summary_fr": "Le réseau pro — pour suivre l'actualité, recommander, ou ouvrir une conversation.",
-      "summary_en": "The pro network — to follow updates, recommend, or start a conversation.",
+      "summary_fr": "Le réseau pro, pour suivre l'actualité, recommander, ou ouvrir une conversation.",
+      "summary_en": "The pro network, to follow updates, recommend, or start a conversation.",
       "url": "https://www.linkedin.com/in/jean-baptiste-allombert/"
     },
     {
       "id": "c_cdsd",
       "type": "cert",
       "lane": "QUALITY",
-      "row": 4,
+      "row": 3,
       "label": "CDSD",
       "title_fr": "Concepteur Développeur en Science des Données",
       "title_en": "Data Science Developer (RNCP)",
       "status": "certified",
-      "summary_fr": "Titre RNCP niveau 6 · équivalent Bac+3/+4 — bootcamp Analytics Engineer 2025 : modélisation, dbt, SQL avancé, modern data stack, pipelines de bout en bout.",
-      "summary_en": "French RNCP title — level 6 · equivalent to Bac+3/+4 — Analytics Engineer bootcamp 2025: modeling, dbt, advanced SQL, modern data stack, end-to-end pipelines."
+      "summary_fr": "Titre RNCP niveau 6 · équivalent Bac+3/+4, bootcamp Analytics Engineer 2025 : modélisation, dbt, SQL avancé, modern data stack, pipelines de bout en bout.",
+      "summary_en": "French RNCP title, level 6 · equivalent to Bac+3/+4, Analytics Engineer bootcamp 2025: modeling, dbt, advanced SQL, modern data stack, end-to-end pipelines."
     },
     {
     "id": "live_weather",
@@ -929,12 +872,12 @@
     "title_en": "France Adventure Planner",
     "uptime_fr": "En production depuis +1 an",
     "uptime_en": "In production for 1+ year",
-    "frequency_fr": "1 250 pts / jour · 250+ villes",
-    "frequency_en": "1,250 pts / day · 250+ cities",
+    "frequency_fr": "1 250 pts / jour · 50 villes",
+    "frequency_en": "1,250 pts / day · 50 cities",
     "cadence_fr": "GitHub Actions · pipeline quotidien",
     "cadence_en": "GitHub Actions · daily pipeline",
-    "summary_fr": "Pipeline ETL automatisé collectant 1 250 points de données météo chaque jour sur 250+ villes françaises, en production sans interruption depuis plus d'un an.",
-    "summary_en": "Automated ETL pipeline collecting 1,250 weather data points daily across 250+ French cities, running without interruption for over a year.",
+    "summary_fr": "Pipeline ETL automatisé collectant 1 250 points de données météo chaque jour sur 50 villes françaises, en production sans interruption depuis plus d'un an.",
+    "summary_en": "Automated ETL pipeline collecting 1,250 weather data points daily across 50 French cities, running without interruption for over a year.",
     "live_url": "https://franceadventureplanner.streamlit.app/"
   },
   {
@@ -946,8 +889,8 @@
     "label": "PROD · LIVE",
     "title_fr": "Japan Travel Insights",
     "title_en": "Japan Travel Insights",
-    "uptime_fr": "En production depuis 8 mois",
-    "uptime_en": "In production for 8 months",
+    "uptime_fr": "En production de fin 2025 à juin 2026",
+    "uptime_en": "In production from late 2025 to June 2026",
     "frequency_fr": "2× / mois · données temps réel",
     "frequency_en": "2× / month · real-time data",
     "cadence_fr": "GitHub Actions · pipeline bi-mensuel",
@@ -961,22 +904,6 @@
     [
       "src_about",
       "t_git"
-    ],
-    [
-      "t_python",
-      "p_bakery"
-    ],
-    [
-      "t_docker",
-      "p_bakery"
-    ],
-    [
-      "t_git",
-      "p_bakery"
-    ],
-    [
-      "p_bakery",
-      "s_github"
     ],
     [
       "src_education",
@@ -1128,10 +1055,6 @@
     ],
     [
       "c_databricks_de",
-      "s_cv"
-    ],
-    [
-      "c_aws",
       "s_cv"
     ],
     [
