@@ -1,4 +1,4 @@
-# Secrets locaux — ne JAMAIS pousser sur GitHub
+# Secrets locaux, ne JAMAIS pousser sur GitHub
 secrets.local.md
 .env
 .env.*
