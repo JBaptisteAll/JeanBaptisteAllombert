@@ -24,7 +24,7 @@ const UI = {
     loadError: "Erreur de chargement du contexte.",
     networkError: "Erreur réseau. Vérifie ta connexion.",
     suggestions: [
-      "Tu cherches quoi ?",
+      "Tu fais quoi en ce moment ?",
       "Ton stack technique ?",
       "Parle-moi du projet Japon",
       "Tes certifications ?",
@@ -42,7 +42,7 @@ const UI = {
     loadError: "Failed to load the context.",
     networkError: "Network error. Check your connection.",
     suggestions: [
-      "What are you looking for?",
+      "What are you working on right now?",
       "What's your tech stack?",
       "Tell me about the Japan project",
       "What certifications do you have?",
@@ -73,7 +73,7 @@ function normalizeText(t) {
 const SECTION_MATCHERS = [
   { key: "skills",      re: /competence|skill|stack|techno|niveau|certif|maitrise|\bsql\b|python|\bdbt\b|databricks|docker|power ?bi|snowflake|dataiku|spark|excel|outil|tool/ },
   { key: "projects",    re: /projet|project|portfolio|github|pipeline|lakehouse|databricks|\bdbt\b|docker|airflow|postgres|streamlit|power ?bi|\betl\b|medaillon|medallion|netflix|nasa|meteo|weather|japon|japan|hotel|airline|duckdb|kanji|playbook|construit|realise|built/ },
-  { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background|before/ },
+  { key: "experience",  re: /experience|parcours|carriere|career|\bcv\b|reconversion|avant|gendarm|royal|caribbean|miami|croisiere|cruise|annecy|japon|japan|yonezawa|jedha|formation|etude|diplome|ecole|school|bootcamp|wild|background|before|moment|currently|right now|working on|odysis|\besn\b|poste/ },
   { key: "personality", re: /personnalite|personality|caractere|equipe|team|qualite|defaut|bloque|stress|passion|aime|adore|deteste|hate|hobby|loisir|interet|sport|montagne|randonnee|trek|alpinisme|japonais|samourai|reve|dream|remote|teletravail|environnement|culture|humour|humor|decris|describe|perso/ },
   { key: "recruiter",   re: /entreprise|company|societe|motivation|pourquoi|\bwhy\b|recrut|embauche|hire|alternance|apprentissage|contrat|\bcdi\b|\bcdd\b|freelance|mission|salaire|salary|dispo|available|mistral|thales|accor|decathlon/ },
   { key: "navigation",  re: /\bsite\b|naviguer|navigation|fonctionne|noeud|node|carte|\bmap\b|zoom|clique|comment ca marche|how does/ },
@@ -110,7 +110,7 @@ TA SITUATION ACTUELLE : ${k.situation_actuelle}
 
 TON RÉSUMÉ : ${k.summary}
 
-CE QUE TU CHERCHES : ${k.job_search.target}. Dispo : ${k.job_search.availability}. ${k.job_search.strengths.join(" | ")}
+TA POSITION : ${k.job_search.target}. ${k.job_search.strengths.join(" | ")}
 
 FAQ :
 ${k.faq.map(f => `Q: ${f.q} → ${f.a}`).join("\n")}
