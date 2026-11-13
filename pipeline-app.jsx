@@ -59,7 +59,7 @@ function PipelineApp() {
         lang={lang}
         setLang={setLang}
       />
-      <ChatBot lang={lang} />
+      <ChatBot lang={lang} projects={data.nodes.filter(n => n.type === 'project')} />
     </>
   );
 }
