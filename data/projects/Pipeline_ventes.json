@@ -1,6 +1,7 @@
 {
-  "source": "llm",
+  "source": "repo",
   "fiche": {
+    "id": "p_pipeline_ventes",
     "label": "PIPELINE_VENTES",
     "kanji": "流",
     "title_fr": "Pipeline ventes",
