@@ -1,0 +1,48 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_weather",
+    "order": 70,
+    "label": "WEATHER_FORECAST",
+    "kanji": "天",
+    "year": "2025",
+    "title_fr": "Weather Forecast Analysis",
+    "title_en": "Weather Forecast Analysis",
+    "summary_fr": "Projet parapluie en deux fronts : (1) **France Adventure Planner**, app Streamlit qui aide à planifier un week-end en France à partir des prévisions météo + suggestions d'hôtels, (2) **ClimAdvisor**, analyse Power BI de la fiabilité réelle de ces prévisions à J+1 → J+5 sur ~50 villes. Même donnée, deux finalités : produit + insight.",
+    "summary_en": "Umbrella project on two fronts: (1) **France Adventure Planner**, Streamlit app helping plan a French weekend from weather forecasts + hotel suggestions, (2) **ClimAdvisor**, Power BI analysis of how reliable those forecasts actually are at D+1 → D+5 across ~50 cities. Same data, two outcomes: product + insight.",
+    "body_fr": "Projet parapluie en **2 fronts** à partir du même pipeline.\n\n**Front 1, France Adventure Planner** : app Streamlit qui aide les Parisiens à choisir un week-end selon la météo. OpenWeatherMap (5 jours, ~50 villes) + Scrapy hôtels Booking + GitHub Actions (collecte quotidienne 22h UTC).\n\n**Front 2, ClimAdvisor** : analyse Power BI / DAX de la fiabilité réelle des prévisions à J+1 → J+5. Classement Top 25 vs Worst 25 villes. Conclusion clé : passé J+3, la prévision décroche sur la pluie.\n\nUn même pipeline → un produit utilisateur + une analyse décisionnelle. C'est ça le boulot d'Analytics Engineer.",
+    "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1, France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2, ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Analytics Engineer job.",
+    "metrics": [
+      {
+        "label": "villes",
+        "value": "~50"
+      },
+      {
+        "label": "horizon",
+        "value": "J+1 → J+5"
+      },
+      {
+        "label": "orchestration",
+        "value": "GH Actions"
+      }
+    ],
+    "mermaid": "flowchart LR\n  OWM[OpenWeatherMap] --> P[Python/Pandas]\n  SCR[Scrapy/Booking] --> P\n  P --> GA[GitHub Actions]\n  GA --> ST[Streamlit App]\n  GA --> CSV[forecasts CSV]\n  CSV --> PBI[Power BI/DAX]",
+    "live_url": "https://franceadventureplanner.streamlit.app/",
+    "links": [
+      {
+        "label_fr": "Sous-projet : France Adventure Planner",
+        "label_en": "Sub-project: France Adventure Planner",
+        "url": "https://github.com/JBaptisteAll/France_Adventure_Planner"
+      },
+      {
+        "label_fr": "Sous-projet : ClimAdvisor",
+        "label_en": "Sub-project: ClimAdvisor",
+        "url": "https://github.com/JBaptisteAll/ClimAdvisor_Analyzing_Forecast_Reliability_Across_France"
+      }
+    ],
+    "edges_to": [
+      "c_cdsd"
+    ]
+  },
+  "readme_mermaid": null
+}

@@ -462,6 +462,8 @@
       "type": "project",
       "lane": "MARTS",
       "row": 0,
+      "auto": true,
+      "repo": "Bike_Data_Lakehouse_Project",
       "label": "ECOMMERCE_LAKEHOUSE",
       "kanji": "輪",
       "year": "2025",
@@ -475,7 +477,7 @@
         "Databricks",
         "PySpark",
         "Delta Lake",
-        "Databricks SQL"
+        "SQL"
       ],
       "metrics": [
         {
@@ -492,6 +494,7 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Bike_Data_Lakehouse_Project",
+      "bot_description": "Lakehouse complet from scratch sur Databricks : 6 sources CRM + ERP consolidées en Médaillon étendu Bronze→Silver→Gold→Platinum, star schema en Gold, vues 360° avec scoring et segmentation client en Platinum. 17 tables Delta, data catalog documenté, orchestration quotidienne Databricks Workflows, run complet en ~4 minutes.",
       "mermaid": "flowchart LR\n  CRM[CRM] --> B[Bronze]\n  ERP[ERP] --> B\n  B --> S[Silver × 6]\n  S --> G[Gold ⭐]\n  G --> P[Platinum]\n  P --> A[Analytics]"
     },
     {
@@ -499,43 +502,49 @@
       "type": "project",
       "lane": "MARTS",
       "row": 1,
+      "auto": true,
+      "repo": "Pipeline_ventes",
       "label": "PIPELINE_VENTES",
-      "kanji": "売",
-      "year": "2025",
-      "title_fr": "Pipeline Ventes",
-      "title_en": "Sales Pipeline",
-      "summary_fr": "Pipeline ETL personnel démontrant collecte HTTP, validation par règles métier, quarantaine des erreurs et analyses SQL de bout en bout.",
-      "summary_en": "Personal ETL pipeline demonstrating HTTP collection, business-rule validation, error quarantine and end-to-end SQL analysis.",
-      "body_fr": "Trois CSVs (produits, magasins, ventes) récupérés via HTTP, normalisés, validés ligne par ligne avec règles métier (prix > 0, stock ≥ 0, quantité > 0, FK valides). Choix d'architecture : les lignes invalides ne sont pas supprimées mais redirigées vers une table `erreurs_import` de quarantaine, pratique de \"dead letter queue\", qui trace table, ligne, colonne, valeur, raison et date du rejet. Cela permet de réimporter après correction et d'auditer le pipeline. Déduplication transparente lors de chaque relance. Trois analyses SQL produisent CA total, ventes par produit et ventes par région. Conteneurisé avec Docker + docker-compose.",
-      "body_en": "Three CSVs (products, stores, sales) fetched via HTTP, normalized, validated row-by-row with business rules (price > 0, stock ≥ 0, quantity > 0, valid FKs). Architectural choice: invalid rows aren't dropped but redirected to a quarantine `erreurs_import` table, \"dead letter queue\" pattern, tracking table, row, column, value, rejection reason and date. Allows re-importing after correction and pipeline auditing. Transparent deduplication on each re-run. Three SQL analyses produce total revenue, sales-by-product, sales-by-region. Containerized with Docker + docker-compose.",
+      "kanji": "流",
+      "year": "2026",
+      "title_fr": "Pipeline ventes",
+      "title_en": "Sales pipeline",
+      "summary_fr": "Exercice de création d'un pipeline complet, de la collecte des CSV à l'analyse des ventes dans SQLite. Le processus inclut nettoyage, validation et gestion des erreurs.",
+      "summary_en": "Exercise building a full pipeline from CSV collection to sales analysis in SQLite. The flow covers cleaning, validation and error handling.",
+      "body_fr": "Dans le cadre d'un exercice de préparation Data Engineer, j'ai conçu un pipeline qui récupère trois fichiers CSV via HTTP, les charge avec pandas et les transmet directement à une base SQLite.\n\n**Collecte**, **nettoyage**, **validation** et **déduplication** sont orchestrés dans un conteneur Python sous Docker. Les lignes invalides sont redirigées vers une table d'**erreurs_import** pour audit et réintégration future. Les ventes valides sont insérées dans les tables principales et les résultats d'analyse sont stockés dans `resultats_analyses`.\n\nLe pipeline produit un chiffre d'affaires total de **5 268,78 €**, détaille les ventes par produit et par ville, et fournit une traçabilité complète grâce à la table d'erreurs.",
+      "body_en": "As part of a Data Engineer preparation exercise, I built a pipeline that fetches three CSV files over HTTP, loads them with pandas and streams them directly into a SQLite database.\n\n**Collection**, **cleaning**, **validation** and **deduplication** run inside a Python container managed by Docker. Invalid rows are routed to an `erreurs_import` table for auditing and possible re-import. Valid sales are inserted into the main tables and analysis results are saved in `resultats_analyses`.\n\nThe pipeline yields a total revenue of **5,268.78 €**, breaks down sales by product and city, and ensures full traceability via the error table.",
       "stack": [
-        "Python",
-        "Pandas",
+        "Docker",
         "SQLite",
-        "Docker"
+        "Pandas",
+        "Python",
+        "SQL"
       ],
       "metrics": [
         {
-          "label": "CA analysé",
-          "value": "5,268€"
+          "label": "ca total",
+          "value": "5 268,78 €"
         },
         {
-          "label": "régions",
+          "label": "villes",
           "value": "7"
         },
         {
-          "label": "tables",
-          "value": "3"
+          "label": "base",
+          "value": "SQLite"
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Pipeline_ventes",
-      "mermaid": "flowchart LR\n  HTTP[HTTP CSVs] --> P[Python ETL]\n  P --> V{Validation}\n  V -->|OK| DB[SQLite]\n  V -->|KO| Q[Quarantine]\n  DB --> A[SQL Analyses]"
+      "bot_description": "Pipeline complet de collecte, nettoyage et analyse des ventes, réalisé dans le cadre d'un exercice. Les erreurs sont consignées dans une table dédiée pour audit.",
+      "mermaid": "flowchart LR\nA[Collecte] --> B[Nettoyage]\nB --> C[Validation]\nC --> D[Déduplication]\nD --> E[Import SQLite]\nE --> F[Analyses SQL]"
     },
     {
       "id": "p_idp",
       "type": "project",
       "lane": "MARTS",
       "row": 2,
+      "auto": true,
+      "repo": "Databricks_IDP_Project",
       "label": "DATABRICKS_IDP",
       "kanji": "識",
       "year": "2026",
@@ -547,9 +556,9 @@
       "body_en": "Finance use case: ingest a batch of raw documents (PDF invoices, purchase orders, receipts), parse them, classify by type, extract structured fields and feed three queryable Delta tables. Three chained Databricks AI functions: `ai_parse_document` parses PDF into VARIANT, `ai_classify` does zero-shot classification (Invoice/PO/Receipt/Other), `ai_extract` extracts typed fields based on detected type. All in pure SQL within Unity Catalog, organized in multi-schema `idp.finance.invoices/purchase_order/receipt`. Demonstrates AI applied to a concrete business case without orchestration complexity or maintenance debt of home-grown models.",
       "stack": [
         "Databricks",
-        "Databricks SQL",
-        "AI Functions",
-        "Delta Lake"
+        "Delta Lake",
+        "Unity Catalog",
+        "SQL"
       ],
       "metrics": [
         {
@@ -566,6 +575,7 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Databricks_IDP_Project",
+      "bot_description": "Pipeline 100 % SQL sur Databricks : documents financiers PDF parsés (ai_parse_document), classifiés (ai_classify) et extraits en champs structurés (ai_extract) vers 3 tables Delta requêtables. Aucun Python, aucune API externe, aucun modèle ML à maintenir.",
       "mermaid": "flowchart LR\n  V[Volume] --> PA[ai_parse_document]\n  PA --> C[ai_classify]\n  C --> E[ai_extract]\n  E --> I[invoices]\n  E --> P[purchase_order]\n  E --> R[receipt]"
     },
     {
@@ -573,6 +583,8 @@
       "type": "project",
       "lane": "MARTS",
       "row": 3,
+      "auto": true,
+      "repo": "Japan_tourism_analysis",
       "label": "JAPAN_TOURISM",
       "kanji": "旅",
       "year": "2025",
@@ -584,10 +596,9 @@
       "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms, high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall, stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.\n\n**Status**: the freelance mission for the city ended in December 2025. The pipeline kept running on autopilot (GitHub Actions) until June 2026: the app updated with every new survey response, well beyond the mission itself.",
       "stack": [
         "Streamlit",
-        "Python",
-        "Pandas",
         "GitHub Actions",
-        "Google Forms"
+        "Google Sheets",
+        "Python"
       ],
       "metrics": [
         {
@@ -604,14 +615,17 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Japan_tourism_analysis",
-      "mermaid": "flowchart LR\n  GF[Google Forms] --> P[Python/Pandas]\n  P --> GA[GitHub Actions]\n  GA --> ST[Streamlit App]\n  ST --> C[Stakeholders]",
-      "live_url": "https://japantravelsurveyanalysis.streamlit.app/"
+      "live_url": "https://japantravelsurveyanalysis.streamlit.app/",
+      "bot_description": "Pipeline livré pendant ma mission au Japon : enquête bilingue FR/EN via Google Forms, centralisation Google Sheets, nettoyage Python/Pandas, refresh automatisé GitHub Actions 2×/mois, dashboard Streamlit en production pour les acteurs touristiques de Yamagata. Mission freelance terminée en décembre 2025, mais le pipeline a tourné en autopilote jusqu'en juin 2026.",
+      "mermaid": "flowchart LR\n  A[Google Forms FR] --> B[Google Sheet FR]\n  A2[Google Forms EN] --> B2[Google Sheet EN]\n  B --> C[Combined Sheet via IMPORTRANGE]\n  B2 --> C\n  C --> D[Python Processing Script]\n  D --> E[data_processed/df_clean.csv]\n  E --> F[Streamlit App]\n  F --> G[End Users / Stakeholders]\n  H[GitHub Actions cron] --> D"
     },
     {
       "id": "p_hotel",
       "type": "project",
       "lane": "MARTS",
       "row": 4,
+      "auto": true,
+      "repo": "Hotel_Booking_Pipeline",
       "label": "HOTEL_BOOKING",
       "kanji": "宿",
       "year": "2024 → 2026",
@@ -622,11 +636,11 @@
       "body_fr": "**Volet 1, EDA SQL Server** : 119 390 réservations de 2 hôtels portugais, médaillon Bronze/Silver/Gold. Insight clé : 40,6 % d'annulation en hôtel urbain contre 27 % en resort.\n\n**Volet 2, Pipeline productionisé** : même logique reprise dans un second dépôt, Postgres (Docker) + dbt en médaillon complet (seed → staging → intermediate → 3 marts). 20 tests dbt, 3 marts : pricing, taux d'annulation, revenue.\n\n**Orchestration Airflow** : DAG de 11 tâches, stack Docker dédiée reliée à Postgres.\n\n**Statut** : les deux volets sont terminés, pipeline reproductible et testé automatiquement.",
       "body_en": "**Part 1, SQL Server EDA**: 119,390 bookings from 2 Portuguese hotels, Bronze/Silver/Gold medallion. Key insight: 40.6% cancellation rate for city hotels vs 27% for resorts.\n\n**Part 2, Productionized pipeline**: same logic rebuilt in a second repo, containerized Postgres (Docker) + dbt in a full medallion architecture (seed → staging → intermediate → 3 marts). 20 dbt tests, 3 marts: pricing, cancellation rate, revenue.\n\n**Airflow orchestration**: 11-task DAG, dedicated Docker stack connected to Postgres.\n\n**Status**: both parts complete, end-to-end reproducible pipeline, automatically tested.",
       "stack": [
-        "SQL Server",
-        "Postgres",
         "dbt",
+        "Airflow",
         "Docker",
-        "Airflow"
+        "PostgreSQL",
+        "SQL"
       ],
       "metrics": [
         {
@@ -646,6 +660,14 @@
       "live_url": "https://jbaptisteall.github.io/Hotel_Booking_Pipeline/",
       "live_label_fr": "📖 Voir la doc dbt",
       "live_label_en": "📖 View dbt docs",
+      "links": [
+        {
+          "label_fr": "Volet 1 : EDA SQL Server",
+          "label_en": "Part 1: SQL Server EDA",
+          "url": "https://github.com/JBaptisteAll/Hotel_Booking_Analysis"
+        }
+      ],
+      "bot_description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → 3 marts : cohérence pricing, taux d'annulation, revenue), 20 tests de qualité automatisés (outliers ADR par saison, cohérence des taux, parité des lignes après jointure) et orchestration par un DAG Airflow de 11 tâches, dockerisé en 2 stacks (Postgres + Airflow) sur un réseau partagé, avec les 3 marts lancés en parallèle. Validé sur un cron toutes les 2 heures.",
       "mermaid": "flowchart LR\n  D[Kaggle Dataset] --> SEED[dbt seed]\n  SEED --> STG[staging]\n  STG --> INT[intermediate]\n  INT --> M[3 marts]\n  AF[Airflow] -.orchestrates.-> SEED\n  AF -.-> STG\n  AF -.-> INT\n  AF -.-> M"
     },
     {
@@ -653,6 +675,8 @@
       "type": "project",
       "lane": "MARTS",
       "row": 5,
+      "auto": true,
+      "repo": "Airline_Performance_Analytics_From_Flights_to_Insights",
       "label": "AIRLINE_ANALYTICS",
       "kanji": "空",
       "year": "2025",
@@ -663,12 +687,11 @@
       "body_fr": "Saga Star-Wars-style en **3 actes** sur le même domaine (opérations aériennes).\n\n**Acte 1, Revenge of the Seat** : modélisation Merise puis schéma en étoile dans SQL Server. **2 tables de faits** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Acte 2, Return of the Jet High** : requêtes T-SQL business sur le DW. Routes problématiques, retards, leaks de coûts.\n\n**Acte 3, The Rise of the Single Source** : refonte en **dbt** avec staging → intermediate → marts, tests d'assertion (logical_flight_route, passenger_count_is_valid), 4 marts dont un mart CEO consolidé.",
       "body_en": "Star-Wars-style saga in **3 acts** on the same domain (airline operations).\n\n**Act 1, Revenge of the Seat**: Merise modeling then star schema in SQL Server. **2 fact tables** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Act 2, Return of the Jet High**: business T-SQL queries on the DW. Problem routes, delays, cost leaks.\n\n**Act 3, The Rise of the Single Source**: refactor into **dbt** with staging → intermediate → marts, assertion tests (logical_flight_route, passenger_count_is_valid), 4 marts including a consolidated CEO mart.",
       "stack": [
-        "SQL Server",
-        "T-SQL",
-        "Merise",
-        "Star Schema",
         "dbt",
-        "Analytics"
+        "PostgreSQL",
+        "SQL Server",
+        "Merise",
+        "SQL"
       ],
       "metrics": [
         {
@@ -685,6 +708,24 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Airline_Performance_Analytics_From_Flights_to_Insights",
+      "links": [
+        {
+          "label_fr": "Acte 1 : Revenge of the Seat (SQL DW)",
+          "label_en": "Act 1: Revenge of the Seat (SQL DW)",
+          "url": "https://github.com/JBaptisteAll/Revenge_of_the_Seat_An_SQL_Database"
+        },
+        {
+          "label_fr": "Acte 2 : Return of the Jet High (Analytics)",
+          "label_en": "Act 2: Return of the Jet High (Analytics)",
+          "url": "https://github.com/JBaptisteAll/Return_of_the_Jet_High_An_SQL_Airline_Analytics_Project"
+        },
+        {
+          "label_fr": "Acte 3 : The Rise of the Single Source (dbt)",
+          "label_en": "Act 3: The Rise of the Single Source (dbt)",
+          "url": "https://github.com/JBaptisteAll/The_Rise_of_the_Single_Source_A_dbt_Analytics_Saga"
+        }
+      ],
+      "bot_description": "Plateforme d'analytique aérienne : data warehouse relationnel conçu en Merise avec intégrité référentielle stricte (100 000 passagers, 700 000 réservations, 25 000 vols), moteur d'analyse SQL (rentabilité des routes, flotte, coût des retards, segmentation passagers) et couche dbt de certification de la donnée.",
       "mermaid": "flowchart LR\n  RF[neon_raw.flights] --> SF[stg_flights]\n  RPF[neon_raw.passenger_flights] --> SPF[stg_passenger_flights]\n  RA[neon_raw.airports] --> SA[stg_airports]\n  RAL[neon_raw.airlines] --> SAL[stg_airlines]\n  RAC[neon_raw.aircraft] --> SAC[stg_aircraft]\n  RP[neon_raw.passenger] --> SP[stg_passenger]\n  SA --> IGD[int_airports_geo_distances]\n  SF --> IGD\n  SF --> IFP[int_flights_performance]\n  SAL --> IFP\n  SAC --> IFP\n  IGD --> IFP\n  SP --> IPE[int_passengers_enriched]\n  SPF --> IPE\n  IFP --> MRP[mart_route_performance]\n  IFP --> MAP[mart_airline_performance]\n  IPE --> MCL[mart_customer_loyalty]\n  MRP --> MCRP[mart_ceo_route_performance]\n  MAP --> MCRP"
     },
     {
@@ -692,6 +733,8 @@
       "type": "project",
       "lane": "MARTS",
       "row": 6,
+      "auto": true,
+      "repo": "Weather_Forecast_Reliability_Analysis_for_Travel_Planning",
       "label": "WEATHER_FORECAST",
       "kanji": "天",
       "year": "2025",
@@ -703,12 +746,12 @@
       "body_en": "Umbrella project on **2 fronts** from the same pipeline.\n\n**Front 1, France Adventure Planner**: Streamlit app helping Parisians pick a weekend based on weather. OpenWeatherMap (5 days, ~50 cities) + Scrapy Booking hotels + GitHub Actions (daily 22:00 UTC).\n\n**Front 2, ClimAdvisor**: Power BI / DAX analysis of how reliable those forecasts actually are at D+1 → D+5. Top 25 vs Worst 25 ranking. Key finding: past D+3, the forecast drifts on rain.\n\nOne pipeline → a user product + a decision-support analysis. That's the Analytics Engineer job.",
       "stack": [
         "Streamlit",
-        "Python",
-        "OpenWeatherMap API",
+        "Power BI",
+        "Plotly",
         "Scrapy",
         "GitHub Actions",
-        "Power BI",
-        "DAX"
+        "Pandas",
+        "Python"
       ],
       "metrics": [
         {
@@ -725,14 +768,28 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Weather_Forecast_Reliability_Analysis_for_Travel_Planning",
-      "mermaid": "flowchart LR\n  OWM[OpenWeatherMap] --> P[Python/Pandas]\n  SCR[Scrapy/Booking] --> P\n  P --> GA[GitHub Actions]\n  GA --> ST[Streamlit App]\n  GA --> CSV[forecasts CSV]\n  CSV --> PBI[Power BI/DAX]",
-      "live_url": "https://franceadventureplanner.streamlit.app/"
+      "live_url": "https://franceadventureplanner.streamlit.app/",
+      "links": [
+        {
+          "label_fr": "Sous-projet : France Adventure Planner",
+          "label_en": "Sub-project: France Adventure Planner",
+          "url": "https://github.com/JBaptisteAll/France_Adventure_Planner"
+        },
+        {
+          "label_fr": "Sous-projet : ClimAdvisor",
+          "label_en": "Sub-project: ClimAdvisor",
+          "url": "https://github.com/JBaptisteAll/ClimAdvisor_Analyzing_Forecast_Reliability_Across_France"
+        }
+      ],
+      "mermaid": "flowchart LR\n  OWM[OpenWeatherMap] --> P[Python/Pandas]\n  SCR[Scrapy/Booking] --> P\n  P --> GA[GitHub Actions]\n  GA --> ST[Streamlit App]\n  GA --> CSV[forecasts CSV]\n  CSV --> PBI[Power BI/DAX]"
     },
     {
       "id": "p_playbook",
       "type": "project",
       "lane": "MARTS",
       "row": 7,
+      "auto": true,
+      "repo": "Data_Playbook",
       "label": "DATA_PLAYBOOK",
       "kanji": "本",
       "year": "2024",
@@ -743,9 +800,7 @@
       "body_fr": "Tout data analyst ré-écrit les mêmes 30 requêtes SQL chaque mois, c'est inefficace. J'ai compilé mon propre playbook : recettes SQL réutilisables (top N par groupe, retention cohortes, RFM, deltas temporels), définitions de KPIs standardisées (CAC, LTV, churn, etc.), patterns d'EDA, templates de visualisation, checklists de stats. Conçu d'abord pour mon usage, ouvert pour que d'autres puissent le forker et l'enrichir. Documentation orientée action plutôt qu'orientée théorie.",
       "body_en": "Every data analyst rewrites the same 30 SQL queries every month, that's inefficient. I compiled my own playbook: reusable SQL recipes (top N per group, cohort retention, RFM, time deltas), standardized KPI definitions (CAC, LTV, churn, etc.), EDA patterns, viz templates, stats checklists. Built for my own use first, open so others can fork and extend. Action-oriented documentation rather than theory-oriented.",
       "stack": [
-        "SQL",
-        "Python",
-        "Markdown"
+        "SQL"
       ],
       "metrics": [
         {
@@ -762,8 +817,9 @@
         }
       ],
       "github_url": "https://github.com/JBaptisteAll/Data_Playbook",
-      "mermaid": "flowchart TB\n  T[Topics] --> S[SQL]\n  T --> K[KPI]\n  T --> E[EDA]\n  T --> V[Viz]",
-      "live_url": "https://jbaptisteall.github.io/Data_Playbook/index.html"
+      "live_url": "https://jbaptisteall.github.io/Data_Playbook/index.html",
+      "bot_description": "Guide de référence interactif pour data analysts (méthode en 6 étapes, SQL, KPIs, stats, dataviz, storytelling, checklist), single-page app sans framework, publiée sur GitHub Pages.",
+      "mermaid": "flowchart TB\n  T[Topics] --> S[SQL]\n  T --> K[KPI]\n  T --> E[EDA]\n  T --> V[Viz]"
     },
     {
       "id": "c_dataiku",
@@ -868,43 +924,45 @@
       "summary_en": "French RNCP title, level 6 · equivalent to Bac+3/+4, Analytics Engineer bootcamp 2025: modeling, dbt, advanced SQL, modern data stack, end-to-end pipelines."
     },
     {
-    "id": "live_weather",
-    "type": "live_status",
-    "lane": "SHIP",
-    "row": 7,
-    "custom_cx": 1810,
-    "label": "PROD · LIVE",
-    "title_fr": "France Adventure Planner",
-    "title_en": "France Adventure Planner",
-    "uptime_fr": "En production depuis +1 an",
-    "uptime_en": "In production for 1+ year",
-    "frequency_fr": "1 250 pts / jour · 50 villes",
-    "frequency_en": "1,250 pts / day · 50 cities",
-    "cadence_fr": "GitHub Actions · pipeline quotidien",
-    "cadence_en": "GitHub Actions · daily pipeline",
-    "summary_fr": "Pipeline ETL automatisé collectant 1 250 points de données météo chaque jour sur 50 villes françaises, en production sans interruption depuis plus d'un an.",
-    "summary_en": "Automated ETL pipeline collecting 1,250 weather data points daily across 50 French cities, running without interruption for over a year.",
-    "live_url": "https://franceadventureplanner.streamlit.app/"
-  },
-  {
-    "id": "live_japan",
-    "type": "live_status",
-    "lane": "SHIP",
-    "row": 6,
-    "custom_cx": 1810,
-    "label": "PROD · LIVE",
-    "title_fr": "Japan Travel Insights",
-    "title_en": "Japan Travel Insights",
-    "uptime_fr": "En production de fin 2025 à juin 2026",
-    "uptime_en": "In production from late 2025 to June 2026",
-    "frequency_fr": "2× / mois · données temps réel",
-    "frequency_en": "2× / month · real-time data",
-    "cadence_fr": "GitHub Actions · pipeline bi-mensuel",
-    "cadence_en": "GitHub Actions · bi-monthly pipeline",
-    "summary_fr": "Pipeline automatisé Google Forms → Python → GitHub Actions → Streamlit déployé pour la mairie de Yonezawa. Accessible en temps réel par les parties prenantes locales au Japon.",
-    "summary_en": "Automated Google Forms → Python → GitHub Actions → Streamlit pipeline deployed for Yonezawa city hall. Accessible in real time by local stakeholders in Japan.",
-    "live_url": "https://japantravelsurveyanalysis.streamlit.app/"
-  }
+      "id": "live_weather",
+      "source_project": "p_weather",
+      "type": "live_status",
+      "lane": "SHIP",
+      "row": 7,
+      "custom_cx": 1810,
+      "label": "PROD · LIVE",
+      "title_fr": "France Adventure Planner",
+      "title_en": "France Adventure Planner",
+      "uptime_fr": "En production depuis +1 an",
+      "uptime_en": "In production for 1+ year",
+      "frequency_fr": "1 250 pts / jour · 50 villes",
+      "frequency_en": "1,250 pts / day · 50 cities",
+      "cadence_fr": "GitHub Actions · pipeline quotidien",
+      "cadence_en": "GitHub Actions · daily pipeline",
+      "summary_fr": "Pipeline ETL automatisé collectant 1 250 points de données météo chaque jour sur 50 villes françaises, en production sans interruption depuis plus d'un an.",
+      "summary_en": "Automated ETL pipeline collecting 1,250 weather data points daily across 50 French cities, running without interruption for over a year.",
+      "live_url": "https://franceadventureplanner.streamlit.app/"
+    },
+    {
+      "id": "live_japan",
+      "source_project": "p_japan",
+      "type": "live_status",
+      "lane": "SHIP",
+      "row": 6,
+      "custom_cx": 1810,
+      "label": "PROD · LIVE",
+      "title_fr": "Japan Travel Insights",
+      "title_en": "Japan Travel Insights",
+      "uptime_fr": "En production de fin 2025 à juin 2026",
+      "uptime_en": "In production from late 2025 to June 2026",
+      "frequency_fr": "2× / mois · données temps réel",
+      "frequency_en": "2× / month · real-time data",
+      "cadence_fr": "GitHub Actions · pipeline bi-mensuel",
+      "cadence_en": "GitHub Actions · bi-monthly pipeline",
+      "summary_fr": "Pipeline automatisé Google Forms → Python → GitHub Actions → Streamlit déployé pour la mairie de Yonezawa. Accessible en temps réel par les parties prenantes locales au Japon.",
+      "summary_en": "Automated Google Forms → Python → GitHub Actions → Streamlit pipeline deployed for Yonezawa city hall. Accessible in real time by local stakeholders in Japan.",
+      "live_url": "https://japantravelsurveyanalysis.streamlit.app/"
+    }
   ],
   "edges": [
     [
@@ -936,126 +994,6 @@
       "t_dim_modeling"
     ],
     [
-      "t_databricks",
-      "p_bike"
-    ],
-    [
-      "t_python",
-      "p_bike"
-    ],
-    [
-      "t_dim_modeling",
-      "p_bike"
-    ],
-    [
-      "t_git",
-      "p_bike"
-    ],
-    [
-      "t_python",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_sql",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_docker",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_git",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_databricks",
-      "p_idp"
-    ],
-    [
-      "t_git",
-      "p_idp"
-    ],
-    [
-      "t_python",
-      "p_japan"
-    ],
-    [
-      "t_viz",
-      "p_japan"
-    ],
-    [
-      "t_git",
-      "p_japan"
-    ],
-    [
-      "t_sql",
-      "p_hotel"
-    ],
-    [
-      "t_dbt",
-      "p_hotel"
-    ],
-    [
-      "t_docker",
-      "p_hotel"
-    ],
-    [
-      "t_airflow",
-      "p_hotel"
-    ],
-    [
-      "t_git",
-      "p_hotel"
-    ],
-    [
-      "t_sql",
-      "p_airline"
-    ],
-    [
-      "t_dim_modeling",
-      "p_airline"
-    ],
-    [
-      "t_git",
-      "p_airline"
-    ],
-    [
-      "t_python",
-      "p_weather"
-    ],
-    [
-      "t_viz",
-      "p_weather"
-    ],
-    [
-      "t_git",
-      "p_weather"
-    ],
-    [
-      "t_sql",
-      "p_playbook"
-    ],
-    [
-      "t_python",
-      "p_playbook"
-    ],
-    [
-      "t_git",
-      "p_playbook"
-    ],
-    [
-      "p_bike",
-      "c_databricks_de"
-    ],
-    [
-      "p_idp",
-      "c_databricks_de"
-    ],
-    [
-      "p_playbook",
-      "c_google_da"
-    ],
-    [
       "c_google_da",
       "s_cv"
     ],
@@ -1068,72 +1006,12 @@
       "s_contact"
     ],
     [
-      "p_bike",
-      "s_contact"
-    ],
-    [
-      "p_idp",
-      "s_contact"
-    ],
-    [
-      "p_bike",
-      "s_github"
-    ],
-    [
-      "p_pipeline_ventes",
-      "s_github"
-    ],
-    [
-      "p_idp",
-      "s_github"
-    ],
-    [
-      "p_japan",
-      "s_github"
-    ],
-    [
-      "p_hotel",
-      "s_github"
-    ],
-    [
-      "p_airline",
-      "s_github"
-    ],
-    [
-      "p_weather",
-      "s_github"
-    ],
-    [
-      "p_playbook",
-      "s_github"
-    ],
-    [
       "src_about",
       "s_linkedin"
     ],
     [
       "src_experience",
       "s_linkedin"
-    ],
-    [
-      "p_playbook",
-      "c_cdsd"
-    ],
-    [
-      "p_weather",
-      "c_cdsd"
-    ],
-    [
-      "p_pipeline_ventes",
-      "c_cdsd"
-    ],
-    [
-      "p_airline",
-      "c_cdsd"
-    ],
-    [
-      "p_hotel",
-      "c_cdsd"
     ],
     [
       "c_cdsd",
@@ -1152,8 +1030,196 @@
       "t_dbt"
     ],
     [
+      "t_databricks",
+      "p_bike"
+    ],
+    [
+      "t_python",
+      "p_bike"
+    ],
+    [
+      "t_sql",
+      "p_bike"
+    ],
+    [
+      "t_dim_modeling",
+      "p_bike"
+    ],
+    [
+      "t_git",
+      "p_bike"
+    ],
+    [
+      "p_bike",
+      "c_databricks_de"
+    ],
+    [
+      "p_bike",
+      "s_contact"
+    ],
+    [
+      "p_bike",
+      "s_github"
+    ],
+    [
+      "t_docker",
+      "p_pipeline_ventes"
+    ],
+    [
+      "t_sql",
+      "p_pipeline_ventes"
+    ],
+    [
+      "t_python",
+      "p_pipeline_ventes"
+    ],
+    [
+      "t_git",
+      "p_pipeline_ventes"
+    ],
+    [
+      "p_pipeline_ventes",
+      "c_cdsd"
+    ],
+    [
+      "p_pipeline_ventes",
+      "s_github"
+    ],
+    [
+      "t_databricks",
+      "p_idp"
+    ],
+    [
+      "t_sql",
+      "p_idp"
+    ],
+    [
+      "t_git",
+      "p_idp"
+    ],
+    [
+      "p_idp",
+      "c_databricks_de"
+    ],
+    [
+      "p_idp",
+      "s_contact"
+    ],
+    [
+      "p_idp",
+      "s_github"
+    ],
+    [
+      "t_viz",
+      "p_japan"
+    ],
+    [
+      "t_git",
+      "p_japan"
+    ],
+    [
+      "t_python",
+      "p_japan"
+    ],
+    [
+      "p_japan",
+      "s_github"
+    ],
+    [
+      "t_dbt",
+      "p_hotel"
+    ],
+    [
+      "t_airflow",
+      "p_hotel"
+    ],
+    [
+      "t_docker",
+      "p_hotel"
+    ],
+    [
+      "t_sql",
+      "p_hotel"
+    ],
+    [
+      "t_git",
+      "p_hotel"
+    ],
+    [
+      "p_hotel",
+      "c_cdsd"
+    ],
+    [
+      "p_hotel",
+      "s_github"
+    ],
+    [
       "t_dbt",
       "p_airline"
+    ],
+    [
+      "t_sql",
+      "p_airline"
+    ],
+    [
+      "t_dim_modeling",
+      "p_airline"
+    ],
+    [
+      "t_git",
+      "p_airline"
+    ],
+    [
+      "p_airline",
+      "c_cdsd"
+    ],
+    [
+      "p_airline",
+      "s_github"
+    ],
+    [
+      "t_viz",
+      "p_weather"
+    ],
+    [
+      "t_python",
+      "p_weather"
+    ],
+    [
+      "t_git",
+      "p_weather"
+    ],
+    [
+      "p_weather",
+      "c_cdsd"
+    ],
+    [
+      "p_weather",
+      "s_github"
+    ],
+    [
+      "t_sql",
+      "p_playbook"
+    ],
+    [
+      "t_python",
+      "p_playbook"
+    ],
+    [
+      "t_git",
+      "p_playbook"
+    ],
+    [
+      "p_playbook",
+      "c_google_da"
+    ],
+    [
+      "p_playbook",
+      "c_cdsd"
+    ],
+    [
+      "p_playbook",
+      "s_github"
     ],
     [
       "p_weather",

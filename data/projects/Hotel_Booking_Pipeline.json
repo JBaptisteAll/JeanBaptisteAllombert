@@ -1,0 +1,45 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_hotel",
+    "order": 50,
+    "label": "HOTEL_BOOKING",
+    "kanji": "宿",
+    "year": "2024 → 2026",
+    "title_fr": "Hotel Booking Analysis",
+    "title_en": "Hotel Booking Analysis",
+    "summary_fr": "Projet en deux volets sur le même dataset hôtelier : EDA en SQL Server, puis pipeline productionisé Postgres + dbt + Airflow, avec 20 tests de qualité automatisés et orchestration par DAG.",
+    "summary_en": "Two-part project on the same hotel dataset: SQL Server EDA, then a productionized Postgres + dbt + Airflow pipeline, with 20 automated quality tests and DAG-based orchestration.",
+    "body_fr": "**Volet 1, EDA SQL Server** : 119 390 réservations de 2 hôtels portugais, médaillon Bronze/Silver/Gold. Insight clé : 40,6 % d'annulation en hôtel urbain contre 27 % en resort.\n\n**Volet 2, Pipeline productionisé** : même logique reprise dans un second dépôt, Postgres (Docker) + dbt en médaillon complet (seed → staging → intermediate → 3 marts). 20 tests dbt, 3 marts : pricing, taux d'annulation, revenue.\n\n**Orchestration Airflow** : DAG de 11 tâches, stack Docker dédiée reliée à Postgres.\n\n**Statut** : les deux volets sont terminés, pipeline reproductible et testé automatiquement.",
+    "body_en": "**Part 1, SQL Server EDA**: 119,390 bookings from 2 Portuguese hotels, Bronze/Silver/Gold medallion. Key insight: 40.6% cancellation rate for city hotels vs 27% for resorts.\n\n**Part 2, Productionized pipeline**: same logic rebuilt in a second repo, containerized Postgres (Docker) + dbt in a full medallion architecture (seed → staging → intermediate → 3 marts). 20 dbt tests, 3 marts: pricing, cancellation rate, revenue.\n\n**Airflow orchestration**: 11-task DAG, dedicated Docker stack connected to Postgres.\n\n**Status**: both parts complete, end-to-end reproducible pipeline, automatically tested.",
+    "metrics": [
+      {
+        "label": "réservations",
+        "value": "119 390"
+      },
+      {
+        "label": "tests dbt",
+        "value": "20"
+      },
+      {
+        "label": "tâches Airflow",
+        "value": "11"
+      }
+    ],
+    "live_label_fr": "📖 Voir la doc dbt",
+    "live_label_en": "📖 View dbt docs",
+    "links": [
+      {
+        "label_fr": "Volet 1 : EDA SQL Server",
+        "label_en": "Part 1: SQL Server EDA",
+        "url": "https://github.com/JBaptisteAll/Hotel_Booking_Analysis"
+      }
+    ],
+    "edges_to": [
+      "c_cdsd"
+    ],
+    "bot_description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → 3 marts : cohérence pricing, taux d'annulation, revenue), 20 tests de qualité automatisés (outliers ADR par saison, cohérence des taux, parité des lignes après jointure) et orchestration par un DAG Airflow de 11 tâches, dockerisé en 2 stacks (Postgres + Airflow) sur un réseau partagé, avec les 3 marts lancés en parallèle. Validé sur un cron toutes les 2 heures.",
+    "mermaid": "flowchart LR\n  D[Kaggle Dataset] --> SEED[dbt seed]\n  SEED --> STG[staging]\n  STG --> INT[intermediate]\n  INT --> M[3 marts]\n  AF[Airflow] -.orchestrates.-> SEED\n  AF -.-> STG\n  AF -.-> INT\n  AF -.-> M"
+  },
+  "readme_mermaid": null
+}

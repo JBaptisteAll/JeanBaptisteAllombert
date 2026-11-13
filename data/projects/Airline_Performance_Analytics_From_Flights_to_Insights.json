@@ -1,0 +1,53 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_airline",
+    "order": 60,
+    "label": "AIRLINE_ANALYTICS",
+    "kanji": "空",
+    "year": "2025",
+    "title_fr": "Airline Performance Analytics",
+    "title_en": "Airline Performance Analytics",
+    "summary_fr": "Projet parapluie en 3 actes (saga Star Wars-style) : (1) **Revenge of the Seat**, création de la base SQL en étoile, (2) **Return of the Jet High**, analytics SQL avancée sur le DW, (3) **The Rise of the Single Source**, refonte en couche dbt. De la donnée brute jusqu'à un modèle analytique versionné.",
+    "summary_en": "Umbrella project in 3 acts (Star-Wars-style saga): (1) **Revenge of the Seat**, building the SQL star-schema database, (2) **Return of the Jet High**, advanced SQL analytics on the DW, (3) **The Rise of the Single Source**, refactor into a dbt layer. From raw data to a versioned analytical model.",
+    "body_fr": "Saga Star-Wars-style en **3 actes** sur le même domaine (opérations aériennes).\n\n**Acte 1, Revenge of the Seat** : modélisation Merise puis schéma en étoile dans SQL Server. **2 tables de faits** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Acte 2, Return of the Jet High** : requêtes T-SQL business sur le DW. Routes problématiques, retards, leaks de coûts.\n\n**Acte 3, The Rise of the Single Source** : refonte en **dbt** avec staging → intermediate → marts, tests d'assertion (logical_flight_route, passenger_count_is_valid), 4 marts dont un mart CEO consolidé.",
+    "body_en": "Star-Wars-style saga in **3 acts** on the same domain (airline operations).\n\n**Act 1, Revenge of the Seat**: Merise modeling then star schema in SQL Server. **2 fact tables** (`flights`, `passenger_flights`) + **4 dimensions** (`airports`, `airlines`, `aircraft`, `passenger`).\n\n**Act 2, Return of the Jet High**: business T-SQL queries on the DW. Problem routes, delays, cost leaks.\n\n**Act 3, The Rise of the Single Source**: refactor into **dbt** with staging → intermediate → marts, assertion tests (logical_flight_route, passenger_count_is_valid), 4 marts including a consolidated CEO mart.",
+    "metrics": [
+      {
+        "label": "faits / dim",
+        "value": "2 / 4"
+      },
+      {
+        "label": "marts dbt",
+        "value": "4"
+      },
+      {
+        "label": "chaîne",
+        "value": "SQL → dbt"
+      }
+    ],
+    "mermaid": "flowchart LR\n  RF[neon_raw.flights] --> SF[stg_flights]\n  RPF[neon_raw.passenger_flights] --> SPF[stg_passenger_flights]\n  RA[neon_raw.airports] --> SA[stg_airports]\n  RAL[neon_raw.airlines] --> SAL[stg_airlines]\n  RAC[neon_raw.aircraft] --> SAC[stg_aircraft]\n  RP[neon_raw.passenger] --> SP[stg_passenger]\n  SA --> IGD[int_airports_geo_distances]\n  SF --> IGD\n  SF --> IFP[int_flights_performance]\n  SAL --> IFP\n  SAC --> IFP\n  IGD --> IFP\n  SP --> IPE[int_passengers_enriched]\n  SPF --> IPE\n  IFP --> MRP[mart_route_performance]\n  IFP --> MAP[mart_airline_performance]\n  IPE --> MCL[mart_customer_loyalty]\n  MRP --> MCRP[mart_ceo_route_performance]\n  MAP --> MCRP",
+    "links": [
+      {
+        "label_fr": "Acte 1 : Revenge of the Seat (SQL DW)",
+        "label_en": "Act 1: Revenge of the Seat (SQL DW)",
+        "url": "https://github.com/JBaptisteAll/Revenge_of_the_Seat_An_SQL_Database"
+      },
+      {
+        "label_fr": "Acte 2 : Return of the Jet High (Analytics)",
+        "label_en": "Act 2: Return of the Jet High (Analytics)",
+        "url": "https://github.com/JBaptisteAll/Return_of_the_Jet_High_An_SQL_Airline_Analytics_Project"
+      },
+      {
+        "label_fr": "Acte 3 : The Rise of the Single Source (dbt)",
+        "label_en": "Act 3: The Rise of the Single Source (dbt)",
+        "url": "https://github.com/JBaptisteAll/The_Rise_of_the_Single_Source_A_dbt_Analytics_Saga"
+      }
+    ],
+    "edges_to": [
+      "c_cdsd"
+    ],
+    "bot_description": "Plateforme d'analytique aérienne : data warehouse relationnel conçu en Merise avec intégrité référentielle stricte (100 000 passagers, 700 000 réservations, 25 000 vols), moteur d'analyse SQL (rentabilité des routes, flotte, coût des retards, segmentation passagers) et couche dbt de certification de la donnée."
+  },
+  "readme_mermaid": null
+}

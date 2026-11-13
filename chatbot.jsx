@@ -86,7 +86,7 @@ function languageRule(lang) {
   return "\n\nLANGUE CHOISIE PAR LE VISITEUR : anglais. Réponds en anglais (traduis aussi les formules toutes faites, y compris le renvoi vers le Grand JB et le bouton Contact), sauf si le visiteur t'écrit clairement en français.";
 }
 
-function buildPrompt(k, recentUserText, lang) {
+function buildPrompt(k, recentUserText, lang, siteProjects) {
   const ci = k.chatbot_instructions;
 
   const core = `${ci.persona}
@@ -130,7 +130,7 @@ Obtenues : ${k.certifications.obtained.map(c => `${c.name} (${c.date})`).join(",
 En cours : ${k.certifications.in_progress.map(c => `${c.name} prévu ${c.planned}`).join(", ")}`,
 
     projects: `TES PROJETS :
-${k.projects.map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} : ${p.description}`).join("\n")}`,
+${[...siteProjects, ...k.projects].map(p => `[${p.name}] ${(p.tech_stack||[]).join(", ")} : ${p.description}`).join("\n")}`,
 
     experience: `MISE AU POINT SUR TON EXPÉRIENCE (à respecter absolument) :
 ${k.experience_clarification.data_experience}
@@ -249,8 +249,14 @@ function JBCharacter({ isOpen }) {
 }
 
 // ── Composant principal ──────────────────────────────────────
-function ChatBot({ lang = "fr" }) {
+function ChatBot({ lang = "fr", projects = [] }) {
   const ui = UI[lang] || UI.fr;
+  // Projets publiés sur le site (nœuds générés) : même source que le DAG
+  const siteProjects = projects.map(n => ({
+    name: n.title_fr,
+    tech_stack: n.stack,
+    description: (n.bot_description || n.summary_fr || "").replace(/\*\*/g, ""),
+  }));
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: "model", parts: [{ text: ui.welcome }] },
@@ -305,7 +311,7 @@ function ChatBot({ lang = "fr" }) {
       .slice(-3)
       .map(m => m.parts[0].text)
       .join(" ");
-    const systemPrompt = buildPrompt(knowledge, recentUserText, lang);
+    const systemPrompt = buildPrompt(knowledge, recentUserText, lang, siteProjects);
 
     // Historique plafonné aux 8 derniers messages (limite TPM Groq)
     const apiMessages = [
@@ -328,7 +334,7 @@ function ChatBot({ lang = "fr" }) {
     } finally {
       setLoading(false);
     }
-  }, [input, loading, knowledge, messages, lang]);
+  }, [input, loading, knowledge, messages, lang, projects]);
 
   function handleKey(e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
