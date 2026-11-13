@@ -498,51 +498,10 @@
       "mermaid": "flowchart LR\n  CRM[CRM] --> B[Bronze]\n  ERP[ERP] --> B\n  B --> S[Silver × 6]\n  S --> G[Gold ⭐]\n  G --> P[Platinum]\n  P --> A[Analytics]"
     },
     {
-      "id": "p_pipeline_ventes",
-      "type": "project",
-      "lane": "MARTS",
-      "row": 1,
-      "auto": true,
-      "repo": "Pipeline_ventes",
-      "label": "PIPELINE_VENTES",
-      "kanji": "流",
-      "year": "2026",
-      "title_fr": "Pipeline ventes",
-      "title_en": "Sales pipeline",
-      "summary_fr": "Exercice de création d'un pipeline complet, de la collecte des CSV à l'analyse des ventes dans SQLite. Le processus inclut nettoyage, validation et gestion des erreurs.",
-      "summary_en": "Exercise building a full pipeline from CSV collection to sales analysis in SQLite. The flow covers cleaning, validation and error handling.",
-      "body_fr": "Dans le cadre d'un exercice de préparation Data Engineer, j'ai conçu un pipeline qui récupère trois fichiers CSV via HTTP, les charge avec pandas et les transmet directement à une base SQLite.\n\n**Collecte**, **nettoyage**, **validation** et **déduplication** sont orchestrés dans un conteneur Python sous Docker. Les lignes invalides sont redirigées vers une table d'**erreurs_import** pour audit et réintégration future. Les ventes valides sont insérées dans les tables principales et les résultats d'analyse sont stockés dans `resultats_analyses`.\n\nLe pipeline produit un chiffre d'affaires total de **5 268,78 €**, détaille les ventes par produit et par ville, et fournit une traçabilité complète grâce à la table d'erreurs.",
-      "body_en": "As part of a Data Engineer preparation exercise, I built a pipeline that fetches three CSV files over HTTP, loads them with pandas and streams them directly into a SQLite database.\n\n**Collection**, **cleaning**, **validation** and **deduplication** run inside a Python container managed by Docker. Invalid rows are routed to an `erreurs_import` table for auditing and possible re-import. Valid sales are inserted into the main tables and analysis results are saved in `resultats_analyses`.\n\nThe pipeline yields a total revenue of **5,268.78 €**, breaks down sales by product and city, and ensures full traceability via the error table.",
-      "stack": [
-        "Docker",
-        "SQLite",
-        "Pandas",
-        "Python",
-        "SQL"
-      ],
-      "metrics": [
-        {
-          "label": "ca total",
-          "value": "5 268,78 €"
-        },
-        {
-          "label": "villes",
-          "value": "7"
-        },
-        {
-          "label": "base",
-          "value": "SQLite"
-        }
-      ],
-      "github_url": "https://github.com/JBaptisteAll/Pipeline_ventes",
-      "bot_description": "Pipeline complet de collecte, nettoyage et analyse des ventes, réalisé dans le cadre d'un exercice. Les erreurs sont consignées dans une table dédiée pour audit.",
-      "mermaid": "flowchart LR\nA[Collecte] --> B[Nettoyage]\nB --> C[Validation]\nC --> D[Déduplication]\nD --> E[Import SQLite]\nE --> F[Analyses SQL]"
-    },
-    {
       "id": "p_idp",
       "type": "project",
       "lane": "MARTS",
-      "row": 2,
+      "row": 1,
       "auto": true,
       "repo": "Databricks_IDP_Project",
       "label": "DATABRICKS_IDP",
@@ -582,7 +541,7 @@
       "id": "p_japan",
       "type": "project",
       "lane": "MARTS",
-      "row": 3,
+      "row": 2,
       "auto": true,
       "repo": "Japan_tourism_analysis",
       "label": "JAPAN_TOURISM",
@@ -623,7 +582,7 @@
       "id": "p_hotel",
       "type": "project",
       "lane": "MARTS",
-      "row": 4,
+      "row": 3,
       "auto": true,
       "repo": "Hotel_Booking_Pipeline",
       "label": "HOTEL_BOOKING",
@@ -674,7 +633,7 @@
       "id": "p_airline",
       "type": "project",
       "lane": "MARTS",
-      "row": 5,
+      "row": 4,
       "auto": true,
       "repo": "Airline_Performance_Analytics_From_Flights_to_Insights",
       "label": "AIRLINE_ANALYTICS",
@@ -732,7 +691,7 @@
       "id": "p_weather",
       "type": "project",
       "lane": "MARTS",
-      "row": 6,
+      "row": 5,
       "auto": true,
       "repo": "Weather_Forecast_Reliability_Analysis_for_Travel_Planning",
       "label": "WEATHER_FORECAST",
@@ -787,7 +746,7 @@
       "id": "p_playbook",
       "type": "project",
       "lane": "MARTS",
-      "row": 7,
+      "row": 6,
       "auto": true,
       "repo": "Data_Playbook",
       "label": "DATA_PLAYBOOK",
@@ -820,6 +779,49 @@
       "live_url": "https://jbaptisteall.github.io/Data_Playbook/index.html",
       "bot_description": "Guide de référence interactif pour data analysts (méthode en 6 étapes, SQL, KPIs, stats, dataviz, storytelling, checklist), single-page app sans framework, publiée sur GitHub Pages.",
       "mermaid": "flowchart TB\n  T[Topics] --> S[SQL]\n  T --> K[KPI]\n  T --> E[EDA]\n  T --> V[Viz]"
+    },
+    {
+      "id": "p_adventure_planner",
+      "type": "project",
+      "lane": "MARTS",
+      "row": 7,
+      "auto": true,
+      "repo": "France_Adventure_Planner",
+      "label": "ADVENTURE_PLANNER",
+      "kanji": "山",
+      "year": "2025",
+      "title_fr": "France Adventure Planner",
+      "title_en": "France Adventure Planner",
+      "summary_fr": "Application Streamlit qui aide à choisir une destination de week-end en France selon les prévisions météo, avec suggestions d'hôtels, alimentée chaque nuit par GitHub Actions.",
+      "summary_en": "Streamlit app that helps pick a weekend destination in France based on weather forecasts, with hotel suggestions, refreshed every night by GitHub Actions.",
+      "body_fr": "Au départ, une simple collecte de données météo. En accumulant les relevés, j'ai vu de quoi en faire un outil utile : aider à trouver la meilleure destination de week-end au départ de Paris, à la montagne comme à la mer.\n\nChaque nuit, **GitHub Actions** lance la collecte : prévisions via l'API OpenWeatherMap, hôtels récupérés sur Booking avec **Scrapy**, puis un score météo maison classe les destinations. L'application **Streamlit** affiche le tout avec des cartes Plotly.\n\nLe pipeline tourne sans aucune intervention manuelle, et ses données alimentent aussi l'analyse ClimAdvisor.",
+      "body_en": "It started as a simple weather data collection. As the records piled up, I saw how to turn them into something useful: helping find the best weekend destination from Paris, in the mountains or by the sea.\n\nEvery night, **GitHub Actions** runs the collection: forecasts from the OpenWeatherMap API, hotels scraped from Booking with **Scrapy**, then a custom weather score ranks the destinations. The **Streamlit** app displays it all with Plotly maps.\n\nThe pipeline runs with no manual intervention, and its data also feeds the ClimAdvisor analysis.",
+      "stack": [
+        "Streamlit",
+        "Plotly",
+        "Scrapy",
+        "GitHub Actions",
+        "Pandas",
+        "Python"
+      ],
+      "metrics": [
+        {
+          "label": "collecte",
+          "value": "22h UTC"
+        },
+        {
+          "label": "hôtels / ville",
+          "value": "5"
+        },
+        {
+          "label": "orchestration",
+          "value": "GH Actions"
+        }
+      ],
+      "github_url": "https://github.com/JBaptisteAll/France_Adventure_Planner",
+      "live_url": "https://franceadventureplanner.streamlit.app/",
+      "bot_description": "Application Streamlit qui recommande des destinations de week-end en France selon la météo, avec un score météo maison et des suggestions d'hôtels. GitHub Actions collecte chaque nuit les prévisions OpenWeatherMap et les hôtels via Scrapy, sans intervention manuelle.",
+      "mermaid": "flowchart LR\n  GA[GitHub Actions] --> P[Scripts Python]\n  OWM[OpenWeatherMap] --> P\n  SCR[Scrapy Booking] --> P\n  P --> CSV[Fichier CSV]\n  CSV --> ST[App Streamlit]"
     },
     {
       "id": "c_dataiku",
@@ -1062,30 +1064,6 @@
       "s_github"
     ],
     [
-      "t_docker",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_sql",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_python",
-      "p_pipeline_ventes"
-    ],
-    [
-      "t_git",
-      "p_pipeline_ventes"
-    ],
-    [
-      "p_pipeline_ventes",
-      "c_cdsd"
-    ],
-    [
-      "p_pipeline_ventes",
-      "s_github"
-    ],
-    [
       "t_databricks",
       "p_idp"
     ],
@@ -1219,6 +1197,22 @@
     ],
     [
       "p_playbook",
+      "s_github"
+    ],
+    [
+      "t_viz",
+      "p_adventure_planner"
+    ],
+    [
+      "t_python",
+      "p_adventure_planner"
+    ],
+    [
+      "t_git",
+      "p_adventure_planner"
+    ],
+    [
+      "p_adventure_planner",
       "s_github"
     ],
     [
