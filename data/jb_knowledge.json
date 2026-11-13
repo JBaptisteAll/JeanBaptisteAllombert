@@ -132,16 +132,6 @@
 
   "projects": [
     {
-      "name": "Bike Data Lakehouse, Medallion Architecture étendue",
-      "tech_stack": ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Databricks Workflows"],
-      "description": "Lakehouse complet from scratch sur Databricks : 6 sources CRM + ERP consolidées en Médaillon étendu Bronze→Silver→Gold→Platinum, star schema en Gold, vues 360° avec scoring et segmentation client en Platinum. 17 tables Delta, data catalog documenté, orchestration quotidienne Databricks Workflows, run complet en ~4 minutes."
-    },
-    {
-      "name": "Japan Travel Insights, pipeline d'enquête touristique (mission 360°)",
-      "tech_stack": ["Python", "Pandas", "Google Sheets", "GitHub Actions", "Streamlit"],
-      "description": "Pipeline livré pendant ma mission au Japon : enquête bilingue FR/EN via Google Forms, centralisation Google Sheets, nettoyage Python/Pandas, refresh automatisé GitHub Actions 2×/mois, dashboard Streamlit en production pour les acteurs touristiques de Yamagata. Mission freelance terminée en décembre 2025, mais le pipeline a tourné en autopilote jusqu'en juin 2026."
-    },
-    {
       "name": "France Adventure Planner, pipeline météo en production",
       "tech_stack": ["Python", "Streamlit", "Scrapy", "OpenWeatherMap API", "GitHub Actions"],
       "description": "App Streamlit recommandant des destinations week-end selon la météo, avec score météo custom. En production depuis plus d'un an : GitHub Actions collecte chaque nuit 1 250 prévisions sur 50 villes françaises et scrape les hôtels sur Booking.com (Scrapy). Zéro intervention manuelle."
@@ -152,29 +142,9 @@
       "description": "Pipeline ELT production-grade avec dbt : staging → intermediate → marts (Operations, Marketing, Executive). Load Factor, RPM/ASM, distance Haversine via dbt Seeds, mart CEO avec classification dynamique des routes (Star Route / Stable / Underperforming). 63 tests qualité automatisés, 100 % des modèles documentés."
     },
     {
-      "name": "Airline Performance Analytics, écosystème en 3 modules",
-      "tech_stack": ["SQL Server", "SQL", "dbt", "Merise"],
-      "description": "Plateforme d'analytique aérienne : data warehouse relationnel conçu en Merise avec intégrité référentielle stricte (100 000 passagers, 700 000 réservations, 25 000 vols), moteur d'analyse SQL (rentabilité des routes, flotte, coût des retards, segmentation passagers) et couche dbt de certification de la donnée."
-    },
-    {
-      "name": "Databricks IDP (Intelligent Document Processing)",
-      "tech_stack": ["Databricks", "SQL", "AI Functions", "Delta Lake"],
-      "description": "Pipeline 100 % SQL sur Databricks : documents financiers PDF parsés (ai_parse_document), classifiés (ai_classify) et extraits en champs structurés (ai_extract) vers 3 tables Delta requêtables. Aucun Python, aucune API externe, aucun modèle ML à maintenir."
-    },
-    {
-      "name": "Hotel Booking Analytics, EDA SQL Server + pipeline dbt/Postgres",
-      "tech_stack": ["SQL Server", "T-SQL", "Postgres", "dbt", "Docker", "Airflow"],
-      "description": "Analyse de 119 390 réservations de 2 hôtels portugais en médaillon Bronze/Silver/Gold (SQL Server) : nettoyage documenté, colonnes calculées PERSISTED, segmentation lead time en 7 buckets. Insights : 40,6 % d'annulation city vs 27 % resort, paradoxe des dépôts Non-Refund annulés à ~99 %. Suite productionisée dans un second pipeline Postgres + dbt (seed → staging → intermediate → 3 marts : cohérence pricing, taux d'annulation, revenue), 20 tests de qualité automatisés (outliers ADR par saison, cohérence des taux, parité des lignes après jointure) et orchestration par un DAG Airflow de 11 tâches, dockerisé en 2 stacks (Postgres + Airflow) sur un réseau partagé, avec les 3 marts lancés en parallèle. Validé sur un cron toutes les 2 heures."
-    },
-    {
       "name": "ClimAdvisor, fiabilité des prévisions météo",
       "tech_stack": ["Python", "Power BI", "DAX"],
       "description": "Fiabilité des prévisions météo à 5 jours sur les villes françaises : prévision vs observé (J+1 à J+5), indice de fiabilité par région, dashboard Power BI/DAX. Cas d'usage : pricing hôtelier dynamique selon la confiance dans la prévision."
-    },
-    {
-      "name": "Pipeline_ventes, ETL conteneurisé avec quarantaine",
-      "tech_stack": ["Python", "SQLite", "Docker"],
-      "description": "Pipeline ETL Python → SQLite conteneurisé (Docker Compose) : validation ligne à ligne, déduplication idempotente, et table de quarantaine erreurs_import (dead letter queue) qui trace chaque rejet (table, ligne, valeur, raison) au lieu de le perdre."
     },
     {
       "name": "Tourism Demand Analytics, France (en cours, 2026)",
@@ -190,11 +160,6 @@
       "name": "NASA, tracking satellite",
       "tech_stack": ["Python", "sgp4"],
       "description": "Analyse de données de tracking de satellites avec Python et sgp4, clin d'œil à ma passion pour le spatial."
-    },
-    {
-      "name": "Data Playbook, cheat sheet pour data analysts",
-      "tech_stack": ["HTML", "CSS", "JavaScript"],
-      "description": "Guide de référence interactif pour data analysts (méthode en 6 étapes, SQL, KPIs, stats, dataviz, storytelling, checklist), single-page app sans framework, publiée sur GitHub Pages."
     },
     {
       "name": "Kanji Dojo, PWA perso",

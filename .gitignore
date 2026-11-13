@@ -6,3 +6,6 @@ secrets.local.md
 # Divers
 .DS_Store
 Thumbs.db
+
+# Python
+__pycache__/

@@ -1,0 +1,35 @@
+{
+  "source": "llm",
+  "fiche": {
+    "label": "PIPELINE_VENTES",
+    "kanji": "流",
+    "title_fr": "Pipeline ventes",
+    "title_en": "Sales pipeline",
+    "summary_fr": "Exercice de création d'un pipeline complet, de la collecte des CSV à l'analyse des ventes dans SQLite. Le processus inclut nettoyage, validation et gestion des erreurs.",
+    "summary_en": "Exercise building a full pipeline from CSV collection to sales analysis in SQLite. The flow covers cleaning, validation and error handling.",
+    "body_fr": "Dans le cadre d'un exercice de préparation Data Engineer, j'ai conçu un pipeline qui récupère trois fichiers CSV via HTTP, les charge avec pandas et les transmet directement à une base SQLite.\n\n**Collecte**, **nettoyage**, **validation** et **déduplication** sont orchestrés dans un conteneur Python sous Docker. Les lignes invalides sont redirigées vers une table d'**erreurs_import** pour audit et réintégration future. Les ventes valides sont insérées dans les tables principales et les résultats d'analyse sont stockés dans `resultats_analyses`.\n\nLe pipeline produit un chiffre d'affaires total de **5 268,78 €**, détaille les ventes par produit et par ville, et fournit une traçabilité complète grâce à la table d'erreurs.",
+    "body_en": "As part of a Data Engineer preparation exercise, I built a pipeline that fetches three CSV files over HTTP, loads them with pandas and streams them directly into a SQLite database.\n\n**Collection**, **cleaning**, **validation** and **deduplication** run inside a Python container managed by Docker. Invalid rows are routed to an `erreurs_import` table for auditing and possible re-import. Valid sales are inserted into the main tables and analysis results are saved in `resultats_analyses`.\n\nThe pipeline yields a total revenue of **5,268.78 €**, breaks down sales by product and city, and ensures full traceability via the error table.",
+    "metrics": [
+      {
+        "label": "ca total",
+        "value": "5 268,78 €"
+      },
+      {
+        "label": "villes",
+        "value": "7"
+      },
+      {
+        "label": "base",
+        "value": "SQLite"
+      }
+    ],
+    "bot_description": "Pipeline complet de collecte, nettoyage et analyse des ventes, réalisé dans le cadre d'un exercice. Les erreurs sont consignées dans une table dédiée pour audit.",
+    "mermaid": "flowchart LR\nA[Collecte] --> B[Nettoyage]\nB --> C[Validation]\nC --> D[Déduplication]\nD --> E[Import SQLite]\nE --> F[Analyses SQL]",
+    "year": "2026",
+    "order": 20,
+    "edges_to": [
+      "c_cdsd"
+    ]
+  },
+  "readme_mermaid": null
+}

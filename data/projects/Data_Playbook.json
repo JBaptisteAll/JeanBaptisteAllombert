@@ -1,0 +1,41 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_playbook",
+    "order": 80,
+    "label": "DATA_PLAYBOOK",
+    "kanji": "本",
+    "year": "2024",
+    "title_fr": "Data Playbook",
+    "title_en": "Data Playbook",
+    "summary_fr": "Manuel personnel rendu public, 30+ templates SQL, définitions KPI, recettes EDA et patterns de visualisation, en FR/EN. Bonus : projet vivant, mis à jour à chaque apprentissage.",
+    "summary_en": "Personal handbook made public, 30+ SQL templates, KPI definitions, EDA recipes and viz patterns, in FR/EN. Bonus: living project, updated with each new learning.",
+    "body_fr": "Tout data analyst ré-écrit les mêmes 30 requêtes SQL chaque mois, c'est inefficace. J'ai compilé mon propre playbook : recettes SQL réutilisables (top N par groupe, retention cohortes, RFM, deltas temporels), définitions de KPIs standardisées (CAC, LTV, churn, etc.), patterns d'EDA, templates de visualisation, checklists de stats. Conçu d'abord pour mon usage, ouvert pour que d'autres puissent le forker et l'enrichir. Documentation orientée action plutôt qu'orientée théorie.",
+    "body_en": "Every data analyst rewrites the same 30 SQL queries every month, that's inefficient. I compiled my own playbook: reusable SQL recipes (top N per group, cohort retention, RFM, time deltas), standardized KPI definitions (CAC, LTV, churn, etc.), EDA patterns, viz templates, stats checklists. Built for my own use first, open so others can fork and extend. Action-oriented documentation rather than theory-oriented.",
+    "metrics": [
+      {
+        "label": "templates",
+        "value": "30+"
+      },
+      {
+        "label": "thématiques",
+        "value": "6"
+      },
+      {
+        "label": "type",
+        "value": "BONUS"
+      }
+    ],
+    "mermaid": "flowchart TB\n  T[Topics] --> S[SQL]\n  T --> K[KPI]\n  T --> E[EDA]\n  T --> V[Viz]",
+    "live_url": "https://jbaptisteall.github.io/Data_Playbook/index.html",
+    "edges_from": [
+      "t_python"
+    ],
+    "edges_to": [
+      "c_google_da",
+      "c_cdsd"
+    ],
+    "bot_description": "Guide de référence interactif pour data analysts (méthode en 6 étapes, SQL, KPIs, stats, dataviz, storytelling, checklist), single-page app sans framework, publiée sur GitHub Pages."
+  },
+  "readme_mermaid": null
+}
