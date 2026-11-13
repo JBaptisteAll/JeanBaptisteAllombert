@@ -1,0 +1,33 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_japan",
+    "order": 40,
+    "label": "JAPAN_TOURISM",
+    "kanji": "旅",
+    "year": "2025",
+    "title_fr": "Japan Travel Insights",
+    "title_en": "Japan Travel Insights",
+    "summary_fr": "Application Streamlit déployée pour la ville de Yonezawa, collecte automatisée par Google Forms et exploration interactive de la donnée touristique par les parties prenantes locales.",
+    "summary_en": "Streamlit app deployed for the city of Yonezawa, automated Google Forms collection and interactive tourism-data exploration by local stakeholders.",
+    "body_fr": "Le problème : la mairie de Yonezawa (80 000 habitants, préfecture de Yamagata) menait ses enquêtes touristiques sur le terrain, papier-crayon, avec un coût logistique élevé et aucune analyse en temps réel.\n\nLa solution : un pipeline automatisé de bout en bout. **Collecte** via Google Forms multilingues. **Traitement** via Python/Pandas (nettoyage, normalisation, agrégations). **Orchestration** automatique par GitHub Actions à chaque nouvelle soumission. **Restitution** dans une application Streamlit déployée pour la mairie, les parties prenantes explorent elles-mêmes la donnée : segmentation démographique, corrélations budget/activités, génération de 3 buyer personas actionnables.\n\nRésultat : **suppression totale** des enquêtes terrain manuelles et de leurs coûts logistiques. Application en production, accessible en libre-service par le client au Japon.\n\n**Statut** : la mission freelance pour la ville s'est terminée en décembre 2025. Le pipeline a toutefois continué de tourner en autopilote (GitHub Actions) jusqu'en juin 2026 : l'application se mettait à jour à chaque nouvelle réponse au questionnaire, bien au-delà de la mission.",
+    "body_en": "The problem: Yonezawa city hall (80,000 inhabitants, Yamagata Prefecture) ran its tourism surveys in the field with paper forms, high logistical cost, no real-time analysis.\n\nThe solution: a fully automated pipeline. **Collection** via multilingual Google Forms. **Processing** via Python/Pandas (cleaning, normalization, aggregations). **Orchestration** automated by GitHub Actions on every new submission. **Delivery** in a Streamlit app deployed for city hall, stakeholders explore the data themselves: demographic segmentation, budget/activity correlations, generation of 3 actionable buyer personas.\n\nResult: **complete elimination** of manual field surveys and their logistical costs. App in production, self-served by the client in Japan.\n\n**Status**: the freelance mission for the city ended in December 2025. The pipeline kept running on autopilot (GitHub Actions) until June 2026: the app updated with every new survey response, well beyond the mission itself.",
+    "metrics": [
+      {
+        "label": "app",
+        "value": "Streamlit"
+      },
+      {
+        "label": "ville",
+        "value": "Yonezawa"
+      },
+      {
+        "label": "orchestration",
+        "value": "GitHub Actions"
+      }
+    ],
+    "live_url": "https://japantravelsurveyanalysis.streamlit.app/",
+    "bot_description": "Pipeline livré pendant ma mission au Japon : enquête bilingue FR/EN via Google Forms, centralisation Google Sheets, nettoyage Python/Pandas, refresh automatisé GitHub Actions 2×/mois, dashboard Streamlit en production pour les acteurs touristiques de Yamagata. Mission freelance terminée en décembre 2025, mais le pipeline a tourné en autopilote jusqu'en juin 2026."
+  },
+  "readme_mermaid": "flowchart LR\n  A[Google Forms FR] --> B[Google Sheet FR]\n  A2[Google Forms EN] --> B2[Google Sheet EN]\n  B --> C[Combined Sheet via IMPORTRANGE]\n  B2 --> C\n  C --> D[Python Processing Script]\n  D --> E[data_processed/df_clean.csv]\n  E --> F[Streamlit App]\n  F --> G[End Users / Stakeholders]\n  H[GitHub Actions cron] --> D"
+}

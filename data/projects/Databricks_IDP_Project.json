@@ -1,0 +1,37 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_idp",
+    "order": 30,
+    "label": "DATABRICKS_IDP",
+    "kanji": "識",
+    "year": "2026",
+    "title_fr": "Databricks IDP",
+    "title_en": "Databricks IDP",
+    "summary_fr": "Pipeline de Traitement Intelligent de Documents 100% en SQL Databricks avec les fonctions IA natives, sans Python, sans API externe, sans modèle ML à maintenir.",
+    "summary_en": "Intelligent Document Processing pipeline 100% in Databricks SQL with native AI functions, no Python, no external APIs, no ML model to maintain.",
+    "body_fr": "Cas d'usage finance : ingérer un lot de documents bruts (factures PDF, bons de commande, reçus), les parser, classifier par type, extraire les champs structurés et alimenter trois tables Delta requêtables. Trois fonctions IA Databricks chaînées : `ai_parse_document` parse le PDF en VARIANT, `ai_classify` fait la classification zero-shot (Facture/Bon de commande/Reçu/Autre), `ai_extract` extrait les champs typés selon le type détecté. Tout en SQL pur dans Unity Catalog, organisé en multi-schéma `idp.finance.invoices/purchase_order/receipt`. Démontre l'IA appliquée à un cas métier concret sans complexité d'orchestration ni dette technique de modèles maison.",
+    "body_en": "Finance use case: ingest a batch of raw documents (PDF invoices, purchase orders, receipts), parse them, classify by type, extract structured fields and feed three queryable Delta tables. Three chained Databricks AI functions: `ai_parse_document` parses PDF into VARIANT, `ai_classify` does zero-shot classification (Invoice/PO/Receipt/Other), `ai_extract` extracts typed fields based on detected type. All in pure SQL within Unity Catalog, organized in multi-schema `idp.finance.invoices/purchase_order/receipt`. Demonstrates AI applied to a concrete business case without orchestration complexity or maintenance debt of home-grown models.",
+    "metrics": [
+      {
+        "label": "AI Functions",
+        "value": "3"
+      },
+      {
+        "label": "tables sortie",
+        "value": "3"
+      },
+      {
+        "label": "100% SQL",
+        "value": "✓"
+      }
+    ],
+    "mermaid": "flowchart LR\n  V[Volume] --> PA[ai_parse_document]\n  PA --> C[ai_classify]\n  C --> E[ai_extract]\n  E --> I[invoices]\n  E --> P[purchase_order]\n  E --> R[receipt]",
+    "edges_to": [
+      "c_databricks_de",
+      "s_contact"
+    ],
+    "bot_description": "Pipeline 100 % SQL sur Databricks : documents financiers PDF parsés (ai_parse_document), classifiés (ai_classify) et extraits en champs structurés (ai_extract) vers 3 tables Delta requêtables. Aucun Python, aucune API externe, aucun modèle ML à maintenir."
+  },
+  "readme_mermaid": null
+}
