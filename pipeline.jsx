@@ -1203,40 +1203,16 @@ function PipelineDrawer({ node, lang, onClose }) {
             )}
             {node.github_url && (
               <a href={node.github_url} target="_blank" rel="noopener" className="pdr-cta-primary">
-                <span>{lang === 'fr' ? 'Voir sur GitHub' : 'View on GitHub'}{(node.github_url_secondary_app || node.github_url_secondary_analysis || node.github_url_act1) ? (lang === 'fr' ? ' (repo principal)' : ' (main repo)') : ''}</span>
+                <span>{lang === 'fr' ? 'Voir sur GitHub' : 'View on GitHub'}{(node.links || []).length ? (lang === 'fr' ? ' (repo principal)' : ' (main repo)') : ''}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
             )}
-            {node.github_url_secondary_app && (
-              <a href={node.github_url_secondary_app} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Sous-projet : Adventure Planner' : 'Sub-project : Adventure Planner'}</span>
+            {(node.links || []).map(link => (
+              <a key={link.url} href={link.url} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
+                <span>{lang === 'fr' ? link.label_fr : link.label_en}</span>
                 <span className="pdr-arrow">↗</span>
               </a>
-            )}
-            {node.github_url_secondary_analysis && (
-              <a href={node.github_url_secondary_analysis} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Sous-projet : ClimAdvisor' : 'Sub-project : ClimAdvisor'}</span>
-                <span className="pdr-arrow">↗</span>
-              </a>
-            )}
-            {node.github_url_act1 && (
-              <a href={node.github_url_act1} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 1 : Revenge of the Seat (SQL DW)' : 'Act 1 : Revenge of the Seat (SQL DW)'}</span>
-                <span className="pdr-arrow">↗</span>
-              </a>
-            )}
-            {node.github_url_act2 && (
-              <a href={node.github_url_act2} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 2 : Return of the Jet High (Analytics)' : 'Act 2 : Return of the Jet High (Analytics)'}</span>
-                <span className="pdr-arrow">↗</span>
-              </a>
-            )}
-            {node.github_url_act3 && (
-              <a href={node.github_url_act3} target="_blank" rel="noopener" className="pdr-cta-primary" style={{marginTop:'8px'}}>
-                <span>{lang === 'fr' ? 'Acte 3 : The Rise of the Single Source (dbt)' : 'Act 3 : The Rise of the Single Source (dbt)'}</span>
-                <span className="pdr-arrow">↗</span>
-              </a>
-            )}
+            ))}
           </>
         )}
 
