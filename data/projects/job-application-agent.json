@@ -1,0 +1,33 @@
+{
+  "source": "repo",
+  "fiche": {
+    "id": "p_job_agent",
+    "order": 90,
+    "label": "JOB_AGENT",
+    "kanji": "職",
+    "year": "2026",
+    "title_fr": "Job Application Agent",
+    "title_en": "Job Application Agent",
+    "summary_fr": "Agent Claude qui génère un CV et une lettre de motivation à partir d'une archive LinkedIn, puis les personnalise pour chaque offre d'emploi, avec relecture humaine.",
+    "summary_en": "Claude agent that generates a CV and a cover letter from a LinkedIn archive, then tailors them to each job offer, with human review.",
+    "body_fr": "Le problème : adapter son CV et sa lettre de motivation à chaque offre est long et répétitif, et le copier-coller finit par produire des candidatures génériques.\n\nLa solution : un agent construit entièrement avec Claude, **sans code applicatif**. Tout repose sur des skills et des instructions : l'agent lit une archive LinkedIn comme source unique du parcours, analyse l'offre visée, puis rédige un CV et une lettre de motivation ciblés.\n\n**Relecture humaine** : rien ne part sans validation. L'agent propose, je relis et je corrige avant tout envoi.",
+    "body_en": "The problem: tailoring a CV and a cover letter to every job offer is slow and repetitive, and copy-pasting ends up producing generic applications.\n\nThe solution: an agent built entirely with Claude, **with no application code**. Everything relies on skills and instructions: the agent reads a LinkedIn archive as the single source of truth for the career history, analyzes the target offer, then drafts a targeted CV and cover letter.\n\n**Human review**: nothing goes out without validation. The agent drafts, I review and correct before anything is sent.",
+    "metrics": [
+      {
+        "label": "approche",
+        "value": "100% Claude"
+      },
+      {
+        "label": "source",
+        "value": "Archive LinkedIn"
+      },
+      {
+        "label": "sorties",
+        "value": "CV + lettre"
+      }
+    ],
+    "mermaid": "flowchart LR\n  A[Archive LinkedIn] --> AG[Agent Claude + skills]\n  O[Offre d'emploi] --> AG\n  AG --> CV[CV ciblé]\n  AG --> L[Lettre de motivation]\n  CV --> R[Relecture humaine]\n  L --> R",
+    "bot_description": "Agent construit entièrement avec Claude (skills et instructions, sans code applicatif) : il génère un CV et une lettre de motivation à partir d'une archive LinkedIn et les personnalise pour chaque offre, avec relecture humaine avant envoi."
+  },
+  "readme_mermaid": null
+}
