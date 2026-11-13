@@ -1,0 +1,88 @@
+name: Sync portfolio projects
+
+# Met à jour les nœuds projets du portfolio à partir des repos GitHub
+# portant le topic "portfolio". Voir scripts/sync_projects.py.
+on:
+  schedule:
+    - cron: "17 3 * * *" # chaque nuit à 03h17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+
+env:
+  LLM_BRANCH: auto/llm-fiches
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # Étape 1 : fiches issues des portfolio.json, publiées directement
+      - name: Sync from portfolio.json files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run scripts/sync_projects.py --no-llm
+
+      - name: Publish direct changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain data)" ]; then
+            echo "Aucun changement à publier."
+            exit 0
+          fi
+          git add data
+          git commit -m "chore: sync portfolio projects"
+          git push
+          # Un push fait avec GITHUB_TOKEN ne relance pas toujours GitHub Pages
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
+
+      # Étape 2 : fiches rédigées par le LLM, proposées en pull request
+      - name: Check for a pending LLM pull request
+        id: pending
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          count=$(gh pr list --head "$LLM_BRANCH" --state open --json number --jq 'length')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Draft missing sheets with the LLM
+        if: steps.pending.outputs.count == '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: uv run scripts/sync_projects.py
+
+      - name: Open a pull request for LLM sheets
+        if: steps.pending.outputs.count == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain data)" ]; then
+            echo "Aucune fiche à rédiger."
+            exit 0
+          fi
+          git switch -C "$LLM_BRANCH"
+          git add data
+          git commit -m "feat: add LLM-drafted project sheets"
+          git push --force origin "$LLM_BRANCH"
+          gh pr create \
+            --base "${GITHUB_REF_NAME}" \
+            --head "$LLM_BRANCH" \
+            --title "Fiches projet rédigées par le LLM, à relire" \
+            --body "Fiches générées à partir des README. Relire les fichiers de data/projects/ (textes, métriques, kanji), corriger si besoin, puis fusionner pour publier."
