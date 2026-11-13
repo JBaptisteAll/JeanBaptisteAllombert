@@ -34,7 +34,10 @@ pipeline.css            Styles (thème Neo-Tokyo)
 chatbot.jsx             Chatbot et construction du prompt
 cloudflare-worker.js    Proxy du chatbot (CORS, rate limit, logs)
 image-slot.js           Composant photo de profil
-data/pipeline.json      Contenu du portfolio
+scripts/sync_projects.py  Synchronisation des projets depuis les repos GitHub
+data/pipeline.json      Contenu du portfolio (nœuds projets générés)
+data/projects/          Fiches projet en cache
+data/stack_map.json     Table topic GitHub vers stack affichée
 data/jb_knowledge.json  Connaissances du chatbot
 assets/                 CV (PDF) et photo
 ADD_PROJECT.md          Guide pour ajouter un projet
@@ -52,7 +55,7 @@ Puis ouvrir http://localhost:8000.
 
 ## Ajouter ou modifier un projet
 
-Tout le contenu vit dans `data/pipeline.json`, sans toucher au code. Le guide pas à pas est dans [ADD_PROJECT.md](ADD_PROJECT.md).
+Les projets sont synchronisés automatiquement depuis les repos GitHub portant le topic `portfolio` : un fichier `portfolio.json` dans le repo du projet fournit les textes, les topics fournissent la stack. Le guide pas à pas est dans [ADD_PROJECT.md](ADD_PROJECT.md).
 
 ## Chatbot
 
