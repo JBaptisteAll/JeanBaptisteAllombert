@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "17 3 * * *" # chaque nuit à 03h17 UTC
   workflow_dispatch:
+  # Réorganisation des projets : modifier ce fichier relance la synchro
+  push:
+    branches: [main]
+    paths:
+      - data/projects_order.json
 
 permissions:
   contents: write

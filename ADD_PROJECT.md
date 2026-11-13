@@ -68,7 +68,7 @@ Aucun tiret cadratin dans les textes : la fiche serait refusée.
 | Champ | Rôle |
 |---|---|
 | `id` | Identifiant du nœud (`p_...`). Par défaut, dérivé du nom du repo. |
-| `order` | Position dans la colonne MARTS, du plus petit au plus grand. |
+| `order` | Position de secours, utilisée seulement si le repo n'est pas dans `data/projects_order.json`. |
 | `mermaid` | Schéma d'architecture. Prioritaire sur celui du README. |
 | `live_url` | Lien de l'application. Prioritaire sur le champ Website du repo. |
 | `live_label_fr`, `live_label_en` | Texte du bouton de l'application. |
@@ -78,6 +78,14 @@ Aucun tiret cadratin dans les textes : la fiche serait refusée.
 | `bot_description` | Résumé du projet pour le chatbot. Par défaut, `summary_fr`. |
 
 Tous les projets sont reliés d'office à Git en amont et à GitHub en aval.
+
+## Réorganiser les projets
+
+L'ordre d'affichage dans la colonne MARTS est fixé par un seul fichier : [data/projects_order.json](data/projects_order.json). C'est la liste des noms de repos, du premier au dernier.
+
+Pour déplacer un projet, ouvre ce fichier sur GitHub, monte ou descends sa ligne, puis enregistre. La synchronisation se relance toute seule et le site est à jour en deux minutes environ.
+
+Un projet absent de la liste se place à la fin.
 
 ## Ajouter une techno à la stack
 
