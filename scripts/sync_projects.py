@@ -38,6 +38,7 @@ PIPELINE_PATH = ROOT / "data" / "pipeline.json"
 STACK_MAP_PATH = ROOT / "data" / "stack_map.json"
 CACHE_DIR = ROOT / "data" / "projects"
 STATE_PATH = CACHE_DIR / "_state.json"
+ORDER_PATH = ROOT / "data" / "projects_order.json"
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "openai/gpt-oss-120b"
@@ -114,14 +115,19 @@ def extract_mermaid(readme: str) -> str | None:
 
 
 def strip_em_dashes(value):
-    """Retire les tirets cadratins d'une valeur (récursif sur listes et dicts).
+    """Retire les tirets longs d'une valeur (récursif sur listes et dicts).
 
-    Normalise aussi les traits d'union typographiques que les LLM glissent
-    dans les mots composés (end-to-end, Docker-Compose).
+    Traite le tiret cadratin et le tiret moyen, collés aux mots ou non, et
+    normalise les traits d'union et apostrophes typographiques que les LLM
+    glissent dans le texte (end-to-end, Docker-Compose, l'outil).
     """
     if isinstance(value, str):
-        value = value.replace(chr(0x2011), "-").replace(chr(0x2010), "-")
-        return value.replace(f" {EM_DASH} ", ", ").replace(EM_DASH, ",")
+        en_dash = chr(0x2013)
+        value = value.replace(chr(0x2011), "-").replace(chr(0x2010), "-").replace(chr(0x2019), "'")
+        value = re.sub(rf"\s*{EM_DASH}\s*", ", ", value)
+        value = re.sub(rf"(?<=\d){en_dash}(?=\d)", "-", value)  # intervalle : 2024-2026
+        value = re.sub(rf"\s*{en_dash}\s*", ", ", value)
+        return re.sub(r"[ \t]+\n", "\n", value)
     if isinstance(value, list):
         return [strip_em_dashes(item) for item in value]
     if isinstance(value, dict):
@@ -148,7 +154,6 @@ def generate_with_llm(repo: dict, readme: str, stack_labels: list[str]) -> dict:
         "- Réponds par un objet JSON et rien d'autre, avec exactement ces clés :\n"
         '  "label" : nom de code court en MAJUSCULES_AVEC_UNDERSCORES (2 mots maximum)\n'
         '  "kanji" : un seul idéogramme japonais qui résume le projet\n'
-        '  "title_fr", "title_en" : titre court\n'
         '  "summary_fr", "summary_en" : 1 à 2 phrases\n'
         '  "body_fr", "body_en" : synthèse courte en 2 à 3 paragraphes, 150 mots maximum au total, '
         "séparés par une ligne vide, **gras** autorisé. Donne le contexte, l'idée clé de la solution "
@@ -201,6 +206,8 @@ def generate_with_llm(repo: dict, readme: str, stack_labels: list[str]) -> dict:
     fiche = json.loads(data["choices"][0]["message"]["content"])
     # L'année n'est jamais demandée au LLM : elle vient de la date de création du repo
     fiche["year"] = repo["created_at"][:4]
+    # Le titre reprend toujours le nom du repo, jamais une reformulation du LLM
+    fiche["title_fr"] = fiche["title_en"] = re.sub(r"[_-]+", " ", repo["name"]).strip()
     # Un schéma inattendu ou mal formé est écarté plutôt que publié
     diagram = fiche.get("mermaid")
     if not needs_diagram or not isinstance(diagram, str) or not diagram.strip().startswith("flowchart"):
@@ -403,6 +410,7 @@ def main() -> int:
     stack_map = load_json(STACK_MAP_PATH, {})["topics"]
     pipeline = load_json(PIPELINE_PATH, None)
     state = load_json(STATE_PATH, {})
+    display_order = load_json(ORDER_PATH, [])
 
     repos = [r for r in list_repos() if not r["private"] and PUBLISH_TOPIC in r.get("topics", [])]
     print(f"{len(repos)} repo(s) avec le topic '{PUBLISH_TOPIC}'")
@@ -416,7 +424,12 @@ def main() -> int:
             continue
         fiche = entry["fiche"]
         node = build_node(repo, fiche, labels, entry.get("readme_mermaid"))
-        entries.append((fiche.get("order", 999), repo["name"].lower(), node, fiche, tools))
+        # Ordre d'affichage : position dans projects_order.json, sinon à la fin
+        if repo["name"] in display_order:
+            rank = (0, display_order.index(repo["name"]), "")
+        else:
+            rank = (1, fiche.get("order", 999), repo["name"].lower())
+        entries.append((rank, repo["name"].lower(), node, fiche, tools))
         print(f"  [ok] {repo['name']} -> {node['id']} ({entry['source']}) : {', '.join(labels) or 'stack vide'}")
 
     entries.sort(key=lambda item: (item[0], item[1]))
