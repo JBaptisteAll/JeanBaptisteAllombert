@@ -38,7 +38,7 @@ PIPELINE_PATH = ROOT / "data" / "pipeline.json"
 STACK_MAP_PATH = ROOT / "data" / "stack_map.json"
 CACHE_DIR = ROOT / "data" / "projects"
 STATE_PATH = CACHE_DIR / "_state.json"
-ORDER_PATH = ROOT / "data" / "projects_order.json"
+ORDER_PATH = ROOT / "data" / "projects_order.txt"
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "openai/gpt-oss-120b"
@@ -238,6 +238,19 @@ def load_json(path: Path, default):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else default
 
 
+def load_display_order() -> list[str]:
+    """Lit l'ordre d'affichage : un nom de repo par ligne.
+
+    Format texte volontairement simple (pas de JSON) pour être modifiable à la
+    main sans risque de casser la synchro. Lignes vides et commentaires (#) ignorés.
+    """
+    if not ORDER_PATH.exists():
+        return []
+    lines = ORDER_PATH.read_text(encoding="utf-8").splitlines()
+    names = [line.strip().strip('",') for line in lines]
+    return [name for name in names if name and not name.startswith("#")]
+
+
 def write_json(path: Path, content) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(content, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -410,7 +423,7 @@ def main() -> int:
     stack_map = load_json(STACK_MAP_PATH, {})["topics"]
     pipeline = load_json(PIPELINE_PATH, None)
     state = load_json(STATE_PATH, {})
-    display_order = load_json(ORDER_PATH, [])
+    display_order = load_display_order()
 
     repos = [r for r in list_repos() if not r["private"] and PUBLISH_TOPIC in r.get("topics", [])]
     print(f"{len(repos)} repo(s) avec le topic '{PUBLISH_TOPIC}'")
@@ -424,7 +437,7 @@ def main() -> int:
             continue
         fiche = entry["fiche"]
         node = build_node(repo, fiche, labels, entry.get("readme_mermaid"))
-        # Ordre d'affichage : position dans projects_order.json, sinon à la fin
+        # Ordre d'affichage : position dans projects_order.txt, sinon à la fin
         if repo["name"] in display_order:
             rank = (0, display_order.index(repo["name"]), "")
         else:

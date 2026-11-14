@@ -1,0 +1,10 @@
+# Ordre d'affichage des projets : un nom de repo par ligne, du premier au dernier.
+# Un projet absent de cette liste se place a la fin.
+Bike_Data_Lakehouse_Project
+Pipeline_ventes
+Databricks_IDP_Project
+Japan_tourism_analysis
+Hotel_Booking_Pipeline
+Airline_Performance_Analytics_From_Flights_to_Insights
+Weather_Forecast_Reliability_Analysis_for_Travel_Planning
+Data_Playbook
